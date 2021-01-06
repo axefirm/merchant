@@ -1,0 +1,103 @@
+<div class="split-2">
+  <div>
+    <div class="grid-2">
+      <div>
+        Current accounts
+      </div>
+      <div class="add-button">
+        <mat-icon>add</mat-icon>
+      </div>
+    </div>
+    <div>
+      show all accounts
+    </div>
+    <div class="card">
+      <mat-carousel timings="400ms ease-in" [autoplay]="false" interval="5000" class="shadow" [hideArrows]="false"
+        [maintainAspectRatio]="false" [hideIndicators]="true" color="warn" [svgIconOverrides]="'keyboard_arrow_down'">
+        <mat-carousel-slide #matCarouselSlide [disabled]="false" *ngFor="let slide of [].constructor(4); let i = index"
+          [hideOverlay]="true">
+        </mat-carousel-slide>
+      </mat-carousel>
+    </div>
+  </div>
+  <div id="chart">
+    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+      [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip" [dataLabels]="chartOptions.dataLabels">
+    </apx-chart>
+  </div>
+</div>
+<div class="divider"></div>
+<div>
+  <mat-tab-group>
+    <mat-tab label="All transactions">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="bankamount">
+          <th mat-header-cell *matHeaderCellDef> Bank name/Correspondent name </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="inline">
+              <img src="./../../../../assets/img/xac.png" alt="" class="fiIcon">
+              <div style="padding-left: 1rem;">
+                <div class="bankName" style="color: black;">
+                  {{element.bankName}}
+                </div>
+                <div class="desc">
+                  {{element.correspondentName}}
+                </div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="outcome" [ngClass]="{'income': test === false}" >
+              ₮{{element.amount}}
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acntNo">
+          <th mat-header-cell *matHeaderCellDef> Account number/Description </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="bankName">
+              {{element.accountNo}}
+            </div>
+            <div class="desc">
+              {{element.description}}
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon>more_horiz</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</div>
+
+
+<!-- <div class="current-grid">
+  <div class="card">
+
+  </div>
+  <div class="chart">
+
+  </div>
+  
+</div> -->

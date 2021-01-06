@@ -1,0 +1,32 @@
+// Utilities
+@import "../../../utilities/variables.scss";
+
+.add-button {
+  height: 35px;
+  width: 35px;
+  border-radius: 5px;
+  border: 1px solid $gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  mat-icon {
+    color: $gray;
+    transform: scale(1.5);
+  }
+}
+
+.split-2 {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 50px;
+}
+
+.card {
+  height: 100px;
+}
+
+.chart {
+  width: 100%;
+}

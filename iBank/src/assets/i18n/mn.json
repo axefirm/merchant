@@ -1,0 +1,21 @@
+{
+    "general": "Ерөнхий",
+    "security": "Аюулгүй байдал",
+    "administration": "Зохицуулалт",
+    "personal": "Хувь хүн",
+    "company": "Байгууллага",
+    "current": "Одоогийн",
+    "transfer": "Гүйлгээ",
+    "transferOther": "Бусад банкны гүйлгээ",
+    "qrCode": "QR код",
+    "template": "Загвар",
+    "report": "Тайлан",
+    "from": "Хаанаас",
+    "notification": "Мэдэгдэл",
+    "settings": {
+        "general": "Тохиргоо - Ерөнхий",
+        "security": "Тохиргоо - Аюулгүй байдал",
+        "administration": "Тохиргоо - Зохицуулалт"
+    },
+    "test":"test"
+}

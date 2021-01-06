@@ -1,0 +1,430 @@
+// Utilities
+@import "./app/utilities/variables.scss";
+
+@import '~@angular/material/theming';
+@include mat-core();
+$my-red: (50: $red,
+  100: $red,
+  200: $red,
+  300: $red,
+  400: $red,
+  500: $red,
+  600: $red,
+  700: $red,
+  800: $red,
+  900: $red,
+  A100: $red,
+  A200: $red,
+  A400: $red,
+  A700: $red,
+  contrast: (50: $white,
+    100: $white,
+    200: $white,
+    300: $white,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    A100: $white,
+    A200: $white,
+    A400: $white,
+    A700: $white,
+  ));
+$my-app-primary: mat-palette($mat-grey,100);
+$my-app-accent: mat-palette($mat-pink, 500, 900, A100);
+$my-app-warn: mat-palette($my-red);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+@include angular-material-theme($my-app-theme);
+
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(assets/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url(assets/fonts/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(assets/fonts/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url(assets/fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: OpenSans-Regular;
+  src: url(assets/fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: OpenSans-Bold;
+  src: url(assets/fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: OpenSans-SemiBold;
+  src: url(assets/fonts/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: SF-Pro-Display;
+  src: url(assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf);
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: SF-Pro-Display, sans-serif !important;
+  background-color: $lightgray;
+
+}
+
+h1 {
+  font-weight: 700;
+}
+
+.container {
+  max-width: 80%;
+  margin: auto;
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(145, 150, 153, 0.25);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(145, 150, 153, 0.25);
+    box-shadow: 0px 3px 6px 0px rgba(145, 150, 153, 0.25);
+}
+
+.page-split {
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+.page-split-3 {
+  display: grid;
+  grid-template-columns: 80px 0px auto 360px;
+}
+
+.page-full-height {
+  height: 100vh;
+}
+
+.top-right {
+  text-align: end;
+}
+
+.header {
+  font-size: 64px !important;
+  height: 100px !important;
+  color: $gray;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.button {
+  width: 300px;
+}
+
+// 
+// Grid
+//
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.grid-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+//
+// Carousel indicator css
+//
+.indicator {
+  padding-top: 30px;
+  width: fit-content;
+  margin: auto;
+
+  .indicator-item {
+    height: 10px;
+    width: 10px;
+    float: left;
+    margin-left: 20px;
+    background-color: white;
+    transition: background-color 0.5s;
+    border-radius: 5px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12) 
+  }
+
+  .indicator-item:first-child {
+    margin-left: 0 !important;
+  }
+
+  .active {
+    background-color: $red;
+    transition: background-color 1s;
+  }
+}
+
+//
+// Color classes
+//
+
+.red {
+  color: $red;
+}
+
+.gray {
+  color: $gray;
+}
+
+.black {
+  color: $black;
+}
+
+// 
+// Input related css
+// 
+
+.mat-form-field-infix {
+  border-top: none;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: $lightgray;
+  border-radius: 8px;
+  color: $lightgray;
+}
+
+.mat-form-field-appearance-outline .mat-form-field.mat-focused .mat-form-field-outline {
+  background-color: $lightgray;
+  border-radius: 5px;
+  color: $lightgray;
+}
+
+// 
+// Tab header border none
+// 
+::ng-deep .mat-tab-header {
+  border-bottom: none;
+}
+
+
+
+::ng-deep.mat-tab-label,
+::ng-deep.mat-tab-label-active {
+  min-width: 0 !important;
+  padding: 3px !important;
+  margin: 3px !important;
+}
+
+::ng-deep.mat-tab-label {
+  margin-right: 20px !important;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+}
+.mat-tab-label{
+  font-weight: 500 !important;
+}
+::ng-deep.mat-tab-label-active {
+  color: $red;
+}
+
+::ng-deep.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: $red;
+  height: 0.5px !important;
+}
+
+:host ::ng-deep .mat-tab-header {
+  height: 40px;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+:host ::ng-deep .mat-tab-body {
+  padding-top: 20px;
+}
+
+/* focused color */
+::ng-deep .mat-form-field-outline.mat-form-field-outline-thick {
+  color: $lightgray !important;
+}
+
+/* Dropdown prefix top remove */
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix {
+  top: 0 !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  width: fit-content;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+  background-color: $white;
+  transform: scaleX(1.5) scaleY(1.8) translateY(1px) !important;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(145, 150, 153, 0.25);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(145, 150, 153, 0.25);
+  box-shadow: 0px 3px 6px 0px rgba(145, 150, 153, 0.25);
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-select-arrow {
+  transform: scaleX(0.7) !important;
+}
+
+::ng-deep .mat-select-value-text {
+  font-weight: bold;
+}
+
+.amount {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 10px;
+}
+
+.account {
+  display: grid;
+  grid-template-columns: auto 40px;
+  grid-gap: 10px;
+}
+
+.sub-header {
+  margin-top: 2rem;
+  font-size: 16px;
+}
+
+.icon {
+  width: 180px;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 0 20px 0 20px;
+  display: grid;
+  grid-template-rows: max-content auto;
+}
+
+.main-header {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.main-container {
+  background-color: $white;
+  border-radius: 10px;
+  padding: 20px 30px;
+}
+
+.main-header-label {
+  color: $red;
+  font-size: 15px;
+  font-family: SF-Pro-Display !important;
+  margin-top: 15px;
+}
+
+.balance {
+  background-color: $white;
+  display: inline-flex;
+  padding: 5px;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.divider{
+  width: 100%;
+  height: 0px;
+  margin: auto;
+  border-bottom: #F4F2FB 2px solid;
+}
+
+
+
+
+table {
+  width: 100%;
+}
+
+.mat-row {
+  height: 60px;
+
+  td.mat-cell {
+    color: #919699;
+  }
+}
+
+// 
+// table related
+// 
+
+.mat-row:nth-child(even) {
+  background-color: #F6F7F8;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: white;
+}
+.fiIcon{
+  height: 2.5rem;
+}
+.inline{
+  display: inline-flex;
+}
+.bankName{
+  font-size: 16px;
+}
+.desc{
+  font-size: 14px;
+}
+.income{
+  color: #45B99E !important;
+}
+.outcome{
+  color: red;
+}
+
+// table related
+mat-row.mat-row.ng-star-inserted {
+  border: 0;
+}
+
+td.mat-cell{
+  border-bottom-style: none !important;
+}
+
+th.mat-header-cell{
+  border-bottom-style: none !important;
+}

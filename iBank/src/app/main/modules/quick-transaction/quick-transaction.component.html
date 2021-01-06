@@ -1,0 +1,104 @@
+<form [formGroup]="main" class="right-side">
+  <div class="sub-header bold">
+    Quick Transfer
+  </div>
+  <mat-tab-group dynamicHeight mat-align-tabs="start" disableRipple="true" animationDuration="0ms">
+    <mat-tab label="Bank">
+      <mat-form-field appearance="outline" floatLabel="never" class="full-width">
+        <span matPrefix style="margin-top: -2px;">From &nbsp;&nbsp;</span>
+        <mat-select>
+          <mat-option value="option">5000611662</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="account">
+        <mat-form-field appearance="outline" color="primary">
+          <input matInput placeholder="Receivers account" formControlamount="useramount">
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="never">
+          <mat-select>
+            <mat-option value="option">5000611662</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="outline" color="primary" class="full-width">
+        <input matInput placeholder="Receivers amount" formControlamount="useramount">
+      </mat-form-field>
+      <div class="amount">
+        <mat-form-field appearance="outline" color="primary">
+          <input matInput placeholder="Amount" formControlamount="useramount">
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="never">
+          <mat-select>
+            <mat-option value="option">MNT</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="grid-2">
+        <span></span>
+        <button mat-flat-button color="warn" style="width: 50%;">Send</button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Mobile">
+      <mat-form-field appearance="outline" floatLabel="never" class="full-width">
+        <span matPrefix style="margin-top: -2px;">From &nbsp;&nbsp;</span>
+        <mat-select>
+          <mat-option value="option">5000611662</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="primary" class="full-width">
+        <input matInput placeholder="Receivers phone number" maxlength="8" formControlamount="useramount">
+      </mat-form-field>
+      <div class="amount">
+        <mat-form-field appearance="outline" color="primary">
+          <input matInput placeholder="Amount" formControlamount="useramount">
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="never">
+          <mat-select>
+            <mat-option value="option">MNT</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="grid-2">
+        <span></span>
+        <button mat-flat-button color="warn" style="width: 50%;">Send</button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Exchange">
+      <mat-form-field appearance="outline" floatLabel="never" class="full-width">
+        <span matPrefix style="margin-top: -2px;">From &nbsp;&nbsp;</span>
+        <mat-select>
+          <mat-option value="option">5000611662</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="amount">
+        <mat-form-field appearance="outline" color="primary">
+          <input matInput placeholder="Amount" formControlamount="useramount">
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="never">
+          <mat-select>
+            <mat-option value="option">MNT</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="outline" floatLabel="never" class="full-width">
+        <mat-select placeholder="Receivers account">
+          <mat-option value="option">5000611662</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="amount">
+        <mat-form-field appearance="outline" color="primary">
+          <input matInput placeholder="Receiving amount" formControlamount="useramount">
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="never">
+          <mat-select>
+            <mat-option value="option">MNT</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="grid-2">
+        <span></span>
+        <button mat-flat-button color="warn" style="width: 50%;">Exchange</button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</form>

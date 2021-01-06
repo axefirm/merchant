@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45.941" height="34.963" viewBox="0 0 45.941 34.963">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #686868;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        fill: #686868;
+      }
+    </style>
+  </defs>
+  <g id="Group_9675" data-amount="Group 9675" transform="translate(15.5 -394.5)">
+    <path id="Path_2942" data-amount="Path 2942" class="cls-1" d="M845.531,1029.585a4.162,4.162,0,0,1-.967,1.587,3.524,3.524,0,0,1-.272.245,5.414,5.414,0,0,1-2.935,1.1H808.6a7.358,7.358,0,0,1-.872-.116q-4.562-.906-4.732-7.579v-19.386q.2-4.692,5.441-4.882h32.91a5.17,5.17,0,0,1,3.214,1.3,4.555,4.555,0,0,1,1.267,2.84v16.193a4.276,4.276,0,0,1-1.267,3.6,2.9,2.9,0,0,1-.272.191,3.823,3.823,0,0,1-1.675.538H813.9q-4.188.109-5.332,2.744" transform="translate(-817 -604.55)"/>
+    <g id="Group_9674" data-amount="Group 9674" transform="translate(-88.268 -63.268)">
+      <path id="Path_2942-2" data-amount="Path 2942" class="cls-2" d="M176.5,31.072h6.9V24.167h-6.9Zm1.295-5.611h4.315v4.316h-4.315Z" transform="translate(-88.5 448.465)"/>
+      <path id="Path_2943" data-amount="Path 2943" class="cls-2" d="M181.726,27.667H180v1.726h1.726Z" transform="translate(-89.411 447.554)"/>
+      <path id="Path_2944" data-amount="Path 2944" class="cls-2" d="M193.545,31.75H192.25v1.295h1.295Z" transform="translate(-92.598 446.492)"/>
+      <path id="Path_2945" data-amount="Path 2945" class="cls-2" d="M197.045,31.75H195.75v1.295h1.295Z" transform="translate(-93.508 446.492)"/>
+      <path id="Path_2946" data-amount="Path 2946" class="cls-2" d="M193.777,25.461h-1.295V24.167h-4.315v6.905h1.295V26.324h1.295v2.158h4.315V24.167h-1.295Z" transform="translate(-91.535 448.465)"/>
+      <path id="Path_2947" data-amount="Path 2947" class="cls-2" d="M176.5,19.405h6.9V12.5h-6.9Zm1.295-5.61h4.315V18.11h-4.315Z" transform="translate(-88.5 451.5)"/>
+      <path id="Path_2948" data-amount="Path 2948" class="cls-2" d="M181.726,16H180v1.726h1.726Z" transform="translate(-89.411 450.589)"/>
+      <path id="Path_2949" data-amount="Path 2949" class="cls-2" d="M188.167,12.5v6.905h6.9V12.5Zm5.179,5.179h-3.453V14.226h3.453Z" transform="translate(-91.535 451.5)"/>
+      <path id="Path_2950" data-amount="Path 2950" class="cls-2" d="M193.393,16h-1.726v1.726h1.726Z" transform="translate(-92.446 450.589)"/>
+    </g>
+  </g>
+</svg>

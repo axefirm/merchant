@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46.152" height="34.96" viewBox="0 0 46.152 34.96">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #686868;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="Group_9675" data-amount="Group 9675" transform="translate(-1812.596 -588.27)">
+    <path id="Path_3019" data-amount="Path 3019" class="cls-1" d="M1919.99,667.2h2.057q2.814.1,2.71,2.858v10.859a2.668,2.668,0,0,1-.975,2.414q-.1.067-.208.128a3.211,3.211,0,0,1-1.291.363h-25.731q-3.221.074-4.1,1.842" transform="translate(-67.728 -66.992)"/>
+    <path id="Path_3020" data-amount="Path 3020" class="cls-1" d="M1896.918,713.547a2.742,2.742,0,0,1-.746,1.062,2.441,2.441,0,0,1-.208.161,4.554,4.554,0,0,1-2.259.74h-28.837q-.357-.027-.673-.081-3.509-.605-3.644-5.083v-12.2" transform="translate(-40.117 -93.78)"/>
+    <path id="Path_3021" data-amount="Path 3021" class="cls-1" d="M1814.2,596.6a2.552,2.552,0,0,1,.054-.37h6.186l.007-1.21v-1.775q-.014-.155-.013-.309t.013-.309a2.988,2.988,0,0,1,.9-1.909,3.041,3.041,0,0,1,2.111-.914h.108q.114,0,.222.007h21.233q.107-.007.222-.007t.222.007a2.219,2.219,0,0,1,.242.027,3.142,3.142,0,0,1,2.649,2.723,3.508,3.508,0,0,1,0,.753v11.746" transform="translate(0)"/>
+    <line id="Line_108" data-amount="Line 108" class="cls-1" x2="0.444" transform="translate(1845.021 589.807)"/>
+    <line id="Line_109" data-amount="Line 109" class="cls-1" y2="0.753" transform="translate(1848.355 592.557)"/>
+    <line id="Line_110" data-amount="Line 110" class="cls-1" x2="12.351" transform="translate(1831.715 600.027)"/>
+    <line id="Line_111" data-amount="Line 111" class="cls-1" x2="12.351" transform="translate(1831.715 595.952)"/>
+    <path id="Path_3022" data-amount="Path 3022" class="cls-1" d="M1883.05,589.8l.33.007a3.142,3.142,0,0,1,2.891,2.75,3.529,3.529,0,0,1,0,.753v11.746" transform="translate(-59.592)"/>
+    <line id="Line_112" data-amount="Line 112" class="cls-1" y2="0.753" transform="translate(1826.679 592.557)"/>
+    <line id="Line_113" data-amount="Line 113" class="cls-1" y2="0.619" transform="translate(1820.446 592.624)"/>
+    <path id="Path_3023" data-amount="Path 3023" class="cls-1" d="M1826.679,644.6h-9.057q-.148.013-.3.013a3.025,3.025,0,0,1-2.219-.921,2.982,2.982,0,0,1-.887-1.775c0-.045-.009-.087-.014-.128V641.3" transform="translate(0 -44.575)"/>
+    <path id="Path_3024" data-amount="Path 3024" class="cls-1" d="M1842.467,637.6l-.007,1.056a3.159,3.159,0,0,1-2.81,2.743" transform="translate(-22.028 -41.372)"/>
+  </g>
+</svg>

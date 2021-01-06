@@ -1,0 +1,45 @@
+// Utilities
+@import "../../../utilities/variables.scss";
+
+/* The left side menu */
+.sidenav {
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: $white;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider {
+  width: 50%;
+  height: 0px;
+  margin: auto;
+  border-bottom: #F4F2FB 2px solid;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+}
+
+.nav-active {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}

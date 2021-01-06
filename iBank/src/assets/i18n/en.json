@@ -1,0 +1,22 @@
+{
+    "general": "General",
+    "security": "Security",
+    "administration": "Administration",
+    "personal": "Personal",
+    "company": "Company",
+    "current": "Current",
+    "transfer": "Transfer",
+    "transferOther": "Other bank transfer",
+    "qrCode": "QR code",
+    "template": "Template",
+    "report": "Report",
+    "from": "From",
+    "notification": "Notification",
+    "settings": {
+        "settings": "Settings",
+        "general": "Settings - General",
+        "security": "Settings - Security",
+        "administration": "Settings - Administration"
+    },
+    "test":"test"
+}

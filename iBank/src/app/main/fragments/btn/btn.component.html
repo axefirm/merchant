@@ -1,0 +1,14 @@
+<div class="button-container shadow">
+	<icon-circle [icon]="icon" [borderColor]="borderColor" [iconColor]="iconColor" [backgroundColor]="backgroundColor" [scale]="'1.5'">
+	</icon-circle>
+	<div class="right">
+		<div class="title">
+			{{title}}
+			<span *ngIf="badge" class="badge">
+			</span>
+		</div>
+		<div class="desc">
+			{{description}}
+		</div>
+	</div>
+</div>
