@@ -1,0 +1,45 @@
+@import "../../../utilities/variables.scss";
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  justify-items: end;
+}
+
+.grid-container>button {
+ 
+  width: 95%;
+  height: 90%;
+}
+
+.cancel {
+  background-color: $lightgray;
+}
+
+.amount {
+  display: grid;
+  grid-template-columns: auto 100px;
+  grid-gap: 10px;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    list-style-type: none;
+    height: 4rem;
+    margin-left: -40px;
+}
+ul:last-child {
+    border: none;
+}
+li{
+    padding-right: 40px;
+    align-self: center;
+}
+.value {
+    justify-self: end;
+    color:$gray;
+}
+.item {
+    justify-self: start ;
+}

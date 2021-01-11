@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-template',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template.component.scss']
 })
 export class TemplateComponent implements OnInit {
+  
+  constructor(private formBuilder: FormBuilder,) { }
 
-  constructor() { }
-
+  
+  template: FormGroup;
+  
   ngOnInit(): void {
+    this.template = this.formBuilder.group({
+      useramount: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+    });
   }
 
 }
