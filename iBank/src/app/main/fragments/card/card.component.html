@@ -1,0 +1,26 @@
+<div class="card">
+  <img src="{{img}}" alt="" class="bg">
+  <div class="grid-2">
+    <div>
+      <img src="./../../../../assets/img/ard.png" alt="img" class="ard">
+    </div>
+    <div>
+      <qr-code class="qr" value="qr" size="80" errorCorrectionLevel="M"></qr-code>
+    </div>
+  </div>
+  <div class="acnt">
+    <div class="label">
+      Current account
+    </div>
+    <div class="amount">
+      {{currency}}{{balance}}
+    </div>
+    <div class="acntNo">
+      {{acntNo}}
+    </div>
+  </div>
+  <ng-container *ngIf="shadow">
+    <img src="{{img}}" alt="" class="shadow bg">
+    <img src="{{img}}" alt="" class="shadow-2 bg">
+  </ng-container>
+</div>

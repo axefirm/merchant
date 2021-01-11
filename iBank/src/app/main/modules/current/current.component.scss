@@ -24,9 +24,25 @@
 }
 
 .card {
-  height: 100px;
+  grid-area: card;
 }
 
 .chart {
-  width: 100%;
+  grid-area: chart;
+}
+
+.list {
+  grid-area: list;
+}
+
+.current-grid {
+  display: grid;
+  grid-template:
+    "card chart"50% "list list"50% / 40% 60%;
+}
+
+.current-card-all-grid {
+  display: grid;
+  grid-template:
+    "card chart"50% "card list"50% / 40% 60%;
 }

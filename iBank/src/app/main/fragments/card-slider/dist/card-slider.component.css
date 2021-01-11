@@ -1,0 +1,21 @@
+.slider-container {
+  position: relative;
+}
+.slider-container .left {
+  position: absolute;
+  left: -20px;
+  top: 48%;
+  color: #919699;
+}
+.slider-container .left:hover {
+  cursor: pointer;
+}
+.slider-container .right {
+  position: absolute;
+  right: 10px;
+  top: 48%;
+  color: #919699;
+}
+.slider-container .right:hover {
+  cursor: pointer;
+}

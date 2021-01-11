@@ -1,0 +1,31 @@
+@import "./../../../utilities/variables.scss";
+
+// Ard Financial Group
+
+.gridnotifArd
+{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+}
+.gridnotifArd > div
+{
+    align-self: center;
+}
+
+.notifIcon
+{
+    display: grid;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+
+}
+.material-icons
+{
+    place-self: center;
+    
+}
+.notifTitle
+{
+    font-size: 16px;
+}

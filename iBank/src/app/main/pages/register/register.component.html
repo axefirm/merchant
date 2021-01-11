@@ -1,0 +1,126 @@
+<div style="height: 75%; margin-top: 3rem;">
+  <div class="carousel">
+    <div *ngIf="indicator == 0" [@myAnimation] class="container">
+      <title class="align-center title">
+        Create new account
+      </title>
+      <div class="align-center margin-normal">
+        <icon-circle [icon]="'person'" [borderColor]="'red'" [iconColor]="'red'" [height]="'100px'"
+          [backgroundColor]="'white'">
+        </icon-circle>
+      </div>
+      <div class="grid-4">
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'First name'"
+          [controller]="main.controls.fname" [maxlength]="40"></text-field>
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Last name'"
+          [controller]="main.controls.lname" [maxlength]="40"></text-field>
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Phone number'"
+          OnlyNumber="true" [controller]="main.controls.mobileNo" [maxlength]="8"></text-field>
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'ID number'"
+          [controller]="main.controls.regNo" [maxlength]="10"></text-field>
+      </div>
+      <div class="align-center">
+        <button mat-raised-button color="warn" class="button" (click)="next(indicator + 1)">Next</button>
+      </div>
+    </div>
+
+    <div *ngIf="indicator == 1" [@myAnimation] class="container">
+      <title class="align-center title">
+        Please enter your TAN code
+      </title>
+      <div class="align-center margin-normal">
+        <icon-circle [icon]="'https'" [borderColor]="'red'" [iconColor]="'red'" [height]="'100px'"
+          [backgroundColor]="'white'">
+        </icon-circle>
+      </div>
+      <div class="align-center">
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'TAN code'"
+          [controller]="main.controls.tan" [maxlength]="40"></text-field>
+      </div>
+      <div class="align-center">
+        <button mat-raised-button color="warn" (click)="next(indicator + 1)" class="button">Next</button>
+      </div>
+    </div>
+    <div *ngIf="indicator == 2" [@myAnimation] class="container">
+      <title class="align-center title">
+        Create new account
+      </title>
+      <div class="align-center margin-normal">
+        <icon-circle style="margin-right: 10px;" [icon]="'store_rounded'" [height]="'100px'" [borderColor]="'#919699'"
+          [iconColor]="'#919699'" [backgroundColor]="'white'">
+        </icon-circle>
+        <icon-circle style="margin-left: 10px;" [icon]="'account_balance_rounded'" [height]="'100px'"
+          [borderColor]="'red'" [iconColor]="'red'" [backgroundColor]="'white'">
+        </icon-circle>
+      </div>
+      <div class="grid-3">
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Group'"
+          [controller]="main.controls.name" [maxlength]="40"></text-field>
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Company type'"
+          [controller]="main.controls.name" [maxlength]="40"></text-field>
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Company number'"
+          OnlyNumber="true" [controller]="main.controls.name" [maxlength]="40"></text-field>
+      </div>
+      <div class="align-center">
+        <button mat-raised-button (click)="next(indicator + 1)" color="warn" class="button">Next</button>
+      </div>
+    </div>
+
+    <div *ngIf="indicator == 3" [@myAnimation] class="container">
+      <title class="align-center title">
+        Terms & Condition
+      </title>
+      <div class="terms">
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+          the
+          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+          type
+          and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+          the
+          leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
+          1960s
+          with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+          desktop
+          publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+        <p>
+          Why do we use it?
+          It is a long established fact that a reader will be distracted by the readable content of a page
+          when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+          distribution of letters, as opposed to using 'Content here, content here', making it look like
+          readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as
+          their
+          default model text, and a search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
+          purpose
+          (injected humour and the like).
+
+        </p>
+        <p>
+          Where does it come from?
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+          classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+          Latin
+          professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+          consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical
+          literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and
+          1.10.33
+          of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+          This
+          book is a treatise on the theory of ethics, very popular during the Renaissance. The first line
+          of
+          Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+        </p>
+      </div>
+      <div class="align-center" style="margin-top: -20px;">
+        <button mat-raised-button (click)="next(indicator + 1)" color="warn" class="button">Finish</button>
+      </div>
+    </div>
+    <div class="indicator">
+      <div class="indicator-item shadow" *ngFor="let item of [].constructor(maxIndex); index as i"
+        [ngClass]="{'active': indicator == i}">
+      </div>
+    </div>
+  </div>
+</div>

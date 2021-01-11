@@ -1,0 +1,39 @@
+<div class="gridnotif mat-row">
+    <div  style="padding-left: 1rem;">
+        <div>
+            <img src="./../../../../assets/img/xac.png" alt="" class="fiIcon">
+        </div>
+        
+    </div>
+    <div>
+        <div class="bankName bold" style="color: black;">
+            {{notif.bankName}}
+          </div>
+          <div class="desc">
+            {{notif.correspondentName}}
+          </div>
+    </div>
+
+    <div class="outcome bold">
+        ₮{{notif.amount}}
+      </div>
+    <div>
+        <div class="bankName bold">
+            {{notif.accountNo}}
+          </div>
+          <div class="desc">
+            {{notif.description}}
+          </div>
+    </div>
+
+    <div>
+        {{notif.date}}
+        <div class="desc">
+            {{notif.time}}
+        </div>
+        
+    </div>
+    <div>
+        <mat-icon>more_horiz</mat-icon>    
+    </div>
+</div>

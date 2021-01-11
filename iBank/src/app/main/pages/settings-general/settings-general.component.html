@@ -1,0 +1,48 @@
+<div class="main">
+    <div class="main-header">
+      <img class="icon" src="assets/img/logo.png">
+      <div class="grid-2">
+        <div class="main-header-label">{{ "settings.general" | translate }}</div>
+        <div class="balance">
+          <img src="assets/img/icon.png">ArdCoin balance: 5,000
+        </div>
+      </div>
+    </div>
+    <div class="main-container">
+      
+        <form [formGroup]="main" class="right-side">
+            <mat-tab-group dynamicHeight mat-align-tabs="start" disableRipple="true" animationDuration="0ms">
+              <mat-tab label="{{'company' | translate}}">
+
+                
+              </mat-tab>
+              <mat-tab label="{{'personal' | translate}}">
+                <mat-form-field appearance="outline" floatLabel="never" class="full-width">
+                  <span matPrefix style="margin-top: -2px;">From &nbsp;&nbsp;</span>
+                  <mat-select>
+                    <mat-option value="option">5000611662</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" color="primary" class="full-width">
+                  <input matInput placeholder="Receivers phone number" maxlength="8" formControlName="useramount">
+                </mat-form-field>
+                <div class="amount">
+                  <mat-form-field appearance="outline" color="primary">
+                    <input matInput placeholder="Amount" formControlName="useramount">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" floatLabel="never">
+                    <mat-select>
+                      <mat-option value="option">MNT</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="grid-2">
+                  <span></span>
+                  <button mat-flat-button color="warn" style="width: 50%;">Send</button>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </form>
+    </div>
+  </div>
+  

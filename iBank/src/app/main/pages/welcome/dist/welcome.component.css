@@ -1,0 +1,69 @@
+.background-white {
+  background-color: #fff !important;
+}
+
+.left-side {
+  margin: 2rem 3rem 2rem 2rem;
+}
+
+.right-side {
+  padding: 2rem 3rem 2rem 3rem;
+}
+
+.header2 {
+  font-size: 56px;
+  margin-top: 1rem;
+  height: 40px !important;
+}
+
+.icon {
+  width: 50%;
+}
+
+.greeting {
+  height: 80%;
+}
+
+.login-section {
+  margin-top: 2rem;
+}
+
+.row-2 {
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+.flex-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flex-bottom div {
+  height: max-content;
+}
+
+.rate-section {
+  max-height: fit-content;
+  height: 100%;
+}
+
+.joinButton {
+  position: absolute;
+  margin-top: -4rem;
+  z-index: 999;
+}
+
+.carousel {
+  height: 20%;
+}
+
+/* focused color */
+::ng-deep .mat-form-field-outline.mat-form-field-outline-thick {
+  color: #F6F7F8 !important;
+}
+
+.header {
+  font-size: 64px !important;
+  height: 100px !important;
+  color: #919699;
+}

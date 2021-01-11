@@ -1,0 +1,60 @@
+.bg {
+  width: 100%;
+}
+
+.card {
+  margin: 10px 0px;
+  width: 90%;
+  position: relative;
+  color: #fff;
+  z-index: 999;
+}
+.card .grid-2 {
+  width: 90%;
+}
+.card .ard {
+  position: absolute;
+  top: 1.4rem;
+  left: 1.4rem;
+  width: 3rem;
+}
+.card .qr {
+  position: absolute;
+  top: 1.4rem;
+  right: 1rem;
+}
+.card .qr:hover {
+  cursor: pointer;
+}
+.card .acnt {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1.4rem;
+}
+.card .acntNo {
+  margin-top: 1.4rem;
+}
+
+.test {
+  width: 3.5rem;
+}
+
+.img {
+  width: 40px;
+}
+
+.shadow {
+  position: absolute;
+  top: 15px;
+  transform: scale(0.92);
+  z-index: -4 !important;
+  opacity: 0.25;
+}
+
+.shadow-2 {
+  position: absolute;
+  top: 30px;
+  transform: scale(0.85);
+  z-index: -5 !important;
+  opacity: 0.25;
+}

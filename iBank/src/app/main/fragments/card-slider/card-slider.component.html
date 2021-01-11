@@ -1,0 +1,9 @@
+<div class="slider-container">
+    <mat-icon class="left" (click)="next(indicator-1)">arrow_back_ios</mat-icon>
+    <div *ngFor="let slide of [].constructor(3);  index as i">
+        <div *ngIf="indicator == i" [@myAnimation]>
+            <app-card [shadow]="true"></app-card>
+        </div>
+      </div>
+    <mat-icon class="right" (click)="next(indicator+1)">arrow_forward_ios</mat-icon>    
+</div>

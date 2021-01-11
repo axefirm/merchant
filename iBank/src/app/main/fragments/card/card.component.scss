@@ -1,0 +1,68 @@
+// Utilities
+@import "../../../utilities/variables.scss";
+
+.bg {
+  width: 100%;
+}
+
+.card {
+  margin: 10px 0px;
+  width: 90%;
+  position: relative;
+  color: $white;
+  z-index: 999;
+
+  .grid-2 {
+    width: 90%;
+  }
+
+  .ard {
+    position: absolute;
+    top: 1.4rem;
+    left: 1.4rem;
+    width: 3rem;
+  }
+
+  .qr {
+    position: absolute;
+    top: 1.4rem;
+    right: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .acnt {
+    position: absolute;
+    bottom: 1.4rem;
+    left: 1.4rem;
+  }
+
+  .acntNo {
+    margin-top: 1.4rem;
+  }
+}
+
+.test {
+  width: 3.5rem;
+}
+
+.img {
+  width: 40px;
+}
+
+.shadow{
+    position: absolute;
+    top: 15px;
+    transform: scale(0.92);
+    z-index: -4 !important;
+    opacity: 0.25;
+}
+.shadow-2{
+  position: absolute;
+  top: 30px;
+  transform: scale(0.85);
+  z-index: -5 !important;
+  opacity: 0.25;
+}

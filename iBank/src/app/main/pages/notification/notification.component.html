@@ -10,9 +10,17 @@
   </div>
   <div class="main-container">
 
-    <app-notif></app-notif>
+    <div class="mat-row" *ngFor="let item of notifs">
+      <ng-container *ngIf="item.type == typeTran">
+        <app-notif-tran [notif]="item"></app-notif-tran>
+      </ng-container>
+      <ng-container *ngIf="item.type == typeNotif">
+        <app-notif-detail>
+        </app-notif-detail>
+      </ng-container>
+    </div>
 
-    
+
 
   </div>
 </div>

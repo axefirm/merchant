@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { QuickTransactionComponent } from './quick-transaction.component';
 
@@ -6,7 +6,7 @@ describe('QuickTransactionComponent', () => {
   let component: QuickTransactionComponent;
   let fixture: ComponentFixture<QuickTransactionComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ QuickTransactionComponent ]
     })

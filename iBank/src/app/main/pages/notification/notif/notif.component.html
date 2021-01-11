@@ -1,66 +1,50 @@
+<div class="gridnotif mat-row" *ngFor="let notif of notifs">
+    <div  style="padding-left: 1rem;">
+        <div>
+            <img src="./../../../../assets/img/xac.png" alt="" class="fiIcon">
+        </div>   
+    </div>
+    <div>
+        <div class="bankName bold" style="color: black;">
+            {{notif.bankName}}
+          </div>
+          <div class="desc">
+            {{notif.correspondentName}}
+          </div>
+    </div>
+
+    <div class="outcome bold">
+        ₮{{notif.amount}}
+      </div>
+    <div>
+        <div class="bankName bold">
+            {{notif.accountNo}}
+          </div>
+          <div class="desc">
+            {{notif.description}}
+          </div>
+    </div>
+
+    <div>
+        {{notif.date}}
+        <div class="desc">
+            {{notif.time}}
+        </div>
+        
+    </div>
+    <div>
+        <mat-icon>more_horiz</mat-icon>    
+    </div>
+</div>
+
+
+
+
+
 <div>
     <!-- Transaction Notifcation -->
-    <div class="gridnotif mat-row" *ngFor="let notif of notifs">
-        <div  style="padding-left: 1rem;">
-            <div>
-                <img src="./../../../../assets/img/xac.png" alt="" class="fiIcon">
-            </div>
-            
-        </div>
-        <div>
-            <div class="bankName bold" style="color: black;">
-                {{notif.bankName}}
-              </div>
-              <div class="desc">
-                {{notif.correspondentName}}
-              </div>
-        </div>
-
-        <div class="outcome bold">
-            ₮{{notif.amount}}
-          </div>
-        <div>
-            <div class="bankName bold">
-                {{notif.accountNo}}
-              </div>
-              <div class="desc">
-                {{notif.description}}
-              </div>
-        </div>
-
-        <div>
-            {{notif.date}}
-            <div class="desc">
-                {{notif.time}}
-            </div>
-            
-        </div>
-        <div>
-            <mat-icon>more_horiz</mat-icon>    
-        </div>
-    </div>
+    
     <!-- Ard Financial Group Notifcation -->
-    <div class="gridnotifArd mat-row">
-        <div  style="padding-left: 1rem;">
-            <div class="notifIcon shadow">
-                <span class="material-icons ">
-                    notifications
-                </span>
-            </div> 
-        </div> 
 
-        <div>
-            <div class="notifTitle bold" style="color: black;"> Монголын анхны Үндэсний Хөрөнгө Оруулалтын Сан нээгдлээ. </div>
-            <div class="desc"> Ard Financial Group </div>
-        </div>
-
-        <div>
-            <mat-icon>more_horiz</mat-icon>    
-        </div>
-
-      
-        
- 
-    </div>
 </div>
 

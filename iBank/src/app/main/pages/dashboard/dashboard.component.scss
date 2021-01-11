@@ -1,0 +1,218 @@
+// Utilities
+@import "../../../utilities/variables.scss";
+
+/* The left side menu */
+.sidenav {
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: $white;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn {
+  margin-top: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover .label {
+    transition: color 0.5s ease;
+    color: $red;
+  }
+
+  img {
+    width: 40%;
+  }
+}
+
+.nav-icon {
+  color: $nav-icon;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.divider {
+  width: 50%;
+  height: 0px;
+  margin: auto;
+  border-bottom: #F4F2FB 2px solid;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+}
+
+.nav-active {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+/* right-bar section*/
+
+.right-bar {
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: $white;
+}
+
+.profile {
+  display: inline-flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.profile-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 42px;
+}
+
+.profile-amount {
+  font-size: 16px;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+::ng-deep.mat-tab-label,
+::ng-deep.mat-tab-label-active {
+  min-width: 0 !important;
+  padding: 3px !important;
+  margin: 3px !important;
+}
+
+::ng-deep.mat-tab-label {
+  margin-right: 20px !important;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+::ng-deep.mat-tab-label-active {
+  color: $red;
+}
+
+::ng-deep.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: $red;
+  height: 0.5px !important;
+}
+
+:host ::ng-deep .mat-tab-header {
+  height: 40px;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+:host ::ng-deep .mat-tab-body {
+  padding-top: 20px;
+}
+
+/* focused color */
+::ng-deep .mat-form-field-outline.mat-form-field-outline-thick {
+  color: $lightgray !important;
+}
+
+/* Dropdown prefix top remove */
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix {
+  top: 0 !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  width: fit-content;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+  background-color: $white;
+  transform: scaleX(1.5) scaleY(1.8) translateY(1px) !important;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(145, 150, 153, 0.25);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(145, 150, 153, 0.25);
+  box-shadow: 0px 3px 6px 0px rgba(145, 150, 153, 0.25);
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-select-arrow {
+  transform: scaleX(0.7) !important;
+}
+
+::ng-deep .mat-select-value-text {
+  font-weight: bold;
+}
+
+.amount {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 10px;
+}
+
+.account {
+  display: grid;
+  grid-template-columns: auto 40px;
+  grid-gap: 10px;
+}
+
+.sub-header {
+  margin-top: 2rem;
+  font-size: 16px;
+}
+
+.icon {
+  width: 180px;
+}
+
+.main {
+  padding: 20px 20px 0 20px;
+  max-height: 100%;
+  display: grid;
+  grid-template-rows: max-content auto;
+}
+
+.main-header {
+  margin-bottom: 10px;
+}
+
+.main-container {
+  background-color: $white;
+  border-radius: 10px;
+  padding: 20px 30px;
+}
+
+.main-header-label {
+  color: $red;
+  font-size: 15px;
+  font-family: SF-Pro-Display !important;
+  margin-top: 15px;
+}
+
+.balance {
+  background-color: $white;
+  display: inline-flex;
+  padding: 5px;
+  gap: 10px;
+  border-radius: 10px;
+}

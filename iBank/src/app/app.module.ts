@@ -24,14 +24,30 @@ import { IconCircleComponent } from './main/fragments/icon-circle/icon-circle.co
 import { MenuComponent } from './main/fragments/menu/menu.component';
 import { TextFieldComponent } from './main/fragments/text-field/text-field.component';
 import { CurrentComponent } from './main/modules/current/current.component';
+import { DashboardComponent } from './main/pages/dashboard/dashboard.component';
 import { HomeComponent } from './main/pages/home/home.component';
+import { RegisterComponent } from './main/pages/register/register.component';
 import { QuickTransactionComponent } from './main/modules/quick-transaction/quick-transaction.component';
+import { WelcomeComponent } from './main/pages/welcome/welcome.component';
 import { ProfileComponent } from './main/modules/profile/profile.component';
+import { SettingsComponent } from './main/pages/settings/settings.component';
+import { SettingsGeneralComponent } from './main/pages/settings-general/settings-general.component';
+import { SettingsAdminComponent } from './main/pages/settings-admin/settings-admin.component';
+import { SettingsSecurityComponent } from './main/pages/settings-security/settings-security.component';
 import { TemplateComponent } from './main/pages/template/template.component';
+import { TransferComponent } from './main/pages/transfer/transfer.component';
+import { QrCodeComponent } from './main/pages/qr-code/qr-code.component';
+import { ReportComponent } from './main/pages/report/report.component';
 import { NotificationComponent } from './main/pages/notification/notification.component';
 import { LocationComponent } from './main/pages/location/location.component';
 import { QrListItemComponent } from './main/fragments/qr-list-item/qr-list-item.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CardComponent } from './main/fragments/card/card.component';
+import { QrCodeModule } from 'ng-qrcode';
+import { CardSliderComponent } from './main/fragments/card-slider/card-slider.component';
+import { NotifComponent } from './main/pages/notification/notif/notif.component';
+import { NotifTranComponent } from './main/fragments/notif-tran/notif-tran.component';
+import { NotifDetailComponent } from './main/fragments/notif-detail/notif-detail.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
@@ -42,16 +58,31 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     BtnComponent,
     TextFieldComponent,
     IconCircleComponent,
+    RegisterComponent,
     CarouselComponent,
     OnlyNumber,
+    DashboardComponent,
     MenuComponent,
     CurrentComponent,
     QuickTransactionComponent,
+    WelcomeComponent,
     ProfileComponent,
+    SettingsComponent,
+    SettingsGeneralComponent,
+    SettingsAdminComponent,
+    SettingsSecurityComponent,
     TemplateComponent,
+    TransferComponent,
+    QrCodeComponent,
+    ReportComponent,
     NotificationComponent,
     LocationComponent,
     QrListItemComponent,
+    CardComponent,
+    CardSliderComponent,
+    NotifComponent,
+    NotifTranComponent,
+    NotifDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +102,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     HttpClientModule,
     MatDialogModule,
     NgApexchartsModule,
+    QrCodeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

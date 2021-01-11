@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexStroke, ApexTooltip, ApexXAxis, ChartComponent } from 'ng-apexcharts';
 export type ChartOptions = {
@@ -35,10 +35,13 @@ export class CurrentComponent implements OnInit {
 
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
-  displayedColumns: string[] = ['bankamount', 'amount', 'acntNo', 'date', 'symbol'];
+  displayedColumns: string[] = [];
+  displayedColumnsHide: string[] = ['bankamount', 'amount', 'acntNo', 'date', 'symbol'];
+  displayedColumnsNotHide: string[] = ['bankamount', 'amount', 'symbol'];
   dataSource = ELEMENT_DATA1;
+  isHide = true;
   test = true;
-  constructor() {
+  constructor(private changeDetectorRefs: ChangeDetectorRef) {
     this.chartOptions = {
       series: [
         {
@@ -47,7 +50,6 @@ export class CurrentComponent implements OnInit {
         }
       ],
       chart: {
-        height: 350,
         type: 'area'
       },
       dataLabels: {
@@ -77,8 +79,18 @@ export class CurrentComponent implements OnInit {
   }
   ngOnInit(): void {
     console.log(this.dataSource);
+    this.displayedColumns = this.displayedColumnsHide;
   }
 
+  hide() {
+    this.isHide = !this.isHide;
+    console.log(this.isHide);
+    if (this.isHide)
+      this.displayedColumns = this.displayedColumnsHide;
+    else
+      this.displayedColumns = this.displayedColumnsNotHide;
+    this.changeDetectorRefs.detectChanges();
+  }
   public generateData(baseval, count, yrange) {
     var i = 0;
     var series = [];

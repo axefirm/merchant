@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="main-header">
+    <img class="icon" src="assets/img/logo.png">
+    <div class="grid-2">
+      <div class="main-header-label">{{ "settings.settings" | translate }}</div>
+      <div class="balance">
+        <img src="assets/img/icon.png">ArdCoin balance: 5,000
+      </div>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="grid-3">
+      <btn [routerLink]="['/settings/general']" [title]="'general' | translate" [description]="'description'" [icon]="'menu'" [iconColor]="'red'" [borderColor]="'#919699'"></btn>
+      <btn [routerLink]="['/settings/security']" [title]="'security' | translate" [description]="'description'" [icon]="'https'" [iconColor]="'red'" [borderColor]="'#919699'"></btn>
+      <btn [routerLink]="['/settings/admin']" [title]="'administration' | translate" [description]="'description'" [icon]="'settings'" [iconColor]="'red'" [borderColor]="'#919699'"></btn>
+    </div>
+  </div>
+</div>
