@@ -46,8 +46,7 @@ export class MgLoginReq {
 
 export class MgLoginRes {
 
-    constructor() {
-    }
+    
     public responseCode: number;
     public responseDesc: string;
     public sessionId: string;
@@ -69,5 +68,53 @@ export class MgLoginRes {
     public expireTimeout: number;
     public parentCustId: string;
     public custType: string;
+
+  constructor(
+    responseCode: number, 
+    responseDesc: string, 
+    sessionId: string, 
+    custId: string, 
+    custName: string, 
+    email: string, 
+    mobile: string, 
+    lastAccessDatetime: string, 
+    lastAccessDeviceIp: string, 
+    lastAccessDeviceName: string, 
+    clearPush: number, 
+    vatUserNo: string, 
+    fbAppId: string, 
+    picture: string, 
+    isLoggedInFp: number, 
+    faqIdFp: string, 
+    credStatus: string, 
+    isDuplicated: number, 
+    expireTimeout: number, 
+    parentCustId: string, 
+    custType: string
+) {
+    this.responseCode = responseCode
+    this.responseDesc = responseDesc
+    this.sessionId = sessionId
+    this.custId = custId
+    this.custName = custName
+    this.email = email
+    this.mobile = mobile
+    this.lastAccessDatetime = lastAccessDatetime
+    this.lastAccessDeviceIp = lastAccessDeviceIp
+    this.lastAccessDeviceName = lastAccessDeviceName
+    this.clearPush = clearPush
+    this.vatUserNo = vatUserNo
+    this.fbAppId = fbAppId
+    this.picture = picture
+    this.isLoggedInFp = isLoggedInFp
+    this.faqIdFp = faqIdFp
+    this.credStatus = credStatus
+    this.isDuplicated = isDuplicated
+    this.expireTimeout = expireTimeout
+    this.parentCustId = parentCustId
+    this.custType = custType
+  }
+
+
 
 }
