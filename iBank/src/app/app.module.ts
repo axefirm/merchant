@@ -48,6 +48,8 @@ import { CardSliderComponent } from './main/fragments/card-slider/card-slider.co
 import { NotifComponent } from './main/pages/notification/notif/notif.component';
 import { NotifTranComponent } from './main/fragments/notif-tran/notif-tran.component';
 import { NotifDetailComponent } from './main/fragments/notif-detail/notif-detail.component';
+// Google map module
+import { AgmCoreModule } from '@agm/core';
 
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
@@ -110,6 +112,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
         deps: [HttpClient]
       }
     }),
+    // Googlemap module
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAcnGd_6PbPDf9AqEcnhk8EeWFNUKPDyXQ'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

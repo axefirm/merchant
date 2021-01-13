@@ -14,6 +14,8 @@ import { QrCodeComponent } from './main/pages/qr-code/qr-code.component';
 import { NotificationComponent } from './main/pages/notification/notification.component';
 import { TemplateComponent } from './main/pages/template/template.component';
 
+// bilguun 
+import { LocationComponent } from './main/pages/location/location.component';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -30,6 +32,8 @@ import { TemplateComponent } from './main/pages/template/template.component';
     { path: 'report', component: ReportComponent },
     { path: 'qr', component: QrCodeComponent },
     { path: 'notification', component: NotificationComponent },
+    { path: 'location', component: LocationComponent},
+
 ], { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })

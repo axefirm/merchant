@@ -5,11 +5,17 @@
   grid-template-columns: 10% 20% 20% 20% 20% 10%;
 }
 
-.mat-row {
-    color: $gray;
-}
 
 
 .gridnotif> div{
     align-self: center;
 }
+.notif-row {
+  color: $gray;
+  height: 60px;
+
+  td.mat-cell {
+    color: #919699;
+  }
+}
+
