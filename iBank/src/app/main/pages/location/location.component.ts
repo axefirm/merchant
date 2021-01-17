@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 
 export interface loc {
-  lng: number;
-  lat: number;
+  lng: string;
+  lat: string;
 }
 
 export const Coord: loc[] = [
