@@ -8,3 +8,7 @@ export class Pages{
     public static location: number = 6;  
     public static settings: number = 7;   
 }
+
+export enum DialogType {
+    password
+  }

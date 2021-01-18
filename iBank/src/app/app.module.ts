@@ -50,6 +50,8 @@ import { NotifTranComponent } from './main/fragments/notif-tran/notif-tran.compo
 import { NotifDetailComponent } from './main/fragments/notif-detail/notif-detail.component';
 // Google map module
 import { AgmCoreModule } from '@agm/core';
+import { DialogComponent } from './main/fragments/dialog/dialog.component';
+import { PasswordChangeComponent } from './main/fragments/password-change/password-change.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
@@ -84,7 +86,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     CardSliderComponent,
     NotifComponent,
     NotifTranComponent,
-    NotifDetailComponent
+    NotifDetailComponent,
+    DialogComponent,
+    PasswordChangeComponent
   ],
   imports: [
     BrowserModule,
