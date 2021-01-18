@@ -1,0 +1,29 @@
+<div class="main">
+    <div class="main-header">
+      <img class="icon" src="assets/img/logo.png">
+      <div class="grid-2">
+        <div class="main-header-label">{{ "settings.verify" | translate }}</div>
+        <div class="balance">
+          <img src="assets/img/icon.png">ArdCoin balance: 5,000
+        </div>
+      </div>
+    </div>
+    <div class="main-container">
+
+        <ul class="divider">
+            <li class="item">eSignature</li>
+            <li class="value" class="empty-button">
+                <mat-icon aria-hidden="false" >upload</mat-icon> 
+                Upload</li>
+            
+          </ul>
+    
+          <ul class="divider">
+            <li class="item">From delivery</li>
+            <li class="value" (click)="openDialog()" class="empty-button">
+                <mat-icon aria-hidden="false" >location_on</mat-icon>
+                Add location</li>
+          </ul>
+  
+    </div>
+  </div>

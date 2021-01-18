@@ -1,0 +1,70 @@
+@import "../../../utilities/variables.scss";
+
+.main-container {
+  display: grid;
+  grid-template-rows: 90% 10%;
+
+}
+ ul {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  list-style-type: none;
+  height: 4rem;
+  margin-left: -40px;
+}
+
+
+
+li {
+  padding-right: 40px;
+  align-self: center;
+}
+
+.title {
+  color: $gray;
+}
+
+::ng-deep {
+  .mat-slide-toggle-thumb {
+    height: 50% !important;
+    width: 50% !important;
+  }
+  .mat-slide-toggle-thumb-container {
+    top: 2px !important;
+    left: 2px !important;
+  }
+  .mat-slide-toggle-bar {
+    width: 31px !important;
+  }
+  .mat-slide-toggle-bar:hover {
+    background-color: blue;
+  }
+}
+
+.mat-badge-content {
+  width: 13px;
+  height: 13px;
+}
+
+
+.grid-container {
+  padding-top: 1rem;
+  align-self: start;
+  display: grid;
+  grid-template-columns: 64% 18% 18%;
+  justify-items: end;
+  padding-right: 2rem;
+  
+}
+
+.grid-container>button {
+ 
+  width: 95%;
+  
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.cancel {
+  background-color: $lightgray;
+}

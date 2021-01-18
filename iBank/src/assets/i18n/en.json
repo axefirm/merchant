@@ -4,6 +4,22 @@
     "administration": "Administration",
     "personal": "Personal",
     "company": "Company",
+    "companyName": "Company name",
+    "companyType": "Company type",
+    "companyNumber": "Company number",
+    "companyAddress": "Company address",
+    "vat": "VAT",
+    "phone": "Phone",
+    "e-mail": "E-mail",
+    "notifcationChannel": "Notifcation Channel",
+    "verifyStatus": "Verifcation Status",
+
+    "address": "Address",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "mobileNumber": "Mobile number",
+    
+
     "current": "Current",
     "transfer": "Transfer",
     "transferOther": "Other bank transfer",
@@ -16,7 +32,8 @@
         "settings": "Settings",
         "general": "Settings - General",
         "security": "Settings - Security",
-        "administration": "Settings - Administration"
+        "administration": "Settings - Administration",
+        "verify": "Settings - Genereral - Verify"
     },
     "test":"test"
 }

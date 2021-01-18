@@ -1,48 +1,99 @@
 <div class="main">
-    <div class="main-header">
-      <img class="icon" src="assets/img/logo.png">
-      <div class="grid-2">
-        <div class="main-header-label">{{ "settings.general" | translate }}</div>
-        <div class="balance">
-          <img src="assets/img/icon.png">ArdCoin balance: 5,000
-        </div>
+  <div class="main-header">
+    <img class="icon" src="assets/img/logo.png">
+    <div class="grid-2">
+      <div class="main-header-label">{{ "settings.general" | translate }}</div>
+      <div class="balance">
+        <img src="assets/img/icon.png">ArdCoin balance: 5,000
       </div>
     </div>
-    <div class="main-container">
-      
-        <form [formGroup]="main" class="right-side">
-            <mat-tab-group dynamicHeight mat-align-tabs="start" disableRipple="true" animationDuration="0ms">
-              <mat-tab label="{{'company' | translate}}">
-
-                
-              </mat-tab>
-              <mat-tab label="{{'personal' | translate}}">
-                <mat-form-field appearance="outline" floatLabel="never" class="full-width">
-                  <span matPrefix style="margin-top: -2px;">From &nbsp;&nbsp;</span>
-                  <mat-select>
-                    <mat-option value="option">5000611662</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <mat-form-field appearance="outline" color="primary" class="full-width">
-                  <input matInput placeholder="Receivers phone number" maxlength="8" formControlName="useramount">
-                </mat-form-field>
-                <div class="amount">
-                  <mat-form-field appearance="outline" color="primary">
-                    <input matInput placeholder="Amount" formControlName="useramount">
-                  </mat-form-field>
-                  <mat-form-field appearance="outline" floatLabel="never">
-                    <mat-select>
-                      <mat-option value="option">MNT</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-                <div class="grid-2">
-                  <span></span>
-                  <button mat-flat-button color="warn" style="width: 50%;">Send</button>
-                </div>
-              </mat-tab>
-            </mat-tab-group>
-          </form>
-    </div>
   </div>
-  
+  <div class="main-container">
+    <mat-tab-group dynamicHeight mat-align-tabs="start" disableRipple="true" animationDuration="0ms">
+      <mat-tab label="{{'company' | translate}}">
+
+        <ul class="divider">
+          <li class="title"> {{'companyName' | translate}}</li>
+          <li class="info"> Ard Financila Group</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'companyType' | translate}}</li>
+          <li class="info"> Banking</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'companyNumber' | translate}}</li>
+          <li class="info"> 123456789</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'companyAddress' | translate}}</li>
+          <li class="info"> 2th floor, Ard Financial Group Building, Sukhbaatar district, 
+            Ulaanbaatar, Mongolia</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'vat' | translate}}</li>
+          <li class="info">  <mat-slide-toggle color="warn"></mat-slide-toggle> </li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'phone' | translate}}</li>
+          <li class="info"> 70078080</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'e-mail' | translate}}</li>
+          <li class="info"> info@ard.com</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'notifcationChannel' | translate}}</li>
+          <li class="info"> E-mail</li>
+        </ul>
+        <ul>
+          <li class="title">  <span matBadge="&#8288;"  matBadgeSize="small" matBadgeColor="warn" matBadgeOverlap="false">{{'verifyStatus' | translate}}</span></li>
+          <li class="info underline-button" [routerLink]="['/settings/verify']">Not Verified</li>
+        </ul>
+
+      </mat-tab>
+
+      <mat-tab label="{{'personal' | translate}}">
+        <ul class="divider">
+          <li class="title"> {{'firstName' | translate}}</li>
+          <li class="info"> Enkhbayar</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'lastName' | translate}}</li>
+          <li class="info"> Khurtsbaatar</li>
+        </ul><ul class="divider">
+          <li class="title"> {{'mobileNumber' | translate}}</li>
+          <li class="info"> Enkhbayar</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'address' | translate}}</li>
+          <li class="info"> 2th floor, Ard Financial Group Building, Sukhbaatar district, 
+            Ulaanbaatar, Mongolia</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'e-mail' | translate}}</li>
+          <li class="info">xanshyr@gmail.com</li>
+        </ul>
+        <ul class="divider">
+          <li class="title"> {{'notifcationChannel' | translate}}</li>
+          <li class="info">E-mail</li>
+        </ul>
+        <ul>
+          <li class="title">  <span matBadge="&#8288;"  matBadgeSize="small" matBadgeColor="warn" matBadgeOverlap="false"> {{'verifyStatus' | translate}}</span></li>
+          <li class="info underline-button" [routerLink]="['/settings/verify']" >Not Verified</li>
+        </ul>
+
+      </mat-tab>
+
+    </mat-tab-group>
+
+
+    <div class="grid-container">
+
+      <span></span>
+      <button mat-raised-button class="cancel shadow">Cancel</button>
+
+      <button mat-raised-button color="warn" class="shadow">Save</button>
+    </div>
+
+  </div>
+</div>

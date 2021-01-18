@@ -4,6 +4,20 @@
     "administration": "Зохицуулалт",
     "personal": "Хувь хүн",
     "company": "Байгууллага",
+    "companyName": "Байгууллагын нэр",
+    "companyType": "Байгууллагын төрөл",
+    "companyNumber": "Байгууллагын дугаар",
+    "companyAddress": "Байгууллагын хаяг",
+    "vat": "VAT",
+    "phone": "Утас",
+    "e-mail": "E-mail",
+    "notifcationChannel": "Мэдэгдэл хүлээн авах суваг",
+    "verifyStatus": "Баталгаажуулалтын төлөв",
+    "address": "Хаяг",
+    "firstName": "Нэр",
+    "lastName": "Овог",
+    "mobileNumber": "Утасны дугаар",
+    
     "current": "Одоогийн",
     "transfer": "Гүйлгээ",
     "transferOther": "Бусад банкны гүйлгээ",
@@ -15,7 +29,8 @@
     "settings": {
         "general": "Тохиргоо - Ерөнхий",
         "security": "Тохиргоо - Аюулгүй байдал",
-        "administration": "Тохиргоо - Зохицуулалт"
+        "administration": "Тохиргоо - Зохицуулалт",
+        "verify": "Тохиргоо - Ерөнхий - Баталгаажуулалт"
     },
     "test":"test"
 }

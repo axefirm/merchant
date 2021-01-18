@@ -48,11 +48,14 @@ import { CardSliderComponent } from './main/fragments/card-slider/card-slider.co
 import { NotifComponent } from './main/pages/notification/notif/notif.component';
 import { NotifTranComponent } from './main/fragments/notif-tran/notif-tran.component';
 import { NotifDetailComponent } from './main/fragments/notif-detail/notif-detail.component';
-// Google map module
-import { AgmCoreModule } from '@agm/core';
+import {MatBadgeModule} from '@angular/material/badge';
+
 import { DialogComponent } from './main/fragments/dialog/dialog.component';
 import { PasswordChangeComponent } from './main/fragments/password-change/password-change.component';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-verify.component';
+import { AddLocationComponent } from './main/fragments/add-location/add-location.component';
+import {MatRadioModule} from '@angular/material/radio';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -88,15 +91,19 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     NotifTranComponent,
     NotifDetailComponent,
     DialogComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    SettingsVerifyComponent,
+    AddLocationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatBadgeModule,
     MatCardModule,
     MatIconModule,
+    MatSlideToggleModule,
     ReactiveFormsModule,
     FormsModule,
     MatCarouselModule.forRoot(),
@@ -107,6 +114,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     MatSelectModule,
     HttpClientModule,
     MatDialogModule,
+    MatRadioModule,
     NgApexchartsModule,
     QrCodeModule,
     TranslateModule.forRoot({
@@ -117,9 +125,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
       }
     }),
     // Googlemap module
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAcnGd_6PbPDf9AqEcnhk8EeWFNUKPDyXQ'
-    })
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyAcnGd_6PbPDf9AqEcnhk8EeWFNUKPDyXQ'
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]

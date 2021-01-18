@@ -4,6 +4,7 @@
 div{
     white-space: nowrap;
     color: $gray;
+    
 }
 
 .grid-pass {
@@ -28,7 +29,6 @@ div{
     border-radius: 8px;
     width: 100%;
     background-color: $lightgray;
-    padding-left: 10px;
     
 }
 .form-action {
@@ -53,4 +53,21 @@ div{
 }
 .cancel {
     background-color: $lightgray;
+}
+.form {
+    overflow-x: hidden;
+}
+.mat-icon {
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+.mat-input-element {
+    vertical-align: text-top;
 }

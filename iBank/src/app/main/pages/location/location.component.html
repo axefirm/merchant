@@ -1,28 +1,15 @@
-<div class="main">
-  <div class="main-header">
-    <img class="icon" src="assets/img/logo.png">
-    <div class="grid-2">
-      <div class="main-header-label">{{ "Maps" | translate }}</div>
-      <div class="balance">
-        <img src="assets/img/icon.png">ArdCoin balance: 5,000
+  <div class="main">
+    <div class="main-header">
+      <img class="icon" src="assets/img/logo.png">
+      <div class="grid-2">
+        <div class="main-header-label">{{ "Maps" | translate }}</div>
+        <div class="balance">
+          <img src="assets/img/icon.png">ArdCoin balance: 5,000
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="main-container">
-    <ng-container class="map">
-      <agm-map [zoom]="16" [latitude]="lat1" [longitude]="lng1">
-        <agm-marker *ngFor="let cor of coord" [latitude]="cor.lat" [longitude]="cor.lng" 
-        [iconUrl]="
-        {
-          url  : './assets/img/marker.svg',
-          scaledSize: {
-              width: 60,
-              height: 60
-          }
-        }">
-        </agm-marker>
-      </agm-map>
-    </ng-container>
+    <div class="main-container">
+     
+    </div>
   </div>
-</div>

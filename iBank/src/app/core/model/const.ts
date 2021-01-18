@@ -10,5 +10,6 @@ export class Pages{
 }
 
 export enum DialogType {
-    password
+    password,
+    location
   }

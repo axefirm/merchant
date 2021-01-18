@@ -7,16 +7,22 @@ ul {
     height: 4rem;
     margin-left: -40px;
 }
-// ul:last-child {
-//     border: none;
-// }
+ul:last-child {
+    border: none;
+}
 li{
     padding-right: 40px;
     align-self: center;
 }
-
-
-.title {
+.empty-button {
+    justify-self: end;
     color:$gray;
 }
-
+.item {
+    justify-self: start ;
+}
+.mat-icon {
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+}

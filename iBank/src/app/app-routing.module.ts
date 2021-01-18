@@ -16,6 +16,7 @@ import { TemplateComponent } from './main/pages/template/template.component';
 
 // bilguun 
 import { LocationComponent } from './main/pages/location/location.component';
+import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-verify.component';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -33,6 +34,7 @@ import { LocationComponent } from './main/pages/location/location.component';
     { path: 'qr', component: QrCodeComponent },
     { path: 'notification', component: NotificationComponent },
     { path: 'location', component: LocationComponent},
+    { path: 'settings/verify', component: SettingsVerifyComponent},
 
 ], { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]

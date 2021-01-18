@@ -1,0 +1,33 @@
+<form>
+
+  <div class="form-content">
+    <div class="grid-pass">
+      <div> location</div>
+      <div class="input">
+          <mat-icon aria-hidden="false" matPrefix >location_on</mat-icon>
+        <input type="text" matInput formControlName="" >
+      </div>
+    </div>
+
+    <div class="grid-pass">
+      <div> Date</div>
+      <div class="input">
+        <mat-icon aria-hidden="false" matPrefix >calendar_today</mat-icon>
+        <input type="date" matInput formControlName="">
+      </div>
+    </div>
+
+    <div class="grid-pass">
+      <div> Time</div>
+      <div class="input">
+        <mat-icon aria-hidden="false" matPrefix >timer</mat-icon>
+        <input type="datetime" matInput formControlName="">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-action">
+    <button mat-flat-button class="cancel">Cancel</button>
+    <button mat-flat-button color="warn">Save</button>
+  </div>
+</form>

@@ -10,6 +10,7 @@ export class PasswordChangeComponent implements OnInit {
   hide = true;
   constructor() { }
 
+  
   ngOnInit(): void {
   }
 
