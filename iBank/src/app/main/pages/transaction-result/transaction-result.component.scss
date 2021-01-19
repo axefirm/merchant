@@ -29,6 +29,9 @@ li {
 .title {
     color: $gray;
 }
+.back{
+    background-color: $lightgray;
+}
 
 .dwnld{
     background-color: transparent;
@@ -39,9 +42,4 @@ li {
 
 button{
     margin: 27px 10px;
-}
-
-.buttons-center {
-    margin-left: 154px;
-    position: relative;
 }

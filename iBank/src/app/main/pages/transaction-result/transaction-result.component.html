@@ -2,13 +2,13 @@
   <div class="main-header">
     <img class="icon" src="assets/img/logo.png" />
   </div>
-  <div class="container" style="width: 568px; height: 720px">
+  <div class="container" style="width: 530px; height: 720px">
     <div class="main-container">
       <div *ngIf="trSuccess == 1">
         <div style="margin-left: 32%">
           <icon-circle
           
-          [icon]="'Successful'"
+          [icon]="'check_circle'"
           [borderColor]="'white'"
           [iconColor]="'green'"
           [height]="'100px'"
@@ -21,7 +21,7 @@
       <div *ngIf="trSuccess == 0">
         <div style="margin-left: 32%">
           <icon-circle
-          [icon]="'Failed'"
+          [icon]="'cancel'"
           [borderColor]="'white'"
           [iconColor]="'red'"
           [height]="'100px'"
@@ -62,16 +62,16 @@
         <li class="info">Salary</li>
       </ul>
 
-      <div *ngIf="trSuccess == 0" class="grid-container buttons-center">
+      <div *ngIf="trSuccess == 0" class="grid-container buttons-center" style="margin-left: 144px;">
         <!-- <span></span> -->
-        <button mat-raised-button class="cancel shadow">Back</button>
+        <button mat-flat-button color="disabled" class="back" >Back</button>
 
-        <button mat-raised-button (click)="test()" color="warn" class="shadow">
+        <button mat-flat-button (click)="test()" color="warn">
           Cancel
         </button>
       </div>
     </div>
-    <div *ngIf="trSuccess == 1" class="grid-container buttons-center">
+    <div *ngIf="trSuccess == 1" class="grid-container buttons-center" style="margin-left: 134px;">
       <button class="dwnld" >Save template</button>
       <button class="dwnld" (click)="test()" >Save as PDF</button>
     </div>
