@@ -1,0 +1,47 @@
+@import "../../../utilities/variables.scss";
+
+.main-container {
+    display: grid;
+    padding-bottom:30px;
+    // grid-template-rows: 100% 0%;
+}
+
+.main-title{
+    margin-left: 22%;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    list-style-type: none;
+    height: 1rem;
+    margin-left: 0px;
+}
+
+li {
+    padding-right: 40px;
+    align-self: center;
+}
+
+.title {
+    color: $gray;
+}
+
+.dwnld{
+    background-color: transparent;
+    border: none;
+    color: $blue;
+    font-size: 105%;
+}
+
+button{
+    margin: 27px 10px;
+}
+
+.buttons-center {
+    margin-left: 154px;
+    position: relative;
+}

@@ -1,0 +1,79 @@
+<div class="main">
+  <div class="main-header">
+    <img class="icon" src="assets/img/logo.png" />
+  </div>
+  <div class="container" style="width: 568px; height: 720px">
+    <div class="main-container">
+      <div *ngIf="trSuccess == 1">
+        <div style="margin-left: 32%">
+          <icon-circle
+          
+          [icon]="'Successful'"
+          [borderColor]="'white'"
+          [iconColor]="'green'"
+          [height]="'100px'"
+          [backgroundColor]="'white'"
+        >
+        </icon-circle>
+        </div>
+        <div class="title main-title">Transaction Successful</div>
+      </div>
+      <div *ngIf="trSuccess == 0">
+        <div style="margin-left: 32%">
+          <icon-circle
+          [icon]="'Failed'"
+          [borderColor]="'white'"
+          [iconColor]="'red'"
+          [height]="'100px'"
+          [backgroundColor]="'white'"
+        >
+        </icon-circle>
+        </div>
+        <div class="title main-title">Transaction Unuccessful</div>
+      </div>
+
+      <ul class=" ">
+        <li class="title">From account</li>
+        <li class="info">5000611662</li>
+      </ul>
+
+      <ul class=" ">
+        <li class="title">Recieving bank</li>
+        <li class="info">XasBank</li>
+      </ul>
+
+      <ul class=" ">
+        <li class="title">Recieving account number</li>
+        <li class="info">5000611662</li>
+      </ul>
+
+      <ul class=" ">
+        <li class="title">Account holder name</li>
+        <li class="info">Enkhbayar</li>
+      </ul>
+
+      <ul class=" ">
+        <li class="title">Amount</li>
+        <li class="info">5,000,000 MNT</li>
+      </ul>
+
+      <ul class=" ">
+        <li class="title">Description</li>
+        <li class="info">Salary</li>
+      </ul>
+
+      <div *ngIf="trSuccess == 0" class="grid-container buttons-center">
+        <!-- <span></span> -->
+        <button mat-raised-button class="cancel shadow">Back</button>
+
+        <button mat-raised-button (click)="test()" color="warn" class="shadow">
+          Cancel
+        </button>
+      </div>
+    </div>
+    <div *ngIf="trSuccess == 1" class="grid-container buttons-center">
+      <button class="dwnld" >Save template</button>
+      <button class="dwnld" (click)="test()" >Save as PDF</button>
+    </div>
+  </div>
+</div>

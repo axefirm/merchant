@@ -13,6 +13,7 @@ import { ReportComponent } from './main/pages/report/report.component';
 import { QrCodeComponent } from './main/pages/qr-code/qr-code.component';
 import { NotificationComponent } from './main/pages/notification/notification.component';
 import { TemplateComponent } from './main/pages/template/template.component';
+import { TransactionResultComponent } from './main/pages/transaction-result/transaction-result.component';
 
 // bilguun 
 import { LocationComponent } from './main/pages/location/location.component';
@@ -35,6 +36,7 @@ import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-v
     { path: 'notification', component: NotificationComponent },
     { path: 'location', component: LocationComponent},
     { path: 'settings/verify', component: SettingsVerifyComponent},
+    { path: 'transaction/result', component: TransactionResultComponent },
 
 ], { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
