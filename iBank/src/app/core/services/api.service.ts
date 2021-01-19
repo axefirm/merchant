@@ -135,4 +135,7 @@ export class ApiService {
   updatePendTxn(data: MgCmerchUpdateTxnPendReq) {
     return this.api.post('updatePendTxn', data);
   }
+  test(){
+    return this.api.postMerch('updatePendTxn','test');
+  }
 }

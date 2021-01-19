@@ -71,7 +71,7 @@ export class WelcomeComponent implements OnInit {
   login() {
     const loginData = new MgLoginReq("99082605", "XKXvK4AmzUNDRSQiTHKsAac7OkVQcYtdeI6xBqiZcyDDX0dCaL+UzIT3GAnSjAV1SZpJJfH8CBp3Ajf6GG/4ak/vZnOU5Kfz4vCm3MhnmZss3zgkBIBW0ydBK7gEgcUIMZyrZHJwA9EeXC3PZAEBWnNaQODyxw470baTg9flOEhF/bbTUKQ9UIyjtWGVON8t13S75FXDBFfti/tjSDlsyhO+t9KmcgyYET1SZyI8XWuRv/r1slbfk3EoihbxoaIbIdLgrOfNMPvA4Z3qFNgtrAQ6/Mikg2YGx4L7dZ7P7Xpi7D9SLKMcqNhhw0DZLzq4VfmZZbTbWO0+C7mBHoCajA==", "6EB20E499328", "MNGC-MPS92", "172.16.116.92"
       , "6EB20E499328", "WEB", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", 1, "MN", 0, 0, "", "2021010817121800", 0, 0, 0, "");
-    this.api.login(loginData).subscribe(data => {
+    this.api.test().subscribe(data => {
       console.log(data);
     })
   }

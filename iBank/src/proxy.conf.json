@@ -1,8 +1,17 @@
 {
     "/api/v1.0/*": {
-        "target": "http://172.16.116.33:40781",
+        "target": "http://202.131.242.158:40961",
         "secure": true,
         "changeOrigin" : true,
+        "logLevel": "debug"
+    },
+    "/api/merchant/*": {
+        "target": "http://202.131.242.158:40962",
+        "secure": true,
+        "changeOrigin" : true,
+        "pathRewrite": {
+            "^/api/merchant/": "/api/v1.0/"
+          },
         "logLevel": "debug"
     }
 }

@@ -10,6 +10,7 @@ export class HttpService {
   constructor(protected http: HttpClient) { }
 
   protected url = '/api/v1.0/';
+  protected urlmerch = '/api/test/';
   protected apiParam = '?app_id=5&app_secret=MOSTMONEY&lang=MN';
   // app_id=5&app_secret=MOSTMONEY&lang=MN
   send(data: any): Observable<any> {
@@ -116,4 +117,24 @@ export class HttpService {
           console.log(res);
           return res;
     }
+
+    
+    postMerch(operation: string, body: any): Observable<any> {
+      console.log(this.urlmerch + operation + this.apiParam);
+      var res = this.http
+         .post(
+             this.urlmerch + operation + this.apiParam,
+             JSON.stringify(body, (_, value) => {
+                 if (value !== null) {
+                     return value;
+                 }
+             }),
+             {
+                 headers: { 'Content-Type': 'application/json; charset=utf-8' }
+             }
+         )
+         .pipe(catchError(err => this.convertError(err)));
+         console.log(res);
+         return res;
+   }
 }
