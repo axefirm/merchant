@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+export interface adminRole {
+  
+}
 @Component({
   selector: 'app-settings-admin',
   templateUrl: './settings-admin.component.html',
