@@ -52,7 +52,7 @@ export class ApiService {
   getAcntQrDetail(data: MgCmerchGetMerchQrDetailReq) {
     return this.api.post('getAcntQrDetail', data);
   }
-  MgCmerchInqLoyaltyAcntBalReq
+  
 
   getLoyaltyAcntBal(data: MgCmerchInqLoyaltyAcntBalReq) {
     return this.api.post('getLoyaltyAcntBal', data);

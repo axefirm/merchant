@@ -1,0 +1,23 @@
+@import "../../../utilities/variables.scss";
+
+
+  
+   ul {
+    display: grid;
+    grid-template-columns: 45% 45% 10%;
+    list-style-type: none;
+    height: 4rem;
+    margin-left: -40px;
+  }
+  
+  
+  
+  li {
+    padding-right: 40px;
+    align-self: center;
+  }
+  
+  .title {
+    color: $gray;
+  }
+  
