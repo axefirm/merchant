@@ -53,7 +53,11 @@ export class ApiService {
     return this.api.post('getAcntQrDetail', data);
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   // MgCmerchInqLoyaltyAcntBalReq
+=======
+  
+>>>>>>> 294c994836607edc7c71faf83cd2160dec06b19d
 =======
   
 >>>>>>> 294c994836607edc7c71faf83cd2160dec06b19d
