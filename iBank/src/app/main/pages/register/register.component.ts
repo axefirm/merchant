@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 import { ListKeyManager } from '@angular/cdk/a11y';
 import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
+import { MgCmerchAddMembIntoMerchReq } from 'src/app/core/model/Online user registration/addMembIntoMerch';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -21,11 +23,12 @@ import { animate, keyframes, state, style, transition, trigger } from '@angular/
 export class RegisterComponent implements OnInit{
 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private api : ApiService) { }
 
   main: FormGroup;
   indicator = 0;
   maxIndex = 4;
+  regAsComp = true;
 
   ngOnInit(): void {
     this.main = this.formBuilder.group({
@@ -45,6 +48,18 @@ export class RegisterComponent implements OnInit{
   public onChange(): void {
     console.log("gg");
   }
+
+  register(){
+    const registerData = new MgCmerchAddMembIntoMerchReq('99194730', 'Ukh0221', 'ganbat', 'selenge', 123, 'mmao');
+    this.api.addMembIntoMerch(registerData).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  changeRegAs(input: boolean){
+   this.regAsComp = input;
+  }
+
   next(input: number) {
     console.log(this.main);
     if (input < this.maxIndex) {
