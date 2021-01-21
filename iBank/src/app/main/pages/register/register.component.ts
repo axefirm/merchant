@@ -19,6 +19,8 @@ import { ApiService } from 'src/app/core/services/api.service';
 import { MgCmerchStartEnrollByMerchReq, MgCmerchStartEnrollByMerchRes } from 'src/app/core/model/Online user registration/startEnrollByMerch';
 import { MgCmerchVerifyLoginCodeReq } from 'src/app/core/model/Online user registration/verifyLoginCode';
 import { MgCmerchEnrollMerchReq } from 'src/app/core/model/Online user registration/enrollMerch';
+import { MgCmerchAddMembIntoMerchReq } from 'src/app/core/model/Online user registration/addMembIntoMerch';
+import { MgCmerchInqAcntListReq } from 'src/app/core/model/enquire/getMerchAcntList';
 
 @Component({
   selector: 'app-register',
@@ -67,6 +69,11 @@ export class RegisterComponent implements OnInit {
       merchType: new FormControl('', [Validators.required]),
       orgTypeId: new FormControl('', [Validators.required]),
     });
+  }
+  codeTester(){
+    this.api.getMerchAcntList(new MgCmerchInqAcntListReq("0")).subscribe((data) => {
+      console.log(data);
+    })
   }
 
   public moveToStructure(): void {
@@ -129,6 +136,18 @@ export class RegisterComponent implements OnInit {
         alert(data.responseDesc);
       }
     });
+  }
+  Finish(){
+    const roleId = 12334;
+    const merchCode = "where?";
+    const addMembIntoMerchReq = new MgCmerchAddMembIntoMerchReq (
+      this.main.value.mobileno,
+      this.main.value.regNo,
+      this.main.value.fname,
+      this.main.value.lname,
+      roleId,
+      merchCode,
+    )
   }
 
   changeRegAs(input: boolean) {

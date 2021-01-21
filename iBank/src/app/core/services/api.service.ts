@@ -68,7 +68,7 @@ export class ApiService {
     return this.api.post('getLoyaltyAcntBal', data);
   }
   getMerchAcntList(data: MgCmerchInqAcntListReq) {
-    return this.api.post('getMerchAcntList', data);
+    return this.api.postMerch('getMerchAcntList', data);
   }
 
   getMerchAcntStmt(data: MgCmerchInqAcntStmtReq) {
@@ -125,8 +125,8 @@ export class ApiService {
   getMerchReg(data: MgCmerchGetMerchRegReq) {
     return this.api.post('getMerchReg', data);
   }
-  selectMerchCus(data: MgCmerchSelectMerchCustReq) {
-    return this.api.post('selectMerchCus', data);
+  selectMerchCust(data: MgCmerchSelectMerchCustReq) {
+    return this.api.postMerch('selectMerchCust', data);
   }
   sendMerchPosReq(data: MgCmerchCashFlowReq) {
     return this.api.post('sendMerchPosReq', data);

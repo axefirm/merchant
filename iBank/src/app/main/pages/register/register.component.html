@@ -1,5 +1,6 @@
 <div style="height: 75%; margin-top: 3rem;">
   <div class="carousel">
+    <button mat-raised-button color="warn" class="button" (click)="codeTester()">Code Tester</button>
     <div *ngIf="indicator == 0" [@myAnimation] class="container">
       <title class="align-center title">
         Create new account
@@ -115,7 +116,7 @@
         </p>
       </div>
       <div class="align-center" style="margin-top: -20px;">
-        <button mat-raised-button color="warn" class="button">Finish</button>
+        <button mat-raised-button (click)="Finish()" color="warn" class="button">Finish</button>
       </div>
     </div>
     <div class="indicator">
