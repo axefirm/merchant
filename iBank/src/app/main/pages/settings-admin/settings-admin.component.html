@@ -8,33 +8,62 @@
       </div>
     </div>
   </div>
+  
   <div class="main-container">
 
-    <div class="users-list">
-      <div class="divider"> 
-        <div class="roles"> </div>
-        <div class="users"> </div>
-        <div class="addUser"></div>
+   
+      <div class="users-list divider">
+        <div class="roles"> administrator</div>
+        <div class="users"> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div>
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+        </div>
+        <div class="addUser">
+          <div (click)="openDialog()" class="empty-button"><mat-icon aria-hidden="false" matPrefix>person_add</mat-icon>{{'adduser' | translate}}
+          </div>         
+        </div>
       </div>
-    </div>
 
-    <ul class="divider">
-      <li class="roles" > {{'administrator' | translate}}</li>
-      <li class="users" *ng> <span> bilguun lkhagvapurev</span> <span> bilguun lkhagvapurev</span> <span> bilguun
-          lkhagvapurev</span> <span> bilguun lkhagvapurev</span> </li>
-      <li class="adduser"> <mat-icon aria-hidden="false" matPrefix >calendar_today</mat-icon>{{'adduser' | translate}}</li>
-    </ul>
-    <ul class="divider">
-      <li class="roles"> {{'administrator' | translate}}</li>
-      <li class="users"> <span> bilguun lkhagvapurev</span> <span> bilguun lkhagvapurev</span> <span> bilguun
-          lkhagvapurev</span> <span> bilguun lkhagvapurev</span> </li>
-      <li class="adduser"> {{'adduser' | translate}}</li>
-    </ul>
-    <ul class="divider">
-      <li class="roles"> {{'administrator' | translate}}</li>
-      <li class="users"> <span> bilguun lkhagvapurev</span> <span> bilguun lkhagvapurev</span> <span> bilguun
-          lkhagvapurev</span> <span> bilguun lkhagvapurev</span> </li>
-      <li class="adduser"> {{'adduser' | translate}}</li>
-    </ul>
+      <div class="users-list divider">
+        <div class="roles"> Moderator</div>
+        <div class="users"> 
+           <div ><mat-icon class="empty-button" aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div>
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+        </div>
+        <div class="addUser">
+          <div (click)="openDialog()" class="empty-button"><mat-icon aria-hidden="false" matPrefix>person_add</mat-icon>{{'adduser' | translate}}
+          </div>         
+        </div>
+      </div>
+
+      <div class="users-list divider">
+        <div class="roles"> Normal</div>
+        <div class="users"> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div>
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  od bat</div> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+           
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div>  
+           <div><mat-icon aria-hidden="false" class="remove_circle" matPrefix>remove_circle</mat-icon>  bilguun lkhagvapurev</div> 
+        </div>
+        <div class="addUser">
+          <div (click)="openDialog()" class="empty-button"><mat-icon aria-hidden="false" matPrefix>person_add</mat-icon>{{'adduser' | translate}}
+          </div>         
+        </div>
+      </div>
+
+
+
+
+
+
+  
   </div>
 </div>
