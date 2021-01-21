@@ -13,7 +13,7 @@ export class HttpService {
 
   protected url = '/api/v1.0/';
   protected urlmerch = '/api/merchant/';
-  protected apiParamMerch = '?app_id=15&app_secret=ARD_DIGITAL&lang=MN';
+  protected apiParamMerch = '?app_id=16&app_secret=ARD_DIGITAL&lang=MN';
   protected apiParam = '?app_id=16&app_secret=ARD_DIGITAL&lang=MN';
   // app_id=5&app_secret=MOSTMONEY&lang=MN
   send(data: any): Observable<any> {

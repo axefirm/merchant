@@ -38,7 +38,7 @@
           [controller]="main.controls.tan" [maxlength]="40"></text-field>
       </div>
       <div class="align-center">
-        <button mat-raised-button color="warn" (click)="next(indicator + 1)" class="button">Next</button>
+        <button mat-raised-button color="warn" (click)="checkTan()" class="button">Next</button>
       </div>
     </div>
     <div *ngIf="indicator == 2" [@myAnimation] class="container">
@@ -58,12 +58,12 @@
         <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Group'"
           [controller]="main.controls.name" [maxlength]="40"></text-field>
         <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Company type'"
-          [controller]="main.controls.name" [maxlength]="40"></text-field>
+          [controller]="main.controls.merchType" [maxlength]="40"></text-field>
         <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Company number'"
-          OnlyNumber="true" [controller]="main.controls.name" [maxlength]="40"></text-field>
+          OnlyNumber="true" [controller]="main.controls.orgTypeId" [maxlength]="40"></text-field>
       </div>
       <div class="align-center">
-        <button mat-raised-button (click)="next(indicator + 1)" color="warn" class="button">Next</button>
+        <button mat-raised-button (click)="enrollMerch()" color="warn" class="button">Next</button>
       </div>
     </div>
 

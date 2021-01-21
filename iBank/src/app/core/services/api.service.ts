@@ -95,7 +95,7 @@ export class ApiService {
     return this.api.post('createMerchAcnt', data);
   }
   enrollMerch(data: MgCmerchEnrollMerchReq) {
-    return this.api.post('enrollMerch', data);
+    return this.api.postMerch('enrollMerch', data);
   }
   regMerch(data: MgCmerchRegMerchReq) {
     return this.api.post('regMerch', data);
@@ -104,7 +104,7 @@ export class ApiService {
     return this.api.postMerch('startEnrollByMerch', data);
   }
   verifyLoginCode(data: MgCmerchVerifyLoginCodeReq) {
-    return this.api.post('verifyLoginCode', data);
+    return this.api.postMerch('verifyLoginCode', data);
   }
   //payment
   createMerchantPos(data: MgCmerchCreatePosReq) {

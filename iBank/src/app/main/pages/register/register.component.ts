@@ -17,6 +17,8 @@ import {
 } from '@angular/animations';
 import { ApiService } from 'src/app/core/services/api.service';
 import { MgCmerchStartEnrollByMerchReq, MgCmerchStartEnrollByMerchRes } from 'src/app/core/model/Online user registration/startEnrollByMerch';
+import { MgCmerchVerifyLoginCodeReq } from 'src/app/core/model/Online user registration/verifyLoginCode';
+import { MgCmerchEnrollMerchReq } from 'src/app/core/model/Online user registration/enrollMerch';
 
 @Component({
   selector: 'app-register',
@@ -46,7 +48,13 @@ export class RegisterComponent implements OnInit {
   maxIndex = 4;
   regAsComp = true;
 
+  enrollId;
+
   ngOnInit(): void {
+    this.reset();
+  }
+  reset(){
+    this.indicator = 0;
     this.main = this.formBuilder.group({
       amount: new FormControl('', [Validators.required]),
       mobileNo: new FormControl('', [Validators.required]),
@@ -54,6 +62,10 @@ export class RegisterComponent implements OnInit {
       fname: new FormControl('', [Validators.required]),
       lname: new FormControl('', [Validators.required]),
       tan: new FormControl('', [Validators.required]),
+
+      name: new FormControl('', [Validators.required]),
+      merchType: new FormControl('', [Validators.required]),
+      orgTypeId: new FormControl('', [Validators.required]),
     });
   }
 
@@ -75,9 +87,46 @@ export class RegisterComponent implements OnInit {
     );
     this.api.startEnrollByMerch(startEnrollByMerchReq).subscribe((data) => {
       if(data.responseCode == 0){
-        this.next(this.indicator + 1);
+        this.enrollId = data.enrollId;
+        this.next1();
       }else{
-        alert(data.responseDesc)
+        alert(data.responseDesc);
+        this.reset();
+      }
+    });
+  }
+  checkTan(){
+    const verifyLoginCodeReq = new MgCmerchVerifyLoginCodeReq (
+      this.enrollId, this.main.value.tan
+    );
+    this.api.verifyLoginCode(verifyLoginCodeReq).subscribe((data) =>{
+      if(data.responseCode == 0){
+        //do stuff
+        this.next1();
+      }else{
+        alert(data.responseDesc);
+        //For now just skip
+        this.next1();
+      }
+    });
+  }
+  enrollMerch(){
+    //idk
+    const notOptional = "";
+    const enrollMerchReq = new MgCmerchEnrollMerchReq(
+      this.main.value.name,
+      notOptional,
+      notOptional,
+      this.main.value.merchType,
+      this.main.value.orgTypeId,
+      notOptional,
+    );
+    this.api.enrollMerch(enrollMerchReq).subscribe((data) =>{
+      if(data.responseCode == 0){
+        //do stuff
+        this.next1();
+      }else{
+        alert(data.responseDesc);
       }
     });
   }
@@ -85,7 +134,9 @@ export class RegisterComponent implements OnInit {
   changeRegAs(input: boolean) {
     this.regAsComp = input;
   }
-
+  next1(){
+    this.next(this.indicator + 1);
+  }
   next(input: number) {
     // console.log(this.main);
     if (input < this.maxIndex) {
