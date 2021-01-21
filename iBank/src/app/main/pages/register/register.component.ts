@@ -1,10 +1,22 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 import { ListKeyManager } from '@angular/cdk/a11y';
-import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
-import { MgCmerchAddMembIntoMerchReq } from 'src/app/core/model/Online user registration/addMembIntoMerch';
+import {
+  animate,
+  keyframes,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { ApiService } from 'src/app/core/services/api.service';
+import { MgCmerchStartEnrollByMerchReq } from 'src/app/core/model/Online user registration/startEnrollByMerch';
 
 @Component({
   selector: 'app-register',
@@ -12,18 +24,22 @@ import { ApiService } from 'src/app/core/services/api.service';
   styleUrls: ['./register.component.scss'],
   animations: [
     trigger('myAnimation', [
-      state('in', style({transform: 'translateX(0)'})),
-      transition('void => *', animate('600ms ease-in', keyframes([
-          style({opacity: 0, offset: 0}),
-          style({opacity: 1, offset: 1.0})
-      ])))
-  ]),
-  ]
+      state('in', style({ transform: 'translateX(0)' })),
+      transition(
+        'void => *',
+        animate(
+          '600ms ease-in',
+          keyframes([
+            style({ opacity: 0, offset: 0 }),
+            style({ opacity: 1, offset: 1.0 }),
+          ])
+        )
+      ),
+    ]),
+  ],
 })
-export class RegisterComponent implements OnInit{
-
-
-  constructor(private formBuilder: FormBuilder, private api : ApiService) { }
+export class RegisterComponent implements OnInit {
+  constructor(private formBuilder: FormBuilder, private api: ApiService) {}
 
   main: FormGroup;
   indicator = 0;
@@ -35,33 +51,43 @@ export class RegisterComponent implements OnInit{
       amount: new FormControl('', [Validators.required]),
       mobileNo: new FormControl('', [Validators.required]),
       regNo: new FormControl('', [Validators.required]),
-      fname : new FormControl('', [Validators.required]),
-      lname : new FormControl('', [Validators.required]),
-      tan : new FormControl('', [Validators.required]),
+      fname: new FormControl('', [Validators.required]),
+      lname: new FormControl('', [Validators.required]),
+      tan: new FormControl('', [Validators.required]),
     });
   }
 
   public moveToStructure(): void {
-    console.log("gg");
+    console.log('gg');
   }
-  
+
   public onChange(): void {
-    console.log("gg");
+    console.log('gg');
   }
 
-  register(){
-    const registerData = new MgCmerchAddMembIntoMerchReq('99194730', 'Ukh0221', 'ganbat', 'selenge', 123, 'mmao');
-    this.api.addMembIntoMerch(registerData).subscribe(data => {
+  startEnrollByMerch() {
+    const startEnrollByMerchReq = new MgCmerchStartEnrollByMerchReq(
+      'wallet',
+      this.main.value.mobileNo,
+      this.main.value.regNo,
+      this.main.value.fname,
+      this.main.value.lname
+    );
+    let res;
+    this.api.startEnrollByMerch(startEnrollByMerchReq).subscribe((data) => {
       console.log(data);
+      res = data; 
     });
+    console.log(res);
+    this.next(this.indicator + 1);
   }
 
-  changeRegAs(input: boolean){
-   this.regAsComp = input;
+  changeRegAs(input: boolean) {
+    this.regAsComp = input;
   }
 
   next(input: number) {
-    console.log(this.main);
+    // console.log(this.main);
     if (input < this.maxIndex) {
       this.indicator = input;
     } else {
@@ -69,5 +95,4 @@ export class RegisterComponent implements OnInit{
       // this.indicator = 0;
     }
   }
-  
 }

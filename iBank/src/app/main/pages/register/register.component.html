@@ -20,7 +20,7 @@
           [controller]="main.controls.regNo" [maxlength]="10"></text-field>
       </div>
       <div class="align-center">
-        <button mat-raised-button color="warn" class="button" (click)="next(indicator + 1)">Next</button>
+        <button mat-raised-button color="warn" class="button" (click)="startEnrollByMerch()">Next</button>
       </div>
     </div>
 
@@ -115,7 +115,7 @@
         </p>
       </div>
       <div class="align-center" style="margin-top: -20px;">
-        <button mat-raised-button (click)="register()" color="warn" class="button">Finish</button>
+        <button mat-raised-button color="warn" class="button">Finish</button>
       </div>
     </div>
     <div class="indicator">
