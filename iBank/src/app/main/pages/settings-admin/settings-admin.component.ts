@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MatDialog} from '@angular/material/dialog';
+import { DialogType } from 'src/app/core/model/const';
+import { DialogComponent } from '../../fragments/dialog/dialog.component';
 export interface adminRole {
   
 }
@@ -10,9 +12,14 @@ export interface adminRole {
 })
 export class SettingsAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+  openDialog() {
+    let  dialogRef = this.dialog.open(DialogComponent, {data: {type: DialogType.addUser , title: "Add user" }},
+      );
+
   }
 
 }

@@ -56,6 +56,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-verify.component';
 import { AddLocationComponent } from './main/fragments/add-location/add-location.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { AddUserComponent } from './main/fragments/add-user/add-user.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -93,7 +94,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     DialogComponent,
     PasswordChangeComponent,
     SettingsVerifyComponent,
-    AddLocationComponent
+    AddLocationComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
