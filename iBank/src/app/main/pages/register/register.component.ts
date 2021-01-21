@@ -86,7 +86,7 @@ export class RegisterComponent implements OnInit {
 
   startEnrollByMerch() {
     const startEnrollByMerchReq = new MgCmerchStartEnrollByMerchReq(
-      'wallet',
+      'ARD_DIGITAL',
       this.main.value.mobileNo,
       this.main.value.regNo,
       this.main.value.fname,
