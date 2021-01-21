@@ -16,7 +16,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { ApiService } from 'src/app/core/services/api.service';
-import { MgCmerchStartEnrollByMerchReq } from 'src/app/core/model/Online user registration/startEnrollByMerch';
+import { MgCmerchStartEnrollByMerchReq, MgCmerchStartEnrollByMerchRes } from 'src/app/core/model/Online user registration/startEnrollByMerch';
 
 @Component({
   selector: 'app-register',
@@ -73,13 +73,13 @@ export class RegisterComponent implements OnInit {
       this.main.value.fname,
       this.main.value.lname
     );
-    let res;
     this.api.startEnrollByMerch(startEnrollByMerchReq).subscribe((data) => {
-      console.log(data);
-      res = data; 
+      if(data.responseCode == 0){
+        this.next(this.indicator + 1);
+      }else{
+        alert(data.responseDesc)
+      }
     });
-    console.log(res);
-    this.next(this.indicator + 1);
   }
 
   changeRegAs(input: boolean) {

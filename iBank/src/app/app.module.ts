@@ -58,6 +58,7 @@ import { AddLocationComponent } from './main/fragments/add-location/add-location
 import {MatRadioModule} from '@angular/material/radio';
 import { TransactionResultComponent } from './main/pages/transaction-result/transaction-result.component';
 import { EncrService } from './core/services/enc.service';
+import { AddUserComponent } from './main/fragments/add-user/add-user.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -97,6 +98,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     SettingsVerifyComponent,
     AddLocationComponent,
     TransactionResultComponent,
+    AddUserComponent,
+    AddLocationComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,

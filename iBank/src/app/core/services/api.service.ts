@@ -101,7 +101,7 @@ export class ApiService {
     return this.api.post('regMerch', data);
   }
   startEnrollByMerch(data: MgCmerchStartEnrollByMerchReq) {
-    return this.api.post('startEnrollByMerch', data);
+    return this.api.postMerch('startEnrollByMerch', data);
   }
   verifyLoginCode(data: MgCmerchVerifyLoginCodeReq) {
     return this.api.post('verifyLoginCode', data);
