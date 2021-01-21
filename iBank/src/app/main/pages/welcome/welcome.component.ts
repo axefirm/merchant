@@ -4,6 +4,10 @@ import { trigger, transition, style, animate, state, animation, keyframes } from
 import { ApiService } from 'src/app/core/services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { MgLoginReq, MgLoginRes } from 'src/app/core/model/login';
+import { MgCmerchCheckUnreadSmartReq } from 'src/app/core/model/enquire/checkUnreadSmart';
+import { EncrService } from 'src/app/core/services/enc.service';
+import { JSEncrypt } from 'jsencrypt';
+import { MgCredForgetReq } from 'src/app/core/model/forgetPin';
 
 interface Carousel {
   title: string;
@@ -27,7 +31,7 @@ interface Carousel {
 export class WelcomeComponent implements OnInit {
 
   // browserLang: string = sessionStorage.getItem('lang') ? sessionStorage.getItem('lang') : 'mn';
-  constructor(private formBuilder: FormBuilder, private api: ApiService, protected http: HttpClient) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService, protected http: HttpClient, private encr: EncrService) { }
   indicator = 0;
   carouselInterval;
   maxIndex = 3;
@@ -69,9 +73,30 @@ export class WelcomeComponent implements OnInit {
     }
   }
   login() {
-    const loginData = new MgLoginReq("99082605", "XKXvK4AmzUNDRSQiTHKsAac7OkVQcYtdeI6xBqiZcyDDX0dCaL+UzIT3GAnSjAV1SZpJJfH8CBp3Ajf6GG/4ak/vZnOU5Kfz4vCm3MhnmZss3zgkBIBW0ydBK7gEgcUIMZyrZHJwA9EeXC3PZAEBWnNaQODyxw470baTg9flOEhF/bbTUKQ9UIyjtWGVON8t13S75FXDBFfti/tjSDlsyhO+t9KmcgyYET1SZyI8XWuRv/r1slbfk3EoihbxoaIbIdLgrOfNMPvA4Z3qFNgtrAQ6/Mikg2YGx4L7dZ7P7Xpi7D9SLKMcqNhhw0DZLzq4VfmZZbTbWO0+C7mBHoCajA==", "6EB20E499328", "MNGC-MPS92", "172.16.116.92"
-      , "6EB20E499328", "WEB", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", 1, "MN", 0, 0, "", "2021010817121800", 0, 0, 0, "");
-    this.api.test().subscribe(data => {
+    var encrypted;
+    this.http.get("assets/cert/public.pem", { responseType: 'text' }).subscribe(data => {
+      var encrypt = new JSEncrypt();
+      encrypt.setPublicKey(data);
+      encrypted = encrypt.encrypt(this.main.value.password);
+      console.log(encrypted);
+      const loginData = new MgLoginReq(this.main.value.useramount, encrypted, "51e2f9337d57eea3", "MNGC-MPS92", "172.16.116.92"
+        , "6EB20E499328", "IOS", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", 60, "MN", 0, 0, "", "2021010817121800", 0, 0, 0, "");
+      console.log(loginData);
+      this.api.login(loginData).subscribe(data => {
+        console.log(data);
+      })
+    })
+
+    // const req = new MgCmerchCheckUnreadSmartReq("1234");
+    // this.api.checkUnreadSmart(req).subscribe(data => {
+    //   console.log(data);
+    // })
+  }
+  forget() {
+    var req = new MgCredForgetReq();
+    req.loginCode = "99077339";
+    req.chnlType = "УИ99251234";
+    this.api.forgetPin(req).subscribe(data => {
       console.log(data);
     })
   }

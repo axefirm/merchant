@@ -57,6 +57,7 @@ import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-v
 import { AddLocationComponent } from './main/fragments/add-location/add-location.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { TransactionResultComponent } from './main/pages/transaction-result/transaction-result.component';
+import { EncrService } from './core/services/enc.service';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -102,21 +103,19 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatBadgeModule,
     MatCardModule,
     MatIconModule,
-    MatSlideToggleModule,
     ReactiveFormsModule,
     FormsModule,
     MatCarouselModule.forRoot(),
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
-    MatTableModule, 
+    MatTableModule,
+    MatSlideToggleModule,
     MatSelectModule,
     HttpClientModule,
     MatDialogModule,
-    MatRadioModule,
     NgApexchartsModule,
     QrCodeModule,
     TranslateModule.forRoot({
@@ -131,7 +130,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     //   apiKey: 'AIzaSyAcnGd_6PbPDf9AqEcnhk8EeWFNUKPDyXQ'
     // })
   ],
-  providers: [],
+  providers: [EncrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

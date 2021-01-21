@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { MgLoginRes } from './core/model/login';
+import { ApiHelper } from './core/services/api-helper';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,9 @@ export class HttpService {
   constructor(protected http: HttpClient) { }
 
   protected url = '/api/v1.0/';
-  protected urlmerch = '/api/test/';
-  protected apiParam = '?app_id=5&app_secret=MOSTMONEY&lang=MN';
+  protected urlmerch = '/api/merchant/';
+  protected apiParamMerch = '?app_id=15&app_secret=ARD_DIGITAL&lang=MN';
+  protected apiParam = '?app_id=16&app_secret=ARD_DIGITAL&lang=MN';
   // app_id=5&app_secret=MOSTMONEY&lang=MN
   send(data: any): Observable<any> {
     const headers = new HttpHeaders({
@@ -93,48 +96,77 @@ export class HttpService {
     return throwError(msg);
   }
 
-    /**
-     * Post хүсэлт - Insert хийнэ
-     * @category HTTP хүсэлтүүд
-     * @param operation : Хандах хаяг (URL)
-     * @param body : Хүсэлтийн body
-     * @returns Observable буцаана
-     */
-    post(operation: string, body: any): Observable<any> {
-       var res = this.http
-          .post(
-              this.url + operation + this.apiParam,
-              JSON.stringify(body, (_, value) => {
-                  if (value !== null) {
-                      return value;
-                  }
-              }),
-              {
-                  headers: { 'Content-Type': 'application/json; charset=utf-8' }
-              }
-          )
-          .pipe(catchError(err => this.convertError(err)));
-          console.log(res);
-          return res;
-    }
+  /**
+   * Post хүсэлт - Insert хийнэ
+   * @category HTTP хүсэлтүүд
+   * @param operation : Хандах хаяг (URL)
+   * @param body : Хүсэлтийн body
+   * @returns Observable буцаана
+   */
+  post(operation: string, body: any): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-    
-    postMerch(operation: string, body: any): Observable<any> {
-      console.log(this.urlmerch + operation + this.apiParam);
-      var res = this.http
-         .post(
-             this.urlmerch + operation + this.apiParam,
-             JSON.stringify(body, (_, value) => {
-                 if (value !== null) {
-                     return value;
-                 }
-             }),
-             {
-                 headers: { 'Content-Type': 'application/json; charset=utf-8' }
-             }
-         )
-         .pipe(catchError(err => this.convertError(err)));
-         console.log(res);
-         return res;
-   }
+    var sessionToken = sessionStorage.getItem("sessionToken");
+
+    if (operation != ApiHelper.login && operation != ApiHelper.getDictionary && sessionToken != null && sessionToken.length > 0) {
+      headers = headers.set('Cookie', sessionToken);
+    }
+    var res = this.http
+      .post(
+        this.url + operation + this.apiParam,
+        JSON.stringify(body, (_, value) => {
+          if (value !== null) {
+            return value;
+          }
+        }),
+        {
+          headers: headers
+        }
+      )
+      .pipe(catchError(err => this.convertError(err)));
+    if (operation == ApiHelper.login) {
+      res.toPromise().then(data => {
+        var loginRes = data as MgLoginRes;
+        if(loginRes.responseCode == 0){
+          sessionStorage.setItem("sessionToken",loginRes.sessionId)
+        }
+      }
+      );
+    }
+    return res;
+  }
+
+  /**
+  * Post хүсэлт - Insert хийнэ
+  * @category HTTP хүсэлтүүд
+  * @param operation : Хандах хаяг (URL)
+  * @param body : Хүсэлтийн body
+  * @returns Observable буцаана
+  */
+  postMerch(operation: string, body: any): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+    var sessionToken = sessionStorage.getItem("sessionToken");
+
+    if (operation != ApiHelper.login && operation != ApiHelper.getDictionary && sessionToken != null && sessionToken.length > 0) {
+      headers = headers.set('Cookie', sessionToken);
+    }
+    var res = this.http
+      .post(
+        this.urlmerch + operation + this.apiParamMerch,
+        JSON.stringify(body, (_, value) => {
+          if (value !== null) {
+            return value;
+          }
+        }),
+        {
+          headers: headers
+        }
+      )
+      .pipe(catchError(err => this.convertError(err)));
+    console.log(res);
+    return res;
+  }
 }
