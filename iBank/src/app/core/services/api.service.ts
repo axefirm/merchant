@@ -29,6 +29,7 @@ import { MgCmerchGetMerchVerfReq } from '../model/payment/verifyMerchant';
 import { MgCmerchInitTxnReq } from '../model/transaction/initTxn';
 import { MgCmerchSelectPendTxnsReq } from '../model/transaction/selectPendTxns';
 import { MgCmerchUpdateTxnPendReq } from '../model/transaction/updatePendTxn';
+import { ApiHelper } from './api-helper';
 @Injectable({
   providedIn: 'root'
 })
@@ -36,15 +37,16 @@ export class ApiService {
   constructor(private api: HttpService) { }
 
   login(data: MgLoginReq) {
-    return this.api.post('login', data);
+    return this.api.post(ApiHelper.login, data);
   }
 
   forgetPin(data: MgCredForgetReq) {
-    return this.api.post('forgetPin', data);
+    return this.api.post(ApiHelper.forgetPin, data);
   }
+
   // enquire
   checkUnreadSmart(data: MgCmerchCheckUnreadSmartReq) {
-    return this.api.post('checkUnreadSmart', data);
+    return this.api.postMerch(ApiHelper.checkUnreadSmart, data);
   }
   getAcntDetail(data: MgCmerchInqAcntDetailReq) {
     return this.api.post('getAcntDetail', data);
