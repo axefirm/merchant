@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "starto": "ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -27,6 +28,7 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "@types/googlemaps": "^3.43.1",
     "apexcharts": "^3.23.1",
+    "jsencrypt": "^3.0.0-rc.1",
     "ng-apexcharts": "^1.5.6",
     "ng-qrcode": "^4.1.0",
     "ngx-qrcode2": "^9.0.0",
