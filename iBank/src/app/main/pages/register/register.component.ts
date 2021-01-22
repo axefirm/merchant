@@ -16,11 +16,17 @@ import {
   trigger,
 } from '@angular/animations';
 import { ApiService } from 'src/app/core/services/api.service';
-import { MgCmerchStartEnrollByMerchReq, MgCmerchStartEnrollByMerchRes } from 'src/app/core/model/Online user registration/startEnrollByMerch';
+import {
+  MgCmerchStartEnrollByMerchReq,
+  MgCmerchStartEnrollByMerchRes,
+} from 'src/app/core/model/Online user registration/startEnrollByMerch';
 import { MgCmerchVerifyLoginCodeReq } from 'src/app/core/model/Online user registration/verifyLoginCode';
 import { MgCmerchEnrollMerchReq } from 'src/app/core/model/Online user registration/enrollMerch';
 import { MgCmerchAddMembIntoMerchReq } from 'src/app/core/model/Online user registration/addMembIntoMerch';
 import { MgCmerchInqAcntListReq } from 'src/app/core/model/enquire/getMerchAcntList';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../../fragments/dialog/dialog.component';
+import { DialogType } from 'src/app/core/model/const';
 
 @Component({
   selector: 'app-register',
@@ -43,7 +49,11 @@ import { MgCmerchInqAcntListReq } from 'src/app/core/model/enquire/getMerchAcntL
   ],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder, private api: ApiService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    public dialog: MatDialog
+  ) {}
 
   main: FormGroup;
   indicator = 0;
@@ -51,11 +61,12 @@ export class RegisterComponent implements OnInit {
   regAsComp = true;
 
   enrollId;
+  custId;
 
   ngOnInit(): void {
     this.reset();
   }
-  reset(){
+  reset() {
     this.indicator = 0;
     this.main = this.formBuilder.group({
       amount: new FormControl('', [Validators.required]),
@@ -70,10 +81,8 @@ export class RegisterComponent implements OnInit {
       orgTypeId: new FormControl('', [Validators.required]),
     });
   }
-  codeTester(){
-    this.api.getMerchAcntList(new MgCmerchInqAcntListReq("0")).subscribe((data) => {
-      console.log(data);
-    })
+  codeTester() {
+    this.next1();
   }
 
   public moveToStructure(): void {
@@ -93,67 +102,80 @@ export class RegisterComponent implements OnInit {
       this.main.value.lname
     );
     this.api.startEnrollByMerch(startEnrollByMerchReq).subscribe((data) => {
-      if(data.responseCode == 0){
+      if (data.responseCode == 0) {
         this.enrollId = data.enrollId;
         this.next1();
-      }else{
+      } else {
         alert(data.responseDesc);
         this.reset();
       }
     });
   }
-  checkTan(){
-    const verifyLoginCodeReq = new MgCmerchVerifyLoginCodeReq (
-      this.enrollId, this.main.value.tan
+  checkTan() {
+    const verifyLoginCodeReq = new MgCmerchVerifyLoginCodeReq(
+      this.enrollId,
+      this.main.value.tan
     );
-    this.api.verifyLoginCode(verifyLoginCodeReq).subscribe((data) =>{
-      if(data.responseCode == 0){
-        //do stuff
+    this.api.verifyLoginCode(verifyLoginCodeReq).subscribe((data) => {
+      if (data.responseCode == 0) {
+        this.custId = data.custId;
         this.next1();
-      }else{
+      } else {
         alert(data.responseDesc);
         //For now just skip
         this.next1();
       }
     });
   }
-  enrollMerch(){
+  enrollMerch() {
     //idk
-    const notOptional = "";
+    const notOptional = '';
     const enrollMerchReq = new MgCmerchEnrollMerchReq(
       this.main.value.name,
       notOptional,
       notOptional,
       this.main.value.merchType,
       this.main.value.orgTypeId,
-      notOptional,
+      notOptional
     );
-    this.api.enrollMerch(enrollMerchReq).subscribe((data) =>{
-      if(data.responseCode == 0){
+    this.api.enrollMerch(enrollMerchReq).subscribe((data) => {
+      if (data.responseCode == 0) {
         //do stuff
         this.next1();
-      }else{
+      } else {
         alert(data.responseDesc);
       }
     });
   }
-  Finish(){
-    const roleId = 12334;
-    const merchCode = "where?";
-    const addMembIntoMerchReq = new MgCmerchAddMembIntoMerchReq (
-      this.main.value.mobileno,
-      this.main.value.regNo,
-      this.main.value.fname,
-      this.main.value.lname,
-      roleId,
-      merchCode,
-    )
+  Finish() {
+    // To be continued ...
+    // const roleId = 12334;
+    // const merchCode = "where?";
+    // const addMembIntoMerchReq = new MgCmerchAddMembIntoMerchReq (
+    //   this.main.value.mobileno,
+    //   this.main.value.regNo,
+    //   this.main.value.fname,
+    //   this.main.value.lname,
+    //   roleId,
+    //   merchCode,
+    // )
+    this.openDialogCreatePassword();
+  }
+
+  openDialogCreatePassword() {
+    let dialogRef = this.dialog.open(DialogComponent, {
+      data: { type: DialogType.createPassword, title: 'Create a password' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   changeRegAs(input: boolean) {
     this.regAsComp = input;
   }
-  next1(){
+  next1() {
     this.next(this.indicator + 1);
   }
   next(input: number) {

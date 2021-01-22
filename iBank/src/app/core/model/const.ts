@@ -12,5 +12,6 @@ export class Pages{
 export enum DialogType {
     password,
     location,
-    addUser
+    addUser,
+    createPassword
   }
