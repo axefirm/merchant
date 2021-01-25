@@ -13,10 +13,7 @@ export enum DialogType {
     password,
     location,
     addUser,
-<<<<<<< HEAD
-    qr
-  }
-=======
+    qr,
     createPassword
 }
 
@@ -26,4 +23,3 @@ export class eCredStatus {
     public static expired: string = 'EXPIRED';
     public static blocked: string = 'BLOCKED';
 }
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba

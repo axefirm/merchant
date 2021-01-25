@@ -55,15 +55,9 @@ import { PasswordChangeComponent } from './main/fragments/password-change/passwo
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-verify.component';
 import { AddLocationComponent } from './main/fragments/add-location/add-location.component';
-<<<<<<< HEAD
-import {MatRadioModule} from '@angular/material/radio';
-import { TransactionResultComponent } from './main/pages/transaction-result/transaction-result.component';
-import { EncrService } from './core/services/enc.service';
-import { AddUserComponent } from './main/fragments/add-user/add-user.component';
 import { QrDownloadComponent } from './main/fragments/qr-download/qr-download.component';
 import { RegisterIdDirective } from './core/directive/register-id.directive';
 
-=======
 import { MatRadioModule } from '@angular/material/radio';
 import { TransactionResultComponent } from './main/pages/transaction-result/transaction-result.component';
 import { EncrService } from './core/services/enc.service';
@@ -72,7 +66,6 @@ import { PasswordCreateComponent } from './main/fragments/password-create/passwo
 import { ChangePinComponent } from './main/fragments/change-pin/change-pin.component';
 import { ForgetPinComponent } from './main/fragments/forget-pin/forget-pin.component';
 import { CurrencyInfoComponent } from './main/modules/currency-info/currency-info.component';
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -113,17 +106,14 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     AddLocationComponent,
     TransactionResultComponent,
     AddUserComponent,
-<<<<<<< HEAD
     QrDownloadComponent,
     RegisterIdDirective,
-=======
     AddLocationComponent,
     DialogComponent,
     PasswordCreateComponent,
     ChangePinComponent,
     ForgetPinComponent,
     CurrencyInfoComponent,
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
   ],
   imports: [
     BrowserModule,

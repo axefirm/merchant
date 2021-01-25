@@ -1,49 +1,40 @@
 @import "../../../utilities/variables.scss";
-<<<<<<< HEAD
-=======
 
 
-  
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
-  .users-list {
-    display: grid;
-    grid-template-columns: 45% 45% 10%;
-    list-style-type: none;
-    height: auto;
-    
-  }
-<<<<<<< HEAD
-=======
-  
-  
-  
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
-  .users-list > div {
 
-    align-self: center;
-  }
-<<<<<<< HEAD
+.users-list {
+  display: grid;
+  grid-template-columns: 45% 45% 10%;
+  list-style-type: none;
+  height: auto;
 
-=======
-  
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
-  .roles , .addUser {
-    color: $gray;
-  }
-  
-  .users {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  .users > div {
-    white-space: nowrap ;
-  }
+}
+
+.users-list>div {
+
+  align-self: center;
+}
+
+.roles,
+.addUser {
+  color: $gray;
+}
+
+.users {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.users>div {
+  white-space: nowrap;
+}
+
 .mat-icon {
-color: $gray;
-font-size: 14px;
-position: relative;
-top: 3px;
-left: 6px;
-cursor: pointer;
+  color: $gray;
+  font-size: 14px;
+  position: relative;
+  top: 3px;
+  left: 6px;
+  cursor: pointer;
 }

@@ -8,15 +8,11 @@ import { MgCmerchCheckUnreadSmartReq } from 'src/app/core/model/enquire/checkUnr
 import { EncrService } from 'src/app/core/services/enc.service';
 import { JSEncrypt } from 'jsencrypt';
 import { MgCredForgetReq } from 'src/app/core/model/forgetPin';
-<<<<<<< HEAD
-=======
 import { TranslateService } from '@ngx-translate/core';
-import { eCredStatus } from 'src/app/core/model/const';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/core/services/shared.service';
 import { MgCmerchSelectMerchCustReq } from 'src/app/core/model/payment/selectMerchCus';
-import { ConsoleReporter } from 'jasmine';
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
+
 
 interface Carousel {
   title: string;
@@ -38,16 +34,9 @@ interface Carousel {
   ]
 })
 export class WelcomeComponent implements OnInit {
-
-<<<<<<< HEAD
-  // browserLang: string = sessionStorage.getItem('lang') ? sessionStorage.getItem('lang') : 'mn';
-  constructor(private formBuilder: FormBuilder, private api: ApiService, protected http: HttpClient, private encr: EncrService) { }
-=======
-  browserLang: string = sessionStorage.getItem('lang') ? sessionStorage.getItem('lang') : 'mn';
   constructor(private formBuilder: FormBuilder, private api: ApiService, protected http: HttpClient, private encr: EncrService, private translate: TranslateService, private router: Router, private service: SharedService) { }
 
   //Carousal related
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
   indicator = 0;
   carouselInterval;
   maxIndex = 3;
@@ -108,7 +97,6 @@ export class WelcomeComponent implements OnInit {
       console.log(loginData);
       this.api.login(loginData).subscribe(data => {
         console.log(data);
-<<<<<<< HEAD
       })
     })
 
@@ -123,12 +111,9 @@ export class WelcomeComponent implements OnInit {
     req.chnlType = "УИ99251234";
     this.api.forgetPin(req).subscribe(data => {
       console.log(data);
-=======
         this.loginRes = data as MgLoginRes;
         this.checkRes();
       })
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
-    })
 
     // const req = new MgCmerchCheckUnreadSmartReq("1234");
     // this.api.checkUnreadSmart(req).subscribe(data => {
@@ -139,6 +124,9 @@ export class WelcomeComponent implements OnInit {
   changeLang() {
     console.log(this.browserLang);
     this.translate.use('mn');
+  }
+  browserLang(browserLang: any) {
+    throw new Error('Method not implemented.');
   }
 
   checkRes() {
@@ -163,15 +151,6 @@ export class WelcomeComponent implements OnInit {
     }
   }
 
-  forget() {
-    this.page = 2;
-    // var req = new MgCredForgetReq();
-    // req.loginCode = "99077339";
-    // req.chnlType = "УИ99251234";
-    // this.api.forgetPin(req).subscribe(data => {
-    //   console.log(data);
-    // })
-  }
 
   updateOnMain(onMain): void {
     this.service.onMainEvent.emit(onMain);

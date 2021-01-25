@@ -10,7 +10,6 @@ export class ApiHelper{
     
 
 
-<<<<<<< HEAD
 
     
     // 
@@ -63,7 +62,7 @@ export class ApiHelper{
 
     public static getMerchReg: string = 'getMerchReg';
 
-    public static selectMerchCus: string = 'selectMerchCus';
+    public static selectMerchCust: string = 'selectMerchCust';
 
     public static sendMerchPosReq: string = 'sendMerchPosReq';
 
@@ -76,17 +75,4 @@ export class ApiHelper{
 
     public static updatePendTxn: string = 'updatePendTxn';
 
-
-
-
-
-=======
-    
-    // 
-    //Merchant api related
-    // 
-    public static checkUnreadSmart: string = 'checkUnreadSmart';  
-    
-    public static getAcntDetail: string = 'getAcntDetail';  
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
 }

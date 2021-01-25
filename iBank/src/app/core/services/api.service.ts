@@ -54,28 +54,12 @@ export class ApiService {
   getAcntQrDetail(data: MgCmerchGetMerchQrDetailReq) {
     return this.api.postMerch(ApiHelper.getAcntQrDetail, data);
   }
-<<<<<<< HEAD
-=======
-// <<<<<<< HEAD
-// <<<<<<< HEAD
-  // MgCmerchInqLoyaltyAcntBalReq
-// =======
-  
-// >>>>>>> 294c994836607edc7c71faf83cd2160dec06b19d
-// =======
-  // 
-// >>>>>>> 294c994836607edc7c71faf83cd2160dec06b19d
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
 
   getLoyaltyAcntBal(data: MgCmerchInqLoyaltyAcntBalReq) {
     return this.api.postMerch(ApiHelper.getLoyaltyAcntBal, data);
   }
   getMerchAcntList(data: MgCmerchInqAcntListReq) {
-<<<<<<< HEAD
     return this.api.postMerch(ApiHelper.getMerchAcntList, data);
-=======
-    return this.api.postMerch('getMerchAcntList', data);
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
   }
 
   getMerchAcntStmt(data: MgCmerchInqAcntStmtReq) {
@@ -102,27 +86,16 @@ export class ApiService {
     return this.api.postMerch(ApiHelper.createMerchAcnt, data);
   }
   enrollMerch(data: MgCmerchEnrollMerchReq) {
-<<<<<<< HEAD
     return this.api.postMerch(ApiHelper.enrollMerch, data);
-=======
-    return this.api.postMerch('enrollMerch', data);
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
   }
   regMerch(data: MgCmerchRegMerchReq) {
     return this.api.postMerch(ApiHelper.regMerch, data);
   }
   startEnrollByMerch(data: MgCmerchStartEnrollByMerchReq) {
-<<<<<<< HEAD
     return this.api.postMerch(ApiHelper.startEnrollByMerch, data);
   }
   verifyLoginCode(data: MgCmerchVerifyLoginCodeReq) {
     return this.api.postMerch(ApiHelper.verifyLoginCode, data);
-=======
-    return this.api.postMerch('startEnrollByMerch', data);
-  }
-  verifyLoginCode(data: MgCmerchVerifyLoginCodeReq) {
-    return this.api.postMerch('verifyLoginCode', data);
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
   }
   //payment
   createMerchantPos(data: MgCmerchCreatePosReq) {
@@ -143,13 +116,8 @@ export class ApiService {
   getMerchReg(data: MgCmerchGetMerchRegReq) {
     return this.api.postMerch(ApiHelper.getMerchReg, data);
   }
-<<<<<<< HEAD
-  selectMerchCus(data: MgCmerchSelectMerchCustReq) {
-    return this.api.postMerch(ApiHelper.selectMerchCus, data);
-=======
   selectMerchCust(data: MgCmerchSelectMerchCustReq) {
-    return this.api.postMerch('selectMerchCust', data);
->>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
+    return this.api.postMerch(ApiHelper.selectMerchCust, data);
   }
   sendMerchPosReq(data: MgCmerchCashFlowReq) {
     return this.api.postMerch(ApiHelper.sendMerchPosReq, data);
@@ -167,11 +135,5 @@ export class ApiService {
   }
   updatePendTxn(data: MgCmerchUpdateTxnPendReq) {
     return this.api.postMerch(ApiHelper.updatePendTxn, data);
-  }
-  test(){
-    return this.api.postMerch(ApiHelper.updatePendTxn,'test');
-  }
-  test(){
-    return this.api.postMerch('updatePendTxn','test');
   }
 }
