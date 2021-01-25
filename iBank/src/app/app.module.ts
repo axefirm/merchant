@@ -60,6 +60,7 @@ import { TransactionResultComponent } from './main/pages/transaction-result/tran
 import { EncrService } from './core/services/enc.service';
 import { AddUserComponent } from './main/fragments/add-user/add-user.component';
 import { PasswordCreateComponent } from './main/fragments/password-create/password-create.component';
+import { CurrencyInfoComponent } from './main/modules/currency-info/currency-info.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -103,6 +104,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     AddLocationComponent,
     DialogComponent,
     PasswordCreateComponent,
+    CurrencyInfoComponent,
   ],
   imports: [
     BrowserModule,
