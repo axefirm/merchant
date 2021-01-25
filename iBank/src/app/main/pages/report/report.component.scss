@@ -1,0 +1,22 @@
+.filter {
+  display: grid;
+  grid-template-columns: 30% 13% 10% 12% 10% 25%;
+  grid-gap: 5px;
+}
+.mat-select{
+    color:#919699;
+}
+
+.top-buttons {
+  margin-top: 3px;
+  background-color: #F6F7F8;
+  color: #919699;
+  height: 42px;
+}
+
+.mat-icon {
+  color: #919699;
+}
+.table{
+    margin-top: -20px;
+}

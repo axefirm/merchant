@@ -9,7 +9,7 @@
 
   // temp solutions
   margin-top: 40%;
-  margin-bottom: 30px;
+  margin-bottom:35px;
 }
 ul {
   display: grid;
@@ -31,6 +31,10 @@ li{
   color: $red;
   font-size: 80%;
   margin-left: 0px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .support{
@@ -41,4 +45,13 @@ li{
 .mat-icon{
   display: inline-flex;
   vertical-align: middle;
+}
+
+.agent-support:hover{
+  cursor: pointer;
+}
+
+.mini-fab{
+  float:right;
+  margin-top: -12px;
 }
