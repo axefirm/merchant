@@ -1,5 +1,6 @@
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MgCmerchInqAcntData } from 'src/app/core/model/enquire/getMerchAcntList';
 
 @Component({
   selector: 'app-card-slider',
@@ -16,13 +17,14 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class CardSliderComponent implements OnInit {
+  @Input() accounts: MgCmerchInqAcntData[];
   indicator = 0;
   constructor() { }
 
   ngOnInit(): void {
   }
   next(input: number) {
-    if (input < 3) {
+    if (input < this.accounts.length) {
       this.indicator = input;
     } else {
       this.indicator = 0;

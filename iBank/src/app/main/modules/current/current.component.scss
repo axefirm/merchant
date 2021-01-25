@@ -44,5 +44,15 @@
 .current-card-all-grid {
   display: grid;
   grid-template:
-    "card chart"50% "card list"50% / 40% 60%;
+    "card chart"40% "card list"60% / 40% 60%;
+}
+
+.table-container {
+  height: 310px;
+  overflow: auto;
+}
+
+.card {
+  height: max-content;
+  overflow-y:auto;
 }

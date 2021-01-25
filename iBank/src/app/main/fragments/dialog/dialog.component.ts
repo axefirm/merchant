@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -11,18 +12,19 @@ import { DialogType } from 'src/app/core/model/const';
 export class DialogComponent implements OnInit {
 
   test = DialogType;
-  
+  qrRes =  this.data.value;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<DialogComponent> ) {
     if (data) {
-      console.log(data);
+      console.log(data.value);
     }
   }
+ 
 
   ngOnInit(): void {
 
-    console.log(this.test.password);
+    console.log(this.qrRes)
     
   }
 

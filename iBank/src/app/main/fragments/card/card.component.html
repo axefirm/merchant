@@ -5,7 +5,7 @@
       <img src="./../../../../assets/img/ard.png" alt="img" class="ard">
     </div>
     <div>
-      <qr-code class="qr" value="qr" size="80" errorCorrectionLevel="M"></qr-code>
+      <qr-code class="qr" value="account.qrCode" size="80" errorCorrectionLevel="M"></qr-code>
     </div>
   </div>
   <div class="acnt">
@@ -13,14 +13,15 @@
       Current account
     </div>
     <div class="amount">
-      {{currency}}{{balance}}
+      {{account.curCode}}{{account.availBal}} 
     </div>
     <div class="acntNo">
-      {{acntNo}}
+      {{account.acntCode}}
     </div>
   </div>
   <ng-container *ngIf="shadow">
     <img src="{{img}}" alt="" class="shadow bg">
     <img src="{{img}}" alt="" class="shadow-2 bg">
   </ng-container>
+
 </div>

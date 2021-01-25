@@ -4,7 +4,7 @@
       Account amount
     </div>
     <div class="value">
-      Thomas Wayne
+      {{qrListItem.acntName}}
     </div>
   </div>
 
@@ -14,7 +14,7 @@
       Account number
     </div>
     <div class="value">
-        5000611663
+        50006116632
     </div>
   </div>
 
@@ -23,8 +23,8 @@
     <div class="amount">
       Download QR
     </div>
-    <div class="value">
-        <img src="./../../../../assets/img/test.png" alt="" (click)="open()">
+    <div class="value" (click)="openDialog()">
+      <qr-code elementType="img" value="{{qrListItem.qrCode}}" size="{{width}}" errorCorrectionLevel="M"></qr-code>
     </div>
   </div>
 </div>

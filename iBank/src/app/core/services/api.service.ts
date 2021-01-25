@@ -29,6 +29,7 @@ import { MgCmerchGetMerchVerfReq } from '../model/payment/verifyMerchant';
 import { MgCmerchInitTxnReq } from '../model/transaction/initTxn';
 import { MgCmerchSelectPendTxnsReq } from '../model/transaction/selectPendTxns';
 import { MgCmerchUpdateTxnPendReq } from '../model/transaction/updatePendTxn';
+import { ApiHelper } from './api-helper';
 @Injectable({
   providedIn: 'root'
 })
@@ -36,103 +37,106 @@ export class ApiService {
   constructor(private api: HttpService) { }
 
   login(data: MgLoginReq) {
-    return this.api.post('login', data);
+    return this.api.post(ApiHelper.login, data);
   }
 
   forgetPin(data: MgCredForgetReq) {
-    return this.api.post('forgetPin', data);
+    return this.api.post(ApiHelper.forgetPin, data);
   }
+
   // enquire
   checkUnreadSmart(data: MgCmerchCheckUnreadSmartReq) {
-    return this.api.post('checkUnreadSmart', data);
+    return this.api.postMerch(ApiHelper.checkUnreadSmart, data);
   }
   getAcntDetail(data: MgCmerchInqAcntDetailReq) {
-    return this.api.post('getAcntDetail', data);
+    return this.api.postMerch(ApiHelper.getAcntDetail, data);
   }
   getAcntQrDetail(data: MgCmerchGetMerchQrDetailReq) {
-    return this.api.post('getAcntQrDetail', data);
+    return this.api.postMerch(ApiHelper.getAcntQrDetail, data);
   }
-  
 
   getLoyaltyAcntBal(data: MgCmerchInqLoyaltyAcntBalReq) {
-    return this.api.post('getLoyaltyAcntBal', data);
+    return this.api.postMerch(ApiHelper.getLoyaltyAcntBal, data);
   }
   getMerchAcntList(data: MgCmerchInqAcntListReq) {
-    return this.api.post('getMerchAcntList', data);
+    return this.api.postMerch(ApiHelper.getMerchAcntList, data);
   }
 
   getMerchAcntStmt(data: MgCmerchInqAcntStmtReq) {
-    return this.api.post('getMerchAcntStmt', data);
+    return this.api.postMerch(ApiHelper.getMerchAcntStmt, data);
   }
   getMerchAcntStmtX(data: MgCmerchInqAcntStmtXReq) {
-    return this.api.post('getMerchAcntStmtX', data);
+    return this.api.postMerch(ApiHelper.getMerchAcntStmtX, data);
   }
   getTranRefReport(data: MgCmerchGetTranRefReportReq) {
-    return this.api.post('getTranRefReport', data);
+    return this.api.postMerch(ApiHelper.getTranRefReport, data);
   }
   readMerchSmartNotif(data: MgCmerchReadSmartNotifReq) {
-    return this.api.post('readMerchSmartNotif', data);
+    return this.api.postMerch(ApiHelper.readMerchSmartNotif, data);
   }
   selectMerchActivity(data: MgCmerchActivityListReq) {
-    return this.api.post('selectMerchActivity', data);
+    return this.api.postMerch(ApiHelper.selectMerchActivity, data);
   }
 
   // Online user registration
   addMembIntoMerch(data: MgCmerchAddMembIntoMerchReq) {
-    return this.api.post('addMembIntoMerch', data);
+    return this.api.postMerch(ApiHelper.addMembIntoMerch, data);
   }
   createMerchAcnt(data: MgCmerchCreateMerchAcntReq) {
-    return this.api.post('createMerchAcnt', data);
+    return this.api.postMerch(ApiHelper.createMerchAcnt, data);
   }
   enrollMerch(data: MgCmerchEnrollMerchReq) {
-    return this.api.post('enrollMerch', data);
+    return this.api.postMerch(ApiHelper.enrollMerch, data);
   }
   regMerch(data: MgCmerchRegMerchReq) {
-    return this.api.post('regMerch', data);
+    return this.api.postMerch(ApiHelper.regMerch, data);
   }
   startEnrollByMerch(data: MgCmerchStartEnrollByMerchReq) {
-    return this.api.post('startEnrollByMerch', data);
+    return this.api.postMerch(ApiHelper.startEnrollByMerch, data);
   }
   verifyLoginCode(data: MgCmerchVerifyLoginCodeReq) {
-    return this.api.post('verifyLoginCode', data);
+    return this.api.postMerch(ApiHelper.verifyLoginCode, data);
   }
   //payment
   createMerchantPos(data: MgCmerchCreatePosReq) {
-    return this.api.post('createMerchantPos', data);
+    return this.api.postMerch(ApiHelper.createMerchantPos, data);
   }
   deleteMerchantPos(data: MgCmerchDeletePosReq) {
-    return this.api.post('deleteMerchantPos', data);
+    return this.api.postMerch(ApiHelper.deleteMerchantPos, data);
   }
   getCashFlow(data: MgCmerchCashFlowReq) {
-    return this.api.post('getCashFlow', data);
+    return this.api.postMerch(ApiHelper.getCashFlow, data);
   }
   getMerchantQrList(data: MgCmerchGetMerchQrListReq) {
-    return this.api.post('getMerchantQrList', data);
+    return this.api.postMerch(ApiHelper.getMerchantQrList, data);
   }
   getMerchCust(data: MgCmerchGetMerchCustReq) {
-    return this.api.post('getMerchCust', data);
+    return this.api.postMerch(ApiHelper.getMerchCust, data);
   }
   getMerchReg(data: MgCmerchGetMerchRegReq) {
-    return this.api.post('getMerchReg', data);
+    return this.api.postMerch(ApiHelper.getMerchReg, data);
   }
   selectMerchCus(data: MgCmerchSelectMerchCustReq) {
-    return this.api.post('selectMerchCus', data);
+    return this.api.postMerch(ApiHelper.selectMerchCus, data);
   }
   sendMerchPosReq(data: MgCmerchCashFlowReq) {
-    return this.api.post('sendMerchPosReq', data);
+    return this.api.postMerch(ApiHelper.sendMerchPosReq, data);
   }
 
   verifyMerchant(data: MgCmerchGetMerchVerfReq) {
-    return this.api.post('verifyMerchant', data);
+    return this.api.postMerch(ApiHelper.verifyMerchant, data);
   }
   //transaction
   initTxn(data: MgCmerchInitTxnReq) {
-    return this.api.post('initTxn', data);
+    return this.api.postMerch(ApiHelper.initTxn, data);
   }
   selectPendTxns(data: MgCmerchSelectPendTxnsReq) {
-    return this.api.post('selectPendTxns', data);
+    return this.api.postMerch(ApiHelper.selectPendTxns, data);
   }
   updatePendTxn(data: MgCmerchUpdateTxnPendReq) {
-    return this.api.post('updatePendTxn', data);
+    return this.api.postMerch(ApiHelper.updatePendTxn, data);
+  }
+  test(){
+    return this.api.postMerch(ApiHelper.updatePendTxn,'test');
   }
 }

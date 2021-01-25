@@ -1,23 +1,33 @@
 @import "../../../utilities/variables.scss";
-
-
-  
-   ul {
+  .users-list {
     display: grid;
     grid-template-columns: 45% 45% 10%;
     list-style-type: none;
-    height: 4rem;
-    margin-left: -40px;
+    height: auto;
+    
   }
-  
-  
-  
-  li {
-    padding-right: 40px;
+  .users-list > div {
+
     align-self: center;
   }
-  
-  .title {
+
+  .roles , .addUser {
     color: $gray;
   }
   
+  .users {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .users > div {
+    white-space: nowrap ;
+  }
+.mat-icon {
+color: $gray;
+font-size: 14px;
+position: relative;
+top: 3px;
+left: 6px;
+cursor: pointer;
+}

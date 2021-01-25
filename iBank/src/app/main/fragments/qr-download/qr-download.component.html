@@ -1,0 +1,27 @@
+<div class="cont">
+  <div class="head">
+    <ul class="list">
+      <li class="title"> {{'companyName' | translate}}</li>
+      <li class="info"> {{qrListItem.acntName}}</li>
+    </ul>
+    <ul class="list">
+      <li class="title"> {{'accountName' | translate}}</li>
+      <li class="info"> {{qrListItem.acntName}}</li>
+    </ul>
+    <ul class="list">
+      <li class="title"> {{'accountNumber' | translate}}</li>
+      <li class="info"> {{qrListItem.acntCode}}</li>
+    </ul>
+  </div>
+  <div class="qrcode">
+    <qr-code elementType="svg" value="{{qrListItem.qrCode}}" size="300" errorCorrectionLevel="M"></qr-code>
+
+  </div>
+
+  <div class="action">
+    <button mat-flat-button class="cancel">Cancel</button>
+    <button mat-flat-button color="warn">Download</button>
+  </div>
+
+
+</div>
