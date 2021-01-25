@@ -27,6 +27,8 @@ import { MgCmerchInqAcntListReq } from 'src/app/core/model/enquire/getMerchAcntL
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../fragments/dialog/dialog.component';
 import { DialogType } from 'src/app/core/model/const';
+import { ActivatedRoute } from '@angular/router';
+import { MgGetDicReq, MgLoginDicData } from 'src/app/core/model/app/getDictionary';
 
 @Component({
   selector: 'app-register',
@@ -52,8 +54,9 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private api: ApiService,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private route: ActivatedRoute
+  ) { }
 
   main: FormGroup;
   indicator = 0;
@@ -62,10 +65,19 @@ export class RegisterComponent implements OnInit {
 
   enrollId;
   custId;
+  sub: any;
+  dicRes: MgLoginDicData[];
 
   ngOnInit(): void {
     this.reset();
+    this.sub = this.route.snapshot.paramMap.get("status");
+    console.log(this.sub);
+    if (this.sub == "enroll") {
+      this.indicator = 2;
+    }
+    this.getDic();
   }
+
   reset() {
     this.indicator = 0;
     this.main = this.formBuilder.group({
@@ -81,6 +93,16 @@ export class RegisterComponent implements OnInit {
       orgTypeId: new FormControl('', [Validators.required]),
     });
   }
+
+  getDic() {
+    this.api.getDictionary('dictMerchType').subscribe(data => {
+      if (data.responseCode == 0) {
+        this.dicRes = data.responseData as MgLoginDicData[];
+        console.log(this.dicRes);
+      }
+    })
+  }
+
   codeTester() {
     this.next1();
   }
@@ -127,6 +149,7 @@ export class RegisterComponent implements OnInit {
       }
     });
   }
+
   enrollMerch() {
     //idk
     const notOptional = '';
