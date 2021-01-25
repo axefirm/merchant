@@ -1,0 +1,17 @@
+<form [formGroup]="main" class="login-section">
+  <div>
+    Change pin
+  </div>
+  <mat-form-field appearance="outline" color="primary" class="full-width">
+    <input matInput placeholder="Pin old" formControlName="pinOld" OnlyNumber="true" maxlength="6">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" color="primary" class="full-width">
+    <input matInput placeholder="New pin" formControlName="pinNew" OnlyNumber="true" maxlength="6">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" color="primary" class="full-width">
+    <input matInput placeholder="New pin confirm" formControlName="pinNewConfirm" OnlyNumber="true" maxlength="6">
+  </mat-form-field>
+  <button mat-flat-button color="warn" class="full-width" (click)="changePin()">Change pin</button>
+</form>

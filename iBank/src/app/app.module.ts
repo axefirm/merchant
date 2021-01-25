@@ -15,7 +15,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { AppRoutingModule } from './app-routing.module';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table'
 import { AppComponent } from './app.component';
 import { OnlyNumber } from './core/directive/onlynumber.directive';
 import { BtnComponent } from './main/fragments/btn/btn.component';
@@ -41,24 +41,27 @@ import { ReportComponent } from './main/pages/report/report.component';
 import { NotificationComponent } from './main/pages/notification/notification.component';
 import { LocationComponent } from './main/pages/location/location.component';
 import { QrListItemComponent } from './main/fragments/qr-list-item/qr-list-item.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CardComponent } from './main/fragments/card/card.component';
 import { QrCodeModule } from 'ng-qrcode';
 import { CardSliderComponent } from './main/fragments/card-slider/card-slider.component';
 import { NotifComponent } from './main/pages/notification/notif/notif.component';
 import { NotifTranComponent } from './main/fragments/notif-tran/notif-tran.component';
 import { NotifDetailComponent } from './main/fragments/notif-detail/notif-detail.component';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { DialogComponent } from './main/fragments/dialog/dialog.component';
 import { PasswordChangeComponent } from './main/fragments/password-change/password-change.component';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-verify.component';
 import { AddLocationComponent } from './main/fragments/add-location/add-location.component';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { TransactionResultComponent } from './main/pages/transaction-result/transaction-result.component';
 import { EncrService } from './core/services/enc.service';
 import { AddUserComponent } from './main/fragments/add-user/add-user.component';
+import { PasswordCreateComponent } from './main/fragments/password-create/password-create.component';
+import { ChangePinComponent } from './main/fragments/change-pin/change-pin.component';
+import { ForgetPinComponent } from './main/fragments/forget-pin/forget-pin.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -101,6 +104,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     AddUserComponent,
     AddLocationComponent,
     DialogComponent,
+    PasswordCreateComponent,
+    ChangePinComponent,
+    ForgetPinComponent,
   ],
   imports: [
     BrowserModule,
