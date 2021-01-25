@@ -1,0 +1,44 @@
+@import "../../../utilities/variables.scss";
+
+.info{
+  //botttom?
+  position: absolute;
+  bottom: 0px;
+  padding: 0;
+  // padding-left: 20px;
+
+  // temp solutions
+  margin-top: 40%;
+  margin-bottom: 30px;
+}
+ul {
+  display: grid;
+  grid-template-columns: 60% 60%;
+  list-style-type: none;
+  // height: 1rem;
+
+  margin: 0px;
+  margin-left: -40px;
+  // margin-bottom: 20px;
+}
+li{
+  align-self: center;
+  margin-right: 20px;
+}
+.more-rates{
+  background-color: transparent;
+  border: none;
+  color: $red;
+  font-size: 80%;
+  margin-left: 0px;
+}
+
+.support{
+  margin-top: 20px;
+  padding: 20px 0px;
+}
+
+.mat-icon{
+  display: inline-flex;
+  vertical-align: middle;
+}

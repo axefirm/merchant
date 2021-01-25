@@ -1,0 +1,12 @@
+<form [formGroup]="main" class="login-section">
+    <div>
+      Forget pin
+    </div>
+    <mat-form-field appearance="outline" color="primary" class="full-width">
+      <input matInput placeholder="Register code" formControlName="useramount">
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="primary" class="full-width">
+      <input matInput placeholder="Phone number" formControlName="password">
+    </mat-form-field>
+    <button mat-flat-button color="warn" class="full-width" (click)="forgetPin()">Forget pin</button>
+  </form>

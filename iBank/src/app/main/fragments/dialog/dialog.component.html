@@ -1,6 +1,7 @@
 <div class="title">{{data.title}} </div>
 
 <mat-dialog-content>
+<<<<<<< HEAD
 
   <ng-container *ngIf="data.type == test.password">
     <app-password-change></app-password-change>
@@ -11,6 +12,20 @@
   <ng-container *ngIf="data.type == test.addUser">
     <app-add-user></app-add-user>
   </ng-container>
+=======
+    <ng-container *ngIf="data.type == test.password">
+        <app-password-change></app-password-change>
+    </ng-container>
+    <ng-container *ngIf="data.type == test.location">
+        <app-add-location></app-add-location>
+    </ng-container>
+    <ng-container *ngIf="data.type == test.addUser">
+       <app-add-user></app-add-user> 
+    </ng-container>
+    <ng-container *ngIf="data.type == test.createPassword">
+        <app-password-create></app-password-create>
+    </ng-container>
+>>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
 
   <ng-container *ngIf="data.type == test.qr">
       <app-qr-download [qrListItem]='this.qrRes'></app-qr-download>

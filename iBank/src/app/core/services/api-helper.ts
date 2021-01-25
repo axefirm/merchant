@@ -10,6 +10,7 @@ export class ApiHelper{
     
 
 
+<<<<<<< HEAD
 
     
     // 
@@ -79,4 +80,13 @@ export class ApiHelper{
 
 
 
+=======
+    
+    // 
+    //Merchant api related
+    // 
+    public static checkUnreadSmart: string = 'checkUnreadSmart';  
+    
+    public static getAcntDetail: string = 'getAcntDetail';  
+>>>>>>> c16e34586985beded5dacaef56da0c0c1234cbba
 }
