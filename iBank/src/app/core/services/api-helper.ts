@@ -6,7 +6,7 @@ export class ApiHelper{
 
     public static forgetPin: string = 'forgetPin';  
 
-    public static getDictionary: string = 'forgetPin';  
+    public static getDictionary: string = 'getDictionary';  
     
 
 

@@ -30,6 +30,7 @@ import { MgCmerchInitTxnReq } from '../model/transaction/initTxn';
 import { MgCmerchSelectPendTxnsReq } from '../model/transaction/selectPendTxns';
 import { MgCmerchUpdateTxnPendReq } from '../model/transaction/updatePendTxn';
 import { ApiHelper } from './api-helper';
+import { MgGetDicReq } from '../model/app/getDictionary';
 @Injectable({
   providedIn: 'root'
 })
@@ -44,25 +45,23 @@ export class ApiService {
     return this.api.post(ApiHelper.forgetPin, data);
   }
 
+  getDictionary(data: string) {
+    const req = new MgGetDicReq(data);
+    return this.api.post(ApiHelper.getDictionary, req);
+  }
+
   // enquire
   checkUnreadSmart(data: MgCmerchCheckUnreadSmartReq) {
     return this.api.postMerch(ApiHelper.checkUnreadSmart, data);
   }
+
   getAcntDetail(data: MgCmerchInqAcntDetailReq) {
     return this.api.post('getAcntDetail', data);
   }
+
   getAcntQrDetail(data: MgCmerchGetMerchQrDetailReq) {
     return this.api.post('getAcntQrDetail', data);
   }
-// <<<<<<< HEAD
-// <<<<<<< HEAD
-  // MgCmerchInqLoyaltyAcntBalReq
-// =======
-  
-// >>>>>>> 294c994836607edc7c71faf83cd2160dec06b19d
-// =======
-  // 
-// >>>>>>> 294c994836607edc7c71faf83cd2160dec06b19d
 
   getLoyaltyAcntBal(data: MgCmerchInqLoyaltyAcntBalReq) {
     return this.api.post('getLoyaltyAcntBal', data);
@@ -145,7 +144,7 @@ export class ApiService {
   updatePendTxn(data: MgCmerchUpdateTxnPendReq) {
     return this.api.post('updatePendTxn', data);
   }
-  test(){
-    return this.api.postMerch('updatePendTxn','test');
+  test() {
+    return this.api.postMerch('updatePendTxn', 'test');
   }
 }
