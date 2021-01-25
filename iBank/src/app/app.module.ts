@@ -62,6 +62,7 @@ import { AddUserComponent } from './main/fragments/add-user/add-user.component';
 import { PasswordCreateComponent } from './main/fragments/password-create/password-create.component';
 import { ChangePinComponent } from './main/fragments/change-pin/change-pin.component';
 import { ForgetPinComponent } from './main/fragments/forget-pin/forget-pin.component';
+import { CurrencyInfoComponent } from './main/modules/currency-info/currency-info.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -107,6 +108,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     PasswordCreateComponent,
     ChangePinComponent,
     ForgetPinComponent,
+    CurrencyInfoComponent,
   ],
   imports: [
     BrowserModule,
