@@ -13,6 +13,7 @@ export enum DialogType {
     password,
     location,
     addUser,
+    qr,
     createPassword
 }
 

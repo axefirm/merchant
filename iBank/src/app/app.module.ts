@@ -55,6 +55,9 @@ import { PasswordChangeComponent } from './main/fragments/password-change/passwo
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-verify.component';
 import { AddLocationComponent } from './main/fragments/add-location/add-location.component';
+import { QrDownloadComponent } from './main/fragments/qr-download/qr-download.component';
+import { RegisterIdDirective } from './core/directive/register-id.directive';
+
 import { MatRadioModule } from '@angular/material/radio';
 import { TransactionResultComponent } from './main/pages/transaction-result/transaction-result.component';
 import { EncrService } from './core/services/enc.service';
@@ -103,6 +106,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     AddLocationComponent,
     TransactionResultComponent,
     AddUserComponent,
+    QrDownloadComponent,
+    RegisterIdDirective,
     AddLocationComponent,
     DialogComponent,
     PasswordCreateComponent,
