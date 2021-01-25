@@ -162,7 +162,7 @@ export class HttpService {
           }
         }),
         {
-          headers: headers
+          headers: headers, withCredentials: true
         }
       )
       .pipe(catchError(err => this.convertError(err)));

@@ -9,11 +9,10 @@ import { EncrService } from 'src/app/core/services/enc.service';
 import { JSEncrypt } from 'jsencrypt';
 import { MgCredForgetReq } from 'src/app/core/model/forgetPin';
 import { TranslateService } from '@ngx-translate/core';
-import { eCredStatus } from 'src/app/core/model/const';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/core/services/shared.service';
 import { MgCmerchSelectMerchCustReq } from 'src/app/core/model/payment/selectMerchCus';
-import { ConsoleReporter } from 'jasmine';
+import { MgCmerchGetMerchCustRes } from 'src/app/core/model/payment/getMerchCust';
 
 interface Carousel {
   title: string;
@@ -35,8 +34,6 @@ interface Carousel {
   ]
 })
 export class WelcomeComponent implements OnInit {
-
-  browserLang: string = sessionStorage.getItem('lang') ? sessionStorage.getItem('lang') : 'mn';
   constructor(private formBuilder: FormBuilder, private api: ApiService, protected http: HttpClient, private encr: EncrService, private translate: TranslateService, private router: Router, private service: SharedService) { }
 
   //Carousal related
@@ -49,6 +46,7 @@ export class WelcomeComponent implements OnInit {
   main: FormGroup;
   loginRes: MgLoginRes;
 
+  selectRes: MgCmerchGetMerchCustRes;
   carousels: Carousel[] = [
     {
       title: "iBanking platform1",
@@ -95,15 +93,28 @@ export class WelcomeComponent implements OnInit {
       encrypt.setPublicKey(data);
       encrypted = encrypt.encrypt(this.main.value.password);
       console.log(encrypted);
-      const loginData = new MgLoginReq(this.main.value.useramount, encrypted, "51e2f9337d57eea3", "MNGC-MPS92", "172.16.116.92"
+      const loginData = new MgLoginReq(this.main.value.useramount, encrypted, "51e232f9337d57eea3", "MNGC-MPS92", "172.16.116.92"
         , "6EB20E499328", "IOS", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", 60, "MN", 0, 0, "", "2021010817121800", 0, 0, 0, "");
       console.log(loginData);
       this.api.login(loginData).subscribe(data => {
         console.log(data);
+      })
+    })
+
+    // const req = new MgCmerchCheckUnreadSmartReq("1234");
+    // this.api.checkUnreadSmart(req).subscribe(data => {
+    //   console.log(data);
+    // })
+  }
+  forget() {
+    var req = new MgCredForgetReq();
+    req.loginCode = "99077339";
+    req.chnlType = "УИ99251234";
+    this.api.forgetPin(req).subscribe(data => {
+      console.log(data);
         this.loginRes = data as MgLoginRes;
         this.checkRes();
       })
-    })
 
     // const req = new MgCmerchCheckUnreadSmartReq("1234");
     // this.api.checkUnreadSmart(req).subscribe(data => {
@@ -114,6 +125,9 @@ export class WelcomeComponent implements OnInit {
   changeLang() {
     console.log(this.browserLang);
     this.translate.use('mn');
+  }
+  browserLang(browserLang: any) {
+    throw new Error('Method not implemented.');
   }
 
   checkRes() {
@@ -134,19 +148,16 @@ export class WelcomeComponent implements OnInit {
         console.log("selectMerchCust");
         this.api.selectMerchCust(req).subscribe(data => {
           console.log(data);
+          this.selectRes = data as MgCmerchGetMerchCustRes;
+          if (this.selectRes.responseCode == 0) {
+
+          } else if (this.selectRes.responseCode == 41607880) {
+            this.router.navigate(['register', { status: 'enroll' }]);
+          }
         })
     }
   }
 
-  forget() {
-    this.page = 2;
-    // var req = new MgCredForgetReq();
-    // req.loginCode = "99077339";
-    // req.chnlType = "УИ99251234";
-    // this.api.forgetPin(req).subscribe(data => {
-    //   console.log(data);
-    // })
-  }
 
   updateOnMain(onMain): void {
     this.service.onMainEvent.emit(onMain);

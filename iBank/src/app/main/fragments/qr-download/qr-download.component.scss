@@ -1,0 +1,55 @@
+@import "../../../utilities/variables.scss";
+@import "../../../../app/../styles.scss";
+
+
+// ul
+.cont
+{
+    overflow: hidden;
+}
+ul {
+    display: grid;
+    grid-template-columns: 10rem 14rem;
+    list-style-type: none;
+    margin-left: -40px;
+   
+   }
+   
+   li {
+    
+    align-self: center;
+   }
+   .info {
+       color: $gray;
+       font-family: SF-Pro-Display;
+       
+   }
+
+//qrcode
+
+.qrcode {
+    display: grid;
+    justify-items: center;
+}
+//button 
+.action {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 2rem;
+    
+}
+.action > button {
+    border-radius: 8px;
+    width: 95%;
+    align-items: center;
+}
+.action > button:nth-child(even) {
+    justify-self: end;
+}
+.action > button:nth-child(odd) {
+    justify-self: start;
+}
+.cancel {
+    background-color: $lightgray;
+}
+

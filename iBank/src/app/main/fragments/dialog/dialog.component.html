@@ -1,4 +1,4 @@
-<div  class="title">{{data.title}}  </div>
+<div class="title">{{data.title}} </div>
 
 <mat-dialog-content>
     <ng-container *ngIf="data.type == test.password">
@@ -13,5 +13,10 @@
     <ng-container *ngIf="data.type == test.createPassword">
         <app-password-create></app-password-create>
     </ng-container>
+
+  <ng-container *ngIf="data.type == test.qr">
+      <app-qr-download [qrListItem]='this.qrRes'></app-qr-download>
+  </ng-container>
+
 
 </mat-dialog-content>

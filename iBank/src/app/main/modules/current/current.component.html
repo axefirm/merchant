@@ -13,12 +13,12 @@
         Show all accounts
       </span>
       <ng-container *ngIf="isHide">
-        <app-card-slider></app-card-slider>
+        <app-card-slider [accounts]="accountRes"></app-card-slider>
       </ng-container>
 
       <ng-container *ngIf="!isHide">
-        <ng-container *ngFor="let slide of [].constructor(3); let i = index">
-          <app-card></app-card>
+        <ng-container *ngFor="let accountItem of accountRes; let i = index">
+          <app-card [account]="accountItem"></app-card>
         </ng-container>
       </ng-container>
     </div>
@@ -32,10 +32,16 @@
     </div>
   </div>
   <div class="list">
-    <mat-tab-group>
-      <mat-tab label="All transactions">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
 
+
+    <mat-tab-group>
+
+
+      <mat-tab label="All transactions">
+        
+        <div class="table-container">
+        <table mat-table [dataSource]="transactionRes" class="mat-elevation-z8">
           <ng-container matColumnDef="bankamount">
             <th mat-header-cell *matHeaderCellDef> Bank name/Correspondent name </th>
             <td mat-cell *matCellDef="let element">
@@ -43,10 +49,10 @@
                 <img src="./../../../../assets/img/xac.png" alt="" class="fiIcon">
                 <div style="padding-left: 1rem;">
                   <div class="bankName" style="color: black;">
-                    {{element.bankName}}
+                    {{element.fiName}}
                   </div>
                   <div class="desc">
-                    {{element.correspondentName}}
+                    {{element.srcCustName}}
                   </div>
                 </div>
               </div>
@@ -57,7 +63,7 @@
             <th mat-header-cell *matHeaderCellDef> Amount </th>
             <td mat-cell *matCellDef="let element">
               <div class="outcome" [ngClass]="{'income': test === false}">
-                ₮{{element.amount}}
+                ₮{{element.txnAmt}}
               </div>
             </td>
           </ng-container>
@@ -66,17 +72,17 @@
             <th mat-header-cell *matHeaderCellDef> Account number/Description </th>
             <td mat-cell *matCellDef="let element">
               <div class="bankName">
-                {{element.accountNo}}
+                {{element.dstAcntCode}}
               </div>
               <div class="desc">
-                {{element.description}}
+                {{element.txnDesc}}
               </div>
             </td>
           </ng-container>
 
           <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.txnDate}} </td>
           </ng-container>
 
           <ng-container matColumnDef="symbol">
@@ -86,10 +92,12 @@
             </td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
 
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+      </div>
+
       </mat-tab>
 
     </mat-tab-group>

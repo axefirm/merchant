@@ -23,7 +23,7 @@ import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-v
   imports: [RouterModule.forRoot([
     { path: '', component: WelcomeComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'register', component: RegisterComponent },
+    { path: 'register', component: RegisterComponent,},
     // {path: 'dashboard', component: DashboardComponent},
     { path: 'settings', component: SettingsComponent },
     { path: 'settings/general', component: SettingsGeneralComponent },
@@ -34,11 +34,11 @@ import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-v
     { path: 'report', component: ReportComponent },
     { path: 'qr', component: QrCodeComponent },
     { path: 'notification', component: NotificationComponent },
-    { path: 'location', component: LocationComponent},
-    { path: 'settings/verify', component: SettingsVerifyComponent},
+    { path: 'location', component: LocationComponent },
+    { path: 'settings/verify', component: SettingsVerifyComponent },
     { path: 'transaction/result', component: TransactionResultComponent },
 
-], { relativeLinkResolution: 'legacy' })],
+  ], { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

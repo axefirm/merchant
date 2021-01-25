@@ -1,3 +1,19 @@
-agm-map {
-  height: 100%;
-}
+.map-container {
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  flex:1; 
+  overflow: hidden;  
+  }
+  .main-container {
+    display: flex;
+    overflow:hidden;
+
+  }
+  ::ng-deep .mapboxgl-marker  {
+    background-image: url('../../../../assets/img/marker.svg');
+    background-size: cover;
+    width: 120px;
+    height: 50px;
+    cursor: pointer;
+  }

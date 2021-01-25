@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogType } from 'src/app/core/model/const';
+import { MgCmerchGetListData } from 'src/app/core/model/payment/getMerchantQrList';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-qr-list-item',
@@ -7,12 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QrListItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() qrListItem: MgCmerchGetListData;
+  constructor(public dialog: MatDialog) { }
+  width: number;
 
   ngOnInit(): void {
+    if (window.innerWidth >= 768) {
+      this.width = 60;
+    } else {
+      this.width = 30;
+    }
   }
-  
-  open(){
-    console.log("test");
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogComponent, { data: { type: DialogType.qr, value: this.qrListItem, title: "Download QR code " } },
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
+
+
+
 }
+

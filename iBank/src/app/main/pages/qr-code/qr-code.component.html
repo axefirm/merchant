@@ -1,15 +1,17 @@
 <div class="main">
-    <div class="main-header">
-      <img class="icon" src="assets/img/logo.png">
-      <div class="grid-2">
-        <div class="main-header-label">{{ "qrCode" | translate }}</div>
-        <div class="balance">
-          <img src="assets/img/icon.png">ArdCoin balance: 5,000
-        </div>
+  <div class="main-header">
+    <img class="icon" src="assets/img/logo.png">
+    <div class="grid-2">
+      <div class="main-header-label">{{ "qrCode" | translate }}</div>
+      <div class="balance">
+        <img src="assets/img/icon.png">ArdCoin balance: 5,000
       </div>
     </div>
-      <app-qr-list-item></app-qr-list-item>
-      <app-qr-list-item></app-qr-list-item>
-      <app-qr-list-item></app-qr-list-item>
   </div>
-  
+  <div>
+    <ng-container *ngFor="let qrList of qrListRes" >
+      <app-qr-list-item [qrListItem]="qrList"></app-qr-list-item>
+    </ng-container>
+  </div>
+</div>
+

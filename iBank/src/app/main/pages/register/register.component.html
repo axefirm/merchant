@@ -1,5 +1,6 @@
 <div style="height: 75%; margin-top: 3rem;">
   <div class="carousel">
+    
     <div *ngIf="indicator == 0" [@myAnimation] class="container">
       <title class="align-center title">
         Create new account
@@ -41,6 +42,8 @@
         <button mat-raised-button color="warn" (click)="checkTan()" class="button">Next</button>
       </div>
     </div>
+
+
     <div *ngIf="indicator == 2" [@myAnimation] class="container">
       <title class="align-center title">
         Create new account
