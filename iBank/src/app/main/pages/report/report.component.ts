@@ -20,7 +20,7 @@ export interface TransactionRefference {
   senderNo: string;
 }
 
-const ELEMENT_DATA1: TransactionRefference[] = [
+const ELEMENT_DATA2: TransactionRefference[] = [
   {
     bankName: 'XacBank',
     amount: '6000',
@@ -45,7 +45,7 @@ export interface Transaction {
   date: string;
 }
 
-const ELEMENT_DATA2: Transaction[] = [
+const ELEMENT_DATA1: Transaction[] = [
   {
     bankName: 'XacBank',
     amount: '6000',
@@ -96,6 +96,7 @@ export class ReportComponent implements OnInit {
   test = true;
 
   main: FormGroup;
+  campaignOne: FormGroup;
 
   ngOnInit(): void {
     this.main = this.formBuilder.group({
