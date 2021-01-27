@@ -5,6 +5,9 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogType } from 'src/app/core/model/const';
+import { DialogComponent } from '../../fragments/dialog/dialog.component';
 
 export interface TransactionRefference {
   amount: string;
@@ -30,9 +33,9 @@ const ELEMENT_DATA2: TransactionRefference[] = [
     description: 'Vodka',
     status: 'Successful',
     type: 'qPos',
-    senderName: "Enkhbayar",
-    senderNo: "5000611662",
-    trNumber: "25001456",
+    senderName: 'Enkhbayar',
+    senderNo: '5000611662',
+    trNumber: '25001456',
   },
 ];
 
@@ -86,10 +89,18 @@ const ELEMENT_DATA1: Transaction[] = [
   styleUrls: ['./report.component.scss'],
 })
 export class ReportComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {}
 
   displayedColumns: string[] = ['bankamount', 'amount', 'acntNo', 'date'];
-  displayedColumns2: string[] = ['bank', 'status', 'date', 'type', 'sender', 'account', 'amount'];
+  displayedColumns2: string[] = [
+    'bank',
+    'status',
+    'date',
+    'type',
+    'sender',
+    'account',
+    'amount',
+  ];
   dataSource = ELEMENT_DATA1;
   data2Source = ELEMENT_DATA2;
 
@@ -102,6 +113,18 @@ export class ReportComponent implements OnInit {
     this.main = this.formBuilder.group({
       useramount: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
+      dateStart: new FormControl('', [Validators.required]),
+      dateEnd: new FormControl('', [Validators.required]),
+    });
+  }
+
+  openDialogReportFilter() {
+    let dialogRef = this.dialog.open(DialogComponent, {
+      data: { type: DialogType.reportFilter, title: 'Filter' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 }

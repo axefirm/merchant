@@ -1,5 +1,5 @@
 @import "../../../utilities/variables.scss";
-@import "../../../../app/../styles.scss";
+// @import "../../../../app/../styles.scss";
 
 div{
     white-space: nowrap;
@@ -9,14 +9,11 @@ div{
 .grid-pass {
     display: grid;
     grid-template-columns: 8rem 14rem;
-    justify-items: start;
-    align-items: center;
-    margin-top: 1rem;
-   
 }
-.grid-pass > div {
-    justify-items: start;
-    height: 1.5rem;
+
+.select{
+    margin-top: 0px;
+    // height: 2rem;
 }
 
 

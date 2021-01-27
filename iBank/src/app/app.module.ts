@@ -68,6 +68,7 @@ import { ForgetPinComponent } from './main/fragments/forget-pin/forget-pin.compo
 import { CurrencyInfoComponent } from './main/modules/currency-info/currency-info.component';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ReportFilterComponent } from './main/fragments/report-filter/report-filter.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -113,6 +114,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     AddLocationComponent,
     DialogComponent,
     PasswordCreateComponent,
+    ReportFilterComponent,
     ChangePinComponent,
     ForgetPinComponent,
     CurrencyInfoComponent,

@@ -39,7 +39,7 @@
               Download
             </button>
 
-            <button mat-flat-button color="disabled" class="top-buttons">
+            <button (click)="openDialogReportFilter()" mat-flat-button color="disabled" class="top-buttons">
               <mat-icon class="mat-icon">filter_list</mat-icon>
               Filter
             </button>
@@ -53,12 +53,12 @@
                 <input
                   matStartDate
                   placeholder="Start date"
-                  formControlName="start"
+                  formControlName="dateStart"
                 />
                 <input
                   matEndDate
                   placeholder="End date"
-                  formControlName="end"
+                  formControlName="dateEnd"
                 />
               </mat-date-range-input>
               <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
@@ -147,7 +147,7 @@
               Download
             </button>
 
-            <button mat-flat-button color="disabled" class="top-buttons">
+            <button (click)="openDialogReportFilter()" mat-flat-button color="disabled" class="top-buttons">
               <mat-icon class="mat-icon">filter_list</mat-icon>
               Filter
             </button>
@@ -161,12 +161,12 @@
                 <input
                   matStartDate
                   placeholder="Start date"
-                  formControlName="start"
+                  formControlName="dateStart"
                 />
                 <input
                   matEndDate
                   placeholder="End date"
-                  formControlName="end"
+                  formControlName="dateEnd"
                 />
               </mat-date-range-input>
               <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
