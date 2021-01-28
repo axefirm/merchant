@@ -8,12 +8,17 @@ div{
 
 .grid-pass {
     display: grid;
-    grid-template-columns: 8rem 14rem;
+    grid-template-columns: 8rem 12rem;
+    margin-top: 1rem;
 }
 
 .select{
     margin-top: 0px;
     // height: 2rem;
+}
+
+::ng-deep .mat-select-value-text {
+    font-weight: normal;
 }
 
 

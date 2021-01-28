@@ -39,29 +39,42 @@
               Download
             </button>
 
-            <button (click)="openDialogReportFilter()" mat-flat-button color="disabled" class="top-buttons">
+            <button
+              (click)="openDialogReportFilter()"
+              mat-flat-button
+              color="disabled"
+              class="top-buttons"
+            >
               <mat-icon class="mat-icon">filter_list</mat-icon>
               Filter
             </button>
 
             <mat-form-field appearance="outline" floatLabel="never">
-              <mat-label class="data-picker-label">
-                <mat-icon class="mat-icon">calendar_today</mat-icon> Date
-                range</mat-label
+              <mat-label class="data-picker-label">Date range</mat-label>
+              <mat-date-range-input
+                [formGroup]="statementDate"
+                [rangePicker]="statementDatePicker"
+                [comparisonStart]="statementDate.value.start"
+                [comparisonEnd]="statementDate.value.end"
               >
-              <mat-date-range-input [rangePicker]="campaignOnePicker">
                 <input
                   matStartDate
                   placeholder="Start date"
-                  formControlName="dateStart"
+                  formControlName="start"
                 />
                 <input
                   matEndDate
                   placeholder="End date"
-                  formControlName="dateEnd"
+                  formControlName="end"
                 />
               </mat-date-range-input>
-              <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+              <mat-datepicker-toggle
+                matPrefix
+                [for]="statementDatePicker"
+              ></mat-datepicker-toggle>
+              <mat-date-range-picker
+                #statementDatePicker
+              ></mat-date-range-picker>
             </mat-form-field>
           </div>
           <table
@@ -82,11 +95,11 @@
                     class="fiIcon"
                   />
                   <div style="padding-left: 1rem">
-                    <div class="bankName" style="color: black">
-                      {{ element.bankName }}
+                    <div class="" style="color: black">
+                      {{ element.fiName }}
                     </div>
-                    <div class="desc">
-                      {{ element.correspondentName }}
+                    <div class="">
+                      {{ element.srcCustId }}
                     </div>
                   </div>
                 </div>
@@ -97,7 +110,7 @@
               <th mat-header-cell *matHeaderCellDef>Amount</th>
               <td mat-cell *matCellDef="let element">
                 <div class="outcome" [ngClass]="{ income: test === false }">
-                  ₮{{ element.amount }}
+                  ₮{{ element.txnAmt }}
                 </div>
               </td>
             </ng-container>
@@ -107,18 +120,18 @@
                 Account number/Description
               </th>
               <td mat-cell *matCellDef="let element">
-                <div class="bankName">
-                  {{ element.accountNo }}
+                <div class="bold">
+                  {{ element.srcAcntCode }}
                 </div>
-                <div class="desc">
-                  {{ element.description }}
+                <div class="">
+                  {{ element.txnDesc }}
                 </div>
               </td>
             </ng-container>
 
             <ng-container matColumnDef="date">
               <th mat-header-cell *matHeaderCellDef>Date</th>
-              <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+              <td mat-cell *matCellDef="let element">{{ element.txnDate }}</td>
             </ng-container>
 
             <ng-container matColumnDef="symbol">
@@ -147,32 +160,51 @@
               Download
             </button>
 
-            <button (click)="openDialogReportFilter()" mat-flat-button color="disabled" class="top-buttons">
+            <button
+              (click)="openDialogReportFilter()"
+              mat-flat-button
+              color="disabled"
+              class="top-buttons"
+            >
               <mat-icon class="mat-icon">filter_list</mat-icon>
               Filter
             </button>
 
             <mat-form-field appearance="outline" floatLabel="never">
-              <mat-label class="data-picker-label">
-                <mat-icon class="mat-icon">calendar_today</mat-icon> Date
-                range</mat-label
+              <mat-label class="data-picker-label">Date range</mat-label>
+              <mat-date-range-input
+                [formGroup]="referenceDate"
+                [rangePicker]="referenceDatePicker"
+                [comparisonStart]="referenceDate.value.start"
+                [comparisonEnd]="referenceDate.value.end"
               >
-              <mat-date-range-input [rangePicker]="campaignOnePicker">
                 <input
                   matStartDate
                   placeholder="Start date"
-                  formControlName="dateStart"
+                  formControlName="start"
                 />
                 <input
                   matEndDate
                   placeholder="End date"
-                  formControlName="dateEnd"
+                  formControlName="end"
                 />
               </mat-date-range-input>
-              <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+              <mat-datepicker-toggle
+                matPrefix
+                [for]="referenceDatePicker"
+              ></mat-datepicker-toggle>
+              <mat-date-range-picker
+                #referenceDatePicker
+              ></mat-date-range-picker>
             </mat-form-field>
+
           </div>
-          <table mat-table [dataSource]="data2Source" class="table" style="margin-top: -20px;">
+          <table
+            mat-table
+            [dataSource]="dataSource"
+            class="table"
+            style="margin-top: -20px"
+          >
             <ng-container matColumnDef="bank">
               <th mat-header-cell *matHeaderCellDef>Bank</th>
               <td mat-cell *matCellDef="let element">
@@ -189,41 +221,41 @@
             <ng-container matColumnDef="status">
               <th mat-header-cell *matHeaderCellDef>Number/Status</th>
               <td mat-cell *matCellDef="let element">
-                <div class="status">
-                  {{ element.status }}
+                <div class="bold">
+                  {{ element.txnId }}
                 </div>
-                <div class="number">
-                  {{ element.trNumber }}
+                <div class="">
+                  {{ element.status }}
                 </div>
               </td>
             </ng-container>
 
             <ng-container matColumnDef="date">
               <th mat-header-cell *matHeaderCellDef>Date</th>
-              <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+              <td mat-cell *matCellDef="let element">{{ element.txnDate }}</td>
             </ng-container>
 
             <ng-container matColumnDef="type">
               <th mat-header-cell *matHeaderCellDef>Transaction type</th>
-              <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+              <td mat-cell *matCellDef="let element">{{ element.chnlType }}</td>
             </ng-container>
 
             <ng-container matColumnDef="sender">
               <th mat-header-cell *matHeaderCellDef>Sender number/name</th>
               <td mat-cell *matCellDef="let element">
-                <div class="senderName">{{ element.senderName }}</div>
-                <div class="senderNo">{{ element.senderNo }}</div>
+                <div class="bold">{{ element.srcAcntCode }}</div>
+                <div class="">{{ element.srcCustName }}</div>
               </td>
             </ng-container>
 
             <ng-container matColumnDef="account">
               <th mat-header-cell *matHeaderCellDef>Account number/name</th>
               <td mat-cell *matCellDef="let element">
-                <div class="bankName">
-                  {{ element.accountName }}
+                <div class="bold">
+                  {{ element.dstAcntCode }}
                 </div>
                 <div class="">
-                  {{ element.accountNo }}
+                  {{ element.srcCustName }}
                 </div>
               </td>
             </ng-container>
@@ -231,11 +263,11 @@
             <ng-container matColumnDef="amount">
               <th mat-header-cell *matHeaderCellDef>Amount</th>
               <td mat-cell *matCellDef="let element">
-                <div class="amount">
-                  {{ element.amount }}
+                <div class="" [ngClass]="{ income: test === false }">
+                  ₮{{ element.txnAmt }}
                 </div>
-                <div class="description">
-                  {{ element.description }}
+                <div class="">
+                  {{ element.txnDesc }}
                 </div>
               </td>
             </ng-container>
