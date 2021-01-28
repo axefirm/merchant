@@ -1,0 +1,53 @@
+@import "../../../utilities/variables.scss";
+// @import "../../../../app/../styles.scss";
+
+div{
+    white-space: nowrap;
+    color: $gray;
+}
+
+.grid-pass {
+    display: grid;
+    grid-template-columns: 8rem 14rem;
+}
+
+.select{
+    margin-top: 0px;
+    // height: 2rem;
+}
+
+
+.input
+{
+    border-style: solid;
+    border-color: #e9eaea;
+    border-width: 1px;
+    border-radius: 8px;
+    width: 100%;
+    background-color: $lightgray;
+    padding-left: 10px;
+    
+}
+.form-action {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 2rem;
+    
+}
+.form-action > button {
+    border-radius: 8px;
+    width: 95%;
+    
+    align-items: center;
+    
+    
+}
+.form-action > button:nth-child(even) {
+    justify-self: end;
+}
+.form-action > button:nth-child(odd) {
+    justify-self: start;
+}
+.cancel {
+    background-color: $lightgray;
+}

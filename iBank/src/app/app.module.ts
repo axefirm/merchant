@@ -69,6 +69,9 @@ import { ChangePinComponent } from './main/fragments/change-pin/change-pin.compo
 import { ForgetPinComponent } from './main/fragments/forget-pin/forget-pin.component';
 import { CurrencyInfoComponent } from './main/modules/currency-info/currency-info.component';
 import { PendingTransferComponent } from './main/fragments/pending-transfer/pending-transfer.component';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ReportFilterComponent } from './main/fragments/report-filter/report-filter.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -114,6 +117,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     AddLocationComponent,
     DialogComponent,
     PasswordCreateComponent,
+    ReportFilterComponent,
     ChangePinComponent,
     ForgetPinComponent,
     CurrencyInfoComponent,
@@ -135,6 +139,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     MatTableModule,
     MatSlideToggleModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule,
     MatDialogModule,
     NgApexchartsModule,
@@ -152,7 +158,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     //   apiKey: 'AIzaSyAcnGd_6PbPDf9AqEcnhk8EeWFNUKPDyXQ'
     // })
   ],
-  providers: [EncrService],
+  providers: [EncrService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

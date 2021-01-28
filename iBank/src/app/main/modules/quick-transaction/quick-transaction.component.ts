@@ -9,7 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class QuickTransactionComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,) { }
-
+  
  
   main: FormGroup;
 

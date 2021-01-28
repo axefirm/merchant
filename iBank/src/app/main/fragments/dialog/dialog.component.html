@@ -13,6 +13,9 @@
     <ng-container *ngIf="data.type == test.createPassword">
         <app-password-create></app-password-create>
     </ng-container>
+    <ng-container *ngIf="data.type == test.reportFilter">
+        <app-report-filter></app-report-filter>
+    </ng-container>
 
   <ng-container *ngIf="data.type == test.qr">
       <app-qr-download [qrListItem]='this.qrRes'></app-qr-download>

@@ -4,6 +4,9 @@
   </div>
   <mat-tab-group dynamicHeight mat-align-tabs="start" disableRipple="true" animationDuration="0ms">
     <mat-tab label="Bank">
+     
+     
+
       <mat-form-field appearance="outline" floatLabel="never" class="full-width">
         <span matPrefix style="margin-top: -2px;">From &nbsp;&nbsp;</span>
         <mat-select>
@@ -14,11 +17,26 @@
         <mat-form-field appearance="outline" color="primary">
           <input matInput placeholder="Receivers account" formControlName="useramount">
         </mat-form-field>
-        <mat-form-field appearance="outline" floatLabel="never">
+        <!-- bank icon select -->
+
+        <!-- <mat-form-field appearance="outline"  class="iconChanger"  >
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           <mat-select>
-            <mat-option value="option">5000611662</mat-option>
+            <mat-option value="xac"> </mat-option>
+            <mat-option value="xac"> </mat-option>
+            <mat-option value="xac"> <img src="../../../../assets/img/xac.png" alt=""></mat-option>
           </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
+        
+        <div class="dropdown">
+          <div class="bankIcon"> <img src="../../../../assets/img/xac.png" alt=""></div>
+          <div class="iconList">
+            <div value=""><img src="../../../../assets/img/xac.png" alt=""></div>
+            <div value=""><img src="../../../../assets/img/xac.png" alt=""></div>
+            <div value=""><img src="../../../../assets/img/xac.png" alt=""></div>
+          </div>
+        </div>
+
       </div>
       <mat-form-field appearance="outline" color="primary" class="full-width">
         <input matInput placeholder="Receivers amount" formControlName="useramount">

@@ -39,8 +39,6 @@ export class TransferComponent implements OnInit {
 
 
   test = true;
-
-  test1: boolean;
   arrayCheckBoxList: Array<Boolean> = [];
   main: FormGroup;
   myarray: Array<MgCmerchPendTxn> = [];
@@ -57,10 +55,11 @@ export class TransferComponent implements OnInit {
     }
 
     console.log(this.myarray);
-    queryParams.myArray = JSON.stringify(this.myarray);
+    queryParams.param = this.myarray;
     // queryParams = queryParams.substring(1, queryParams.length() -1 );
-    this.dataService.data = queryParams;
-    console.log(queryParams);
+    this.dataService.data = JSON.stringify(queryParams);
+
+    console.log(queryParams.myArray);
     this.router.navigate(['/transaction/approval']);
   }
 
