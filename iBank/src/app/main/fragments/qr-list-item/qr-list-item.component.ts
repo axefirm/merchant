@@ -17,7 +17,7 @@ export class QrListItemComponent implements OnInit {
 
   ngOnInit(): void {
     if (window.innerWidth >= 768) {
-      this.width = 60;
+      this.width = 50;
     } else {
       this.width = 30;
     }

@@ -1,0 +1,73 @@
+<div class="main">
+  <div class="main-header">
+    <img class="icon" src="assets/img/logo.png">
+    <div class="grid-2">
+      <div class="main-header-label">{{ "pendingTransferApproval" | translate }}</div>
+      <div class="balance">
+        <img src="assets/img/icon.png">ArdCoin balance: 5,000
+      </div>
+    </div>
+  </div>
+  <div class="main-container">
+      
+    <table mat-table [dataSource]="a" class="mat-elevation-z0">
+      <!-- bankamount Column -->
+      <ng-container matColumnDef="bankamount">
+        <th mat-header-cell *matHeaderCellDef> Bank name/Correspondent name </th>
+        <td mat-cell *matCellDef="let element">
+          <div class="inline">
+            <img src="./../../../../assets/img/xac.png" alt="" class="fiIcon">
+            <div style="padding-left: 1rem;">
+              <div class="bankName" style="color: black;">
+                {{element.dstFiCode}}
+              </div>
+              <div class="desc">
+                {{element.dstAcntName}}
+              </div>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Amount Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Amount </th>
+        <td mat-cell *matCellDef="let element">
+          <div class="outcome" [ngClass]="{'income': test === false}">
+            ₮{{element.txnAmt}}
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Account number/Description -->
+      <ng-container matColumnDef="acntNo">
+        <th mat-header-cell *matHeaderCellDef> Account number/Description </th>
+        <td mat-cell *matCellDef="let element">
+          <div class="bankName">
+            {{element.dstAcntId}}
+          </div>
+          <div class="desc">
+            {{element.acntCode}}
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.pendId}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="grid-2">
+      <span></span>
+      <div class="grid-2" style="width: 50%; grid-gap: 10px;">
+        <button mat-flat-button color="primary" class="full-width">Cancel</button>
+        <button mat-flat-button color="warn" class="full-width">Next</button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -23,8 +23,9 @@
     <div class="amount">
       Download QR
     </div>
-    <div class="value" (click)="openDialog()">
-      <qr-code elementType="img" value="{{qrListItem.qrCode}}" size="{{width}}" errorCorrectionLevel="M"></qr-code>
+    <div class="value qr" (click)="openDialog()">
+      <div class="border"></div>
+      <qr-code class="qrcode" elementType="img" value="{{qrListItem.qrCode}}" size="{{width}}" errorCorrectionLevel="M"></qr-code>
     </div>
   </div>
 </div>

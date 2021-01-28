@@ -30,7 +30,20 @@ ul {
 .qrcode {
     display: grid;
     justify-items: center;
+    position: relative;
+
 }
+
+.border {
+    position: absolute;
+    border-width: 2px;
+    border-style: solid;
+    height: 235px;
+    width: 235px;
+    margin: 32px;
+    margin-left: 34px;
+    z-index: 2;
+  }
 //button 
 .action {
     display: grid;

@@ -18,12 +18,13 @@ import { TransactionResultComponent } from './main/pages/transaction-result/tran
 // bilguun 
 import { LocationComponent } from './main/pages/location/location.component';
 import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-verify.component';
+import { PendingTransferComponent } from './main/fragments/pending-transfer/pending-transfer.component';
 
 @NgModule({
   imports: [RouterModule.forRoot([
     { path: '', component: WelcomeComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'register', component: RegisterComponent,},
+    { path: 'register', component: RegisterComponent, },
     // {path: 'dashboard', component: DashboardComponent},
     { path: 'settings', component: SettingsComponent },
     { path: 'settings/general', component: SettingsGeneralComponent },
@@ -37,7 +38,7 @@ import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-v
     { path: 'location', component: LocationComponent },
     { path: 'settings/verify', component: SettingsVerifyComponent },
     { path: 'transaction/result', component: TransactionResultComponent },
-
+    { path: 'transaction/approval', component: PendingTransferComponent }
   ], { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })

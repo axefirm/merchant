@@ -41,6 +41,8 @@ import { ReportComponent } from './main/pages/report/report.component';
 import { NotificationComponent } from './main/pages/notification/notification.component';
 import { LocationComponent } from './main/pages/location/location.component';
 import { QrListItemComponent } from './main/fragments/qr-list-item/qr-list-item.component';
+
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CardComponent } from './main/fragments/card/card.component';
 import { QrCodeModule } from 'ng-qrcode';
@@ -66,6 +68,7 @@ import { PasswordCreateComponent } from './main/fragments/password-create/passwo
 import { ChangePinComponent } from './main/fragments/change-pin/change-pin.component';
 import { ForgetPinComponent } from './main/fragments/forget-pin/forget-pin.component';
 import { CurrencyInfoComponent } from './main/modules/currency-info/currency-info.component';
+import { PendingTransferComponent } from './main/fragments/pending-transfer/pending-transfer.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -114,6 +117,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     ChangePinComponent,
     ForgetPinComponent,
     CurrencyInfoComponent,
+    PendingTransferComponent,
   ],
   imports: [
     BrowserModule,
@@ -135,6 +139,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     MatDialogModule,
     NgApexchartsModule,
     QrCodeModule,
+    MatCheckboxModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
