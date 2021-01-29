@@ -14,7 +14,8 @@ export enum DialogType {
     location,
     addUser,
     qr,
-    createPassword,
+    createPinDialog,
+    changePinDialog,
     reportFilter,
 }
 

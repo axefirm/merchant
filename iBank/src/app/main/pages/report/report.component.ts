@@ -14,53 +14,52 @@ import {
 import { ApiService } from 'src/app/core/services/api.service';
 import { DialogComponent } from '../../fragments/dialog/dialog.component';
 
-
 //place holders start/////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 const ELEMNT_DATA1_EX: MgCmerchInqAcntTranRefData = new MgCmerchInqAcntTranRefData(
-  0,
-  'txnDate',
-  0,
-  'txnCur',
-  'txnDesc',
-  'chnlType ',
-  'chnlTypeName ',
-  'chnlTypeName2 ',
-  'fiCode ',
-  'fiName ',
-  'fiName2 ',
-  'fiIcon ',
-  'srcFiCode ',
-  'srcFiName ',
-  'srcFiName2 ',
-  'srcFiBrief ',
-  'srcFiBrief2 ',
-  'srcFiIcon ',
-  'dstFiCode ',
-  'dstFiName ',
-  'dstFiName2 ',
-  'dstFiBrief ',
-  'dstFiBrief2 ',
-  'dstFiIcon ',
-  'srcCustId ',
-  'srcCustName ',
-  'srcCustName2 ',
-  'dstCustId ',
-  'dstCustName ',
-  'dstCustName2 ',
-  0,
-  'srcAcntName ',
-  'srcAcntName2 ',
-  'srcAcntCode ',
-  0,
-  'dstAcntName ',
-  'dstAcntName2 ',
-  'dstAcntCode ',
-  'status ',
-  'statusName ',
-  'statusName2 '
+  1,
+  '2020-11-22',
+  1000,
+  'MNT',
+  'guilgeenii utga',
+  'suvag',
+  'suvgiin ner1',
+  ' suvgiin ner2',
+  'sanhuugiin baiguullagiin dugar',
+  'sanhuugiin baiguullagiin ner ',
+  'sanhugiin baiguullagiin ner2',
+  'ilgeesen sanhuugiin baiguullagiin icon',
+  'ilgeesen sanhuugiin baiguullagiin dugaar',
+  ' ilgeesen sanhuugiin baiguullagiin ner',
+  'ilgeesen sanhuugiin baiguullagiin ner2',
+  'ilgeesen sanhuugiin baiguullagiin brief',
+  'ilgeesen sanhuugiin baiguullagiin brief 2',
+  'ilgeesen sanhuugiin baiguullagiin icon',
+  'huleen avsan baiguullagiin dugaar',
+  'huleen avsan baiguullagiin ner',
+  ' huleen avsan baiguullagiin ner 2',
+  'huleen avsan baiguullagiin brief',
+  'huleen avsan baiguullagiin brief2',
+  'huleen avsan baiguullagiin icon',
+  'ilgeesen id',
+  'ilgeesen hereglegchiin ner',
+  'ilgeesen hereglegchiin ner2',
+  'huhuleen avsan hereglegchiin id',
+  'huleen avsan hereglegchiin ner',
+  'huleen avsan hereglegchiin ner2',
+  1234567,
+  'ilgeesen dansnii ner',
+  ' ilgeesen dansnii ner2',
+  'ilgeesen dansnii dugaar',
+  987654321,
+  'huleen avsan dansnii ner',
+  'huleen avsan dansnii ner2',
+  'hulen avsan dansnii dugaar',
+  'tuluw',
+  'tuluwiin ner',
+  'tuluwiin ner2'
 );
 const ELEMENT_DATA1: MgCmerchInqAcntTranRefData[] = [
   ELEMNT_DATA1_EX,
@@ -120,29 +119,28 @@ export class ReportComponent implements OnInit {
       // transactionNumber: new FormControl(''),
     });
     this.filterData = {
-      type: "",
-      channel: "",
-      currency: "",
-      senderNumber: "",
-      recieverNumber: "",
-      transactionNumber: "",
-    }
+      type: '',
+      channel: '',
+      currency: '',
+      senderNumber: '',
+      recieverNumber: '',
+      transactionNumber: '',
+    };
     this.statementDate = this.formBuilder.group({
-      start: new FormControl("1700-01-28T13:15:18.547Z", Validators.required),
+      start: new FormControl('1700-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
     this.referenceDate = this.formBuilder.group({
       // probably no transactions in 1700
-      start: new FormControl("1700-01-28T13:15:18.547Z", Validators.required),
+      start: new FormControl('1700-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
     this.getTranRefReportFull();
   }
 
   getTranRefReportFull() {
-
     const req = new MgCmerchGetTranRefReportReq(
-      'merch code',
+      '',
       this.filterData.type,
       this.filterData.channel,
       'status',

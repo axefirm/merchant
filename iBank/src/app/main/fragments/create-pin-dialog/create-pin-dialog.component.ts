@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-password-change',
-  templateUrl: './password-change.component.html',
-  styleUrls: ['./password-change.component.scss']
+  selector: 'app-create-pin-dialog',
+  templateUrl: './create-pin-dialog.component.html',
+  styleUrls: ['./create-pin-dialog.component.scss']
 })
-export class PasswordChangeComponent implements OnInit {
+export class CreatePinDialogComponent implements OnInit {
   hide = true;
   constructor() { }
 
