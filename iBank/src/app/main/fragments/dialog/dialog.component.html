@@ -1,24 +1,27 @@
 <div class="title">{{data.title}} </div>
 
 <mat-dialog-content>
-    <ng-container *ngIf="data.type == test.password">
-        <app-password-change></app-password-change>
-    </ng-container>
-    <ng-container *ngIf="data.type == test.location">
-        <app-add-location></app-add-location>
-    </ng-container>
-    <ng-container *ngIf="data.type == test.addUser">
-       <app-add-user></app-add-user> 
-    </ng-container>
-    <ng-container *ngIf="data.type == test.createPassword">
-        <app-password-create></app-password-create>
-    </ng-container>
-    <ng-container *ngIf="data.type == test.reportFilter">
-        <app-report-filter></app-report-filter>
-    </ng-container>
+  <ng-container *ngIf="data.type == test.password">
+    <app-password-change></app-password-change>
+  </ng-container>
+  <ng-container *ngIf="data.type == test.location">
+    <app-add-location></app-add-location>
+  </ng-container>
+  <ng-container *ngIf="data.type == test.addUser">
+    <app-add-user></app-add-user>
+  </ng-container>
+  <ng-container *ngIf="data.type == test.createPassword">
+    <app-password-create></app-password-create>
+  </ng-container>
+  <ng-container *ngIf="data.type == test.reportFilter">
+    <app-report-filter></app-report-filter>
+  </ng-container>
 
   <ng-container *ngIf="data.type == test.qr">
-      <app-qr-download [qrListItem]='this.qrRes'></app-qr-download>
+    <app-qr-download [qrListItem]='this.value'></app-qr-download>
+  </ng-container>
+  <ng-container *ngIf="data.type == test.chooseMerchant">
+    <app-choose-merchant [merchantList]='this.value'></app-choose-merchant>
   </ng-container>
 
 

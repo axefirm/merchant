@@ -11,14 +11,12 @@ export class MgCmerchEnrollMerchReq {
     registerCode: string,
     orgCustId: string,
     merchType: string,
-    orgTypeId: number,
     chnlType: string
   ) {
     this.name = name
     this.registerCode = registerCode
     this.orgCustId = orgCustId
     this.merchType = merchType
-    this.orgTypeId = orgTypeId
     this.chnlType = chnlType
   }
 

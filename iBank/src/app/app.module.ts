@@ -72,6 +72,7 @@ import { PendingTransferComponent } from './main/fragments/pending-transfer/pend
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReportFilterComponent } from './main/fragments/report-filter/report-filter.component';
+import { ChooseMerchantComponent } from './main/fragments/choose-merchant/choose-merchant.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -122,6 +123,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     ForgetPinComponent,
     CurrencyInfoComponent,
     PendingTransferComponent,
+    ChooseMerchantComponent,
   ],
   imports: [
     BrowserModule,

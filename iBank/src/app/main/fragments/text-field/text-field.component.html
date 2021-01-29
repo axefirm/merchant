@@ -1,4 +1,11 @@
 <div class="text-field-container shadow">
-  <input id="input" placeholder="{{ placeholder }}" [formControl]="controller" [maxlength]="maxlength" />
+  <ng-container *ngIf="!isSelector">
+    <input id="input" placeholder="{{ placeholder }}" [formControl]="controller" [maxlength]="maxlength" />
+  </ng-container>
+  <ng-container *ngIf="isSelector">
+    <mat-select placeholder="{{'companyType' | translate}}" (selectionChange)="selectionChange($event.value)">
+      <mat-option value="{{select.id}}" *ngFor="let select of selectorData;  index as i">{{select.name}}</mat-option>
+    </mat-select>
+  </ng-container>
   <div class="label">{{ description }}</div>
 </div>

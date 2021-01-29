@@ -16,6 +16,7 @@ export enum DialogType {
     qr,
     createPassword,
     reportFilter,
+    chooseMerchant
 }
 
 export class eCredStatus {
