@@ -1,0 +1,8 @@
+<title> Choose merchant</title>
+<form class="form">
+    <mat-form-field appearance="outline" floatLabel="never" class="full-width">
+        <mat-select  (selectionChange)="selectionChange($event.value)">
+          <mat-option *ngFor="let merchant of merchantList" [value]="merchant">{{merchant.merchName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+</form>

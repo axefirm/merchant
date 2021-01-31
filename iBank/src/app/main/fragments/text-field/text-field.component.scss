@@ -32,3 +32,13 @@ $text-color: #686868;
   width: 100%;
   color: $text-color;
 }
+
+
+mat-select{
+  height: 33px;
+}
+::ng-deep .mat-select-placeholder {
+  font-weight: bold;
+  font-size: $font-size;
+  color: #919699;
+}

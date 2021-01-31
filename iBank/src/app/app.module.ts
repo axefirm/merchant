@@ -72,6 +72,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ReportFilterComponent } from './main/fragments/report-filter/report-filter.component';
 import { CreatePinDialogComponent } from './main/fragments/create-pin-dialog/create-pin-dialog.component';
 import { ChangePinDialogComponent } from './main/fragments/change-pin-dialog/change-pin-dialog.component';
+import { ChooseMerchantComponent } from './main/fragments/choose-merchant/choose-merchant.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -122,6 +123,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     ForgetPinComponent,
     CurrencyInfoComponent,
     PendingTransferComponent,
+    ChooseMerchantComponent,
   ],
   imports: [
     BrowserModule,

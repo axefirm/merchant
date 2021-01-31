@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { MgCredChangeReq } from 'src/app/core/model/app/changePin';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class ChangePinComponent implements OnInit {
     });
   }
   changePin() {
-
+    let req =  new MgCredChangeReq('test','');
   }
 
 }

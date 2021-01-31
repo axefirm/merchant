@@ -11,8 +11,11 @@ import { MgCredForgetReq } from 'src/app/core/model/forgetPin';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/core/services/shared.service';
-import { MgCmerchSelectMerchCustReq } from 'src/app/core/model/payment/selectMerchCus';
+import { MgCmerchMerchCust, MgCmerchSelectMerchCustReq, MgCmerchSelectMerchCustRes } from 'src/app/core/model/payment/selectMerchCus';
 import { MgCmerchGetMerchCustRes } from 'src/app/core/model/payment/getMerchCust';
+import { DialogType, eCredStatus } from 'src/app/core/model/const';
+import { DialogComponent } from '../../fragments/dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 interface Carousel {
   title: string;
@@ -34,7 +37,8 @@ interface Carousel {
   ]
 })
 export class WelcomeComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder, private api: ApiService, protected http: HttpClient, private encr: EncrService, private translate: TranslateService, private router: Router, private service: SharedService) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService, protected http: HttpClient, private encr: EncrService, private translate: TranslateService,
+    private router: Router, private service: SharedService, public dialog: MatDialog,) { }
 
   //Carousal related
   indicator = 0;
@@ -43,10 +47,11 @@ export class WelcomeComponent implements OnInit {
 
   page = 0;
 
+  test = 0;
   main: FormGroup;
   loginRes: MgLoginRes;
 
-  selectRes: MgCmerchGetMerchCustRes;
+  selectRes: MgCmerchMerchCust[];
   carousels: Carousel[] = [
     {
       title: "iBanking platform1",
@@ -63,6 +68,8 @@ export class WelcomeComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.test = this.test1(this.test);
+    console.log(this.test);
     this.main = this.formBuilder.group({
       useramount: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
@@ -70,6 +77,11 @@ export class WelcomeComponent implements OnInit {
     this.intervalRequest();
   }
 
+  test1(test: number) {
+    test++;
+    console.log(test);
+    return test;
+  }
   intervalRequest() {
     clearInterval(this.carouselInterval);
     this.carouselInterval = setInterval(() => {
@@ -86,6 +98,7 @@ export class WelcomeComponent implements OnInit {
     }
   }
 
+
   login() {
     var encrypted;
     this.http.get("assets/cert/public.pem", { responseType: 'text' }).subscribe(data => {
@@ -97,30 +110,22 @@ export class WelcomeComponent implements OnInit {
         , "6EB20E499328", "IOS", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", 60, "MN", 0, 0, "", "2021010817121800", 0, 0, 0, "");
       console.log(loginData);
       this.api.login(loginData).subscribe(data => {
+        console.log(data);
         this.loginRes = data as MgLoginRes;
         this.checkRes();
       })
     })
-
-    // const req = new MgCmerchCheckUnreadSmartReq("1234");
-    // this.api.checkUnreadSmart(req).subscribe(data => {
-    //   console.log(data);
-    // })
   }
+
+
   forget() {
     var req = new MgCredForgetReq();
     req.loginCode = "99077339";
     req.chnlType = "УИ99251234";
     this.api.forgetPin(req).subscribe(data => {
       console.log(data);
-        this.loginRes = data as MgLoginRes;
-        this.checkRes();
-      })
 
-    // const req = new MgCmerchCheckUnreadSmartReq("1234");
-    // this.api.checkUnreadSmart(req).subscribe(data => {
-    //   console.log(data);
-    // })
+    })
   }
 
   changeLang() {
@@ -134,7 +139,7 @@ export class WelcomeComponent implements OnInit {
   checkRes() {
     switch (this.loginRes.responseCode) {
       case 0:
-        // console.log(this.loginRes);
+        console.log(this.loginRes);
         // if (this.loginRes.credStatus == eCredStatus.new) {
         //   this.page = 1;
         // } else if (this.loginRes.credStatus == eCredStatus.expired) {
@@ -142,24 +147,25 @@ export class WelcomeComponent implements OnInit {
         // } else if (this.loginRes.isDuplicated == 1) {
         //   this.page = 2;
         // } else {
-        //   this.updateOnMain(false);
-        //   this.router.navigate(['register']);
-        // }
+        // this.updateOnMain(false);
         const req = new MgCmerchSelectMerchCustReq("");
-        console.log("selectMerchCust");
         this.api.selectMerchCust(req).subscribe(data => {
-          console.log(data);
-          this.selectRes = data as MgCmerchGetMerchCustRes;
-          if (this.selectRes.responseCode == 0) {
-
-          } else if (this.selectRes.responseCode == 41607880) {
+          if (data.responseCode == 0) {
+            this.selectRes = data.custs;
+            this.openDialog();
+          } else if (data.responseCode == 41607880) {
             this.router.navigate(['register', { status: 'enroll' }]);
           }
         })
+      // }
+
     }
   }
 
-
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogComponent, { data: { type: DialogType.chooseMerchant, value: this.selectRes, title: "Choose merchant" } },
+    );
+  }
   updateOnMain(onMain): void {
     this.service.onMainEvent.emit(onMain);
   }

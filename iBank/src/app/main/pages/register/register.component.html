@@ -1,6 +1,6 @@
 <div style="height: 75%; margin-top: 3rem;">
   <div class="carousel">
-    
+
     <div *ngIf="indicator == 0" [@myAnimation] class="container">
       <title class="align-center title">
         Create new account
@@ -39,7 +39,7 @@
           [controller]="main.controls.tan" [maxlength]="40"></text-field>
       </div>
       <div class="align-center">
-        <button mat-raised-button color="warn" (click)="checkTan()" class="button">Next</button>
+        <button mat-raised-button color="warn" (click)="verifyTan()" class="button">Next</button>
       </div>
     </div>
 
@@ -48,23 +48,35 @@
       <title class="align-center title">
         Create new account
       </title>
+
       <div class="align-center margin-normal">
-        <icon-circle class ="noselect" (click)="changeRegAs(false)" style="margin-left: 10px;" [icon]="'store_rounded'" [height]="'100px'"
-          [borderColor]="regAsComp ? '#919699' : 'red'" [iconColor]="regAsComp ? '#919699' : 'red'" [backgroundColor]="'white'">
-        </icon-circle>
-        <icon-circle class ="noselect" (click)="changeRegAs(true)" style="margin-right: 10px;" [icon]="'account_balance_rounded'" [height]="'100px'" [borderColor]="regAsComp ? 'red' : '#919699'"
-          [iconColor]="regAsComp ? 'red' : '#919699'" [backgroundColor]="'white'">
-        </icon-circle>
+        <ng-container *ngFor="let merch of merchTypeList">
+          <ng-container *ngIf="merch.id == 'PE'">
+            <icon-circle class="icon-circle" (click)="changeRegAs(false, merch.id)" style="margin-left: 10px;"
+              [icon]="'store_rounded'" [height]="'100px'" [borderColor]="regAsComp ? '#919699' : 'red'"
+              [iconColor]="regAsComp ? '#919699' : 'red'" [backgroundColor]="'white'">
+            </icon-circle>
+          </ng-container>
+          <ng-container *ngIf="merch.id == 'CO'">
+            <icon-circle class="icon-circle" (click)="changeRegAs(true, merch.id)" style="margin-right: 10px;"
+              [icon]="'account_balance_rounded'" [height]="'100px'" [borderColor]="regAsComp ? 'red' : '#919699'"
+              [iconColor]="regAsComp ? 'red' : '#919699'" [backgroundColor]="'white'">
+            </icon-circle>
+          </ng-container>
+        </ng-container>
+
       </div>
-      <!-- <button (click)="changeRegAs(!regAsComp)">tester</button> -->
+
       <div class="grid-3">
         <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Group'"
           [controller]="main.controls.name" [maxlength]="40"></text-field>
         <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Company type'"
-          [controller]="main.controls.merchType" [maxlength]="40"></text-field>
+          [isSelector]="true" [selectorData]="orgTypeList" (changeOrg)="changeOrg($event)" [maxlength]="40">
+        </text-field>
         <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Company number'"
-          OnlyNumber="true" [controller]="main.controls.orgTypeId" [maxlength]="40"></text-field>
+          OnlyNumber="true" [controller]="main.controls.companyRegister" [maxlength]="40"></text-field>
       </div>
+
       <div class="align-center">
         <button mat-raised-button (click)="enrollMerch()" color="warn" class="button">Next</button>
       </div>
