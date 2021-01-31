@@ -2,70 +2,34 @@
 <form [formGroup]="main">
   <div class="grid-pass">
     <div>Type</div>
-    <div class="input">
-      <input matInput formControlName="type" />
-    </div>
+    <mat-form-field appearance="outline" floatLabel="never" class="select">
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of typeDict"  value="{{type}}">
+          {{ type.name }}
+        </mat-option>
+        <!-- <mat-option value="test">test</mat-option>
+        <mat-option value="test">test</mat-option>
+        <mat-option value="test">test</mat-option> -->
+      </mat-select>
+    </mat-form-field>
   </div>
-  <div class="grid-pass">
-    <div>Channel</div>
-    <div class="input">
-      <input matInput formControlName="channel" />
-    </div>
-  </div>
-  <div class="grid-pass">
-    <div>Currenct</div>
-    <div class="input">
-      <input matInput formControlName="currency" />
-    </div>
-  </div>
-  <div class="grid-pass">
-    <div>Sender Number</div>
-    <div class="input">
-      <input matInput formControlName="senderNumber" />
-    </div>
-  </div>
-  <div class="grid-pass">
-    <div>Reciever Number</div>
-    <div class="input">
-      <input matInput formControlName="recieverNumber" />
-    </div>
-  </div>
-  <div class="grid-pass">
-    <div>Transaction Number</div>
-    <div class="input">
-      <input matInput formControlName="transactionNumber" />
-    </div>
-  </div>
-
-  <!-- It may not be a dropdown selecct !!! -->
-
-  <!-- <div class="form-content">
-    <div class="grid-pass">
-      <div>Type</div>
-      <mat-form-field appearance="outline" floatLabel="never" class="select">
-        <mat-select formControlName="type">
-          <mat-option *ngFor="let type of types">
-            {{type}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+  <div class="form-content">
     <div class="grid-pass">
       <div>Channel</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
         <mat-select formControlName="channel">
-          <mat-option *ngFor="let channel of channels" [value]="animal">
-            {{channel}}
+          <mat-option *ngFor="let channel of channelDict" value="{{channel}}">
+            {{ channel.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </div> -->
-  <!-- <div class="grid-pass">
+    </div>
+    <div class="grid-pass">
       <div>Currency</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
-        <mat-select formControlName="type">
-          <mat-option *ngFor="let type of types" [value]="animal">
-            {{type}}
+        <mat-select formControlName="currency">
+          <mat-option *ngFor="let currency of currencyDict" value="{{currency}}">
+            {{ currency.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -73,9 +37,9 @@
     <div class="grid-pass">
       <div>Sender number</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
-        <mat-select formControlName="type">
-          <mat-option *ngFor="let type of types" [value]="animal">
-            {{type}}
+        <mat-select formControlName="senderNumber">
+          <mat-option *ngFor="let senderNumber of senderNumberDict" value="{{senderNumber}}">
+            {{ senderNumber.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -83,9 +47,9 @@
     <div class="grid-pass">
       <div>Reciever number</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
-        <mat-select formControlName="type">
-          <mat-option *ngFor="let type of types" [value]="animal">
-            {{type}}
+        <mat-select formControlName="recieverNumber">
+          <mat-option *ngFor="let recieverNumber of recieverNumberDict" value="{{recieverNumber}}">
+            {{ recieverNumber.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -93,14 +57,14 @@
     <div class="grid-pass">
       <div>Transaction number</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
-        <mat-select formControlName="type">
-          <mat-option *ngFor="let type of types" [value]="animal">
-            {{type}}
+        <mat-select formControlName="transactionNumber">
+          <mat-option *ngFor="let transactionNumber of transactionNumberDict" value="{{transactionNumber}}">
+            {{ transactionNumber.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </div> 
-  </div> -->
+    </div>
+  </div>
 
   <div class="form-action">
     <button

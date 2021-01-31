@@ -97,7 +97,8 @@ export class WelcomeComponent implements OnInit {
         , "6EB20E499328", "IOS", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", 60, "MN", 0, 0, "", "2021010817121800", 0, 0, 0, "");
       console.log(loginData);
       this.api.login(loginData).subscribe(data => {
-        console.log(data);
+        this.loginRes = data as MgLoginRes;
+        this.checkRes();
       })
     })
 

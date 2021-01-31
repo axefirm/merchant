@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MgLoginDicData } from 'src/app/core/model/app/getDictionary';
 import { DialogType } from 'src/app/core/model/const';
 import {
   MgCmerchGetTranRefReportReq,
@@ -105,27 +106,32 @@ export class ReportComponent implements OnInit {
   main: FormGroup;
   statementDate: FormGroup;
   referenceDate: FormGroup;
-  filterData: any;
+  filterData: FormGroup;
+  dictMerchTxnType: MgLoginDicData[];
+  // dictMerchTxnChannel: MgLoginDicData[];
+  // dictMerchTxnCurrency: MgLoginDicData[];
+  // dictMerchTxnSenderNumber: MgLoginDicData[];
+  // dictMerchTxnRecieverNumber: MgLoginDicData[];
+  // dictMerchTxn: MgLoginDicData[];
 
   ngOnInit(): void {
+    this.prepareData();
+    this.getTranRefReportFull();
+  }
+
+  prepareData() {
     this.main = this.formBuilder.group({
       useramount: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
-      // type: new FormControl(''),
-      // channel: new FormControl(''),
-      // currency: new FormControl(''),
-      // senderNumber: new FormControl(''),
-      // recieverNumber: new FormControl(''),
-      // transactionNumber: new FormControl(''),
     });
-    this.filterData = {
+    this.filterData = this.formBuilder.group({
       type: '',
       channel: '',
       currency: '',
       senderNumber: '',
       recieverNumber: '',
       transactionNumber: '',
-    };
+    });
     this.statementDate = this.formBuilder.group({
       start: new FormControl('1700-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
@@ -135,19 +141,18 @@ export class ReportComponent implements OnInit {
       start: new FormControl('1700-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
-    this.getTranRefReportFull();
   }
 
   getTranRefReportFull() {
     const req = new MgCmerchGetTranRefReportReq(
-      '',
-      this.filterData.type,
-      this.filterData.channel,
+      '708',
+      this.filterData.value.type.Id,
+      this.filterData.value.channel.Id,
       'status',
-      this.filterData.currency,
-      this.filterData.senderNumber,
-      this.filterData.recieverNumber,
-      this.filterData.transactionNumber,
+      this.filterData.value.currency.Id,
+      this.filterData.value.senderNumber.Id,
+      this.filterData.value.recieverNumber.Id,
+      this.filterData.value.transactionNumber.Id,
       this.referenceDate.value.start,
       this.referenceDate.value.end,
       0,
@@ -159,7 +164,7 @@ export class ReportComponent implements OnInit {
   getTranRefReport(req: MgCmerchGetTranRefReportReq) {
     this.api.getTranRefReport(req).subscribe((data) => {
       if (data.responseCode == 0) {
-        this.dataSource = Object.assign({}, data.responseData);
+        this.dataSource = data.responseData as MgCmerchInqAcntTranRefData[];
       } else {
         alert(data.responseDesc);
         alert('Turshiltiin medeelel orj baina');
@@ -174,7 +179,7 @@ export class ReportComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.filterData = Object.assign({}, result);
+      this.filterData = result as FormGroup;
       this.getTranRefReportFull();
     });
   }

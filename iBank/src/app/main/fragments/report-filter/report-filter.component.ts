@@ -6,6 +6,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MgLoginDicData } from 'src/app/core/model/app/getDictionary';
+import { ApiHelper } from 'src/app/core/services/api-helper';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-report-filter',
@@ -16,24 +19,19 @@ export class ReportFilterComponent implements OnInit {
   hide = true;
   constructor(
     private formBuilder: FormBuilder,
+    public api: ApiService,
     private dialogRef: MatDialogRef<ReportFilterComponent>,
     @Inject(MAT_DIALOG_DATA) data
   ) {}
 
   main: FormGroup;
-  types: string[] = ['type1', 'type2'];
-  channels: string[] = ['type1', 'type2'];
-  currencies: string[] = ['type1', 'type2'];
-  senderNumbers: string[] = ['type1', 'type2'];
-  recieverNumbers: string[] = ['type1', 'type2'];
-  transactionNumbers: string[] = ['type1', 'type2'];
 
-  cancel() {
-    this.dialogRef.close();
-  }
-  save() {
-    this.dialogRef.close(this.main.value);
-  }
+  typeDict: MgLoginDicData[];
+  channelDict: MgLoginDicData[];
+  currencyDict: MgLoginDicData[];
+  senderNumberDict: MgLoginDicData[];
+  recieverNumberDict: MgLoginDicData[];
+  transactionNumberDict: MgLoginDicData[];
 
   ngOnInit(): void {
     this.main = this.formBuilder.group({
@@ -44,5 +42,34 @@ export class ReportFilterComponent implements OnInit {
       recieverNumber: new FormControl(''),
       transactionNumber: new FormControl(''),
     });
+
+    this.getDictAll();
+  }
+
+  getDictAll() {
+    this.api.getDictionary('dictMerchTxnType').subscribe((data) => {
+      if (data.responseCode == 0) {
+        this.typeDict = data.responseData;
+        //      Temprorary
+        this.channelDict = data.responseData;
+        this.currencyDict = data.responseData;
+        this.senderNumberDict = data.responseData;
+        this.recieverNumberDict = data.responseData;
+        this.transactionNumberDict = data.responseData;
+      } else {
+        alert(data.responseDesc);
+      }
+    });
+  }
+
+  cancel() {
+    this.dialogRef.close();
+  }
+  save() {
+    this.dialogRef.close(this.main);
+    console.log(this.main);
+  }
+  doSomething(value) {
+    console.log(value);
   }
 }

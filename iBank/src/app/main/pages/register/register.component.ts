@@ -29,6 +29,7 @@ import { DialogComponent } from '../../fragments/dialog/dialog.component';
 import { DialogType } from 'src/app/core/model/const';
 import { ActivatedRoute } from '@angular/router';
 import { MgGetDicReq, MgLoginDicData } from 'src/app/core/model/app/getDictionary';
+import { MgCmerchCreateMerchAcntReq } from 'src/app/core/model/Online user registration/createMerchAcnt';
 
 @Component({
   selector: 'app-register',
@@ -104,7 +105,13 @@ export class RegisterComponent implements OnInit {
   }
 
   codeTester() {
-    this.next1();
+    this.api.createMerchAcnt(new MgCmerchCreateMerchAcntReq("")).subscribe((data) => {
+      if (data.responseCode == 0) {
+        console.log(data);
+      } else {
+        alert(data.responseDesc);
+      }
+    });
   }
 
   public moveToStructure(): void {
@@ -155,8 +162,8 @@ export class RegisterComponent implements OnInit {
     const notOptional = '';
     const enrollMerchReq = new MgCmerchEnrollMerchReq(
       this.main.value.name,
-      notOptional,
-      notOptional,
+      this.main.value.regNo,
+      this.custId,
       this.main.value.merchType,
       this.main.value.orgTypeId,
       notOptional
@@ -182,12 +189,12 @@ export class RegisterComponent implements OnInit {
     //   roleId,
     //   merchCode,
     // )
-    this.openDialogCreatePassword();
+    this.openDialogCreatePin();
   }
 
-  openDialogCreatePassword() {
+  openDialogCreatePin() {
     let dialogRef = this.dialog.open(DialogComponent, {
-      data: { type: DialogType.createPassword, title: 'Create a password' },
+      data: { type: DialogType.createPinDialog, title: 'Create a password' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
