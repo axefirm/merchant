@@ -1,9 +1,10 @@
 <div class="title">{{ data.title }}</div>
 
 <mat-dialog-content>
-  <ng-container *ngIf="data.type == test.password">
+  <!-- Conflicted after name -->
+  <!-- <ng-container *ngIf="data.type == test.password">
     <app-password-change></app-password-change>
-  </ng-container>
+  </ng-container> -->
   <ng-container *ngIf="data.type == test.location">
     <app-add-location></app-add-location>
   </ng-container>
