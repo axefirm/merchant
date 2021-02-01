@@ -14,11 +14,10 @@ export class ChooseMerchantComponent implements OnInit {
     console.log(this.merchantList);
   }
   selectionChange(value) {
-    console.log(value);
-    sessionStorage.setItem('merchant', value);
+    console.log(value.merchCode);
+    sessionStorage.setItem('merchant', value.merchCode);
 
     let merchant = sessionStorage.getItem('merchant');
-    let test = merchant as unknown as MgCmerchMerchCust;
-    console.log(test.merchName);
+    console.log(merchant);
   }
 }
