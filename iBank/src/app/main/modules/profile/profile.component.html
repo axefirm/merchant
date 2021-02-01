@@ -9,12 +9,13 @@
         <div class="gray">Last login 2 months ago</div>
       </div>
       <div style="margin-top: 10px" (click)="changeLang('mn')">
-        <span class="gray">EN</span><span class="bold"> | </span
-        ><span class="gray">MN</span>
+        <span class="gray">EN</span><span class="bold"> | </span><span class="gray">MN</span>
       </div>
     </div>
 
     <app-quick-transaction></app-quick-transaction>
-    <app-currency-info></app-currency-info>
+  </div>
+  <div>
+    <app-currency-info [visibleChat]="true"></app-currency-info>
   </div>
 </div>

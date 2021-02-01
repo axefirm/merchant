@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,6 +13,7 @@ export class CurrencyInfoComponent implements OnInit {
     translate.setDefaultLang('en');
 }
 
+  @Input() visibleChat: boolean = false;
   main: FormGroup;
 
   ngOnInit(): void {

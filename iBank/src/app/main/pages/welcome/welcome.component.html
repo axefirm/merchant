@@ -1,49 +1,14 @@
 <div class="page-split page-full-height background-white">
-  <div class="left-side">
-    <div class="greeting row-2">
-      <div class="top-right">
-        Call Center
-        <div class="bold">
-          (976) 7700 3322
-        </div>
-      </div>
-      <div class="flex-bottom">
-        <div class="header">
-          Welcome to
-        </div>
-        <div class="header red">ARD DIGITAL BANKING</div>
-      </div>
-    </div>
-    <div class="carousel">
-      <div *ngFor="let item of carousels; index as i">
-        <div *ngIf="indicator == i" [@myAnimation]>
-          <div class="header2">
-            {{item.title}}
-          </div>
-          <span>{{item.description}}</span>
-        </div>
-      </div>
-      <div class="indicator">
-        <div class="indicator-item shadow" *ngFor="let item of [].constructor(maxIndex); index as i"
-          [ngClass]="{'active': indicator == i}" (click)="next(i)">
-        </div>
-      </div>
-      <div class="next" (click)="next(indicator + 1)">
-
-      </div>
-    </div>
-
-    <button mat-flat-button routerLink='register' color="warn" class="joinButton">Join us</button>
-  </div>
+  <app-welcome-section></app-welcome-section>
   <div class="shadow">
     <div class="right-side">
-      <div class="grid-2">
-        <img class="icon" src="assets/img/logo.png">
-        <div style="margin-top: 10px;" (click)="changeLang()">
-          <span class="gray">EN</span><span class="bold"> | </span><span class="gray">MN</span>
+      <div>
+        <div class="grid-2">
+          <img class="icon" src="assets/img/logo.png">
+          <div style="margin-top: 10px;" (click)="changeLang()">
+            <span class="gray">EN</span><span class="bold"> | </span><span class="gray">MN</span>
+          </div>
         </div>
-      </div>
-      <ng-container *ngIf="page == 0">
         <form [formGroup]="main" class="login-section">
           <div>
             Login
@@ -56,19 +21,22 @@
           </mat-form-field>
           <button mat-flat-button color="warn" class="full-width" (click)="login()">Login</button>
           <button mat-flat-button disableRipple="true" class="gray full-width" (click)="forget()">Forget pin?</button>
+
+          <ng-container *ngIf="test">
+            <div>
+              <mat-form-field appearance="outline" color="primary" class="full-width">
+                <input matInput placeholder="Decrypt" OnlyNumber="true" formControlName="decrypt">
+              </mat-form-field>
+              <button mat-flat-button color="warn" class="full-width" (click)="decrypt()">decrypt</button>
+            </div>
+          </ng-container>
+
         </form>
-      </ng-container>
-      <ng-container *ngIf="page == 1">
-        <app-change-pin></app-change-pin>
-      </ng-container>
-      <ng-container *ngIf="page == 2">
-        <app-forget-pin></app-forget-pin>
-      </ng-container>
-      <!-- <div class="rate-section">
-          <div>
-            USD 2,854|2,856
-          </div>
-        </div> -->
+      </div>
+
+      <div>
+        <app-currency-info [visibleChat]="true"></app-currency-info>
+      </div>
     </div>
   </div>
 </div>

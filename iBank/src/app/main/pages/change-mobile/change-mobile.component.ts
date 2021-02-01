@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { MgCredChangeReq } from 'src/app/core/model/app/changePin';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
-  selector: 'app-change-pin',
-  templateUrl: './change-pin.component.html',
-  styleUrls: ['./change-pin.component.scss']
+  selector: 'app-change-mobile',
+  templateUrl: './change-mobile.component.html',
+  styleUrls: ['./change-mobile.component.scss']
 })
-export class ChangePinComponent implements OnInit {
+export class ChangeMobileComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private api: ApiService) { }
 
@@ -19,9 +18,6 @@ export class ChangePinComponent implements OnInit {
       pinNew: new FormControl('', [Validators.required]),
       pinNewConfirm: new FormControl('', [Validators.required]),
     });
-  }
-  changePin() {
-    let req =  new MgCredChangeReq('test','');
   }
 
 }

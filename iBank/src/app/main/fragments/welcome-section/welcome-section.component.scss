@@ -5,32 +5,23 @@
   background-color: $white !important;
 }
 
-.right-side {
-  padding: 2rem 3rem 2rem 3rem;
+.left-side {
   height: 100vh;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 0rem 3rem 0rem 2rem;
+  display: grid;
+  grid-template-rows: 70% 20%;
+  position: relative;
 }
 
 .header2 {
   font-size: 56px;
-  margin-top: 1rem;
-  height: 40px !important;
-}
-
-.icon {
-  width: 50%;
+  line-height: normal;
 }
 
 .greeting {
-  height: 80%;
+  padding-top: 2rem;
 }
 
-.login-section {
-  margin-top: 2rem;
-}
 
 .row-2 {
   display: grid;
@@ -40,11 +31,8 @@
 .flex-bottom {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
-  div {
-    height: max-content;
-  }
+  justify-content: flex-end;
+  height: 95%;
 }
 
 .rate-section {
@@ -54,12 +42,10 @@
 
 .joinButton {
   position: absolute;
-  margin-top: -4rem;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 1.5rem;
   z-index: 999;
-}
-
-.carousel {
-  height: 20%;
 }
 
 /* focused color */
@@ -69,6 +55,6 @@
 
 .header {
   font-size: 64px !important;
-  height: 100px !important;
   color: $gray;
+  line-height: normal;
 }

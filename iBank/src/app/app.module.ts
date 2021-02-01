@@ -63,8 +63,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { TransactionResultComponent } from './main/pages/transaction-result/transaction-result.component';
 import { EncrService } from './core/services/enc.service';
 import { AddUserComponent } from './main/fragments/add-user/add-user.component';
-import { ChangePinComponent } from './main/fragments/change-pin/change-pin.component';
-import { ForgetPinComponent } from './main/fragments/forget-pin/forget-pin.component';
+import { ChangePinComponent } from './main/pages/change-pin/change-pin.component';
+import { ForgetPinComponent } from './main/pages/forget-pin/forget-pin.component';
 import { CurrencyInfoComponent } from './main/modules/currency-info/currency-info.component';
 import { PendingTransferComponent } from './main/fragments/pending-transfer/pending-transfer.component';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
@@ -73,6 +73,8 @@ import { ReportFilterComponent } from './main/fragments/report-filter/report-fil
 import { CreatePinDialogComponent } from './main/fragments/create-pin-dialog/create-pin-dialog.component';
 import { ChangePinDialogComponent } from './main/fragments/change-pin-dialog/change-pin-dialog.component';
 import { ChooseMerchantComponent } from './main/fragments/choose-merchant/choose-merchant.component';
+import { WelcomeSectionComponent } from './main/fragments/welcome-section/welcome-section.component';
+import { ChangeMobileComponent } from './main/pages/change-mobile/change-mobile.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -124,6 +126,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     CurrencyInfoComponent,
     PendingTransferComponent,
     ChooseMerchantComponent,
+    WelcomeSectionComponent,
+    ChangeMobileComponent,
   ],
   imports: [
     BrowserModule,

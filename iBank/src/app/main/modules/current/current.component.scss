@@ -45,6 +45,10 @@
   display: grid;
   grid-template:
     "card chart"40% "card list"60% / 40% 60%;
+
+  .overflow {
+    overflow-y: auto;
+  }
 }
 
 .table-container {
@@ -52,7 +56,11 @@
   overflow: auto;
 }
 
-.card {
-  height: max-content;
-  overflow-y:auto;
+.test {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.current {
+  padding: 20px 30px;
 }

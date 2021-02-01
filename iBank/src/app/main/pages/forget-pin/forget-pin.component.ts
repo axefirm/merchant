@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class ForgetPinComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService, private translate: TranslateService,
+  ) { }
 
   main: FormGroup;
   ngOnInit(): void {
@@ -22,4 +24,11 @@ export class ForgetPinComponent implements OnInit {
 
   }
 
+  changeLang() {
+    console.log(this.browserLang);
+    this.translate.use('mn');
+  }
+  browserLang(browserLang: any) {
+    throw new Error('Method not implemented.');
+  }
 }

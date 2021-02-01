@@ -1,24 +1,27 @@
 <div class="info">
-  <ul>
-    <li>
+  <div class="grid-2">
+    <div>
       <span class="bold">USD </span>
       <span class="gray bold">2,854|2,856</span>
       <mat-icon style="color: #45B99E" class="mat-icon">arrow_upward</mat-icon>
-    </li>
-    <li>
+    </div>
+    <div>
       <span class="bold">ACO </span>
       <span class="gray bold">2,854|2,856</span>
       <mat-icon style="color:red" class="mat-icon">arrow_downward</mat-icon>
-    </li>
-  </ul>
-  <span class="more-rates bold">More Rates</span>
-  <div class="divider">
-    <div class="support">
-      <span class="gray">Call Center</span>
-      <span class="gray bold"> (976) 7700 3322</span>
-      <button mat-mini-fab color="white" class="mini-fab">
-        <img src="../../../../assets/img/support.svg" alt="">
-      </button>
     </div>
+  </div>
+
+  <span class="more-rates bold">More Rates</span>
+
+  <div *ngIf="visibleChat" class="divider">
+  </div>
+  
+  <div class="support">
+    <span class="gray">Call Center</span>
+    <span class="gray bold"> (976) 7700 3322</span>
+    <button mat-mini-fab color="white" class="mini-fab">
+      <img src="../../../../assets/img/support.svg" alt="">
+    </button>
   </div>
 </div>
