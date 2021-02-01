@@ -18,7 +18,7 @@ export class SettingsSecurityComponent implements OnInit {
   }
 
   openDialog() {
-    let  dialogRef = this.dialog.open(DialogComponent, {data: {type: DialogType.password , title: "Change password" }},
+    let  dialogRef = this.dialog.open(DialogComponent, {data: {type: DialogType.changePinDialog , title: "Change pin" }},
       );
 
     dialogRef.afterClosed().subscribe(result => {

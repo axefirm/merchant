@@ -99,7 +99,7 @@
                       {{ element.fiName }}
                     </div>
                     <div class="">
-                      {{ element.srcCustId }}
+                      {{ element.srcCustName }}
                     </div>
                   </div>
                 </div>
@@ -263,7 +263,7 @@
             <ng-container matColumnDef="amount">
               <th mat-header-cell *matHeaderCellDef>Amount</th>
               <td mat-cell *matCellDef="let element">
-                <div class="" [ngClass]="{ income: test === false }">
+                <div class="outcome" [ngClass]="{ income: test === false }">
                   ₮{{ element.txnAmt }}
                 </div>
                 <div class="">

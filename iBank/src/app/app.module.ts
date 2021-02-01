@@ -53,7 +53,6 @@ import { NotifDetailComponent } from './main/fragments/notif-detail/notif-detail
 import { MatBadgeModule } from '@angular/material/badge';
 
 import { DialogComponent } from './main/fragments/dialog/dialog.component';
-import { PasswordChangeComponent } from './main/fragments/password-change/password-change.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-verify.component';
 import { AddLocationComponent } from './main/fragments/add-location/add-location.component';
@@ -64,7 +63,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { TransactionResultComponent } from './main/pages/transaction-result/transaction-result.component';
 import { EncrService } from './core/services/enc.service';
 import { AddUserComponent } from './main/fragments/add-user/add-user.component';
-import { PasswordCreateComponent } from './main/fragments/password-create/password-create.component';
 import { ChangePinComponent } from './main/fragments/change-pin/change-pin.component';
 import { ForgetPinComponent } from './main/fragments/forget-pin/forget-pin.component';
 import { CurrencyInfoComponent } from './main/modules/currency-info/currency-info.component';
@@ -72,6 +70,9 @@ import { PendingTransferComponent } from './main/fragments/pending-transfer/pend
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReportFilterComponent } from './main/fragments/report-filter/report-filter.component';
+import { CreatePinDialogComponent } from './main/fragments/create-pin-dialog/create-pin-dialog.component';
+import { ChangePinDialogComponent } from './main/fragments/change-pin-dialog/change-pin-dialog.component';
+import { ChooseMerchantComponent } from './main/fragments/choose-merchant/choose-merchant.component';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -107,7 +108,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     NotifTranComponent,
     NotifDetailComponent,
     DialogComponent,
-    PasswordChangeComponent,
     SettingsVerifyComponent,
     AddLocationComponent,
     TransactionResultComponent,
@@ -116,12 +116,14 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     RegisterIdDirective,
     AddLocationComponent,
     DialogComponent,
-    PasswordCreateComponent,
     ReportFilterComponent,
     ChangePinComponent,
+    CreatePinDialogComponent,
+    ChangePinDialogComponent,
     ForgetPinComponent,
     CurrencyInfoComponent,
     PendingTransferComponent,
+    ChooseMerchantComponent,
   ],
   imports: [
     BrowserModule,

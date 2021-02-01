@@ -9,28 +9,12 @@ import { DialogType } from 'src/app/core/model/const';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
-export class DialogComponent implements OnInit {
+export class DialogComponent {
 
   test = DialogType;
-  qrRes =  this.data.value;
+  value =  this.data.value;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<DialogComponent> ) {
-    if (data) {
-      console.log(data.value);
-    }
   }
- 
-
-  ngOnInit(): void {
-
-    console.log(this.qrRes)
-    
-  }
-
-
-
-
-
-
 }

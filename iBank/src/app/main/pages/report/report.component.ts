@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MgLoginDicData } from 'src/app/core/model/app/getDictionary';
 import { DialogType } from 'src/app/core/model/const';
 import {
   MgCmerchGetTranRefReportReq,
@@ -14,53 +15,52 @@ import {
 import { ApiService } from 'src/app/core/services/api.service';
 import { DialogComponent } from '../../fragments/dialog/dialog.component';
 
-
 //place holders start/////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 const ELEMNT_DATA1_EX: MgCmerchInqAcntTranRefData = new MgCmerchInqAcntTranRefData(
-  0,
-  'txnDate',
-  0,
-  'txnCur',
-  'txnDesc',
-  'chnlType ',
-  'chnlTypeName ',
-  'chnlTypeName2 ',
-  'fiCode ',
-  'fiName ',
-  'fiName2 ',
-  'fiIcon ',
-  'srcFiCode ',
-  'srcFiName ',
-  'srcFiName2 ',
-  'srcFiBrief ',
-  'srcFiBrief2 ',
-  'srcFiIcon ',
-  'dstFiCode ',
-  'dstFiName ',
-  'dstFiName2 ',
-  'dstFiBrief ',
-  'dstFiBrief2 ',
-  'dstFiIcon ',
-  'srcCustId ',
-  'srcCustName ',
-  'srcCustName2 ',
-  'dstCustId ',
-  'dstCustName ',
-  'dstCustName2 ',
-  0,
-  'srcAcntName ',
-  'srcAcntName2 ',
-  'srcAcntCode ',
-  0,
-  'dstAcntName ',
-  'dstAcntName2 ',
-  'dstAcntCode ',
-  'status ',
-  'statusName ',
-  'statusName2 '
+  1,
+  '2020-11-22',
+  1000,
+  'MNT',
+  'guilgeenii utga',
+  'suvag',
+  'suvgiin ner1',
+  ' suvgiin ner2',
+  'sanhuugiin baiguullagiin dugar',
+  'sanhuugiin baiguullagiin ner ',
+  'sanhugiin baiguullagiin ner2',
+  'ilgeesen sanhuugiin baiguullagiin icon',
+  'ilgeesen sanhuugiin baiguullagiin dugaar',
+  ' ilgeesen sanhuugiin baiguullagiin ner',
+  'ilgeesen sanhuugiin baiguullagiin ner2',
+  'ilgeesen sanhuugiin baiguullagiin brief',
+  'ilgeesen sanhuugiin baiguullagiin brief 2',
+  'ilgeesen sanhuugiin baiguullagiin icon',
+  'huleen avsan baiguullagiin dugaar',
+  'huleen avsan baiguullagiin ner',
+  ' huleen avsan baiguullagiin ner 2',
+  'huleen avsan baiguullagiin brief',
+  'huleen avsan baiguullagiin brief2',
+  'huleen avsan baiguullagiin icon',
+  'ilgeesen id',
+  'ilgeesen hereglegchiin ner',
+  'ilgeesen hereglegchiin ner2',
+  'huhuleen avsan hereglegchiin id',
+  'huleen avsan hereglegchiin ner',
+  'huleen avsan hereglegchiin ner2',
+  1234567,
+  'ilgeesen dansnii ner',
+  ' ilgeesen dansnii ner2',
+  'ilgeesen dansnii dugaar',
+  987654321,
+  'huleen avsan dansnii ner',
+  'huleen avsan dansnii ner2',
+  'hulen avsan dansnii dugaar',
+  'tuluw',
+  'tuluwiin ner',
+  'tuluwiin ner2'
 );
 const ELEMENT_DATA1: MgCmerchInqAcntTranRefData[] = [
   ELEMNT_DATA1_EX,
@@ -106,50 +106,53 @@ export class ReportComponent implements OnInit {
   main: FormGroup;
   statementDate: FormGroup;
   referenceDate: FormGroup;
-  filterData: any;
+  filterData: FormGroup;
+  dictMerchTxnType: MgLoginDicData[];
+  // dictMerchTxnChannel: MgLoginDicData[];
+  // dictMerchTxnCurrency: MgLoginDicData[];
+  // dictMerchTxnSenderNumber: MgLoginDicData[];
+  // dictMerchTxnRecieverNumber: MgLoginDicData[];
+  // dictMerchTxn: MgLoginDicData[];
 
   ngOnInit(): void {
+    this.prepareData();
+    this.getTranRefReportFull();
+  }
+
+  prepareData() {
     this.main = this.formBuilder.group({
       useramount: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
-      // type: new FormControl(''),
-      // channel: new FormControl(''),
-      // currency: new FormControl(''),
-      // senderNumber: new FormControl(''),
-      // recieverNumber: new FormControl(''),
-      // transactionNumber: new FormControl(''),
     });
-    this.filterData = {
-      type: "",
-      channel: "",
-      currency: "",
-      senderNumber: "",
-      recieverNumber: "",
-      transactionNumber: "",
-    }
+    this.filterData = this.formBuilder.group({
+      type: '',
+      channel: '',
+      currency: '',
+      senderNumber: '',
+      recieverNumber: '',
+      transactionNumber: '',
+    });
     this.statementDate = this.formBuilder.group({
-      start: new FormControl("1700-01-28T13:15:18.547Z", Validators.required),
+      start: new FormControl('1700-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
     this.referenceDate = this.formBuilder.group({
       // probably no transactions in 1700
-      start: new FormControl("1700-01-28T13:15:18.547Z", Validators.required),
+      start: new FormControl('1700-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
-    this.getTranRefReportFull();
   }
 
   getTranRefReportFull() {
-
     const req = new MgCmerchGetTranRefReportReq(
-      'merch code',
-      this.filterData.type,
-      this.filterData.channel,
+      '708',
+      this.filterData.value.type.Id,
+      this.filterData.value.channel.Id,
       'status',
-      this.filterData.currency,
-      this.filterData.senderNumber,
-      this.filterData.recieverNumber,
-      this.filterData.transactionNumber,
+      this.filterData.value.currency.Id,
+      this.filterData.value.senderNumber.Id,
+      this.filterData.value.recieverNumber.Id,
+      this.filterData.value.transactionNumber.Id,
       this.referenceDate.value.start,
       this.referenceDate.value.end,
       0,
@@ -161,7 +164,7 @@ export class ReportComponent implements OnInit {
   getTranRefReport(req: MgCmerchGetTranRefReportReq) {
     this.api.getTranRefReport(req).subscribe((data) => {
       if (data.responseCode == 0) {
-        this.dataSource = Object.assign({}, data.responseData);
+        this.dataSource = data.responseData as MgCmerchInqAcntTranRefData[];
       } else {
         alert(data.responseDesc);
         alert('Turshiltiin medeelel orj baina');
@@ -176,7 +179,7 @@ export class ReportComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.filterData = Object.assign({}, result);
+      this.filterData = result as FormGroup;
       this.getTranRefReportFull();
     });
   }
