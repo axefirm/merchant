@@ -50,12 +50,20 @@ export class ReportFilterComponent implements OnInit {
     this.api.getDictionary('dictMerchTxnType').subscribe((data) => {
       if (data.responseCode == 0) {
         this.typeDict = data.responseData;
-        //      Temprorary
-        this.channelDict = data.responseData;
+      } else {
+        alert(data.responseDesc);
+      }
+    });
+    this.api.getDictionary('dicCurCode').subscribe((data) => {
+      if (data.responseCode == 0) {
         this.currencyDict = data.responseData;
-        this.senderNumberDict = data.responseData;
-        this.recieverNumberDict = data.responseData;
-        this.transactionNumberDict = data.responseData;
+      } else {
+        alert(data.responseDesc);
+      }
+    });
+    this.api.getDictionary('dicChannel').subscribe((data) => {
+      if (data.responseCode == 0) {
+        this.channelDict = data.responseData;
       } else {
         alert(data.responseDesc);
       }
@@ -66,10 +74,9 @@ export class ReportFilterComponent implements OnInit {
     this.dialogRef.close();
   }
   save() {
-    this.dialogRef.close(this.main);
-    console.log(this.main);
+    this.dialogRef.close(this.main.value);
   }
   doSomething(value) {
-    console.log(value);
+    // console.log(value);
   }
 }

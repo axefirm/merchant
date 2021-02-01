@@ -18,25 +18,26 @@
       >
         <mat-tab label="Statement">
           <div class="filter">
-            <mat-form-field appearance="outline" floatLabel="never">
-              <mat-select class="mat-select">
-                <mat-option value="option"
-                  >Drink account - 5000611662</mat-option
-                >
-                <mat-option value="option2"
-                  >Bink account - 5000611662</mat-option
-                >
+            <mat-form-field
+              appearance="outline"
+              floatLabel="never"
+              class="select"
+            >
+              <mat-select formControlName="wallet">
+                <mat-option *ngFor="let el of walletDict" [value]="el">
+                  {{ el.name }}
+                </mat-option>
               </mat-select>
             </mat-form-field>
             <span></span>
             <button mat-flat-button color="disabled" class="top-buttons">
-              <mat-icon class="mat-icon">print</mat-icon>
-              Print
+              <mat-icon (click)="print(false)" class="mat-icon">print</mat-icon>
+              {{ "print" | translate }}
             </button>
 
             <button mat-flat-button color="disabled" class="top-buttons">
-              <mat-icon class="mat-icon">download</mat-icon>
-              Download
+              <mat-icon (click)="download(false)" class="mat-icon">download</mat-icon>
+              {{ "download" | translate }}
             </button>
 
             <button
@@ -46,11 +47,11 @@
               class="top-buttons"
             >
               <mat-icon class="mat-icon">filter_list</mat-icon>
-              Filter
+              {{ "filter" | translate }}
             </button>
 
             <mat-form-field appearance="outline" floatLabel="never">
-              <mat-label class="data-picker-label">Date range</mat-label>
+              <mat-label class="data-picker-label">{{ "dateRange" | translate }}</mat-label>
               <mat-date-range-input
                 [formGroup]="statementDate"
                 [rangePicker]="statementDatePicker"
@@ -85,7 +86,7 @@
           >
             <ng-container matColumnDef="bankamount">
               <th mat-header-cell *matHeaderCellDef>
-                Bank name/Correspondent name
+                {{ "bankName" | translate }}/{{ "correspondentName" | translate }}
               </th>
               <td mat-cell *matCellDef="let element">
                 <div class="inline">
@@ -107,7 +108,7 @@
             </ng-container>
 
             <ng-container matColumnDef="amount">
-              <th mat-header-cell *matHeaderCellDef>Amount</th>
+              <th mat-header-cell *matHeaderCellDef>{{ "amount" | translate }}</th>
               <td mat-cell *matCellDef="let element">
                 <div class="outcome" [ngClass]="{ income: test === false }">
                   ₮{{ element.txnAmt }}
@@ -117,7 +118,7 @@
 
             <ng-container matColumnDef="acntNo">
               <th mat-header-cell *matHeaderCellDef>
-                Account number/Description
+                {{ "account" | translate }} /{{ "description" | translate }}
               </th>
               <td mat-cell *matCellDef="let element">
                 <div class="bold">
@@ -130,7 +131,7 @@
             </ng-container>
 
             <ng-container matColumnDef="date">
-              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <th mat-header-cell *matHeaderCellDef>{{ "date" | translate }}</th>
               <td mat-cell *matCellDef="let element">{{ element.txnDate }}</td>
             </ng-container>
 
@@ -146,18 +147,18 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>
         </mat-tab>
-        <mat-tab label="Transaction Reference">
+        <mat-tab label="Transaction Reference" id="ref-screen">
           <div class="filter">
             <span></span>
             <span></span>
             <button mat-flat-button color="disabled" class="top-buttons">
-              <mat-icon class="mat-icon">print</mat-icon>
-              Print
+              <mat-icon (click)="print(true)" class="mat-icon">print</mat-icon>
+              {{ "print" | translate }}
             </button>
 
             <button mat-flat-button color="disabled" class="top-buttons">
-              <mat-icon class="mat-icon">download</mat-icon>
-              Download
+              <mat-icon (click)="download(true)" class="mat-icon">download</mat-icon>
+              {{ "download" | translate }}
             </button>
 
             <button
@@ -167,11 +168,11 @@
               class="top-buttons"
             >
               <mat-icon class="mat-icon">filter_list</mat-icon>
-              Filter
+              {{ "filter" | translate }}
             </button>
 
             <mat-form-field appearance="outline" floatLabel="never">
-              <mat-label class="data-picker-label">Date range</mat-label>
+              <mat-label class="data-picker-label">{{ "dateRange" | translate }}</mat-label>
               <mat-date-range-input
                 [formGroup]="referenceDate"
                 [rangePicker]="referenceDatePicker"
@@ -197,7 +198,6 @@
                 #referenceDatePicker
               ></mat-date-range-picker>
             </mat-form-field>
-
           </div>
           <table
             mat-table
@@ -206,7 +206,7 @@
             style="margin-top: -20px"
           >
             <ng-container matColumnDef="bank">
-              <th mat-header-cell *matHeaderCellDef>Bank</th>
+              <th mat-header-cell *matHeaderCellDef>{{ "bank" | translate }}</th>
               <td mat-cell *matCellDef="let element">
                 <div class="inline">
                   <img
@@ -219,7 +219,7 @@
             </ng-container>
 
             <ng-container matColumnDef="status">
-              <th mat-header-cell *matHeaderCellDef>Number/Status</th>
+              <th mat-header-cell *matHeaderCellDef>{{ "number" | translate }}/{{ "status" | translate }}</th>
               <td mat-cell *matCellDef="let element">
                 <div class="bold">
                   {{ element.txnId }}
@@ -231,17 +231,17 @@
             </ng-container>
 
             <ng-container matColumnDef="date">
-              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <th mat-header-cell *matHeaderCellDef>{{ "date" | translate }}</th>
               <td mat-cell *matCellDef="let element">{{ element.txnDate }}</td>
             </ng-container>
 
             <ng-container matColumnDef="type">
-              <th mat-header-cell *matHeaderCellDef>Transaction type</th>
+              <th mat-header-cell *matHeaderCellDef>{{ "transactionType" | translate }}</th>
               <td mat-cell *matCellDef="let element">{{ element.chnlType }}</td>
             </ng-container>
 
             <ng-container matColumnDef="sender">
-              <th mat-header-cell *matHeaderCellDef>Sender number/name</th>
+              <th mat-header-cell *matHeaderCellDef>{{ "senderNumber" | translate }}/{{ "name" | translate }}</th>
               <td mat-cell *matCellDef="let element">
                 <div class="bold">{{ element.srcAcntCode }}</div>
                 <div class="">{{ element.srcCustName }}</div>
@@ -249,7 +249,7 @@
             </ng-container>
 
             <ng-container matColumnDef="account">
-              <th mat-header-cell *matHeaderCellDef>Account number/name</th>
+              <th mat-header-cell *matHeaderCellDef>{{ "accountNumber" | translate }}/{{ "name" | translate }}</th>
               <td mat-cell *matCellDef="let element">
                 <div class="bold">
                   {{ element.dstAcntCode }}
@@ -261,7 +261,7 @@
             </ng-container>
 
             <ng-container matColumnDef="amount">
-              <th mat-header-cell *matHeaderCellDef>Amount</th>
+              <th mat-header-cell *matHeaderCellDef>{{ "amount" | translate }}</th>
               <td mat-cell *matCellDef="let element">
                 <div class="outcome" [ngClass]="{ income: test === false }">
                   ₮{{ element.txnAmt }}
@@ -278,6 +278,26 @@
           </table>
         </mat-tab>
       </mat-tab-group>
+      <div class="bottom">
+        <div class="divider" style="margin-top: 20px;">
+          <div class="total">
+            <ul>
+              <li>
+                <div class="gray">{{ "totalIncome" | translate }} </div>
+                <img class="trSvg" src="./../../../../assets/img/income.svg" alt="income ">
+                <!-- <mat-icon style="color: #45B99E" class="mat-icon">arrow_upward</mat-icon> -->
+                <span class=""> 1,540,000.00</span>
+              </li>
+              <li>
+                <div class="gray">{{ "totalExpense" | translate }} </div>
+                <img class="trSvg" src="./../../../../assets/img/expense.svg" alt="expense">
+                <!-- <mat-icon style="color:red" class="mat-icon">arrow_downward</mat-icon> -->
+                <span class=""> 2,740,000.00</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>
