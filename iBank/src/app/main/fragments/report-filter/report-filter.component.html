@@ -4,8 +4,8 @@
     <div>Type</div>
     <mat-form-field appearance="outline" floatLabel="never" class="select">
       <mat-select formControlName="type">
-        <mat-option *ngFor="let type of typeDict"  value="{{type}}">
-          {{ type.name }}
+        <mat-option *ngFor="let el of typeDict" [value]="el">
+          {{ el.name }}
         </mat-option>
         <!-- <mat-option value="test">test</mat-option>
         <mat-option value="test">test</mat-option>
@@ -18,8 +18,8 @@
       <div>Channel</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
         <mat-select formControlName="channel">
-          <mat-option *ngFor="let channel of channelDict" value="{{channel}}">
-            {{ channel.name }}
+          <mat-option *ngFor="let el of channelDict" [value]="el">
+            {{ el.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -28,8 +28,8 @@
       <div>Currency</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
         <mat-select formControlName="currency">
-          <mat-option *ngFor="let currency of currencyDict" value="{{currency}}">
-            {{ currency.name }}
+          <mat-option *ngFor="let el of currencyDict" [value]="el">
+            {{ el.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -38,8 +38,8 @@
       <div>Sender number</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
         <mat-select formControlName="senderNumber">
-          <mat-option *ngFor="let senderNumber of senderNumberDict" value="{{senderNumber}}">
-            {{ senderNumber.name }}
+          <mat-option *ngFor="let el of senderNumberDict" [value]="el">
+            {{ el.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -48,8 +48,8 @@
       <div>Reciever number</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
         <mat-select formControlName="recieverNumber">
-          <mat-option *ngFor="let recieverNumber of recieverNumberDict" value="{{recieverNumber}}">
-            {{ recieverNumber.name }}
+          <mat-option *ngFor="let el of recieverNumberDict" [value]="el">
+            {{ el.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -58,8 +58,8 @@
       <div>Transaction number</div>
       <mat-form-field appearance="outline" floatLabel="never" class="select">
         <mat-select formControlName="transactionNumber">
-          <mat-option *ngFor="let transactionNumber of transactionNumberDict" value="{{transactionNumber}}">
-            {{ transactionNumber.name }}
+          <mat-option *ngFor="let el of transactionNumberDict" [value]="el">
+            {{ el.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>

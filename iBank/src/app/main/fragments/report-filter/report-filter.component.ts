@@ -46,9 +46,10 @@ export class ReportFilterComponent implements OnInit {
     this.getDictAll();
   }
 
-  getDictAll() {
+  async getDictAll() {
     this.api.getDictionary('dictMerchTxnType').subscribe((data) => {
       if (data.responseCode == 0) {
+
         this.typeDict = data.responseData;
         //      Temprorary
         this.channelDict = data.responseData;
@@ -66,10 +67,9 @@ export class ReportFilterComponent implements OnInit {
     this.dialogRef.close();
   }
   save() {
-    this.dialogRef.close(this.main);
-    console.log(this.main);
+    this.dialogRef.close(this.main.value);
   }
   doSomething(value) {
-    console.log(value);
+    // console.log(value);
   }
 }

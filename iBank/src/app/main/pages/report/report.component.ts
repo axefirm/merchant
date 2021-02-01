@@ -106,7 +106,7 @@ export class ReportComponent implements OnInit {
   main: FormGroup;
   statementDate: FormGroup;
   referenceDate: FormGroup;
-  filterData: FormGroup;
+  filterData: any;
   dictMerchTxnType: MgLoginDicData[];
   // dictMerchTxnChannel: MgLoginDicData[];
   // dictMerchTxnCurrency: MgLoginDicData[];
@@ -124,14 +124,14 @@ export class ReportComponent implements OnInit {
       useramount: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
-    this.filterData = this.formBuilder.group({
-      type: '',
-      channel: '',
-      currency: '',
-      senderNumber: '',
-      recieverNumber: '',
-      transactionNumber: '',
-    });
+    // this.filterData = this.formBuilder.group({
+    //   type: '',
+    //   channel: '',
+    //   currency: '',
+    //   senderNumber: '',
+    //   recieverNumber: '',
+    //   transactionNumber: '',
+    // });
     this.statementDate = this.formBuilder.group({
       start: new FormControl('1700-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
@@ -144,15 +144,16 @@ export class ReportComponent implements OnInit {
   }
 
   getTranRefReportFull() {
+    console.log(sessionStorage.getItem("merchant"));
     const req = new MgCmerchGetTranRefReportReq(
-      '708',
-      this.filterData.value.type.Id,
-      this.filterData.value.channel.Id,
+      sessionStorage.getItem("merchant"),
+      this.filterData.type.id,
+      this.filterData.channel.id,
       'status',
-      this.filterData.value.currency.Id,
-      this.filterData.value.senderNumber.Id,
-      this.filterData.value.recieverNumber.Id,
-      this.filterData.value.transactionNumber.Id,
+      this.filterData.currency.id,
+      this.filterData.senderNumber.id,
+      this.filterData.recieverNumber.id,
+      this.filterData.transactionNumber.id,
       this.referenceDate.value.start,
       this.referenceDate.value.end,
       0,
@@ -179,7 +180,8 @@ export class ReportComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.filterData = result as FormGroup;
+      console.log(result);
+      this.filterData = result as any;
       this.getTranRefReportFull();
     });
   }
