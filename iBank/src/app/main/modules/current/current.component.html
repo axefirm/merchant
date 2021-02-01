@@ -16,7 +16,7 @@
         <app-card-slider [accounts]="accountRes"></app-card-slider>
       </ng-container>
 
-      <ng-container *ngIf="!isHide">
+      <ng-container *ngIf="!isHide" class="all-card">
         <ng-container *ngFor="let accountItem of accountRes; let i = index">
           <app-card [account]="accountItem"></app-card>
         </ng-container>

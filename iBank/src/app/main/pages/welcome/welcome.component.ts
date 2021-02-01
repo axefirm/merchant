@@ -133,7 +133,7 @@ export class WelcomeComponent implements OnInit {
   checkRes() {
     switch (this.loginRes.responseCode) {
       case 0:
-        // console.log(this.loginRes);
+        console.log(this.loginRes);
         // if (this.loginRes.credStatus == eCredStatus.new) {
         //   this.page = 1;
         // } else if (this.loginRes.credStatus == eCredStatus.expired) {
