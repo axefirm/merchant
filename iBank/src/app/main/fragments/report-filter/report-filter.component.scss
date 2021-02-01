@@ -5,20 +5,41 @@ div{
     white-space: nowrap;
     color: $gray;
 }
+.label{
+    color: #373737;
+    font-weight: 100;
+}
 
 .grid-pass {
     display: grid;
     grid-template-columns: 8rem 12rem;
-    margin-top: 1rem;
 }
 
 .select{
-    // margin-top: 0px;
-    // height: 2rem;
+    margin-top: 0;
 }
 
-::ng-deep .mat-select-value-text {
-    font-weight: normal;
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    // finally
+    padding: 2.5px 0 2.5px 0 !important;
+}
+:host ::ng-deep .mat-form-field-wrapper{
+    padding: 0;
+}
+:host ::ng-deep .mat-form-field-flex{
+    border-style: solid;
+    border-color: #e9eaea;
+    border-width: 1px;
+    border-radius: 8px;
+    width: 205.2px;
+    background-color: $lightgray;
+    padding-left: 10px;
+}
+// :host ::ng-deep .mat-select-arrow {
+//     margin: 0;
+// }
+:host ::ng-deep .mat-select-arrow-wrapper{
+    transform: scaleX(1) scaleY(1.2) translateX(9px) !important;
 }
 
 
@@ -31,7 +52,7 @@ div{
     width: 100%;
     background-color: $lightgray;
     padding-left: 10px;
-    
+    color: black;
 }
 .form-action {
     display: grid;
