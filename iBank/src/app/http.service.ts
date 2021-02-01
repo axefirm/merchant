@@ -13,8 +13,8 @@ export class HttpService {
 
   protected url = '/api/v1.0/';
   protected urlmerch = '/api/merchant/';
-  protected apiParamMerch = '?app_id=16&app_secret=ARD_DIGITAL&lang=MN';
-  protected apiParam = '?app_id=16&app_secret=ARD_DIGITAL&lang=MN';
+  protected apiParamMerch = '?app_id=16&app_secret=ARD_DIGITAL&lang=EN';
+  protected apiParam = '?app_id=16&app_secret=ARD_DIGITAL&lang=EN';
   // app_id=5&app_secret=MOSTMONEY&lang=MN
   send(data: any): Observable<any> {
     const headers = new HttpHeaders({

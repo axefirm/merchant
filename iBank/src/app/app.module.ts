@@ -132,6 +132,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatBadgeModule,
     ReactiveFormsModule,
     FormsModule,
     MatCarouselModule.forRoot(),
