@@ -19,3 +19,34 @@
 .mat-icon {
   color: #919699;
 }
+
+.bottom{
+  position: absolute;
+  bottom: 0;
+  padding: 0;
+  margin-bottom: 90px;
+}
+.total{
+  margin-top: 20px;
+  padding: 20px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 60% 60%;
+  list-style-type: none;
+  // height: 1rem;
+  
+  margin: 0px;
+  margin-left: -40px;
+  // margin-bottom: 20px;
+}
+li{
+  align-self: center;
+  margin-right: 20px;
+  padding: 3px;
+}
+.trSvg{
+  padding: 2px;
+  background-color: #F4F2FB;
+}
