@@ -17,6 +17,13 @@
     "firstName": "Нэр",
     "lastName": "Овог",
     "mobileNumber": "Утасны дугаар",
+
+    "save": "Хадгалах",
+    "cancel": "Цуцлах",
+    "print": "Хэвлэх",
+    "download": "Татаж авах",
+    "filter": "Шүүх",
+    "dateRange": "Огнооны хүрээ",
     
     "current": "Одоогийн",
     "transfer": "Гүйлгээ",
@@ -32,5 +39,24 @@
         "administration": "Тохиргоо - Зохицуулалт",
         "verify": "Тохиргоо - Ерөнхий - Баталгаажуулалт"
     },
+    "channel": "Суваг",
+    "currency": "Валют",
+    "senderNumber": "Илгээгчийн дугаар",
+    "recieverNumber": "Хүлээн авагчийн дугаар",
+    "transactionNumber": "Гүйлгээний дугаар",
+    "bankName": "Банкны нэр",
+    "correspondentName": "Харгалзах нэр",
+    "amount": "Хэмжээ",
+    "accountNumber": "Дансны дугаар",
+    "description": "Тодорхойлолт",
+    "date": "Огноо",
+    "account": "Данс",
+    "bank": "Банк",
+    "number": "Дугаар",
+    "status": "Статус",
+    "transactionType": "Гүйлгээний төрөл",
+    "name": "Нэр",
+    "totalIncome": "Нийт орлого",
+    "totalExpense": "Нийт зардал",
     "test":"test"
 }
