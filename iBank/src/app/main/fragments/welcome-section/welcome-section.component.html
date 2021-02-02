@@ -1,0 +1,40 @@
+<div class="left-side">
+  <div class="greeting">
+    <div class="top-right">
+      Call Center
+      <div class="bold">
+        (976) 7700 3322
+      </div>
+    </div>
+    <div class="flex-bottom">
+      <div class="header">
+        Welcome to
+      </div>
+      <div class="header red">ARD DIGITAL BANKING</div>
+    </div>
+  </div>
+  <div style="position: relative;">
+    <div class="carousel">
+      <div *ngFor="let item of carousels; index as i">
+        <div *ngIf="indicator == i" [@myAnimation]>
+          <div class="header2">
+            {{item.title}}
+          </div>
+          <span>{{item.description}}</span>
+        </div>
+      </div>
+      <div class="indicator">
+        <div class="indicator-item shadow" *ngFor="let item of [].constructor(maxIndex); index as i"
+          [ngClass]="{'active': indicator == i}" (click)="next(i)">
+        </div>
+      </div>
+      <div class="next" (click)="next(indicator + 1)">
+      </div>
+    </div>
+    <div>
+      <button mat-flat-button routerLink='register' color="warn" class="joinButton">Join us</button>
+    </div>
+
+  </div>
+
+</div>

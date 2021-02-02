@@ -1,4 +1,4 @@
-<div [ngClass]="isHide ? 'current-grid' : 'current-card-all-grid'">
+<div class="current" [ngClass]="isHide ? 'current-grid' : 'current-card-all-grid'">
   <div class="card">
     <div>
       <div class="grid-2" style="width: 90%;">
@@ -16,10 +16,12 @@
         <app-card-slider [accounts]="accountRes"></app-card-slider>
       </ng-container>
 
-      <ng-container *ngIf="!isHide" class="all-card">
-        <ng-container *ngFor="let accountItem of accountRes; let i = index">
-          <app-card [account]="accountItem"></app-card>
-        </ng-container>
+      <ng-container *ngIf="!isHide" class="overflow">
+        <div class="test">
+          <ng-container *ngFor="let accountItem of accountRes; let i = index">
+            <app-card [account]="accountItem"></app-card>
+          </ng-container>
+        </div>
       </ng-container>
     </div>
 
@@ -32,71 +34,71 @@
     </div>
   </div>
   <div class="list">
-    
+
 
 
     <mat-tab-group>
 
 
       <mat-tab label="All transactions">
-        
+
         <div class="table-container">
-        <table mat-table [dataSource]="transactionRes" class="mat-elevation-z8">
-          <ng-container matColumnDef="bankamount">
-            <th mat-header-cell *matHeaderCellDef> Bank name/Correspondent name </th>
-            <td mat-cell *matCellDef="let element">
-              <div class="inline">
-                <img src="./../../../../assets/img/xac.png" alt="" class="fiIcon">
-                <div style="padding-left: 1rem;">
-                  <div class="bankName" style="color: black;">
-                    {{element.fiName}}
-                  </div>
-                  <div class="desc">
-                    {{element.srcCustName}}
+          <table mat-table [dataSource]="transactionRes" class="mat-elevation-z8">
+            <ng-container matColumnDef="bankamount">
+              <th mat-header-cell *matHeaderCellDef> Bank name/Correspondent name </th>
+              <td mat-cell *matCellDef="let element">
+                <div class="inline">
+                  <img src="./../../../../assets/img/xac.png" alt="" class="fiIcon">
+                  <div style="padding-left: 1rem;">
+                    <div class="bankName" style="color: black;">
+                      {{element.fiName}}
+                    </div>
+                    <div class="desc">
+                      {{element.srcCustName}}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </td>
-          </ng-container>
+              </td>
+            </ng-container>
 
-          <ng-container matColumnDef="amount">
-            <th mat-header-cell *matHeaderCellDef> Amount </th>
-            <td mat-cell *matCellDef="let element">
-              <div class="outcome" [ngClass]="{'income': test === false}">
-                ₮{{element.txnAmt}}
-              </div>
-            </td>
-          </ng-container>
+            <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef> Amount </th>
+              <td mat-cell *matCellDef="let element">
+                <div class="outcome" [ngClass]="{'income': test === false}">
+                  ₮{{element.txnAmt}}
+                </div>
+              </td>
+            </ng-container>
 
-          <ng-container matColumnDef="acntNo">
-            <th mat-header-cell *matHeaderCellDef> Account number/Description </th>
-            <td mat-cell *matCellDef="let element">
-              <div class="bankName">
-                {{element.dstAcntCode}}
-              </div>
-              <div class="desc">
-                {{element.txnDesc}}
-              </div>
-            </td>
-          </ng-container>
+            <ng-container matColumnDef="acntNo">
+              <th mat-header-cell *matHeaderCellDef> Account number/Description </th>
+              <td mat-cell *matCellDef="let element">
+                <div class="bankName">
+                  {{element.dstAcntCode}}
+                </div>
+                <div class="desc">
+                  {{element.txnDesc}}
+                </div>
+              </td>
+            </ng-container>
 
-          <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef> Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.txnDate}} </td>
-          </ng-container>
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef> Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.txnDate}} </td>
+            </ng-container>
 
-          <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td mat-cell *matCellDef="let element">
-              <mat-icon>more_horiz</mat-icon>
-            </td>
-          </ng-container>
+            <ng-container matColumnDef="symbol">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <mat-icon>more_horiz</mat-icon>
+              </td>
+            </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
 
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      </div>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
 
       </mat-tab>
 

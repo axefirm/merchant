@@ -13,13 +13,16 @@
     "e-mail": "E-mail",
     "notifcationChannel": "Notifcation Channel",
     "verifyStatus": "Verifcation Status",
-
     "address": "Address",
     "firstName": "First name",
     "lastName": "Last name",
     "mobileNumber": "Mobile number",
-    
-
+    "save": "Save",
+    "cancel": "Cancel",
+    "print": "Print",
+    "download": "Download",
+    "filter": "Filter",
+    "dateRange": "Date Range",
     "current": "Current",
     "transfer": "Transfer",
     "transferOther": "Other bank transfer",
@@ -35,5 +38,24 @@
         "administration": "Settings - Administration",
         "verify": "Settings - Genereral - Verify"
     },
-    "test":"test"
+    "channel": "Channel",
+    "currency": "Currency",
+    "senderNumber": "Sender number",
+    "recieverNumber": "Reciever number",
+    "transactionNumber": "Transaction number",
+    "bankName": "Bank name",
+    "correspondentName": "Correspondent name",
+    "amount": "Amount",
+    "accountNumber": "Account Number",
+    "description": "Description",
+    "date": "Date",
+    "account": "Account",
+    "bank": "Bank",
+    "number": "Number",
+    "status": "Status",
+    "transactionType": "Transaction type",
+    "name": "Name",
+    "totalIncome": "Total income",
+    "totalExpense": "Total expense",
+    "test": "test"
 }

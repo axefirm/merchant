@@ -19,12 +19,19 @@ import { TransactionResultComponent } from './main/pages/transaction-result/tran
 import { LocationComponent } from './main/pages/location/location.component';
 import { SettingsVerifyComponent } from './main/pages/settings-verify/settings-verify.component';
 import { PendingTransferComponent } from './main/fragments/pending-transfer/pending-transfer.component';
+import { ChangePinComponent } from './main/pages/change-pin/change-pin.component';
+import { ForgetPinComponent } from './main/pages/forget-pin/forget-pin.component';
+import { ChangeMobileComponent } from './main/pages/change-mobile/change-mobile.component';
 
 @NgModule({
   imports: [RouterModule.forRoot([
     { path: '', component: WelcomeComponent },
+    { path: 'welcome', component: WelcomeComponent },
     { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent, },
+    { path: 'change-pin', component: ChangePinComponent, },
+    { path: 'forget-pin', component: ForgetPinComponent, },
+    { path: 'change-mobile', component: ChangeMobileComponent, },
     // {path: 'dashboard', component: DashboardComponent},
     { path: 'settings', component: SettingsComponent },
     { path: 'settings/general', component: SettingsGeneralComponent },

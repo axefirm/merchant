@@ -20,7 +20,13 @@
           </ul>
           <ul class="divider">
             <li class="title"> {{'companyType' | translate}}</li>
-            <li class="info"> {{accountDet?.orgTypeName }}</li>
+            <li class="info"> 
+              <!-- end uurchlult oruulna. hereglegchees irsen datag option deer display hiij haruulna. 
+              hint: selecter deeree irsen datagaa tawij ugvul boloh l sanagdaad bgan. esvel  irsen datagaa dicOrg toi tulgaad adilhan bga utgiig show hiideg ch ymu   -->
+              <mat-select formControlName="orgTypeId" (selectionChange)="doSomething($event)" [value]="selected">
+                <mat-option *ngFor="let org  of dicOrg" [value]="org.id">{{org.name}}</mat-option>
+              </mat-select>
+            </li>
           </ul>
           <ul class="divider">
             <li class="title"> {{'companyNumber' | translate}}</li>
@@ -47,13 +53,19 @@
           </ul>
           <ul class="divider">
             <li class="title"> {{'notifcationChannel' | translate}}</li>
-            <li class="info"> {{accountDet?.notifType}}</li>
+            <li class="info"> {{accountDet?.notifType}}
+             <!-- end uurchlult oruulna. formcontrolname , function geed... mun default value ni hereglegchees songoson utgiig anh haruulna -->
+              <mat-select formControlName="orgTypeId" (selectionChange)="doSomething($event)" [value]="selected">
+                <mat-option *ngFor="let notif  of dicNotif" [value]="notif.id">{{notif.name}}</mat-option>
+              </mat-select>
+            </li>
           </ul>
           <ul>
+            
             <ng-container *ngIf="verfStat">
               <li class="title"> <span matBadge="&#8288;" matBadgeSize="small" matBadgeColor="warn"
                   matBadgeOverlap="false">{{'verifyStatus' | translate}}</span></li>
-              <li class="info underline-button" [routerLink]="['/settings/verify']">{{accountDet?.verfStatusName }}</li>
+              <li class="info underline-button" (click)="verify()">{{accountDet?.verfStatusName }}</li>
             </ng-container>
             <ng-container *ngIf="!verfStat">
               <li class="title"> {{'verifyStatus' | translate}}</li>

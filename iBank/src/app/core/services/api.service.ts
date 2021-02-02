@@ -25,12 +25,13 @@ import { MgCmerchGetMerchQrListReq } from '../model/payment/getMerchantQrList';
 import { MgCmerchGetMerchCustReq } from '../model/payment/getMerchCust';
 import { MgCmerchGetMerchRegReq } from '../model/payment/getMerchReg';
 import { MgCmerchSelectMerchCustReq } from '../model/payment/selectMerchCus';
-import { MgCmerchGetMerchVerfReq } from '../model/payment/verifyMerchant';
 import { MgCmerchInitTxnReq } from '../model/transaction/initTxn';
 import { MgCmerchSelectPendTxnsReq } from '../model/transaction/selectPendTxns';
 import { MgCmerchUpdateTxnPendReq } from '../model/transaction/updatePendTxn';
 import { ApiHelper } from './api-helper';
 import { MgGetDicReq } from '../model/app/getDictionary';
+import { MgCmerchGetMerchVerifyReq } from '../model/payment/getMerchVerify';
+import { MgCmerchGetMerchVerfReq } from '../model/payment/MgCmerchGetMerchVerfReq';
 @Injectable({
   providedIn: 'root'
 })
@@ -131,8 +132,12 @@ export class ApiService {
     return this.api.postMerch(ApiHelper.sendMerchPosReq, data);
   }
 
-  verifyMerchant(data: MgCmerchGetMerchVerfReq) {
-    return this.api.postMerch(ApiHelper.verifyMerchant, data);
+  verifyMerch(data: MgCmerchGetMerchVerfReq) {
+    return this.api.postMerch(ApiHelper.verifyMerch, data);
+  }
+
+  getMerchVerify(data: MgCmerchGetMerchVerifyReq) {
+    return this.api.postMerch(ApiHelper.getMerchVerify, data);
   }
   //transaction
   initTxn(data: MgCmerchInitTxnReq) {

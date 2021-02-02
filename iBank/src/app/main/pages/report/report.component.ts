@@ -133,20 +133,20 @@ export class ReportComponent implements OnInit {
     this.getWallet();
   }
 
-  getWallet(){
-    this.api.getDictionary('dictMerchTxnType').subscribe((data) =>{
-      if(data.responseCode == 0){
+  getWallet() {
+    this.api.getDictionary('dictMerchTxnType').subscribe((data) => {
+      if (data.responseCode == 0) {
         this.walletDict = data.responseData as MgLoginDicData[];
-      }else{
+      } else {
         alert(data.responseDesc);
       }
-    })
+    });
   }
 
-  getTranRefReportNoFilter(){
+  getTranRefReportNoFilter() {
     const notRequired = null;
     const req = new MgCmerchGetTranRefReportReq(
-      sessionStorage.getItem("merchant"),
+      sessionStorage.getItem('merchant'),
       notRequired,
       notRequired,
       '',
@@ -157,14 +157,14 @@ export class ReportComponent implements OnInit {
       this.referenceDate.value.start,
       this.referenceDate.value.end,
       0,
-      notRequired,
+      notRequired
     );
     this.getTranRefReport(req);
   }
 
   getTranRefReportFull() {
     const req = new MgCmerchGetTranRefReportReq(
-      sessionStorage.getItem("merchant"),
+      sessionStorage.getItem('merchant'),
       this.filterData.type.id,
       this.filterData.channel.id,
       '',
@@ -175,7 +175,7 @@ export class ReportComponent implements OnInit {
       this.referenceDate.value.start,
       this.referenceDate.value.end,
       0,
-      ""
+      ''
     );
     this.getTranRefReport(req);
   }
@@ -205,11 +205,14 @@ export class ReportComponent implements OnInit {
     });
   }
 
-  download(isRef: boolean){
-    if(isRef){
-
-    }else{
-      
+  download(isRef: boolean) {
+    if (isRef) {
+    } else {
+    }
+  }
+  print(isRef: boolean) {
+    if (isRef) {
+    } else {
     }
   }
 }

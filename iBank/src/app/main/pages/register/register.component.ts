@@ -27,7 +27,7 @@ import { MgCmerchInqAcntListReq } from 'src/app/core/model/enquire/getMerchAcntL
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../fragments/dialog/dialog.component';
 import { DialogType } from 'src/app/core/model/const';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MgGetDicReq, MgLoginDicData } from 'src/app/core/model/app/getDictionary';
 import { MgCmerchCreateMerchAcntReq } from 'src/app/core/model/Online user registration/createMerchAcnt';
 
@@ -56,7 +56,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private api: ApiService,
     public dialog: MatDialog,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   main: FormGroup;
@@ -130,7 +131,7 @@ export class RegisterComponent implements OnInit {
         this.next(this.indicator + 1);
       } else {
         alert(data.responseDesc);
-        this.reset();
+        // this.reset();
       }
     });
   }
@@ -143,11 +144,10 @@ export class RegisterComponent implements OnInit {
     this.api.verifyLoginCode(verifyLoginCodeReq).subscribe((data) => {
       if (data.responseCode == 0) {
         this.custId = data.custId;
-        this.next(this.indicator + 1);
+        this.router.navigate(['welcome', { msg: data.responseDesc }]);
       } else {
         alert(data.responseDesc);
         //For now just skip
-        this.next(this.indicator + 1);
       }
     });
   }
@@ -162,6 +162,12 @@ export class RegisterComponent implements OnInit {
       this.merchTypeId,
       optional
     );
+
+    console.log(this.custId);
+
+    if (this.custId != null) {
+      enrollMerchReq.orgCustId = this.custId;
+    }
 
     if (this.merchTypeId == "CO") {
       enrollMerchReq.orgTypeId = this.orgType;

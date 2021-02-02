@@ -66,7 +66,9 @@ export class ApiHelper{
 
     public static sendMerchPosReq: string = 'sendMerchPosReq';
 
-    public static verifyMerchant: string = 'verifyMerchant';
+    public static verifyMerch: string = 'verifyMerch';
+
+    public static getMerchVerify: string = 'getMerchVerify';
 
     //transaction
     public static initTxn: string = 'initTxn';

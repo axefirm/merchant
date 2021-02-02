@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MgCmerchMerchCust } from 'src/app/core/model/payment/selectMerchCus';
 
 @Component({
@@ -8,7 +9,7 @@ import { MgCmerchMerchCust } from 'src/app/core/model/payment/selectMerchCus';
 })
 export class ChooseMerchantComponent implements OnInit {
   @Input() merchantList: MgCmerchMerchCust[];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.merchantList);
@@ -19,5 +20,6 @@ export class ChooseMerchantComponent implements OnInit {
 
     let merchant = sessionStorage.getItem('merchant');
     console.log(merchant);
+    this.router.navigate(['home']);
   }
 }
