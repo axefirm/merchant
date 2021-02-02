@@ -50,3 +50,8 @@ li{
   padding: 2px;
   background-color: #F4F2FB;
 }
+
+.table-container {
+  max-height: max(60vh, 500px);
+  overflow: auto;
+}

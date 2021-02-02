@@ -68,6 +68,22 @@ const ELEMENT_DATA1: MgCmerchInqAcntTranRefData[] = [
   ELEMNT_DATA1_EX,
   ELEMNT_DATA1_EX,
   ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
+  ELEMNT_DATA1_EX,
 ];
 /// Place holders end
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
