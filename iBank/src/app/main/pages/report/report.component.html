@@ -18,14 +18,15 @@
       >
         <mat-tab label="Statement">
           <div class="filter">
-            <mat-form-field appearance="outline" floatLabel="never">
-              <mat-select class="mat-select">
-                <mat-option value="option"
-                  >Drink account - 5000611662</mat-option
-                >
-                <mat-option value="option2"
-                  >Bink account - 5000611662</mat-option
-                >
+            <mat-form-field
+              appearance="outline"
+              floatLabel="never"
+              class="select"
+            >
+              <mat-select formControlName="wallet">
+                <mat-option *ngFor="let el of walletDict" [value]="el">
+                  {{ el.name }}
+                </mat-option>
               </mat-select>
             </mat-form-field>
             <span></span>
@@ -35,7 +36,7 @@
             </button>
 
             <button mat-flat-button color="disabled" class="top-buttons">
-              <mat-icon class="mat-icon">download</mat-icon>
+              <mat-icon (click)="download(false)" class="mat-icon">download</mat-icon>
               Download
             </button>
 
@@ -156,7 +157,7 @@
             </button>
 
             <button mat-flat-button color="disabled" class="top-buttons">
-              <mat-icon class="mat-icon">download</mat-icon>
+              <mat-icon (click)="download(true)" class="mat-icon">download</mat-icon>
               Download
             </button>
 
@@ -197,7 +198,6 @@
                 #referenceDatePicker
               ></mat-date-range-picker>
             </mat-form-field>
-
           </div>
           <table
             mat-table
@@ -278,6 +278,26 @@
           </table>
         </mat-tab>
       </mat-tab-group>
+      <div class="bottom">
+        <div class="divider" style="margin-top: 20px;">
+          <div class="total">
+            <ul>
+              <li>
+                <div class="gray">Total income </div>
+                <img class="trSvg" src="./../../../../assets/img/income.svg" alt="income ">
+                <!-- <mat-icon style="color: #45B99E" class="mat-icon">arrow_upward</mat-icon> -->
+                <span class=""> 1,540,000.00</span>
+              </li>
+              <li>
+                <div class="gray">Total expense </div>
+                <img class="trSvg" src="./../../../../assets/img/expense.svg" alt="expense">
+                <!-- <mat-icon style="color:red" class="mat-icon">arrow_downward</mat-icon> -->
+                <span class=""> 2,740,000.00</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>

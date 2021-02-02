@@ -106,57 +106,76 @@ export class ReportComponent implements OnInit {
   main: FormGroup;
   statementDate: FormGroup;
   referenceDate: FormGroup;
-  filterData: FormGroup;
-  dictMerchTxnType: MgLoginDicData[];
-  // dictMerchTxnChannel: MgLoginDicData[];
-  // dictMerchTxnCurrency: MgLoginDicData[];
-  // dictMerchTxnSenderNumber: MgLoginDicData[];
-  // dictMerchTxnRecieverNumber: MgLoginDicData[];
-  // dictMerchTxn: MgLoginDicData[];
+  filterData: any;
+  walletDict: MgLoginDicData[];
 
   ngOnInit(): void {
     this.prepareData();
-    this.getTranRefReportFull();
+    this.getTranRefReportNoFilter();
   }
 
   prepareData() {
     this.main = this.formBuilder.group({
       useramount: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
-    });
-    this.filterData = this.formBuilder.group({
-      type: '',
-      channel: '',
-      currency: '',
-      senderNumber: '',
-      recieverNumber: '',
-      transactionNumber: '',
+      wallet: new FormControl(''),
     });
     this.statementDate = this.formBuilder.group({
-      start: new FormControl('1700-01-28T13:15:18.547Z', Validators.required),
+      start: new FormControl('2010-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
     this.referenceDate = this.formBuilder.group({
       // probably no transactions in 1700
-      start: new FormControl('1700-01-28T13:15:18.547Z', Validators.required),
+      start: new FormControl('2010-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
+
+    this.getWallet();
+  }
+
+  getWallet(){
+    this.api.getDictionary('dictMerchTxnType').subscribe((data) =>{
+      if(data.responseCode == 0){
+        this.walletDict = data.responseData as MgLoginDicData[];
+      }else{
+        alert(data.responseDesc);
+      }
+    })
+  }
+
+  getTranRefReportNoFilter(){
+    const notRequired = null;
+    const req = new MgCmerchGetTranRefReportReq(
+      sessionStorage.getItem("merchant"),
+      notRequired,
+      notRequired,
+      '',
+      notRequired,
+      notRequired,
+      notRequired,
+      notRequired,
+      this.referenceDate.value.start,
+      this.referenceDate.value.end,
+      0,
+      notRequired,
+    );
+    this.getTranRefReport(req);
   }
 
   getTranRefReportFull() {
     const req = new MgCmerchGetTranRefReportReq(
-      '708',
-      this.filterData.value.type.Id,
-      this.filterData.value.channel.Id,
-      'status',
-      this.filterData.value.currency.Id,
-      this.filterData.value.senderNumber.Id,
-      this.filterData.value.recieverNumber.Id,
-      this.filterData.value.transactionNumber.Id,
+      sessionStorage.getItem("merchant"),
+      this.filterData.type.id,
+      this.filterData.channel.id,
+      '',
+      this.filterData.currency.id,
+      this.filterData.senderNumber.id,
+      this.filterData.recieverNumber.id,
+      this.filterData.transactionNumber.id,
       this.referenceDate.value.start,
       this.referenceDate.value.end,
       0,
-      'wallet'
+      ""
     );
     this.getTranRefReport(req);
   }
@@ -165,6 +184,7 @@ export class ReportComponent implements OnInit {
     this.api.getTranRefReport(req).subscribe((data) => {
       if (data.responseCode == 0) {
         this.dataSource = data.responseData as MgCmerchInqAcntTranRefData[];
+        this.dataSource = ELEMENT_DATA1;
       } else {
         alert(data.responseDesc);
         alert('Turshiltiin medeelel orj baina');
@@ -179,8 +199,17 @@ export class ReportComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.filterData = result as FormGroup;
+      console.log(result);
+      this.filterData = result as any;
       this.getTranRefReportFull();
     });
+  }
+
+  download(isRef: boolean){
+    if(isRef){
+
+    }else{
+      
+    }
   }
 }
