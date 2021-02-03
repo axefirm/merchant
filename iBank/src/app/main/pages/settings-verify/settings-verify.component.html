@@ -23,17 +23,23 @@
       <mat-radio-button value="2" class="divider">
         <ul>
           <li class="item">From delivery</li>
-          <ng-container *ngIf="verifType==null"> 
-          <li class="value" (click)="openDialog()" class="empty-button">
-            <mat-icon aria-hidden="false">location_on</mat-icon>
-            Add location
-          </li>
-        </ng-container>
-        <ng-container *ngIf="verifType!=null" > 
-          <li class="value"  (click)="openDialog()" class="empty-button">
-            
-          </li>
-        </ng-container>
+          <ng-container *ngIf="verifType==null && savedLocData==null">
+            <li class="value" (click)="openDialog()" class="empty-button">
+              <mat-icon aria-hidden="false">location_on</mat-icon>
+              Add location
+            </li>
+          </ng-container>
+          <ng-container *ngIf="verifType==null && savedLocData!=null">
+            <li class="value" (click)="openDialog()" class="empty-button">
+              {{savedLocData.location}} ,  {{savedLocData.date}} 
+             
+            </li>
+          </ng-container>
+          <ng-container *ngIf="verifType!=null">
+            <li class="value" (click)="openDialog()" class="empty-button">
+
+            </li>
+          </ng-container>
 
         </ul>
       </mat-radio-button>
