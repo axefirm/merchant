@@ -161,11 +161,13 @@
     }
 }
 .iconList {
-  display: none;
+
   position: absolute;
   background-color: #F6F7F8;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  max-height: 150px;
+  overflow-y: auto;
   z-index: 1;
 }
 
@@ -173,5 +175,20 @@
   display: block;
 }
 
-.dropdown:hover .iconList {display: block;}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handl ound: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

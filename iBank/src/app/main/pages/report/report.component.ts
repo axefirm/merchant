@@ -87,7 +87,7 @@ export class ReportComponent implements OnInit {
     private api: ApiService
   ) {}
 
-  displayedColumns: string[] = ['bankamount', 'amount', 'acntNo', 'date'];
+  displayedColumns: string[] = ['bankamount', 'amount', 'acntNo', 'date', 'symbol'];
   displayedColumns2: string[] = [
     'bank',
     'status',
@@ -96,6 +96,7 @@ export class ReportComponent implements OnInit {
     'sender',
     'account',
     'amount',
+    'symbol'
   ];
   dataSource: MgCmerchInqAcntTranRefData[];
 

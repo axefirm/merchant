@@ -147,11 +147,11 @@ export class WelcomeComponent implements OnInit {
   checkRes() {
     switch (this.loginRes.responseCode) {
       case 0:
-        if (this.loginRes.isDuplicated == 1) {
-          this.router.navigate(['change-mobile']);
-        } else if (this.loginRes.credStatus == eCredStatus.new || this.loginRes.credStatus == eCredStatus.expired) {
-          this.router.navigate(['change-pin']);
-        } else {
+        // if (this.loginRes.isDuplicated == 1) {
+        //   this.router.navigate(['change-mobile']);
+        // } else if (this.loginRes.credStatus == eCredStatus.new || this.loginRes.credStatus == eCredStatus.expired) {
+        //   this.router.navigate(['change-pin']);
+        // } else {
           this.updateOnMain(false);
           const req = new MgCmerchSelectMerchCustReq("");
           this.api.selectMerchCust(req).subscribe(data => {
@@ -162,7 +162,7 @@ export class WelcomeComponent implements OnInit {
               this.router.navigate(['register', { status: 'enroll' }]);
             }
           })
-        }
+        // }
 
     }
   }

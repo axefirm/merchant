@@ -33,6 +33,7 @@
 
 .list {
   grid-area: list;
+  align-self: stretch;
 }
 
 .current-grid {
@@ -52,7 +53,7 @@
 }
 
 .table-container {
-  height: 310px;
+  // height: 310px;
   overflow: auto;
 }
 

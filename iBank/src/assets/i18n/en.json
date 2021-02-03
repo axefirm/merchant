@@ -36,12 +36,14 @@
     "enterCode": "Please enter your TAN code",
     "tanCode": "TAN code",
     "finish": "Finish",
+
     "save": "Save",
     "cancel": "Cancel",
     "print": "Print",
     "download": "Download",
     "filter": "Filter",
     "dateRange": "Date Range",
+    
     "current": "Current",
     "transfer": "Transfer",
     "transferOther": "Other bank transfer",

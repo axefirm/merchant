@@ -75,6 +75,11 @@ import { ChangePinDialogComponent } from './main/fragments/change-pin-dialog/cha
 import { ChooseMerchantComponent } from './main/fragments/choose-merchant/choose-merchant.component';
 import { WelcomeSectionComponent } from './main/fragments/welcome-section/welcome-section.component';
 import { ChangeMobileComponent } from './main/pages/change-mobile/change-mobile.component';
+import {MatMenuModule} from '@angular/material/menu';
+
+// custom date picker 
+import { HammerModule } from "@angular/platform-browser";
+// import { IgxTimePickerModule } from 'igniteui-angular';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
@@ -136,12 +141,16 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatMenuModule,
+    MatBadgeModule,
     ReactiveFormsModule,
     FormsModule,
     MatCarouselModule.forRoot(),
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
+    HammerModule, 
+    // IgxTimePickerModule,
     MatTableModule,
     MatSlideToggleModule,
     MatSelectModule,
@@ -152,6 +161,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     NgApexchartsModule,
     QrCodeModule,
     MatCheckboxModule,
+    MatRadioModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
