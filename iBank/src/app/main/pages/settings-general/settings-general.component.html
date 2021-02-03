@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="main-container">
-    <mat-tab-group dynamicHeight mat-align-tabs="start" disableRipple="true" animationDuration="0ms">
+    <mat-tab-group dynamicHeight mat-align-tabs="start" disableRipple="true" animationDuration="0ms" [selectedIndex]="tabIndex" (selectedIndexChange)="setTabIndex($event)">
       <mat-tab label="{{'company' | translate}}">
         <form [formGroup]="compSett">
           <ul class="divider">
