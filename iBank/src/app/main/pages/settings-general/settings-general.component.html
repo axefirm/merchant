@@ -1,132 +1,80 @@
 <div class="main">
   <div class="main-header">
-    <img class="icon" src="assets/img/logo.png" />
+    <img class="icon" src="assets/img/logo.png">
     <div class="grid-2">
       <div class="main-header-label">{{ "settings.general" | translate }}</div>
       <div class="balance">
-        <img src="assets/img/icon.png" />ArdCoin balance: 5,000
+        <img src="assets/img/icon.png">ArdCoin balance: 5,000
       </div>
     </div>
   </div>
   <div class="main-container">
-    <mat-tab-group
-      dynamicHeight
-      mat-align-tabs="start"
-      disableRipple="true"
-      animationDuration="0ms"
-      [selectedIndex]="tabIndex"
-      (selectedIndexChange)="setTabIndex($event)Ө"
-    >
-      <mat-tab label="{{ 'company' | translate }}">
+    <mat-tab-group dynamicHeight mat-align-tabs="start" disableRipple="true" animationDuration="0ms">
+      <mat-tab label="{{'company' | translate}}">
         <form [formGroup]="compSett">
           <ul class="divider">
-            <li class="title">{{ "companyName" | translate }}</li>
+            <li class="title"> {{'companyName' | translate}}</li>
             <li class="info">
-              <input
-                matInput
-                type="text"
-                formControlName="merchName"
-                value="{{ accountDet?.merchName }}"
-              />
+              <input matInput type="text" formControlName="merchName" value="{{accountDet?.merchName}}">
             </li>
           </ul>
           <ul class="divider">
-            <li class="title">{{ "companyType" | translate }}</li>
-            <li class="info">
+            <li class="title"> {{'companyType' | translate}}</li>
+            <li class="info"> 
               <!-- end uurchlult oruulna. hereglegchees irsen datag option deer display hiij haruulna. 
               hint: selecter deeree irsen datagaa tawij ugvul boloh l sanagdaad bgan. esvel  irsen datagaa dicOrg toi tulgaad adilhan bga utgiig show hiideg ch ymu   -->
-              <mat-select
-                formControlName="orgTypeId"
-                (selectionChange)="doSomething($event)"
-                [value]="selected"
-              >
-                <mat-option *ngFor="let org of dicOrg" [value]="org.id">{{
-                  org.name
-                }}</mat-option>
+              <mat-select formControlName="orgTypeId" (selectionChange)="doSomething($event)" [value]="selected">
+                <mat-option *ngFor="let org  of dicOrg" [value]="org.id">{{org.name}}</mat-option>
               </mat-select>
             </li>
           </ul>
           <ul class="divider">
-            <li class="title">{{ "companyNumber" | translate }}</li>
-            <li class="info">
-              <input
-                type="text"
-                formcontrolname="registerCode"
-                value="{{ accountDet?.registerCode }}"
-              />
+            <li class="title"> {{'companyNumber' | translate}}</li>
+            <li class="info"> <input type="text" formcontrolname="registerCode" value="{{accountDet?.registerCode }}">
             </li>
           </ul>
           <ul class="divider">
-            <li class="title">{{ "companyAddress" | translate }}</li>
+            <li class="title"> {{'companyAddress' | translate}}</li>
+            <li class="info"><input type="text" formcontrolname="address" value="{{accountDet?.address }}"> </li>
+          </ul>
+          <ul class="divider">
+            <li class="title"> {{'vat' | translate}}</li>
             <li class="info">
-              <input
-                type="text"
-                formcontrolname="address"
-                value="{{ accountDet?.address }}"
-              />
+              <mat-slide-toggle formControlName="isChecked" color="warn"></mat-slide-toggle>
             </li>
           </ul>
           <ul class="divider">
-            <li class="title">{{ "vat" | translate }}</li>
-            <li class="info">
-              <mat-slide-toggle
-                formControlName="isChecked"
-                color="warn"
-              ></mat-slide-toggle>
-            </li>
+            <li class="title"> {{'phone' | translate}}</li>
+            <li class="info"><input type="text" formcontrolname="phone" value=""> {{accountDet?.phone}}</li>
           </ul>
           <ul class="divider">
-            <li class="title">{{ "phone" | translate }}</li>
-            <li class="info">
-              <input type="text" formcontrolname="phone" value="" />
-              {{ accountDet?.phone }}
-            </li>
+            <li class="title"> {{'e-mail' | translate}}</li>
+            <li class="info"><input type="text" formcontrolname="email" value=""> {{accountDet?.email}}</li>
           </ul>
           <ul class="divider">
-            <li class="title">{{ "e-mail" | translate }}</li>
-            <li class="info">
-              <input type="text" formcontrolname="email" value="" />
-              {{ accountDet?.email }}
-            </li>
-          </ul>
-          <ul class="divider">
-            <li class="title">{{ "notifcationChannel" | translate }}</li>
-            <li class="info">
-              {{ accountDet?.notifType }}
-              <!-- end uurchlult oruulna. formcontrolname , function geed... mun default value ni hereglegchees songoson utgiig anh haruulna -->
-              <mat-select
-                formControlName="orgTypeId"
-                (selectionChange)="doSomething($event)"
-                [value]="selected"
-              >
-                <mat-option *ngFor="let notif of dicNotif" [value]="notif.id">{{
-                  notif.name
-                }}</mat-option>
+            <li class="title"> {{'notifcationChannel' | translate}}</li>
+            <li class="info"> {{accountDet?.notifType}}
+             <!-- end uurchlult oruulna. formcontrolname , function geed... mun default value ni hereglegchees songoson utgiig anh haruulna -->
+              <mat-select formControlName="orgTypeId" (selectionChange)="doSomething($event)" [value]="selected">
+                <mat-option *ngFor="let notif  of dicNotif" [value]="notif.id">{{notif.name}}</mat-option>
               </mat-select>
             </li>
           </ul>
           <ul>
+            
             <ng-container *ngIf="verfStat">
-              <li class="title">
-                <span
-                  matBadge="&#8288;"
-                  matBadgeSize="small"
-                  matBadgeColor="warn"
-                  matBadgeOverlap="false"
-                  >{{ "verifyStatus" | translate }}</span
-                >
-              </li>
-              <li class="info underline-button" (click)="verify()">
-                {{ accountDet?.verfStatusName }}
-              </li>
+              <li class="title"> <span matBadge="&#8288;" matBadgeSize="small" matBadgeColor="warn"
+                  matBadgeOverlap="false">{{'verifyStatus' | translate}}</span></li>
+              <li class="info underline-button" (click)="verify()">{{accountDet?.verfStatusName }}</li>
             </ng-container>
             <ng-container *ngIf="!verfStat">
-              <li class="title">{{ "verifyStatus" | translate }}</li>
-              <li class="info">{{ accountDet?.verfStatusName }}</li>
+              <li class="title"> {{'verifyStatus' | translate}}</li>
+              <li class="info ">{{accountDet?.verfStatusName }}</li>
             </ng-container>
           </ul>
 
           <div class="grid-container">
+
             <span></span>
             <button mat-raised-button class="cancel shadow">Cancel</button>
 
@@ -135,57 +83,50 @@
         </form>
       </mat-tab>
 
-      <mat-tab label="{{ 'personal' | translate }}">
+      <mat-tab label="{{'personal' | translate}}">
         <ul class="divider">
-          <li class="title">{{ "firstName" | translate }}</li>
-          <li class="info">Enkhbayar</li>
+          <li class="title"> {{'firstName' | translate}}</li>
+          <li class="info"> Enkhbayar</li>
         </ul>
         <ul class="divider">
-          <li class="title">{{ "lastName" | translate }}</li>
-          <li class="info">Khurtsbaatar</li>
+          <li class="title"> {{'lastName' | translate}}</li>
+          <li class="info"> Khurtsbaatar</li>
         </ul>
         <ul class="divider">
-          <li class="title">{{ "mobileNumber" | translate }}</li>
-          <li class="info">Enkhbayar</li>
+          <li class="title"> {{'mobileNumber' | translate}}</li>
+          <li class="info"> Enkhbayar</li>
         </ul>
         <ul class="divider">
-          <li class="title">{{ "address" | translate }}</li>
-          <li class="info">
-            2th floor, Ard Financial Group Building, Sukhbaatar district,
-            Ulaanbaatar, Mongolia
-          </li>
+          <li class="title"> {{'address' | translate}}</li>
+          <li class="info"> 2th floor, Ard Financial Group Building, Sukhbaatar district,
+            Ulaanbaatar, Mongolia</li>
         </ul>
         <ul class="divider">
-          <li class="title">{{ "e-mail" | translate }}</li>
+          <li class="title"> {{'e-mail' | translate}}</li>
           <li class="info">xanshyr@gmail.com</li>
         </ul>
         <ul class="divider">
-          <li class="title">{{ "notifcationChannel" | translate }}</li>
+          <li class="title"> {{'notifcationChannel' | translate}}</li>
           <li class="info">E-mail</li>
         </ul>
         <ul>
-          <li class="title">
-            <span
-              matBadge="&#8288;"
-              matBadgeSize="small"
-              matBadgeColor="warn"
-              matBadgeOverlap="false"
-            >
-              {{ "verifyStatus" | translate }}</span
-            >
-          </li>
-          <li class="info underline-button" [routerLink]="['/settings/verify']">
-            Not Verified
-          </li>
+          <li class="title"> <span matBadge="&#8288;" matBadgeSize="small" matBadgeColor="warn" matBadgeOverlap="false">
+              {{'verifyStatus' | translate}}</span></li>
+          <li class="info underline-button" [routerLink]="['/settings/verify']">Not Verified</li>
         </ul>
 
+
         <div class="grid-container">
+
           <span></span>
           <button mat-raised-button class="cancel shadow">Cancel</button>
 
           <button mat-raised-button color="warn" class="shadow">Save</button>
         </div>
       </mat-tab>
+
     </mat-tab-group>
+
+
   </div>
 </div>
