@@ -2,35 +2,27 @@
   <app-welcome-section></app-welcome-section>
   <div class="shadow">
     <div class="right-side">
-      <div>
+      <div class="top">
         <div class="grid-2">
           <img class="icon" src="assets/img/logo.png">
           <div style="margin-top: 10px;" (click)="changeLang()">
-            <span class="gray">EN</span><span class="bold"> | </span><span class="gray">MN</span>
+            <span class="gray">{{'en' | translate}}</span><span class="bold"> | </span><span
+              class="gray">{{'mn' | translate}}</span>
           </div>
         </div>
         <form [formGroup]="main" class="login-section">
           <div>
-            Login
+            {{'login' | translate}}
           </div>
           <mat-form-field appearance="outline" color="primary" class="full-width">
-            <input matInput placeholder="Useramount" OnlyNumber="true" formControlName="useramount">
+            <input matInput placeholder="{{'userName' | translate}}" OnlyNumber="true" formControlName="useramount">
           </mat-form-field>
           <mat-form-field appearance="outline" color="primary" class="full-width">
-            <input type="password" matInput placeholder="Password" formControlName="password">
+            <input type="password" matInput placeholder="{{'pinCode' | translate}}" formControlName="password">
           </mat-form-field>
-          <button mat-flat-button color="warn" class="full-width" (click)="login()">Login</button>
-          <button mat-flat-button disableRipple="true" class="gray full-width" (click)="forget()">Forget pin?</button>
-
-          <ng-container *ngIf="test">
-            <div>
-              <mat-form-field appearance="outline" color="primary" class="full-width">
-                <input matInput placeholder="Decrypt" OnlyNumber="true" formControlName="decrypt">
-              </mat-form-field>
-              <button mat-flat-button color="warn" class="full-width" (click)="decrypt()">decrypt</button>
-            </div>
-          </ng-container>
-
+          <button mat-flat-button color="warn" class="full-width" (click)="login()">{{'login' | translate}}</button>
+          <button mat-flat-button disableRipple="true" class="gray full-width"
+            (click)="forget()">{{'forgetPin' | translate}}</button>
         </form>
       </div>
 

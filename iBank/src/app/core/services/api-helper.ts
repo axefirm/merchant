@@ -1,24 +1,27 @@
-export class ApiHelper{
+export class ApiHelper {
     // 
     //App api related
     // 
-    public static login: string = 'login';  
 
-    public static forgetPin: string = 'forgetPin';  
+    // Login related
+    public static login: string = 'login';
 
-    public static getDictionary: string = 'getDictionary';  
-    
+    public static changePin: string = 'changePin';
+
+    public static changeMsisdn: string = 'changeMsisdn';
+
+    public static forgetPin: string = 'forgetPin';
+
+    public static getDictionary: string = 'getDictionary';
 
 
-
-    
     // 
     //Merchant api related
 
     // enquire 
-    public static checkUnreadSmart: string = 'checkUnreadSmart';  
-    
-    public static getAcntDetail: string = 'getAcntDetail';  
+    public static checkUnreadSmart: string = 'checkUnreadSmart';
+
+    public static getAcntDetail: string = 'getAcntDetail';
 
     public static getAcntQrDetail: string = 'getAcntQrDetail';
 

@@ -10,9 +10,6 @@ export class MgCredChangeReq {
     }
 }
 
-
-
-
 export class MgCredChangeRes {
     responseCode: number;
     responseDesc: string;

@@ -31,6 +31,9 @@ import { MgCmerchSelectPendTxnsReq } from '../model/transaction/selectPendTxns';
 import { MgCmerchUpdateTxnPendReq } from '../model/transaction/updatePendTxn';
 import { ApiHelper } from './api-helper';
 import { MgGetDicReq } from '../model/app/getDictionary';
+import { MgCredChangeReq } from '../model/app/changePin';
+import { MgCustChangeMsisdnReq } from '../model/app/changeMobile';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,6 +42,14 @@ export class ApiService {
 
   login(data: MgLoginReq) {
     return this.api.post(ApiHelper.login, data);
+  }
+
+  changePin(data: MgCredChangeReq) {
+    return this.api.post(ApiHelper.changePin, data);
+  }
+  
+  changeMsisdn(data: MgCustChangeMsisdnReq) {
+    return this.api.post(ApiHelper.changeMsisdn, data);
   }
 
   forgetPin(data: MgCredForgetReq) {
