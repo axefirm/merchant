@@ -68,11 +68,15 @@ export class RegisterComponent implements OnInit {
   enrollId;
   custId;
   sub: any;
+
+  // enroll 
+  isPerson = false;
+
   // Get dictionary
   merchTypeList: MgLoginDicData[];
   orgTypeList: MgLoginDicData[];
   orgType: number;
-  merchTypeId;
+  merchTypeId: string = "CO";
 
   ngOnInit(): void {
     this.reset();
@@ -212,7 +216,11 @@ export class RegisterComponent implements OnInit {
 
   changeRegAs(input: boolean, id) {
     this.regAsComp = input;
-    console.log(id);
+    if (id == "PE") {
+      this.isPerson = true;
+    } else {
+      this.isPerson = false;
+    }
     this.merchTypeId = id;
   }
 

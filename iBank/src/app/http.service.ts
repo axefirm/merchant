@@ -2,19 +2,23 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { HttpLoaderFactory } from './app.module';
 import { MgLoginRes } from './core/model/login';
 import { ApiHelper } from './core/services/api-helper';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class HttpService {
   constructor(protected http: HttpClient) { }
 
   protected url = '/api/v1.0/';
   protected urlmerch = '/api/merchant/';
-  protected apiParamMerch = '?app_id=16&app_secret=ARD_DIGITAL&lang=MN';
-  protected apiParam = '?app_id=16&app_secret=ARD_DIGITAL&lang=MN';
+  protected apiParam = '?app_id=' + HttpHelper.AppId + '&app_secret=' + HttpHelper.AppSecret;
+  protected apiParamMerch = '?app_id=' + HttpHelper.merchantAppId + '&app_secret=' + HttpHelper.merchantAppSecret;
+  // + '&lang=MN'
+  // + '&lang=MN'
   // app_id=5&app_secret=MOSTMONEY&lang=MN
   send(data: any): Observable<any> {
     const headers = new HttpHeaders({
@@ -64,6 +68,7 @@ export class HttpService {
     }
     return throwError('Файл алдаатай байна');
   }
+
   private getLang(): string {
     return sessionStorage.getItem('lang') ? sessionStorage.getItem('lang') : 'mn';
   }
@@ -104,14 +109,17 @@ export class HttpService {
    * @returns Observable буцаана
    */
   post(operation: string, body: any): Observable<any> {
+
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    headers = headers.set('lang', this.getLang());
 
     var sessionToken = sessionStorage.getItem("sessionToken");
 
     if (operation != ApiHelper.login && operation != ApiHelper.getDictionary && sessionToken != null && sessionToken.length > 0) {
       headers = headers.set('Cookie', sessionToken);
     }
+
     var res = this.http
       .post(
         this.url + operation + this.apiParam,
@@ -128,8 +136,8 @@ export class HttpService {
     if (operation == ApiHelper.login) {
       res.toPromise().then(data => {
         var loginRes = data as MgLoginRes;
-        if(loginRes.responseCode == 0){
-          sessionStorage.setItem("sessionToken",loginRes.sessionId)
+        if (loginRes.responseCode == 0) {
+          sessionStorage.setItem("sessionToken", loginRes.sessionId)
         }
       }
       );
@@ -144,6 +152,7 @@ export class HttpService {
   * @param body : Хүсэлтийн body
   * @returns Observable буцаана
   */
+
   postMerch(operation: string, body: any): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
@@ -153,6 +162,7 @@ export class HttpService {
     if (operation != ApiHelper.login && operation != ApiHelper.getDictionary && sessionToken != null && sessionToken.length > 0) {
       headers = headers.set('Cookie', sessionToken);
     }
+
     var res = this.http
       .post(
         this.urlmerch + operation + this.apiParamMerch,
@@ -169,4 +179,19 @@ export class HttpService {
     console.log(res);
     return res;
   }
+}
+
+
+export class HttpHelper {
+  // App Api
+  public static AppId: number = 16;
+
+  public static AppSecret: string = "ARD_DIGITAL";
+
+  // Merchant Api
+  public static merchantAppId: number = 16;
+
+  public static merchantAppSecret: string = "ARD_DIGITAL";
+
+
 }

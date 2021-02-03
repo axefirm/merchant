@@ -1,8 +1,8 @@
 @import "../../../utilities/variables.scss";
 
 .main-container {
-  display: grid;
-  grid-template-rows: 90% 10%;
+  // display: grid;
+  // grid-template-rows: 90% 10%;
 
 }
  ul {
@@ -36,9 +36,7 @@ li {
   .mat-slide-toggle-bar {
     width: 31px !important;
   }
-  .mat-slide-toggle-bar:hover {
-    background-color: blue;
-  }
+
 }
 
 .mat-badge-content {
@@ -67,4 +65,12 @@ li {
 
 .cancel {
   background-color: $lightgray;
+}
+
+input {
+border-style: none;
+width: 100%;
+}
+input[type=text]:focus {
+  border: 1px solid $lightgray;
 }

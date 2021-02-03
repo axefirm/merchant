@@ -4,8 +4,8 @@
   </div>
   <mat-tab-group dynamicHeight mat-align-tabs="start" disableRipple="true" animationDuration="0ms">
     <mat-tab label="Bank">
-     
-     
+
+
 
       <mat-form-field appearance="outline" floatLabel="never" class="full-width">
         <span matPrefix style="margin-top: -2px;">From &nbsp;&nbsp;</span>
@@ -19,21 +19,14 @@
         </mat-form-field>
         <!-- bank icon select -->
 
-        <!-- <mat-form-field appearance="outline"  class="iconChanger"  >
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          <mat-select>
-            <mat-option value="xac"> </mat-option>
-            <mat-option value="xac"> </mat-option>
-            <mat-option value="xac"> <img src="../../../../assets/img/xac.png" alt=""></mat-option>
-          </mat-select>
-        </mat-form-field> -->
-        
         <div class="dropdown">
-          <div class="bankIcon"> <img src="../../../../assets/img/xac.png" alt=""></div>
-          <div class="iconList">
-            <div value=""><img src="../../../../assets/img/xac.png" alt=""></div>
-            <div value=""><img src="../../../../assets/img/xac.png" alt=""></div>
-            <div value=""><img src="../../../../assets/img/xac.png" alt=""></div>
+          <div class="bankIcon" (click)="change()"> <img src="{{selectedData}}" alt=""></div>
+          <div class="iconList" *ngIf="clicked">
+            <ng-container  *ngFor="let item of bankList;">
+              <div value="" (click)="select(item)">
+                <img src="{{item}}" alt="">
+               </div>
+            </ng-container>
           </div>
         </div>
 

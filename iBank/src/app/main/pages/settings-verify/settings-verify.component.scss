@@ -1,5 +1,12 @@
 @import "../../../utilities/variables.scss";
 
+mat-radio-group {
+    display: grid;
+
+}
+::ng-deep .mat-radio-label-content {
+    width: 100%;
+}
 ul {
     display: grid;
     grid-template-columns: 50% 50%;

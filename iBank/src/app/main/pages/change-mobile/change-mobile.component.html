@@ -1,36 +1,30 @@
 <div class="page-split page-full-height background-white">
-    <app-welcome-section></app-welcome-section>
-    <div class="shadow">
-      <div class="right-side">
+  <app-welcome-section></app-welcome-section>
+  <div class="shadow">
+    <div class="right-side">
+      <div class="top">
         <div class="grid-2">
           <img class="icon" src="assets/img/logo.png">
-          <div style="margin-top: 10px;" >
-            <span class="gray">EN</span><span class="bold"> | </span><span class="gray">MN</span>
+          <div style="margin-top: 10px;">
+            <span class="gray">{{'en' | translate}}</span><span class="bold"> | </span><span
+              class="gray">{{'mn' | translate}}</span>
           </div>
         </div>
-  
+
         <form [formGroup]="main" class="login-section">
           <div>
-            Change pin
+            {{'changeMobile' | translate}}
           </div>
           <mat-form-field appearance="outline" color="primary" class="full-width">
-            <input matInput placeholder="Pin old" formControlName="pinOld" OnlyNumber="true" maxlength="6">
+            <input matInput placeholder="{{'mobileNumber' | translate}}" formControlName="mobile" OnlyNumber="true"
+              maxlength="6">
           </mat-form-field>
-  
-          <mat-form-field appearance="outline" color="primary" class="full-width">
-            <input matInput placeholder="New pin" formControlName="pinNew" OnlyNumber="true" maxlength="6">
-          </mat-form-field>
-  
-          <mat-form-field appearance="outline" color="primary" class="full-width">
-            <input matInput placeholder="New pin confirm" formControlName="pinNewConfirm" OnlyNumber="true" maxlength="6">
-          </mat-form-field>
-          <button mat-flat-button color="warn" class="full-width">Change pin</button>
+
+          <button mat-flat-button color="warn" class="full-width" (click)="changeMobile()"> {{'changeMobile' | translate}}</button>
         </form>
-  
-  
-        <app-currency-info></app-currency-info>
-  
       </div>
+
+      <app-currency-info></app-currency-info>
     </div>
   </div>
-  
+</div>

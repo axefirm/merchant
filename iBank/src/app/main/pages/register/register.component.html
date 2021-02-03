@@ -3,7 +3,7 @@
 
     <div *ngIf="indicator == 0" [@myAnimation] class="container">
       <title class="align-center title">
-        Create new account
+        {{'createNewAccount' | translate}}
       </title>
       <div class="align-center margin-normal">
         <icon-circle [icon]="'person'" [borderColor]="'red'" [iconColor]="'red'" [height]="'100px'"
@@ -11,23 +11,27 @@
         </icon-circle>
       </div>
       <div class="grid-4">
-        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'First name'"
-          [controller]="main.controls.fname" [maxlength]="40"></text-field>
-        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Last name'"
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'firstName' | translate"
+          [controller]="main.controls.fname" [maxlength]="40">
+        </text-field>
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'lastName' | translate"
           [controller]="main.controls.lname" [maxlength]="40"></text-field>
-        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Phone number'"
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'mobileNumber' | translate"
           OnlyNumber="true" [controller]="main.controls.mobileNo" [maxlength]="8"></text-field>
-        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'ID number'"
-          [controller]="main.controls.regNo" [maxlength]="10"></text-field>
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'registerNo' | translate"
+          [controller]="main.controls.regNo" [maxlength]="10">
+        </text-field>
       </div>
       <div class="align-center">
-        <button mat-raised-button color="warn" class="button" (click)="startEnrollByMerch()">Next</button>
+        <button mat-raised-button color="warn" class="button"
+          (click)="startEnrollByMerch()">{{ 'next'|translate}}</button>
       </div>
     </div>
 
     <div *ngIf="indicator == 1" [@myAnimation] class="container">
       <title class="align-center title">
-        Please enter your TAN code
+
+        {{'enterCode' | translate}}
       </title>
       <div class="align-center margin-normal">
         <icon-circle [icon]="'https'" [borderColor]="'red'" [iconColor]="'red'" [height]="'100px'"
@@ -35,18 +39,18 @@
         </icon-circle>
       </div>
       <div class="align-center">
-        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'TAN code'"
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'tanCode'|translate"
           [controller]="main.controls.tan" [maxlength]="40"></text-field>
       </div>
       <div class="align-center">
-        <button mat-raised-button color="warn" (click)="verifyTan()" class="button">Next</button>
+        <button mat-raised-button color="warn" (click)="verifyTan()" class="button">{{ 'next'|translate}}</button>
       </div>
     </div>
 
 
     <div *ngIf="indicator == 2" [@myAnimation] class="container">
       <title class="align-center title">
-        Create new account
+        {{'createNewAccount' | translate}}
       </title>
 
       <div class="align-center margin-normal">
@@ -67,18 +71,22 @@
 
       </div>
 
-      <div class="grid-3">
-        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Group'"
+      <div [ngClass]="isPerson ? 'grid-2' : 'grid-3'">
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'companyName' | translate"
           [controller]="main.controls.name" [maxlength]="40"></text-field>
-        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Company type'"
-          [isSelector]="true" [selectorData]="orgTypeList" (changeOrg)="changeOrg($event)" [maxlength]="40">
-        </text-field>
-        <text-field [description]="'Contrary to popular belief, Lorem ipsum'" [placeholder]="'Company number'"
-          OnlyNumber="true" [controller]="main.controls.companyRegister" [maxlength]="40"></text-field>
+        <ng-container *ngIf="!isPerson">
+          <text-field [description]="'Contrary to popular belief, Lorem ipsum'"
+            [placeholder]="'companyType' | translate" [isSelector]="true" [selectorData]="orgTypeList"
+            (changeOrg)="changeOrg($event)" [maxlength]="40">
+          </text-field>
+        </ng-container>
+        <text-field [description]="'Contrary to popular belief, Lorem ipsum'"
+          [placeholder]="'companyNumber' | translate" OnlyNumber="true" [controller]="main.controls.companyRegister"
+          [maxlength]="40"></text-field>
       </div>
 
       <div class="align-center">
-        <button mat-raised-button (click)="enrollMerch()" color="warn" class="button">Next</button>
+        <button mat-raised-button (click)="enrollMerch()" color="warn" class="button"> {{'next' | translate}} </button>
       </div>
     </div>
 

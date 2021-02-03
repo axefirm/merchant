@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { MgCredChangeReq } from 'src/app/core/model/app/changePin';
+import { Router } from '@angular/router';
+import { MgCredChangeReq, MgCredChangeRes } from 'src/app/core/model/app/changePin';
 import { ApiService } from 'src/app/core/services/api.service';
+import { JSEncrypt } from 'jsencrypt';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-change-pin',
@@ -10,9 +13,11 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class ChangePinComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService, private router: Router, protected http: HttpClient,) { }
 
   main: FormGroup;
+
+  changePinRes: MgCredChangeRes;
   ngOnInit(): void {
     this.main = this.formBuilder.group({
       pinOld: new FormControl('', [Validators.required]),
@@ -20,12 +25,41 @@ export class ChangePinComponent implements OnInit {
       pinNewConfirm: new FormControl('', [Validators.required]),
     });
   }
+
+
   changePin() {
-    if (this.main.value.pinNew != this.main.value.pinNewConfirm) {
-      alert("taarahgui bn");
-    }else{
-      let req = new MgCredChangeReq(this.main.value.pinOld, this.main.value.pinNew);
-      
+    if (this.main.valid) {
+      if ((this.main.value.pinNew.length == 4 || this.main.value.pinNew.length == 6 && this.main.value.pinOld.length == 4 || this.main.value.pinOld.length == 6) && this.main.value.pinNewConfirm.length == 4 || this.main.value.pinNewConfirm.length == 6) {
+        if (this.main.value.pinNew != this.main.value.pinNewConfirm) {
+          alert("taarahgui bn");
+        } else {
+          this.http.get("assets/cert/public.pem", { responseType: 'text' }).subscribe(data => {
+            var encrypt = new JSEncrypt();
+            encrypt.setPublicKey(data);
+            let req = new MgCredChangeReq(encrypt.encrypt(this.main.value.pinOld), encrypt.encrypt(this.main.value.pinNew));
+            console.log(req);
+            this.api.changePin(req).subscribe(res => {
+              console.log(res)
+              this.changePinRes = res as MgCredChangeRes;
+              if (this.changePinRes.responseCode != 0) {
+                alert(this.changePinRes.responseDesc);
+              } else {
+                alert(this.changePinRes.responseDesc);
+                this.router.navigate(['home']);
+              }
+            }, error => {
+              alert(error);
+            })
+          }, error => {
+            console.log(error);
+          })
+        }
+      } else {
+        alert("nuuts ug 4 esvel 6 urttai bh ystoi");
+      }
+
+    } else {
+      alert("Shaardlagatai talbariin utgiig oruulna u");
     }
   }
 

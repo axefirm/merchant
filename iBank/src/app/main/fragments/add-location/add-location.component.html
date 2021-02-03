@@ -1,19 +1,22 @@
-<form>
+<form [formGroup]="addLoc">
 
   <div class="form-content">
     <div class="grid-pass">
       <div> location</div>
       <div class="input">
           <mat-icon aria-hidden="false" matPrefix >location_on</mat-icon>
-        <input type="text" matInput formControlName="" >
+        <input type="text" matInput formControlName="location" >
       </div>
     </div>
 
     <div class="grid-pass">
       <div> Date</div>
-      <div class="input">
-        <mat-icon aria-hidden="false" matPrefix >calendar_today</mat-icon>
-        <input type="date" matInput formControlName="">
+      <div class="input empty-button" (click)="picker.open()">
+        <mat-icon aria-hidden="false" matPrefix  >calendar_today</mat-icon>
+        <mat-form-field class="example-full-width" >
+          <input  [matDatepicker]="picker" matInput formControlName="date" >
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
       </div>
     </div>
 
@@ -21,13 +24,18 @@
       <div> Time</div>
       <div class="input">
         <mat-icon aria-hidden="false" matPrefix >timer</mat-icon>
-        <input type="datetime" matInput formControlName="">
+        <!-- <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu> -->
+        <input type="datetime" matInput formControlName="time">
+        
       </div>
     </div>
   </div>
 
   <div class="form-action">
     <button mat-flat-button class="cancel">Cancel</button>
-    <button mat-flat-button color="warn">Save</button>
+    <button mat-flat-button color="warn" (click)="verifyMerh()">Save</button>
   </div>
 </form>
