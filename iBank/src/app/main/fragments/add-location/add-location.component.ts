@@ -66,17 +66,8 @@ export class AddLocationComponent implements OnInit {
     this.locData = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[0].id, this.addLoc.controls['location'].value, this.addLoc.controls['date'].value, this.addLoc.controls['time'].value)
     // this.locData = new MgCmerchGetMerchVerfReq(this.addLoc.controls['date'].value, , this.merchCode, ", "");
     this.getLocData.emit(this.locData);
-    // let req = new MgCmerchGetMerchVerfReq("","",   );
-    // this.locData = req;
-    // console.log(this.locData);
+    console.log(this.locData);
 
-    // this.locData.location = stringify(this.addLoc.controls['location'].value);
-    // this.locData.date = this.addLoc.controls['date'].value;
-    // this.locData.time = this.addLoc.controls['time'].value;
-    // this.test = this.addLoc.controls['time'].value;
-    // this.locData.time = this.test;
-    // console.log(this.locData);
-    // console.log(this.locData);
   }
 
 
