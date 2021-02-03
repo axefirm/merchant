@@ -1,7 +1,13 @@
+@import "../../../utilities/variables.scss";
+
+.main-container{
+  position: relative;
+}
 .filter {
   display: grid;
   grid-template-columns: 30% 13% 10% 12% 10% 25%;
   grid-gap: 5px;
+  margin-bottom: -20px;
 }
 .mat-select{
     color:#919699;
@@ -22,28 +28,32 @@
 
 .bottom{
   position: absolute;
+  width: 100%;
   bottom: 0;
   padding: 0;
-  margin-bottom: 90px;
+  // margin-bottom: 90px;
 }
 .total{
+  padding-right: 60px;
   margin-top: 20px;
-  padding: 20px;
+  margin-bottom: 20px;
 }
 
 ul {
   display: grid;
-  grid-template-columns: 60% 60%;
+  grid-template-columns: 150px 150px auto 20px 30px 20px 0px;
   list-style-type: none;
   // height: 1rem;
   
   margin: 0px;
   margin-left: -40px;
+  margin-top: 20px;
   // margin-bottom: 20px;
 }
 li{
   align-self: center;
-  margin-right: 20px;
+  text-align: center;
+  // margin-right: ;
   padding: 3px;
 }
 .trSvg{
@@ -52,6 +62,32 @@ li{
 }
 
 .table-container {
-  max-height: max(60vh, 500px);
   overflow: auto;
+  height: min(500px, 50vh);
+}
+
+.p-num{
+  color:gray;
+}
+
+.left{
+  // position: absolute;
+  // left: -20px;
+  // top: 48%;
+  color:#919699;
+  float:left;
+  &:hover{
+      cursor: pointer;
+  }
+}
+.right{
+  // position: absolute;
+  // right: 10px;
+  // top: 48%;
+  color:#919699;
+  float: right;
+  transform: translateX(3px);
+  &:hover{
+      cursor: pointer;
+  }
 }

@@ -86,8 +86,7 @@
             <table
               mat-table
               [dataSource]="dataSource"
-              class="table"
-              style="margin-top: -20px"
+              class="table mat-elevation-z8"
             >
               <ng-container matColumnDef="bankamount">
                 <th mat-header-cell *matHeaderCellDef>
@@ -224,8 +223,7 @@
             <table
               mat-table
               [dataSource]="dataSource"
-              class="table"
-              style="margin-top: -20px"
+              class="table mat-elevation-z8"
             >
               <ng-container matColumnDef="bank">
                 <th mat-header-cell *matHeaderCellDef>
@@ -319,41 +317,51 @@
                 </td>
               </ng-container>
 
-              <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns2; sticky: true"></tr>
 
               <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
             </table>
           </div>
         </mat-tab>
       </mat-tab-group>
-      <div class="bottom">
-        <div class="divider" style="margin-top: 20px">
-          <div class="total">
-            <ul>
-              <li>
-                <div class="gray">{{ "totalIncome" | translate }}</div>
-                <img
-                  class="trSvg"
-                  src="./../../../../assets/img/income.svg"
-                  alt="income "
-                />
-                <!-- <mat-icon style="color: #45B99E" class="mat-icon">arrow_upward</mat-icon> -->
-                <span class=""> 1,540,000.00</span>
-              </li>
-              <li>
-                <div class="gray">{{ "totalExpense" | translate }}</div>
-                <img
-                  class="trSvg"
-                  src="./../../../../assets/img/expense.svg"
-                  alt="expense"
-                />
-                <!-- <mat-icon style="color:red" class="mat-icon">arrow_downward</mat-icon> -->
-                <span class=""> 2,740,000.00</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </form>
+    <div class="bottom">
+      <div class="total">
+        <div class="line-h"></div>
+        <ul>
+          <li>
+            <div class="gray">{{ "totalIncome" | translate }}</div>
+            <img
+              class="trSvg"
+              src="./../../../../assets/img/income.svg"
+              alt="income "
+            />
+            <!-- <mat-icon style="color: #45B99E" class="mat-icon">arrow_upward</mat-icon> -->
+            <span class=""> 1,540,000.00</span>
+          </li>
+          <li>
+            <div class="gray">{{ "totalExpense" | translate }}</div>
+            <img
+              class="trSvg"
+              src="./../../../../assets/img/expense.svg"
+              alt="expense"
+            />
+            <!-- <mat-icon style="color:red" class="mat-icon">arrow_downward</mat-icon> -->
+            <span class=""> 2,740,000.00</span>
+          </li>
+          <li></li>
+          <li>
+            <mat-icon *ngIf="pageNum != 0" (click)="prevP()" class="left">arrow_back_ios</mat-icon>
+          </li>
+          <li class="p-num">
+            {{pageNum + 1}}
+          </li>
+          <li>
+            <mat-icon (click)="nextP()" class="right">arrow_forward_ios</mat-icon>
+          </li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

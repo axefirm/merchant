@@ -126,9 +126,11 @@ export class ReportComponent implements OnInit {
   filterData: any;
   walletDict: MgLoginDicData[];
 
+  pageNum = 0;
+
   ngOnInit(): void {
     this.prepareData();
-    this.getTranRefReportNoFilter();
+    this.getTranRefReportFull();
   }
 
   prepareData() {
@@ -146,6 +148,14 @@ export class ReportComponent implements OnInit {
       start: new FormControl('2010-01-28T13:15:18.547Z', Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
+    this.filterData = {
+      type: "",
+      channel: "",
+      currency: "",
+      senderNumber: "",
+      recieverNumber: "",
+      transactionNumber: "",
+    }
 
     this.getWallet();
   }
@@ -160,25 +170,6 @@ export class ReportComponent implements OnInit {
     });
   }
 
-  getTranRefReportNoFilter() {
-    const notRequired = null;
-    const req = new MgCmerchGetTranRefReportReq(
-      sessionStorage.getItem('merchant'),
-      notRequired,
-      notRequired,
-      '',
-      notRequired,
-      notRequired,
-      notRequired,
-      notRequired,
-      this.referenceDate.value.start,
-      this.referenceDate.value.end,
-      0,
-      notRequired
-    );
-    this.getTranRefReport(req);
-  }
-
   getTranRefReportFull() {
     const req = new MgCmerchGetTranRefReportReq(
       sessionStorage.getItem('merchant'),
@@ -186,12 +177,12 @@ export class ReportComponent implements OnInit {
       this.filterData.channel.id,
       '',
       this.filterData.currency.id,
-      this.filterData.senderNumber.id,
-      this.filterData.recieverNumber.id,
-      this.filterData.transactionNumber.id,
+      this.filterData.senderNumber,
+      this.filterData.recieverNumber,
+      this.filterData.transactionNumber,
       this.referenceDate.value.start,
       this.referenceDate.value.end,
-      0,
+      this.pageNum,
       ''
     );
     this.getTranRefReport(req);
@@ -217,9 +208,19 @@ export class ReportComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
-      this.filterData = result as any;
+      this.filterData = result;
       this.getTranRefReportFull();
     });
+  }
+
+  prevP(){
+    if(this.pageNum == 0) return;
+    this.pageNum = this.pageNum - 1;
+    this.getTranRefReportFull();
+  }
+  nextP(){
+    this.pageNum = this.pageNum + 1;
+    this.getTranRefReportFull();
   }
 
   download(isRef: boolean) {
