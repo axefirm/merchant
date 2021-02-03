@@ -1,4 +1,5 @@
 @import "../../../utilities/variables.scss";
+@import "../../../utilities/usef.scss";
 
 .main-container{
   position: relative;
@@ -41,7 +42,7 @@
 
 ul {
   display: grid;
-  grid-template-columns: 150px 150px auto 20px 30px 20px 0px;
+  grid-template-columns: 150px 150px auto 30px 30px 30px 0px;
   list-style-type: none;
   // height: 1rem;
   
@@ -54,7 +55,7 @@ li{
   align-self: center;
   text-align: center;
   // margin-right: ;
-  padding: 3px;
+  // padding: 3px;
 }
 .trSvg{
   padding: 2px;
@@ -69,24 +70,23 @@ li{
 .p-num{
   color:gray;
 }
+.rippled-c{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  justify-content: center;
+}
 
 .left{
-  // position: absolute;
-  // left: -20px;
-  // top: 48%;
+  transform: translateX(5px) translateY(2px);
   color:#919699;
-  float:left;
   &:hover{
       cursor: pointer;
   }
 }
 .right{
-  // position: absolute;
-  // right: 10px;
-  // top: 48%;
+  transform: translateX(1px) translateY(2px);
   color:#919699;
-  float: right;
-  transform: translateX(3px);
   &:hover{
       cursor: pointer;
   }
