@@ -13,6 +13,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -57,7 +58,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class ProfileComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router,
   ) {
     translate.setDefaultLang('en');
   }
@@ -78,6 +80,8 @@ export class ProfileComponent implements OnInit {
     // window.location.href = window.location.href
   }
   addImage() {}
-  openProfile() {}
+  openProfile() {
+    this.router.navigate(['settings/general', { tabStatus: 'personal' }]);
+  }
   logOut() {}
 }
