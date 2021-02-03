@@ -317,7 +317,10 @@
                 </td>
               </ng-container>
 
-              <tr mat-header-row *matHeaderRowDef="displayedColumns2; sticky: true"></tr>
+              <tr
+                mat-header-row
+                *matHeaderRowDef="displayedColumns2; sticky: true"
+              ></tr>
 
               <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
             </table>
@@ -351,13 +354,28 @@
           </li>
           <li></li>
           <li>
-            <mat-icon *ngIf="pageNum != 0" (click)="prevP()" class="left">arrow_back_ios</mat-icon>
+            <div
+              *ngIf="pageNum != 0"
+              class="rippled-c noselect"
+              matRipple
+            >
+              <mat-icon (click)="prevP()" class="left noselect"
+                >arrow_back_ios</mat-icon
+              >
+            </div>
           </li>
-          <li class="p-num">
-            {{pageNum + 1}}
+          <li class="p-num noselect">
+            {{ pageNum + 1 }}
           </li>
           <li>
-            <mat-icon (click)="nextP()" class="right">arrow_forward_ios</mat-icon>
+            <div
+              class="rippled-c noselect"
+              matRipple
+            >
+              <mat-icon (click)="nextP()" class="right noselect"
+                >arrow_forward_ios</mat-icon
+              >
+            </div>
           </li>
           <li></li>
         </ul>
