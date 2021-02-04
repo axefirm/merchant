@@ -18,10 +18,15 @@ export class VerifyTanComponent implements OnInit {
 
   ngOnInit(): void {
     this.main = this.formBuilder.group({
-      mobile: new FormControl('', [Validators.required]),
+      tan: new FormControl('', [Validators.required]),
     });
   }
   verifyTan() {
+    console.log(this.main.value.tan);
+    if(this.main.value.tan.length == 6){
 
+    }else{
+      
+    }
   }
 }
