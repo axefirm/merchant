@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { empty } from 'rxjs';
 import { MgLoginDicData } from 'src/app/core/model/app/getDictionary';
@@ -6,6 +6,7 @@ import { MgCmerchGetMerchVerfReq } from "src/app/core/model/payment/MgCmerchGetM
 import { ApiService } from 'src/app/core/services/api.service';
 import { Output, EventEmitter } from '@angular/core';
 import { stringify } from '@angular/compiler/src/util';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-location',
@@ -17,20 +18,29 @@ export class AddLocationComponent implements OnInit {
   merchCode: string;
   locData: MgCmerchGetMerchVerfReq;
   test: string;
+  minDate: Date;
+  maxDate: Date;
 
   @Output() getLocData = new EventEmitter<MgCmerchGetMerchVerfReq>();
-  constructor(private formBuilder: FormBuilder, private api: ApiService) { }
-  addLoc: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private dialogRef: MatDialogRef<AddLocationComponent>,
+    @Inject(MAT_DIALOG_DATA) data) { }
+    addLoc: FormGroup;
+
   ngOnInit(): void {
     this.merchCode = sessionStorage.getItem('merchant');
     this.addLoc = this.formBuilder.group({
       location: new FormControl('', [Validators.required]),
       date: new FormControl('', [Validators.required]),
       time: new FormControl('', [Validators.required]),
+      
     });
+    const currentYear = new Date().getFullYear();
+    this.minDate = new Date(currentYear - 0, 0, 1);
+    this.maxDate = new Date(currentYear + 1, 11, 31);
     this.getDictionary();
-
-
 
   }
 
@@ -46,24 +56,18 @@ export class AddLocationComponent implements OnInit {
     })
 
 
+  }
 
+  cancel() {
+    this.dialogRef.close(this.locData = null);
   }
 
   verifyMerh() {
-
-    this.locData = new MgCmerchGetMerchVerfReq("test", "test", "test", "test", "test");
+    this.locData = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[0].id, this.addLoc.controls['location'].value, this.addLoc.controls['date'].value, this.addLoc.controls['time'].value)
+    // this.locData = new MgCmerchGetMerchVerfReq(this.addLoc.controls['date'].value, , this.merchCode, ", "");
     this.getLocData.emit(this.locData);
-    // let req = new MgCmerchGetMerchVerfReq("","", this.addLoc.controls['location'].value, this.addLoc.controls['date'].value, this.addLoc.controls['time'].value);
-    // this.locData = req;
-    // console.log(this.locData);
+    console.log(this.locData);
 
-    // this.locData.location = stringify(this.addLoc.controls['location'].value);
-    // this.locData.date = this.addLoc.controls['date'].value;
-    // this.locData.time = this.addLoc.controls['time'].value;
-    // this.test = this.addLoc.controls['time'].value;
-    // this.locData.time = this.test;
-    // console.log(this.locData);
-    // console.log(this.locData);
   }
 
 

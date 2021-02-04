@@ -1,21 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MgGetDicRes, MgLoginDicData } from 'src/app/core/model/app/getDictionary';
-import { MgCmerchGetMerchRegReq, MgCmerchGetMerchRegRes } from 'src/app/core/model/payment/getMerchReg';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import {
+  MgGetDicRes,
+  MgLoginDicData,
+} from 'src/app/core/model/app/getDictionary';
+import {
+  MgCmerchGetMerchRegReq,
+  MgCmerchGetMerchRegRes,
+} from 'src/app/core/model/payment/getMerchReg';
 import { ApiService } from 'src/app/core/services/api.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MgCmerchGetMerchVerifyReq } from 'src/app/core/model/payment/getMerchVerify';
 @Component({
   selector: 'app-settings-general',
   templateUrl: './settings-general.component.html',
-  styleUrls: ['./settings-general.component.scss']
+  styleUrls: ['./settings-general.component.scss'],
 })
-
-
 export class SettingsGeneralComponent implements OnInit {
-
-  constructor(private formBuilder: FormBuilder, private api: ApiService,private router: Router) { }
-
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   accountDet: MgCmerchGetMerchRegRes;
   dicOrg: MgLoginDicData;
@@ -25,11 +37,10 @@ export class SettingsGeneralComponent implements OnInit {
   merchCode: string;
   compSett: FormGroup;
   toggler: boolean;
-
+  sub: any;
+  tabIndex: Number;
 
   ngOnInit(): void {
-
-
     this.merchCode = sessionStorage.getItem('merchant');
     this.compSett = this.formBuilder.group({
       merchName: new FormControl('', [Validators.required]),
@@ -38,16 +49,26 @@ export class SettingsGeneralComponent implements OnInit {
       phone: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       isChecked: new FormControl(this.toggler, [Validators.required]),
-      orgTypeId: new FormControl(this.accountDet?.orgTypeId, [Validators.required]),
+      orgTypeId: new FormControl(this.accountDet?.orgTypeId, [
+        Validators.required,
+      ]),
     });
 
+    this.sub = this.route.snapshot.paramMap.get('tabStatus');
+    if (this.sub == 'personal') {
+      this.tabIndex = 1;
+    }
 
     this.Init();
+  }
 
+  setTabIndex(index){
+    console.log(index);
+    this.tabIndex = index;
   }
 
   getDictionary() {
-    this.api.getDictionary("dicPayeeOrgType").subscribe(data => {
+    this.api.getDictionary('dicPayeeOrgType').subscribe((data) => {
       if (data.responseCode == 0) {
         this.dicOrg = data.responseData;
         // this.compSett.get('orgTypeId').setValue(this.accountDet?.orgTypeId);
@@ -56,39 +77,31 @@ export class SettingsGeneralComponent implements OnInit {
         // console.log(selected);
       }
       console.log(data);
-
     });
-    this.api.getDictionary("dicPayeeNotifType").subscribe(data1 => {
+    this.api.getDictionary('dicPayeeNotifType').subscribe((data1) => {
       if (data1.responseCode == 0) {
         this.dicNotif = data1.responseData;
         console.log(this.dicNotif);
       }
-
-    })
-
-
+    });
   }
   GetUserInfo() {
-
     const req = new MgCmerchGetMerchRegReq(this.merchCode);
-    this.api.getMerchReg(req).subscribe(data => {
+    this.api.getMerchReg(req).subscribe((data) => {
       if (data.responseCode != 0) {
       }
       if (data.responseCode == 0) {
-
         this.accountDet = data;
         console.log(this.accountDet);
         this.verfStat = this.accountDet.verfStatus;
         console.log(this.verfStat);
         if (this.accountDet.isVatPayer == 1) {
           this.toggler = true;
-        }
-        else {
+        } else {
           this.toggler = false;
         }
         console.log(this.toggler);
       }
-
     });
     this.getDictionary();
   }
@@ -100,35 +113,28 @@ export class SettingsGeneralComponent implements OnInit {
     this.router.navigate(['/settings/verify']);
   }
 
-
-
   Init() {
     this.GetUserInfo();
 
     let info = new MgCmerchGetMerchRegRes(
-      "merchCode",
-      "merchName",
-      "custCode",
-      "custName",
+      'merchCode',
+      'merchName',
+      'custCode',
+      'custName',
       0,
       0,
-      "orgTypeName",
-      "registerCode",
-      "address",
+      'orgTypeName',
+      'registerCode',
+      'address',
       0,
-      "msisdn",
-      "phone",
-      "email",
-      "notifType",
-      "verfStatus",
-      "verfStatusName",
+      'msisdn',
+      'phone',
+      'email',
+      'notifType',
+      'verfStatus',
+      'verfStatusName',
       0,
-      "responseDesc");
-
+      'responseDesc'
+    );
   }
-
-
-
-
-
 }

@@ -9,34 +9,42 @@
     </div>
   </div>
   <div class="main-container">
-    <mat-radio-group class="divider">
-      <mat-radio-button value="1">
-        <ul>
-          <li class="item">eSignature</li>
-          <li class="value" class="empty-button">
-            <mat-icon aria-hidden="false">upload</mat-icon>
-            Upload
-          </li>
-        </ul>
-      </mat-radio-button>
-
+  <mat-radio-group>
       <mat-radio-button value="2" class="divider">
-        <ul>
-          <li class="item">From delivery</li>
-          <ng-container *ngIf="verifType==null"> 
-          <li class="value" (click)="openDialog()" class="empty-button">
-            <mat-icon aria-hidden="false">location_on</mat-icon>
-            Add location
-          </li>
-        </ng-container>
-        <ng-container *ngIf="verifType!=null" > 
-          <li class="value"  (click)="openDialog()" class="empty-button">
-            
-          </li>
-        </ng-container>
-
-        </ul>
+        <div>
+          <ul class="divider">
+            <li class="item">From delivery</li>
+            <ng-container *ngIf="verifType==null && savedLocData==null">
+              <li class="value" (click)="openDialog()" class="empty-button">
+                <mat-icon aria-hidden="false">location_on</mat-icon>
+                Add location
+              </li>
+            </ng-container>
+            <ng-container *ngIf="verifType==null && savedLocData!=null">
+              <li class="value" (click)="openDialog()" class="dataAdded empty-button">
+                <div class="location">
+                  <mat-icon aria-hidden="false">location_on</mat-icon> {{savedLocData.location}} ,
+                </div>
+                <div class="time">
+                  <mat-icon aria-hidden="false" matPrefix>timer</mat-icon> {{savedLocData.time}},
+                </div>
+                <div class="date">
+                  <mat-icon aria-hidden="false" matPrefix>calendar_today</mat-icon> {{savedLocData.date || date: "yyyy:MM::dd"}}
+                </div>
+    
+              </li>
+            </ng-container>
+            <ng-container *ngIf="verifType!=null">
+              <li class="value" (click)="openDialog()" class="dataAdded empty-button">
+    
+              </li>
+            </ng-container>
+    
+          </ul>
+        </div>
       </mat-radio-button>
     </mat-radio-group>
+    
+
   </div>
 </div>

@@ -68,7 +68,7 @@ import { ForgetPinComponent } from './main/pages/forget-pin/forget-pin.component
 import { CurrencyInfoComponent } from './main/modules/currency-info/currency-info.component';
 import { PendingTransferComponent } from './main/fragments/pending-transfer/pending-transfer.component';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { ReportFilterComponent } from './main/fragments/report-filter/report-filter.component';
 import { CreatePinDialogComponent } from './main/fragments/create-pin-dialog/create-pin-dialog.component';
 import { ChangePinDialogComponent } from './main/fragments/change-pin-dialog/change-pin-dialog.component';
@@ -164,6 +164,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     QrCodeModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatRippleModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
