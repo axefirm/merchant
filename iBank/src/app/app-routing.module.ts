@@ -22,6 +22,7 @@ import { PendingTransferComponent } from './main/fragments/pending-transfer/pend
 import { ChangePinComponent } from './main/pages/change-pin/change-pin.component';
 import { ForgetPinComponent } from './main/pages/forget-pin/forget-pin.component';
 import { ChangeMobileComponent } from './main/pages/change-mobile/change-mobile.component';
+import { VerifyTanComponent } from './main/pages/verify-tan/verify-tan.component';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -32,6 +33,7 @@ import { ChangeMobileComponent } from './main/pages/change-mobile/change-mobile.
     { path: 'change-pin', component: ChangePinComponent, },
     { path: 'forget-pin', component: ForgetPinComponent, },
     { path: 'change-mobile', component: ChangeMobileComponent, },
+    { path: 'verify-tan', component: VerifyTanComponent, },
     // {path: 'dashboard', component: DashboardComponent},
     { path: 'settings', component: SettingsComponent },
     { path: 'settings/general', component: SettingsGeneralComponent },
