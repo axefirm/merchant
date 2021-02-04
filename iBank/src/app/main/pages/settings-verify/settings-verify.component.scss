@@ -9,7 +9,7 @@ mat-radio-group {
 }
 ul {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 35% 65%;
     list-style-type: none;
     height: 4rem;
     margin-left: -40px;
@@ -30,4 +30,15 @@ li{
     font-size: 18px;
     position: relative;
     top: 3px;
+}
+.dataAdded {
+    display: grid;
+    grid-template-columns: 60% auto auto;
+
+
+}
+.dataAdded div {
+    padding-left: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

@@ -9,8 +9,9 @@
     </div>
   </div>
   <div class="main-container">
-  <mat-radio-group>
-      <mat-radio-button value="2" class="divider">
+    <mat-radio-group>
+
+      <mat-radio-button [checked]="verifType!=null" [disabled]="verifType==null" value="2" class="divider">
         <div>
           <ul class="divider">
             <li class="item">From delivery</li>
@@ -20,31 +21,42 @@
                 Add location
               </li>
             </ng-container>
+
             <ng-container *ngIf="verifType==null && savedLocData!=null">
               <li class="value" (click)="openDialog()" class="dataAdded empty-button">
                 <div class="location">
-                  <mat-icon aria-hidden="false">location_on</mat-icon> {{savedLocData.location}} ,
+                  <mat-icon aria-hidden="false">location_on</mat-icon> {{savedLocData.location}} 
                 </div>
                 <div class="time">
-                  <mat-icon aria-hidden="false" matPrefix>timer</mat-icon> {{savedLocData.time}},
+                  <mat-icon aria-hidden="false" matPrefix>timer</mat-icon> {{savedLocData.time}}
                 </div>
                 <div class="date">
                   <mat-icon aria-hidden="false" matPrefix>calendar_today</mat-icon> {{savedLocData.date }}
                 </div>
-    
               </li>
+
             </ng-container>
             <ng-container *ngIf="verifType!=null">
               <li class="value" (click)="openDialog()" class="dataAdded empty-button">
-    
+                <div class="location">
+                  <mat-icon aria-hidden="false">location_on</mat-icon> {{verifstatus.address}} 
+                </div>
+                <div class="time">
+                  <mat-icon aria-hidden="false" matPrefix>timer</mat-icon> {{verifstatus.time}}
+                </div>
+                <div class="date">
+                  <mat-icon aria-hidden="false" matPrefix>calendar_today</mat-icon> {{verifstatus.date }}
+                </div>
               </li>
             </ng-container>
-    
+
           </ul>
         </div>
       </mat-radio-button>
+
+
     </mat-radio-group>
-    
+
 
   </div>
 </div>
