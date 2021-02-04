@@ -27,7 +27,7 @@ export class AddLocationComponent implements OnInit {
     private api: ApiService,
     private dialogRef: MatDialogRef<AddLocationComponent>,
     @Inject(MAT_DIALOG_DATA) data) { }
-    addLoc: FormGroup;
+  addLoc: FormGroup;
 
   ngOnInit(): void {
     this.merchCode = sessionStorage.getItem('merchant');
@@ -35,7 +35,7 @@ export class AddLocationComponent implements OnInit {
       location: new FormControl('', [Validators.required]),
       date: new FormControl('', [Validators.required]),
       time: new FormControl('', [Validators.required]),
-      
+
     });
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 0, 0, 1);
@@ -67,7 +67,12 @@ export class AddLocationComponent implements OnInit {
     // this.locData = new MgCmerchGetMerchVerfReq(this.addLoc.controls['date'].value, , this.merchCode, ", "");
     this.getLocData.emit(this.locData);
     console.log(this.locData);
-
+    const req = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[1].id, this.addLoc.controls['location'].value, this.addLoc.controls['date'].value, this.addLoc.controls['time'].value);
+    console.log(req);
+    this.api.verifyMerch(this.locData).subscribe(data1 => {
+      console.log(data1);
+      console.log(data1.responseDesc);
+    });
   }
 
 

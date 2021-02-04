@@ -79,7 +79,7 @@ import {MatMenuModule} from '@angular/material/menu';
 
 // custom date picker 
 import { HammerModule } from "@angular/platform-browser";
-// import { IgxTimePickerModule } from 'igniteui-angular';
+
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
 @NgModule({
