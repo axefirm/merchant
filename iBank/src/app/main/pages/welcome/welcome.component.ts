@@ -4,15 +4,12 @@ import { trigger, transition, style, animate, state, animation, keyframes } from
 import { ApiService } from 'src/app/core/services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { MgLoginReq, MgLoginRes } from 'src/app/core/model/login';
-import { MgCmerchCheckUnreadSmartReq } from 'src/app/core/model/enquire/checkUnreadSmart';
 import { EncrService } from 'src/app/core/services/enc.service';
 import { JSEncrypt } from 'jsencrypt';
-import { MgCredForgetReq } from 'src/app/core/model/forgetPin';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/core/services/shared.service';
-import { MgCmerchMerchCust, MgCmerchSelectMerchCustReq, MgCmerchSelectMerchCustRes } from 'src/app/core/model/payment/selectMerchCus';
-import { MgCmerchGetMerchCustRes } from 'src/app/core/model/payment/getMerchCust';
+import { MgCmerchMerchCust, MgCmerchSelectMerchCustReq } from 'src/app/core/model/payment/selectMerchCus';
 import { DialogType, eCredStatus } from 'src/app/core/model/const';
 import { DialogComponent } from '../../fragments/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -36,6 +33,7 @@ interface Carousel {
     ]),
   ]
 })
+
 export class WelcomeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private api: ApiService, protected http: HttpClient,
     private encr: EncrService, private translate: TranslateService,
@@ -108,7 +106,7 @@ export class WelcomeComponent implements OnInit {
       encrypt.setPublicKey(data);
       encrypted = encrypt.encrypt(this.main.value.password);
       console.log(encrypted);
-      const loginData = new MgLoginReq(this.main.value.useramount, encrypted, "test", "MNGC-MPS92", "172.16.116.92"
+      const loginData = new MgLoginReq(this.main.value.useramount, encrypted, "test", "MNGC-MPS9122", "172.16.116.92"
         , "6EB20E499328", "IOS", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", 60, "MN", 0, 0, "", "2021010817121800", 0, 0, 0, "");
       console.log(loginData);
       this.api.login(loginData).subscribe(data => {
