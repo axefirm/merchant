@@ -5,8 +5,6 @@ import { MgCmerchGetMerchVerifyReq, MgCmerchGetMerchVerifyRes } from 'src/app/co
 import { DialogComponent } from '../../fragments/dialog/dialog.component';
 import { ApiService } from 'src/app/core/services/api.service';
 import { MgCmerchGetMerchVerfReq } from 'src/app/core/model/payment/MgCmerchGetMerchVerfReq';
-import { IgxTimePickerComponent } from 'igniteui-angular';
-
 
 @Component({
   selector: 'app-settings-verify',
