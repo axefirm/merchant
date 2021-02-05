@@ -7,29 +7,29 @@
     </div>
     <div>
         <div class="bankName bold" style="color: black;">
-            {{notif.bankName}}
+            {{notif.fiName}}
           </div>
           <div class="desc">
-            {{notif.correspondentName}}
+            {{notif.srcAcntName}}
           </div>
     </div>
 
     <div class="outcome bold">
-        ₮{{notif.amount}}
+        {{notif.txnCur}} {{notif.txnAmt}}
       </div>
     <div>
         <div class="bankName bold">
-            {{notif.accountNo}}
+            {{notif.srcAcntCode}}
           </div>
           <div class="desc">
-            {{notif.description}}
+            Vodka
           </div>
     </div>
 
     <div>
-        {{notif.date}}
+        {{formatDate()}}
         <div class="desc">
-            {{notif.time}}
+            {{formatTime()}}
         </div>
         
     </div>
