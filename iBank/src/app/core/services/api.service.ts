@@ -35,6 +35,11 @@ import { MgCustChangeMsisdnReq } from '../model/app/changeMobile';
 
 import { MgCmerchGetMerchVerifyReq } from '../model/payment/getMerchVerify';
 import { MgCmerchGetMerchVerfReq } from '../model/payment/MgCmerchGetMerchVerfReq';
+import { MgCustDetailCustRes } from '../model/detailCust';
+import { MgCustChangeEmailReq } from '../model/updateCustInfo/changeEmail';
+import { MgCustUpdateCustReq } from '../model/updateCustInfo/updateCust';
+import { MgCustSelectCustAccessReq } from '../model/updateCustInfo/selectCustAccess';
+import { MgCustDeleteCustAccessReq } from '../model/updateCustInfo/deleteCustAccess';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +50,10 @@ export class ApiService {
   login(data: MgLoginReq) {
     return this.api.post(ApiHelper.login, data);
   }
+// update customer info
+  detailCust() {
+    return this.api.post(ApiHelper.detailCust,'');
+  }
 
   changePin(data: MgCredChangeReq) {
     return this.api.post(ApiHelper.changePin, data);
@@ -52,6 +61,23 @@ export class ApiService {
   
   changeMsisdn(data: MgCustChangeMsisdnReq) {
     return this.api.post(ApiHelper.changeMsisdn, data);
+  }
+
+  changeEmail(data: MgCustChangeEmailReq) {
+    return this.api.post(ApiHelper.changeEmail, data);
+  }
+
+  updateCust(data: MgCustUpdateCustReq) {
+    return this.api.post(ApiHelper.updateCust, data);
+  }
+
+  deleteCustAccess(data: MgCustDeleteCustAccessReq) {
+    return this.api.post(ApiHelper.deleteCustAccess, data);
+  }
+
+  
+  selectCustAccess(data: MgCustSelectCustAccessReq) {
+    return this.api.post(ApiHelper.selectCustAccess, data);
   }
 
   forgetPin(data: MgCredForgetReq) {

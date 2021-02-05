@@ -2,21 +2,45 @@
 
 ul {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 35% auto;
     list-style-type: none;
-    height: 4rem;
+    min-height: 4rem;
     margin-left: -40px;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 // ul:last-child {
 //     border: none;
 // }
-li{
+li {
     padding-right: 40px;
+
     align-self: center;
 }
 
-
 .title {
-    color:$gray;
+    color: $gray;
 }
 
+.mat-icon {
+    color: $gray;
+    font-size: 14px;
+    position: relative;
+    top: 3px;
+    left: 6px;
+    cursor: pointer;
+}
+
+.devices {
+    max-height: 100px;
+    overflow: auto;
+    padding-right: 1rem;
+    width: max-content;
+}
+
+// scroll
+/* Handle  */
+::-webkit-scrollbar {
+    width: 5px;
+}

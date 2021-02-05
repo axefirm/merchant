@@ -22,9 +22,6 @@
           <ul class="divider">
             <li class="title"> {{'companyType' | translate}}</li>
             <li class="info">
-              <!-- {{accountDet?.orgTypeName }} -->
-              <!-- end uurchlult oruulna. hereglegchees irsen datag option deer display hiij haruulna. 
-              hint: selecter deeree irsen datagaa tawij ugvul boloh l sanagdaad bgan. esvel  irsen datagaa dicOrg toi tulgaad adilhan bga utgiig show hiideg ch ymu   -->
               <mat-select formControlName="orgTypeId">
                 <mat-option *ngFor="let org  of dicOrg; index as i" [value]="org?.id">{{org?.name}}</mat-option>
               </mat-select>
@@ -57,7 +54,6 @@
           <ul class="divider">
             <li class="title"> {{'notifcationChannel' | translate}}</li>
             <li class="info">
-              <!-- end uurchlult oruulna. formcontrolname , function geed... mun default value ni hereglegchees songoson utgiig anh haruulna -->
               <mat-select formControlName="notifChannel" (selectionChange)="doSomething($event)">
                 <mat-option *ngFor="let notif  of dicNotif" [value]="notif?.id">{{notif?.name}}</mat-option>
               </mat-select>
@@ -87,38 +83,40 @@
       </mat-tab>
 
       <mat-tab label="{{'personal' | translate}}">
-        <ul class="divider">
-          <li class="title"> {{'name' | translate}}</li>
-          <li class="info"> Enkhbayar Khusbaatar</li>
-        </ul>
-
-        <ul class="divider">
-          <li class="title"> {{'mobileNumber' | translate}}</li>
-          <li class="info"> Enkhbayar</li>
-        </ul>
-        <ul class="divider">
-          <li class="title"> {{'address' | translate}}</li>
-          <li class="info"> 2th floor, Ard Financial Group Building, Sukhbaatar district,
-            Ulaanbaatar, Mongolia</li>
-        </ul>
-        <ul class="divider">
-          <li class="title"> {{'e-mail' | translate}}</li>
-          <li class="info">xanshyr@gmail.com</li>
-        </ul>
-        <ul class="divider">
-          <li class="title"> {{'notifcationChannel' | translate}}</li>
-          <li class="info">E-mail</li>
-        </ul>
-
-
-
-        <div class="grid-container">
-
-          <span></span>
-          <button mat-raised-button class="cancel shadow">Cancel</button>
-
-          <button mat-raised-button color="warn" class="shadow">Save</button>
-        </div>
+        <form [formGroup]="personalSett">
+          <ul class="divider">
+            <li class="title"> {{'firstName' | translate}}</li>
+            <li class="info"> <input matInput type="text" formControlName="firstName" value="{{personalAccountDet?.firstName}}  ">
+            </li>
+          </ul>
+          <ul class="divider">
+            <li class="title"> {{'lastName' | translate}}</li>
+            <li class="info"> <input matInput type="text" formControlName="lastName" value="{{personalAccountDet?.lastName}} ">
+            </li>
+          </ul>
+          <ul class="divider">
+            <li class="title"> {{'mobileNumber' | translate}}</li>
+            <li class="info"> <input matInput type="text" formControlName="mNumber" value="{{personalAccountDet?.msisdn}}">
+            </li>
+          </ul>
+          <ul class="divider">
+            <li class="title"> {{'address' | translate}}</li>
+            <li class="info"> <input  readonly formControlName="location" value="{{personalAccountDet?.addrDetail}}"> 
+            </li>
+          </ul>
+          <ul class="divider">
+            <li class="title"> {{'e-mail' | translate}}</li>
+            <li class="info"><input matInput type="text" formControlName="email" value="{{personalAccountDet?.email}}"></li>
+          </ul>
+          <ul class="divider">
+            <li class="title"> {{'notifcationChannel' | translate}}</li>
+            <li class="info">
+              <mat-select disabled formControlName="notifChannel" (selectionChange)="doSomething($event)">
+                <mat-option  *ngFor="let notif  of dicNotif" [value]="notif?.id">{{notif?.name}}</mat-option>
+              </mat-select>
+            </li>
+          </ul>
+        </form>
       </mat-tab>
 
     </mat-tab-group>
