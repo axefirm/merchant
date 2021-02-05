@@ -41,43 +41,23 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 
 @font-face {
-  font-family: Montserrat-Regular;
-  src: url(assets/fonts/Montserrat-Regular.ttf);
+  font-family: SF-Pro-Display-Black;
+  src: url(./assets/fonts/SF-Pro-Display-Black.otf);
 }
 
 @font-face {
-  font-family: Montserrat-Medium;
-  src: url(assets/fonts/Montserrat-Medium.ttf);
+  font-family: SF-Pro-Display-Medium;
+  src: url(./assets/fonts/SF-Pro-Display-Medium.otf);
 }
 
 @font-face {
-  font-family: Montserrat-SemiBold;
-  src: url(assets/fonts/Montserrat-SemiBold.ttf);
+  font-family:SF-Pro-Display-Semibold;
+  src: url(./assets/fonts/SF-Pro-Display-Semibold.otf);
 }
 
 @font-face {
-  font-family: Montserrat-Bold;
-  src: url(assets/fonts/Montserrat-Bold.ttf);
-}
-
-@font-face {
-  font-family: OpenSans-Regular;
-  src: url(assets/fonts/OpenSans-Regular.ttf);
-}
-
-@font-face {
-  font-family: OpenSans-Bold;
-  src: url(assets/fonts/OpenSans-Bold.ttf);
-}
-
-@font-face {
-  font-family: OpenSans-SemiBold;
-  src: url(assets/fonts/OpenSans-SemiBold.ttf);
-}
-
-@font-face {
-  font-family: SF-Pro-Display;
-  src: url(assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf);
+  font-family: SF-Pro-Display-Bold;
+  src: url(./assets/fonts/SF-Pro-Display-Bold.otf);
 }
 
 /* You can add global styles to this file, and also import other style files */
@@ -89,7 +69,7 @@ body {
 
 body {
   margin: 0;
-  font-family: SF-Pro-Display, sans-serif !important;
+  font-family: SF-Pro-Display-Medium, sans-serif !important;
   background-color: $lightgray;
 
 }
@@ -362,7 +342,7 @@ h1 {
 .main-header-label {
   color: $red;
   font-size: 15px;
-  font-family: SF-Pro-Display !important;
+  font-family: SF-Pro-Display-Black !important;
   margin-top: 15px;
 }
 

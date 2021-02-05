@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MgCmerchPendTxn } from 'src/app/core/model/transaction/selectPendTxns';
-import { SelectionModel } from '@angular/cdk/collections';
-import { MatTableDataSource } from '@angular/material/table';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data.service';
+import { ApiService } from 'src/app/core/services/api.service';
+import { MgCmerchMerchCust, MgCmerchSelectMerchCustReq } from 'src/app/core/model/payment/selectMerchCus';
+import { MgCmerchInitTxnReq } from 'src/app/core/model/transaction/initTxn';
+import { MgCmerchInqAcntData } from 'src/app/core/model/enquire/getMerchAcntList';
 
 
 export interface Transaction {
@@ -33,15 +35,28 @@ export class TransferComponent implements OnInit {
 
   //Api 
   PendingTxn: MgCmerchPendTxn[];
-  constructor(private formBuilder: FormBuilder, private dataService: DataService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private dataService: DataService, private router: Router, private api: ApiService) { }
 
   displayedColumns: string[] = ['select', 'bankamount', 'amount', 'acntNo', 'date'];
 
 
   test = true;
+
   arrayCheckBoxList: Array<Boolean> = [];
-  main: FormGroup;
   myarray: Array<MgCmerchPendTxn> = [];
+
+  merchCode: string;
+
+  //#region Transaction 
+  merchCustList: MgCmerchMerchCust[];
+  merchAcntList: MgCmerchInqAcntData[];
+  //#endregion
+
+  //#region FormGroup
+  main: FormGroup;
+  p2pOwn: FormGroup;
+  p2pOther: FormGroup;
+  //#endregion
 
   OpenPendingComp() {
     const queryParams: any = {};
@@ -51,7 +66,6 @@ export class TransferComponent implements OnInit {
         console.log(this.PendingTxn[i]);
         this.myarray.push(this.PendingTxn[i]);
       };
-      
     }
 
     console.log(this.myarray);
@@ -69,76 +83,63 @@ export class TransferComponent implements OnInit {
       useramount: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
+
+    this.p2pOwn = this.formBuilder.group({
+      srcAcntId: new FormControl(''),
+      dstAcntId: new FormControl(''),
+      amt: new FormControl(''),
+      cur: new FormControl(''),
+    });
+    this.p2pOther = this.formBuilder.group({
+      srcAcntId: new FormControl(''),
+      dstAcntId: new FormControl(''),
+      amt: new FormControl(''),
+      cur: new FormControl(''),
+    });
+    
     this.Init();
   }
+
   Init() {
-    let Pending = new MgCmerchPendTxn(1, 'merchcode 1', 'operCode 2', 'operType 3', 'operName 4', 'dstFiCode 5', 'dstFiName 6', 'dstAcntName 7', 8, 'txnCur 9', 10, 'acntCode 11', 'txnDesc 12', 'initCustId 13', 'initCustName 14', 'initDateTime 15');
-    this.PendingTxn = [Pending, Pending, Pending];
-    for (var i = 0; i < this.PendingTxn.length; i++) {
-      this.arrayCheckBoxList.push(false);
-    }
+    this.merchCode = sessionStorage.getItem('merchant');
+    const selectMerchReq = new MgCmerchSelectMerchCustReq(this.merchCode);
+    this.api.getMerchAcntList(selectMerchReq).subscribe(res => {
+      console.log(res);
+      if (res.responseCode == 0) {
+        this.merchAcntList = res.responseData;
+        this.p2pOwn.controls['srcAcntId'].setValue(this.merchAcntList[0].acntId);
+        }
+      }
+    )
+
+    // let Pending = new MgCmerchPendTxn(1, 'merchcode 1', 'operCode 2', 'operType 3', 'operName 4', 'dstFiCode 5', 'dstFiName 6', 'dstAcntName 7', 8, 'txnCur 9', 10, 'acntCode 11', 'txnDesc 12', 'initCustId 13', 'initCustName 14', 'initDateTime 15');
+    // this.PendingTxn = [Pending, Pending, Pending];
+    // for (var i = 0; i < this.PendingTxn.length; i++) {
+    //   this.arrayCheckBoxList.push(false);
+    // }
   }
 
-  array = [MgCmerchPendTxn, MgCmerchPendTxn, MgCmerchPendTxn]
+  sendP2POwn() {
+    const req = new MgCmerchInitTxnReq();
+    req.merchCode = this.merchCode;
 
+    console.log(this.p2pOwn.controls['acntCode'].value);
 
+  }
 
+  sendP2Pp2pOther() {
+    const req = new MgCmerchInitTxnReq();
+    req.merchCode = this.merchCode;
+
+    console.log(this.p2pOwn.controls['acntCode'].value);
+
+  }
+
+  sendP2PCorp() {
+    const req = new MgCmerchInitTxnReq();
+    req.merchCode = this.merchCode;
+
+    console.log(this.p2pOwn.controls['acntCode'].value);
+
+  }
 }
-
-
-// export class TransferComponent implements OnInit {
-
-
-//   //Api 
-//   PendingTxn: MgCmerchPendTxn[];
-
-
-//   constructor(private formBuilder: FormBuilder, private router: Router) { }
-
-//   displayedColumns: string[] = ['select', 'bankamount', 'amount', 'acntNo', 'date'];
-//   dataSource = ELEMENT_DATA1;
-
-
-
-//   test = true;
-
-//   test1: boolean;
-//   arrayCheckBoxList: Array<Boolean> = [];
-//   main: FormGroup;
-//   myarray: Array<MgCmerchPendTxn> = [];
-
-//   OpenPendingComp() {
-//     const queryParams: any = {};
-//     for (var i = 0; i < this.arrayCheckBoxList.length; i++) {
-//       if (this.arrayCheckBoxList[i]) {
-//         console.log(this.PendingTxn[i]);
-//         this.myarray.push(this.PendingTxn[i]);
-//         queryParams.myArray = JSON.stringify(this.myarray);
-//         const navigationExtras: NavigationExtras = {
-//           queryParams
-//         };
-//         this.router.navigate(['/transaction/approval'],navigationExtras);
-//       }
-//     }
-//     console.log(this.myarray);
-//   }
-
-
-//   ngOnInit(): void {
-//     this.main = this.formBuilder.group({
-//       useramount: new FormControl('', [Validators.required]),
-//       password: new FormControl('', [Validators.required]),
-//     });
-//     this.Init();
-//   }
-//   Init() {
-//     let Pending = new MgCmerchPendTxn(1, 'merchcode 1', 'operCode 2', 'operType 3', 'operName 4', 'dstFiCode 5', 'dstFiName 6', 'dstAcntName 7', 8, 'txnCur 9', 10, 'acntCode 11', 'txnDesc 12', 'initCustId 13', 'initCustName 14', 'initDateTime 15');
-//     this.PendingTxn = [Pending, Pending, Pending];
-//     for (var i = 0; i < this.PendingTxn.length; i++) {
-//       this.arrayCheckBoxList.push(false);
-//     }
-//   }
-
-//   //  array = [MgCmerchPendTxn, MgCmerchPendTxn, MgCmerchPendTxn]
-
-// }

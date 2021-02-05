@@ -61,12 +61,12 @@ export class AddLocationComponent implements OnInit {
   }
 
   verifyMerh() {
-    this.locData = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[0].id, this.addLoc.controls['location'].value, this.addLoc.controls['date'].value, this.addLoc.controls['time'].value)
+    this.locData = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[0].id, this.addLoc.controls['location'].value, "2020/11/22", this.addLoc.controls['time'].value)
     // this.locData = new MgCmerchGetMerchVerfReq(this.addLoc.controls['date'].value, , this.merchCode, ", "");
     this.getLocData.emit(this.locData);
     console.log(this.locData);
-    const req = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[1].id, this.addLoc.controls['location'].value, this.addLoc.controls['date'].value, this.addLoc.controls['time'].value);
-    console.log(req);
+    // const req = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[1].id, this.addLoc.controls['location'].value, this.addLoc.controls['date'].value, this.addLoc.controls['time'].value);
+    // console.log(req);
     this.api.verifyMerch(this.locData).subscribe(data1 => {
       console.log(data1);
       console.log(data1.responseDesc);
