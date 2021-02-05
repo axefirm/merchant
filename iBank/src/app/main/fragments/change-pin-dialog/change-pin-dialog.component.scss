@@ -51,4 +51,27 @@ div{
 }
 .cancel {
     background-color: $lightgray;
+}.mat-input-element {
+    vertical-align: text-top;
+}
+
+
+//  date picker
+
+input {
+    border: none;
+    background-color: transparent;
+}
+input:focus {
+    outline: none;
+}
+::ng-deep .mat-form-field-infix {
+    padding: 0px !important;
+}
+
+::ng-deep .mat-form-field-wrapper {
+
+}
+::ng-deep .mat-input-underline {
+    display: none;
 }

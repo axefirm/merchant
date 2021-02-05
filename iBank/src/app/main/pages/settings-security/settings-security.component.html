@@ -1,29 +1,38 @@
 <div class="main">
-    <div class="main-header">
-      <img class="icon" src="assets/img/logo.png">
-      <div class="grid-2">
-        <div class="main-header-label">{{ "settings.security" | translate }}</div>
-        <div class="balance">
-          <img src="assets/img/icon.png">ArdCoin balance: 5,000
-        </div>
+  <div class="main-header">
+    <img class="icon" src="assets/img/logo.png">
+    <div class="grid-2">
+      <div class="main-header-label">{{ "settings.security" | translate }}</div>
+      <div class="balance">
+        <img src="assets/img/icon.png">ArdCoin balance: 5,000
       </div>
     </div>
-    <div class="main-container">
-     
-
-     
-        <ul class="divider">
-          <li class="title">Devices</li>
-          <li class="device"> Iphone 13s Max Pro Ultra Studio</li>
-          
-        </ul>
-  
-        <ul class="divider">
-          <li class="title">Password</li>
-          <li class="underline-button" (click)="openDialog()">Change pin</li>
-        </ul>
-  
-        
-    </div>
   </div>
-  
+  <div class="main-container">
+
+
+
+    <ul class="divider">
+      <li class="title">Devices</li>
+      <div class="devices" (scroll)="onScroll($event)">
+        <ng-container *ngFor="let dev of deviceNames" >
+          <div >
+          <mat-icon (click)="doSomething(dev.deviceId)" aria-hidden="false"  class="remove_circle" matPrefix >remove_circle</mat-icon>
+          {{dev.name}}
+        </div>
+        </ng-container>
+      </div>
+
+
+    </ul>
+
+    <ul class="divider">
+      <li class="title">Password</li>
+      <li class="underline-button" (click)="openDialog()">
+        <mat-icon aria-hidden="false" class="remove_circle" matPrefix>https</mat-icon> Change pin
+      </li>
+    </ul>
+
+
+  </div>
+</div>

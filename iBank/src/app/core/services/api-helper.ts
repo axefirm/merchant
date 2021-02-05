@@ -14,6 +14,18 @@ export class ApiHelper {
 
     public static getDictionary: string = 'getDictionary';
 
+    // customer info 
+    
+    public static detailCust: string = 'detailCust';
+
+    public static changeEmail: string = 'changeEmail';
+
+    public static updateCust: string = 'updateCust';
+
+    public static selectCustAccess: string = 'selectCustAccess';
+
+    public static deleteCustAccess: string = 'deleteCustAccess';
+
 
     // 
     //Merchant api related

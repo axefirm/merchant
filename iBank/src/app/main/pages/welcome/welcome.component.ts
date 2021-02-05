@@ -106,7 +106,7 @@ export class WelcomeComponent implements OnInit {
       encrypt.setPublicKey(data);
       encrypted = encrypt.encrypt(this.main.value.password);
       console.log(encrypted);
-      const loginData = new MgLoginReq(this.main.value.useramount, encrypted, "test", "MNGC-MPS9122", "172.16.116.92"
+      const loginData = new MgLoginReq(this.main.value.useramount, encrypted, "bur uur bilguun 5", "sansriin tunnelliin negjnii mashin", "172.16.116.92"
         , "6EB20E499328", "IOS", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", "Name = Chrome,Type = Chrome87,Version = 87.0,Major", 60, "MN", 0, 0, "", "2021010817121800", 0, 0, 0, "");
       console.log(loginData);
       this.api.login(loginData).subscribe(data => {
