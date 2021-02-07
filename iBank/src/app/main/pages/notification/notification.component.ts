@@ -25,18 +25,32 @@ import { ApiService } from 'src/app/core/services/api.service';
 
 // ];
 
-export const EXAMPLE_EL_TXN: MgCmerchActivityListData = new MgCmerchActivityListData(
+export const EXAMPLE_EL_TXN_1: MgCmerchActivityListData = new MgCmerchActivityListData(
   "fiName",
   "fiIcon",
   "dstAcntName",
-  "txnType",
+  "IN",
   1000,
   "MNT",
   "srcAcntCode",
   "srcAcntName",
   "notifSubj",
   "notifBody",
-  "recDate",
+  "2010-01-28T13:15:18.547Z",
+  "TXN",
+)
+export const EXAMPLE_EL_TXN_2: MgCmerchActivityListData = new MgCmerchActivityListData(
+  "fiName",
+  "fiIcon",
+  "dstAcntName",
+  "EX",
+  1000,
+  "MNT",
+  "srcAcntCode",
+  "srcAcntName",
+  "notifSubj",
+  "notifBody",
+  "2010-01-28T13:15:18.547Z",
   "TXN",
 )
 export const EXAMPLE_EL_NOTIF: MgCmerchActivityListData = new MgCmerchActivityListData(
@@ -50,20 +64,20 @@ export const EXAMPLE_EL_NOTIF: MgCmerchActivityListData = new MgCmerchActivityLi
   "srcAcntName",
   "notifSubj",
   "notifBody",
-  "recDate",
+  "2010-01-28T13:15:18.547Z",
   "NOTIF",
 )
 
 export const EXAMPLE: MgCmerchActivityListData[] = [
-  EXAMPLE_EL_TXN,
+  EXAMPLE_EL_TXN_1,
   EXAMPLE_EL_NOTIF,
-  EXAMPLE_EL_TXN,
+  EXAMPLE_EL_TXN_2,
   EXAMPLE_EL_NOTIF,
-  EXAMPLE_EL_TXN,
+  EXAMPLE_EL_TXN_1,
   EXAMPLE_EL_NOTIF,
-  EXAMPLE_EL_TXN,
+  EXAMPLE_EL_TXN_2,
   EXAMPLE_EL_NOTIF,
-  EXAMPLE_EL_TXN,
+  EXAMPLE_EL_TXN_1,
   EXAMPLE_EL_NOTIF,
 ]
 
@@ -87,8 +101,14 @@ export class NotificationComponent implements OnInit {
   activity: MgCmerchActivityListData [];
 
   ngOnInit(): void {
+
+    this.activity = EXAMPLE;
+    this.filterUnread();
+
     this.custId = sessionStorage.getItem("custId");
     this.getActivity();
+
+
   }
 
   getActivity(){

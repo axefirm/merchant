@@ -19,7 +19,50 @@ import { DialogComponent } from '../../fragments/dialog/dialog.component';
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-const ELEMNT_DATA1_EX: MgCmerchInqAcntTranRefData = new MgCmerchInqAcntTranRefData(
+const ELEMNT_DATA_EX_1: MgCmerchInqAcntTranRefData = new MgCmerchInqAcntTranRefData(
+  1,
+  '2020-11-22',
+  1000,
+  'MNT',
+  'guilgeenii utga',
+  'suvag',
+  'suvgiin ner1',
+  ' suvgiin ner2',
+  'sanhuugiin baiguullagiin dugar',
+  'sanhuugiin baiguullagiin ner ',
+  'sanhugiin baiguullagiin ner2',
+  'ilgeesen sanhuugiin baiguullagiin icon',
+  'ilgeesen sanhuugiin baiguullagiin dugaar',
+  ' ilgeesen sanhuugiin baiguullagiin ner',
+  'ilgeesen sanhuugiin baiguullagiin ner2',
+  'ilgeesen sanhuugiin baiguullagiin brief',
+  'ilgeesen sanhuugiin baiguullagiin brief 2',
+  'ilgeesen sanhuugiin baiguullagiin icon',
+  'huleen avsan baiguullagiin dugaar',
+  'huleen avsan baiguullagiin ner',
+  ' huleen avsan baiguullagiin ner 2',
+  'huleen avsan baiguullagiin brief',
+  'huleen avsan baiguullagiin brief2',
+  'huleen avsan baiguullagiin icon',
+  'ilgeesen id',
+  'ilgeesen hereglegchiin ner',
+  'ilgeesen hereglegchiin ner2',
+  'huhuleen avsan hereglegchiin id',
+  'huleen avsan hereglegchiin ner',
+  'huleen avsan hereglegchiin ner2',
+  1234567,
+  'ilgeesen dansnii ner',
+  ' ilgeesen dansnii ner2',
+  'ilgeesen dansnii dugaar',
+  987654321,
+  'huleen avsan dansnii ner',
+  'huleen avsan dansnii ner2',
+  'hulen avsan dansnii dugaar',
+  'tuluw',
+  'tuluwiin ner',
+  'tuluwiin ner2'
+);
+const ELEMNT_DATA_EX_2: MgCmerchInqAcntTranRefData = new MgCmerchInqAcntTranRefData(
   1,
   '2020-11-22',
   1000,
@@ -63,27 +106,12 @@ const ELEMNT_DATA1_EX: MgCmerchInqAcntTranRefData = new MgCmerchInqAcntTranRefDa
   'tuluwiin ner2'
 );
 const ELEMENT_DATA1: MgCmerchInqAcntTranRefData[] = [
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
-  ELEMNT_DATA1_EX,
+  ELEMNT_DATA_EX_1,
+  ELEMNT_DATA_EX_2,
+  ELEMNT_DATA_EX_1,
+  ELEMNT_DATA_EX_2,
+  ELEMNT_DATA_EX_1,
+  ELEMNT_DATA_EX_2,
 ];
 /// Place holders end
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,6 +157,7 @@ export class ReportComponent implements OnInit {
   pageNum = 0;
 
   ngOnInit(): void {
+    this.dataSource = ELEMENT_DATA1;
     this.prepareData();
     this.getTranRefReportFull();
   }

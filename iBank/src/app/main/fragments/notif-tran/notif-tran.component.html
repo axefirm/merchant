@@ -10,16 +10,16 @@
             {{notif.fiName}}
           </div>
           <div class="desc">
-            {{notif.srcAcntName}}
+            {{txn.getCorrespondingName(notif)}}
           </div>
     </div>
 
-    <div class="outcome bold">
-        {{notif.txnCur}} {{notif.txnAmt}}
+    <div class="outcome bold"  [ngClass]="{ income: isIncome === true }">
+        {{txn.getCurrencySymbol(notif.txnCur)}} {{notif.txnAmt}}
       </div>
     <div>
         <div class="bankName bold">
-            {{notif.srcAcntCode}}
+            {{txn.getCorrespondingCode(notif)}}
           </div>
           <div class="desc">
             Vodka

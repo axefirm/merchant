@@ -3,6 +3,7 @@ import { find } from 'rxjs/operators';
 import { MgLoginDicData } from 'src/app/core/model/app/getDictionary';
 import { MgCmerchActivityListData } from 'src/app/core/model/enquire/selectMerchActivity';
 import { ApiService } from 'src/app/core/services/api.service';
+import { TxnService } from 'src/app/core/services/txn.service';
 
 @Component({
   selector: 'app-notif-tran',
@@ -13,39 +14,21 @@ export class NotifTranComponent implements OnInit {
   @Input() notif: MgCmerchActivityListData;
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private txn: TxnService,
   ) { }
 
-  correspondingName: string;
-  currencyMap: Map<string, string>;
-
-  curType = {
-    income: "IN",
-    expense: "EX",
-    pending: "PE"
-  }
+  date: Date;
+  isIncome: boolean;
 
   ngOnInit(): void {
-    // this.findCorrespondingName();
-    // this.currencyMap = new Map<string, string>
-    // this.currencyMap.set('MNT', '₮');
-  }
-
-  findCorrespondingName(){
-    // this.api.getDictionary("dictMerchTxnType").subscribe((data) => {
-    //   if(data.responseCode == 0){
-    //     let res = data as MgLoginDicData[];
-
-    //     if(this.notif.txnType == )
-
-    //   }else alert(data.responseDesc);
-    // })
-    return "lmao";
+    this.date = new Date(this.notif.recDate);
+    this.isIncome = this.txn.isIncome(this.notif);
   }
   formatDate(){
-    return "Year XXXX"
+    return this.date.getFullYear();
   }
   formatTime(){
-    return "O clock"
+    return this.date.getHours() + " : " + this.date.getMinutes();
   }
 }
