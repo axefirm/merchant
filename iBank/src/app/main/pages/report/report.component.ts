@@ -155,6 +155,7 @@ export class ReportComponent implements OnInit {
   walletDict: MgLoginDicData[];
 
   pageNum = 0;
+  hasNextPage = false;
 
   ngOnInit(): void {
     this.dataSource = ELEMENT_DATA1;
@@ -222,12 +223,39 @@ export class ReportComponent implements OnInit {
       if (data.responseCode == 0) {
         this.dataSource = data.responseData as MgCmerchInqAcntTranRefData[];
         this.dataSource = ELEMENT_DATA1;
+        this.checkNextPage();
       } else {
         alert(data.responseDesc);
         alert('Turshiltiin medeelel orj baina');
         this.dataSource = ELEMENT_DATA1;
       }
     });
+  }
+
+  checkNextPage(){
+    const req = new MgCmerchGetTranRefReportReq(
+      sessionStorage.getItem('merchant'),
+      this.filterData.type.id,
+      this.filterData.channel.id,
+      '',
+      this.filterData.currency.id,
+      this.filterData.senderNumber,
+      this.filterData.recieverNumber,
+      this.filterData.transactionNumber,
+      this.referenceDate.value.start,
+      this.referenceDate.value.end,
+      this.pageNum + 1,
+      ''
+    );
+    this.api.getTranRefReport(req).subscribe((data)=>{
+      if(data.responseCode == 0){
+        if(data.responseData.length == 0){
+          this.hasNextPage = false;
+        }else{
+          this.hasNextPage = true;
+        }
+      }
+    })
   }
 
   openDialogReportFilter() {

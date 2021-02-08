@@ -301,7 +301,7 @@
                   {{ "amount" | translate }}
                 </th>
                 <td mat-cell *matCellDef="let element">
-                  <div class="outcome" [ngClass]="{ income: test === false }">
+                  <div class="outcome" [ngClass]="{ income: txn.isIncome(element) }">
                     ₮{{ element.txnAmt }}
                   </div>
                   <div class="">
@@ -364,11 +364,12 @@
               >
             </div>
           </li>
-          <li class="p-num noselect">
+          <li *ngIf="hasNextPage && pageNum != 0" class="p-num noselect">
             {{ pageNum + 1 }}
           </li>
           <li>
             <div
+            *ngIf="hasNextPage"
               class="rippled-c noselect"
               matRipple
             >
