@@ -15,7 +15,7 @@ export class NotifTranComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    private txn: TxnService,
+    public txn: TxnService,
   ) { }
 
   date: Date;

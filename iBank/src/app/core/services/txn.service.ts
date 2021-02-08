@@ -53,7 +53,7 @@ export class TxnService {
 
   // for MgCmerchInqAcntTranRefData
   
-  getCorrespondingName(data: MgCmerchInqAcntTranRefData){
-    return "d"
-  }
+  // getCorrespondingName(data: MgCmerchInqAcntTranRefData){
+  //   return "d"
+  // }
 }
