@@ -80,6 +80,7 @@ import {MatMenuModule} from '@angular/material/menu';
 // custom date picker 
 import { HammerModule } from "@angular/platform-browser";
 import { VerifyTanComponent } from './main/pages/verify-tan/verify-tan.component';
+import { ConfirmUserComponent } from './main/fragments/confirm-user/confirm-user.component';
 // import { IgxTimePickerModule } from 'igniteui-angular';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
@@ -135,6 +136,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     WelcomeSectionComponent,
     ChangeMobileComponent,
     VerifyTanComponent,
+    ConfirmUserComponent,
   ],
   imports: [
     BrowserModule,

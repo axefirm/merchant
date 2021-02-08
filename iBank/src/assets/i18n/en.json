@@ -19,6 +19,7 @@
     "address": "Address",
     "firstName": "First name",
     "lastName": "Last name",
+    "adduser": "Add user",
     "login": "Login",
     "forgetPin": "Forget pin?",
     "userName": "User name",
@@ -39,6 +40,7 @@
     "enterCode": "Please enter your TAN code",
     "tanCode": "TAN code",
     "finish": "Finish",
+
 
     "save": "Save",
     "cancel": "Cancel",

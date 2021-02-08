@@ -1,39 +1,38 @@
 
-<form [formGroup]="addUser">
 
     <div class="form-content">
       <div class="grid-pass">
         <div> {{"firstName" | translate}}</div>
         <div class="input">
-          <input type="text" matInput formControlName="firstName" >
+          {{userData.firstName}}
         </div>
       </div>
   
       <div class="grid-pass">
         <div> {{"lastName" | translate}}</div>
         <div class="input">
-          <input type="text" matInput formControlName="lastName">
+          {{userData.lastName}}
         </div>
       </div>
   
       <div class="grid-pass">
         <div>{{"idNumber" | translate}}</div>
         <div class="input">
-          <input type="text" matInput formControlName="idNumber">
+          {{userData.idNumber}}
         </div>
       </div>
 
       <div class="grid-pass">
         <div>{{"position" | translate}}</div>
         <div class="input">
-          <input    formControlName="position" placeholder="{{roleInfo?.name}} " disabled>
+            {{roleInfo?.name}}
         </div>
       </div>
 
       <div class="grid-pass">
         <div>{{"phoneNumber" | translate}}</div>
         <div class="input">
-          <input type="text" matInput formControlName="phoneNumber">
+          {{userData.phoneNumber}}
         </div>
       </div>
 
@@ -42,7 +41,7 @@
   
     <div class="form-action">
       <button type="button" mat-flat-button class="cancel" (click)="cancel()">Cancel</button>
-      <button type="submit" mat-flat-button color="warn" (click)="saveUser()">Save</button>
+      <button type="submit" mat-flat-button color="warn" (click)="saveUser()">Confirm</button>
     </div>
-  </form>
+ 
   

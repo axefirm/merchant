@@ -17,7 +17,8 @@ export enum DialogType {
     createPinDialog,
     changePinDialog,
     reportFilter,
-    chooseMerchant
+    chooseMerchant,
+    confirmUser
 }
 
 export class eCredStatus {

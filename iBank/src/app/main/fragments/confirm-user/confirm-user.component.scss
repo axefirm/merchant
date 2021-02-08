@@ -16,15 +16,7 @@ div{
     justify-items: start;
     height: 1.5rem;
 }
-.input
-{
-    border-style: solid;
-    border-color: #e9eaea;
-    border-width: 1px;
-    border-radius: 8px;
-    width: 100%;
-    background-color: $lightgray;
-}
+
 .form-action {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -56,23 +48,4 @@ div{
 
 .mat-input-element {
     vertical-align: text-top;
-}
-
-
-input {
-    border: none;
-    background-color: transparent;
-    padding-left: 0.5rem;
-    padding-top: 4px;
-}
-input:focus {
-    outline: none;
-}
-::ng-deep .mat-form-field-infix {
-    padding: 0px !important;
-}
-
-
-::ng-deep .mat-input-underline {
-    display: none;
 }

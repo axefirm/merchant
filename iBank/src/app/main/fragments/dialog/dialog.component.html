@@ -10,7 +10,7 @@
 
   </ng-container>
   <ng-container *ngIf="data.type == test.addUser">
-    <app-add-user></app-add-user>
+    <app-add-user [roleInfo]="roles"></app-add-user>
   </ng-container>
   <ng-container *ngIf="data.type == test.createPinDialog">
     <app-create-pin-dialog></app-create-pin-dialog>
@@ -27,4 +27,8 @@
   <ng-container *ngIf="data.type == test.chooseMerchant">
     <app-choose-merchant [merchantList]="this.value"></app-choose-merchant>
   </ng-container>
+  <ng-container *ngIf="data.type == test.confirmUser">
+    <app-confirm-user [userData]="userInfo" [roleInfo]="this.data.roleId"></app-confirm-user>
+  </ng-container>
+
 </mat-dialog-content>
