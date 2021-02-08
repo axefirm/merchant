@@ -301,7 +301,7 @@
                   {{ "amount" | translate }}
                 </th>
                 <td mat-cell *matCellDef="let element">
-                  <div class="outcome" [ngClass]="{ income: txn.isIncome(element) }">
+                  <div class="outcome" [ngClass]="{ income: false }">
                     ₮{{ element.txnAmt }}
                   </div>
                   <div class="">

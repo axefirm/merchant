@@ -1,6 +1,10 @@
 // Utilities
 @import "../../../utilities/variables.scss";
 
+:host:hover{
+  cursor: pointer;
+}
+
 .add-button {
   height: 35px;
   width: 35px;
@@ -64,4 +68,8 @@
 
 .current {
   padding: 20px 30px;
+}
+
+.chosen {
+  opacity: 1.0 !important;
 }
