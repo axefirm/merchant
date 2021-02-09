@@ -15,7 +15,7 @@ export class ApiHelper {
     public static getDictionary: string = 'getDictionary';
 
     // customer info 
-    
+
     public static detailCust: string = 'detailCust';
 
     public static changeEmail: string = 'changeEmail';
@@ -84,6 +84,9 @@ export class ApiHelper {
     public static verifyMerch: string = 'verifyMerch';
 
     public static getMerchVerify: string = 'getMerchVerify';
+
+    public static deleteMerchCust: string = 'deleteMerchCust';
+
 
     //transaction
     public static initTxn: string = 'initTxn';

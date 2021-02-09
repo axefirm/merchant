@@ -73,16 +73,4 @@ export class AddLocationComponent implements OnInit {
     });
   }
 
-
-  // ene functiong add location bish verify deer ashiglana.
-  // verifyMerh() {
-
-  //   const req = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[1].id, this.addLoc.controls['location'].value, this.addLoc.controls['date'].value, this.addLoc.controls['time'].value);
-  //   console.log(req);
-  //   this.api.verifyMerch(req).subscribe(data1 => {
-  //     console.log(data1);
-  //     console.log(data1.responseDesc);
-  //   });
-  // }
-
 }

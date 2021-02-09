@@ -26,14 +26,14 @@ import { MgCustUpdateCustReq } from 'src/app/core/model/updateCustInfo/updateCus
   styleUrls: ['./settings-general.component.scss'],
 })
 export class SettingsGeneralComponent implements OnInit {
-  personalSett: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
     private api: ApiService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
-
+  personalSett: FormGroup;
   accountDet: MgCmerchGetMerchRegRes;
   personalAccountDet: MgCustDetailCustRes;
   dicOrg: MgLoginDicData;

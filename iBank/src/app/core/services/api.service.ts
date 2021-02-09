@@ -40,6 +40,7 @@ import { MgCustChangeEmailReq } from '../model/updateCustInfo/changeEmail';
 import { MgCustUpdateCustReq } from '../model/updateCustInfo/updateCust';
 import { MgCustSelectCustAccessReq } from '../model/updateCustInfo/selectCustAccess';
 import { MgCustDeleteCustAccessReq } from '../model/updateCustInfo/deleteCustAccess';
+import { MgCmerchDeleteMerchCustReq } from '../model/payment/deleteMerchCust';
 
 @Injectable({
   providedIn: 'root'
@@ -176,6 +177,10 @@ export class ApiService {
 
   getMerchVerify(data: MgCmerchGetMerchVerifyReq) {
     return this.api.postMerch(ApiHelper.getMerchVerify, data);
+  }
+
+  deleteMerchCust(data: MgCmerchDeleteMerchCustReq) {
+    return this.api.postMerch(ApiHelper.deleteMerchCust, data);
   }
   //transaction
   initTxn(data: MgCmerchInitTxnReq) {

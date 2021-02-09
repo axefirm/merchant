@@ -1,12 +1,34 @@
 @import "../../../utilities/variables.scss";
 
+.main-container {
+  display: grid;
+  grid-template-rows: 80% 20%;
 
+}
 
 .users-list {
   display: grid;
-  grid-template-columns: 45% 45% 10%;
+  grid-template-columns: 45%  45% 10%;
   list-style-type: none;
   height: auto;
+  padding-top: 0.5rem;
+  padding-bottom:0.5rem;
+  min-height: 25px;
+  .editUser {
+    display: none;
+  }
+
+}
+.user-type {
+  display: grid;
+  grid-template-columns: 30% auto;
+  .users , .addUser {
+    display: none;
+  }
+  .editUser {
+    display: flex;
+    justify-content: space-around; 
+  }
 
 }
 
@@ -32,9 +54,46 @@
 
 .mat-icon {
   color: $gray;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   top: 3px;
   left: 6px;
   cursor: pointer;
+}
+
+
+.grid-button {
+
+  align-self: start;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+
+  
+}
+.right , .left {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-self: center;
+}
+.grid-button button {
+ 
+  width: 95%;
+  
+  border-radius: 8px;
+  font-size: 16px;  
+}
+.grid-button-2 {
+  display: grid;
+  grid-template-columns: 66% 33%;
+ 
+  .left{
+    display: none;
+  }
+  .right {
+    align-self: end;
+  }
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
+  background-color: $gray !important; 
 }
