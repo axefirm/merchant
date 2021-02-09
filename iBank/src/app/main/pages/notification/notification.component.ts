@@ -79,8 +79,17 @@ export const EXAMPLE: MgCmerchActivityListData[] = [
   EXAMPLE_EL_NOTIF,
   EXAMPLE_EL_TXN_1,
   EXAMPLE_EL_NOTIF,
+  EXAMPLE_EL_TXN_1,
+  EXAMPLE_EL_NOTIF,
+  EXAMPLE_EL_TXN_2,
+  EXAMPLE_EL_NOTIF,
+  EXAMPLE_EL_TXN_1,
+  EXAMPLE_EL_NOTIF,
+  EXAMPLE_EL_TXN_2,
+  EXAMPLE_EL_NOTIF,
+  EXAMPLE_EL_TXN_1,
+  EXAMPLE_EL_NOTIF,
 ]
-
 
 @Component({
   selector: 'app-notification',
@@ -92,43 +101,77 @@ export class NotificationComponent implements OnInit {
   constructor(
     private api: ApiService
   ) { }
-  typeNotif = "NOTIF";
-  typeTran = "TXN";
+
+  activityType = {
+    notif: "NOTIF",
+    tran: "TXN",
+  }
+
   notifs: MgCmerchActivityListData[];
 
-  custId: any;
-
-  activity: MgCmerchActivityListData [];
+  merchCustId: string;
+  pageNum = 0;
+  hasNextPage = false;
 
   ngOnInit(): void {
-
-    this.activity = EXAMPLE;
-    this.filterUnread();
-
-    this.custId = sessionStorage.getItem("custId");
+    this.notifs = EXAMPLE;
+    this.merchCustId = sessionStorage.getItem("merchCustId");
     this.getActivity();
+  }
 
-
+  nextP(){
+    this.pageNum++;
+    this.getActivity();
+  }
+  prevP(){
+    this.pageNum--;
+    this.getActivity()
   }
 
   getActivity(){
-    this.api.selectMerchActivity(new MgCmerchActivityListReq(sessionStorage.getItem("merchCustId"), 0, 100)).subscribe((data) =>{
+    this.api.selectMerchActivity(new MgCmerchActivityListReq(this.merchCustId, this.pageNum, this.getActivityPerCount())).subscribe((data) =>{
       if(data.responseCode == 0){
-        this.activity = data.responseData;
-        this.filterUnread();
+        this.notifs = data.responseData;
+        this.checkNextPage();
+        this.readActivity(this.notifs);
       }else{
         alert(data.responseDesc);
-        this.activity = EXAMPLE;
-        this.filterUnread();
+        this.notifs = EXAMPLE;
       }
     })
   }
+  getActivityPerCount(){
+    return 9;
+  }
+  readActivity(data: MgCmerchActivityListData[]){
 
-  filterUnread(){
+    let recIds = [];
+    let refnos = [];
 
-    ///filter which are unread?
+    data.forEach((el) => {
+      if(el.recType == this.activityType.notif){
+        // refnos.push(el.refno); 
+      }else if(el.recType == this.activityType.tran){
+        // recIds.push(el.recId);
+      }
+    })
 
-    this.notifs = this.activity as MgCmerchActivityListData[];
+    this.api.readMerchSmartNotif(new MgCmerchReadSmartNotifReq(this.merchCustId, recIds, refnos)).subscribe((data) => {
+      if(data.responseCode == 0){
+        // read
+      }else{
+        alert(data.responseDesc);
+      }
+    })
+  }
+  checkNextPage(){
+    this.api.checkUnreadSmart(new MgCmerchCheckUnreadSmartReq(this.merchCustId)).subscribe((data) => {
+      if(data.responseCode == 0){
+        this.hasNextPage = data.unread;
+      }else{
+        // bla2
+      }
+    })
   }
 }
 

@@ -4,56 +4,50 @@ import { MgCmerchActivityListData } from '../model/enquire/selectMerchActivity';
 import { MgCmerchSelectPendTxnsRes } from '../model/transaction/selectPendTxns';
 
 const txnType = {
-  income: "IN",
-  expense: "EX",
-}
+  income: 'IN',
+  expense: 'EX',
+};
 
-const currencyMap = new Map<string, string> ([
-  [ "MNT","₮" ],
-  [ "MN","₮" ],
-  [ "EN", "$" ],
-  [ "ENG", "$" ],
+const currencyMap = new Map<string, string>([
+  ['MNT', '₮'],
+  ['MN', '₮'],
+  ['EN', '$'],
+  ['ENG', '$'],
 ]);
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TxnService {
+  constructor() {}
 
-  constructor() { }
-
-  getCurrencySymbol(currency: string){
+  getCurrencySymbol(currency: string) {
     // there may be a better way to implement this
     return currencyMap.get(currency);
   }
 
-  // for MgCmerchActivityListData
+  isIncome(data: any) {
+    return data.txnType == txnType.income;
+  }
+  
+  getCorrespondingCode(data: any) {
+    if (this.isIncome(data)) {
+      return data.srcAcntCode;
+    } else {
+      // no dstAcntCode for but okay
+      return data.dstAcntName;
+    }
+  }
 
-  getCorrespondingName(data: MgCmerchActivityListData){
+  getCorrespondingName(data: any){
     if(this.isIncome(data)){
       return data.srcAcntName;
     }else{
       return data.dstAcntName;
     }
   }
-
-  getCorrespondingCode(data: MgCmerchActivityListData){
-    if(this.isIncome(data)){
-      return data.srcAcntCode;
-    }else{
-      // no dstAcntCode for but okay
-      return data.dstAcntName;
-    }
-  }
-
-  isIncome(data: MgCmerchActivityListData){
-    return data.txnType == txnType.income;
-  }
-
-
-  // for MgCmerchInqAcntTranRefData
   
-  // getCorrespondingName(data: MgCmerchInqAcntTranRefData){
-  //   return "d"
-  // }
+  getCorrespondingName2(data: any){
+    // adawdwada
+  }
 }

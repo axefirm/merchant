@@ -1,27 +1,97 @@
 <div class="info">
-  <div class="grid-2">
+  <div *ngIf="!isMoreRates" class="currency-more">
     <div>
-      <span class="bold">USD </span>
-      <span class="gray bold">2,854|2,856</span>
-      <mat-icon style="color: #45B99E" class="mat-icon">arrow_upward</mat-icon>
+      <span class="bold">{{ rates[0].name }} </span>
+      <span class="gray bold">{{ rates[0].sell }}|{{ rates[0].buy }}</span>
+      <mat-icon
+        *ngIf="isIncreased(rates[0])"
+        class="mat-icon"
+        style="color: #45b99e"
+        >arrow_upward</mat-icon
+      >
+      <mat-icon
+        *ngIf="!isIncreased(rates[0])"
+        class="mat-icon"
+        style="color: #ff0000"
+        >arrow_downward</mat-icon
+      >
     </div>
     <div>
-      <span class="bold">ACO </span>
-      <span class="gray bold">2,854|2,856</span>
-      <mat-icon style="color:red" class="mat-icon">arrow_downward</mat-icon>
+      <span class="bold">{{ rates[1].name }} </span>
+      <span class="gray bold">{{ rates[1].sell }}|{{ rates[1].buy }}</span>
+      <mat-icon
+        *ngIf="isIncreased(rates[1])"
+        class="mat-icon"
+        style="color: #45b99e"
+        >arrow_upward</mat-icon
+      >
+      <mat-icon
+        *ngIf="!isIncreased(rates[1])"
+        class="mat-icon"
+        style="color: #ff0000"
+        >arrow_downward</mat-icon
+      >
+    </div>
+  </div>
+  <div *ngIf="isMoreRates">
+    <div *ngFor="let item of rates; let i = index" class="rate" class="currency-more">
+      <div *ngIf="i % 2 == 0" class="rate">
+        <span class="bold">{{ rates[i].name }} </span>
+        <span class="gray bold">{{ rates[i].sell }}|{{ rates[i].buy }}</span>
+        <span
+          *ngIf="isIncreased(rates[i])"
+          class="mat-icon material-icons bold"
+          style="color: #45b99e"
+          >arrow_upward</span
+        >
+        <span
+          *ngIf="!isIncreased(rates[i])"
+          class="mat-icon material-icons bold"
+          style="color: #ff0000"
+          >arrow_downward</span
+        >
+      </div>
+      <div *ngIf="i + 1 < rates.length && i % 2 == 0" class="rate">
+        <span class="bold">{{ rates[i + 1].name }} </span>
+        <span class="gray bold"
+          >{{ rates[i + 1].sell }}|{{ rates[i + 1].buy }}</span
+        >
+        <span
+          *ngIf="isIncreased(rates[i + 1])"
+          class="mat-icon material-icons bold"
+          style="color: #45b99e"
+          >arrow_upward</span
+        >
+        <span
+          *ngIf="!isIncreased(rates[i + 1])"
+          class="mat-icon material-icons bold"
+          style="color: #ff0000"
+          >arrow_downward</span
+        >
+      </div>
     </div>
   </div>
 
-  <span class="more-rates bold">More Rates</span>
+  <span
+    (click)="moreRates()"
+    *ngIf="isMoreRates == false"
+    class="more-rates bold"
+    >More Rates</span
+  >
+  <span
+    (click)="lessRates()"
+    *ngIf="isMoreRates == true"
+    class="more-rates bold"
+    >Less Rates</span
+  >
 
-  <div *ngIf="visibleChat" class="divider">
-  </div>
-  
+  <div *ngIf="visibleChat" class="divider"></div>
+
   <div class="support">
     <span class="gray">Call Center</span>
     <span class="gray bold"> (976) 7700 3322</span>
     <button mat-mini-fab color="white" class="mini-fab">
-      <img src="../../../../assets/img/support.svg" alt="">
+      <img src="../../../../assets/img/support.svg" alt="" />
     </button>
   </div>
 </div>

@@ -10,6 +10,7 @@
   width: 90%;
   position: relative;
   color: $white;
+  opacity: 0.3;
   z-index: 999;
 
   .grid-2 {
@@ -65,4 +66,7 @@
   transform: scale(0.85);
   z-index: -5 !important;
   opacity: 0.25;
+}
+.chosen{
+  opacity: 1.0 !important;
 }
