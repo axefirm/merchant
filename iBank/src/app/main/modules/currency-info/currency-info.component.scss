@@ -15,6 +15,11 @@
     cursor: pointer;
   }
 }
+.currency-more{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 30px;
+}
 
 .support {
   margin-top: 20px;
@@ -24,6 +29,8 @@
 .mat-icon {
   display: inline-flex;
   vertical-align: middle;
+  transform: translateY(4px);
+  font-size: 15px;
 }
 
 .agent-support:hover {
@@ -33,4 +40,8 @@
 .mini-fab {
   float: right;
   margin-top: -12px;
+}
+
+.rate{
+  margin-top: 10px;
 }
