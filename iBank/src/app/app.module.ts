@@ -81,6 +81,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { HammerModule } from "@angular/platform-browser";
 import { VerifyTanComponent } from './main/pages/verify-tan/verify-tan.component';
 import { ConfirmUserComponent } from './main/fragments/confirm-user/confirm-user.component';
+import {DatePipe} from '@angular/common';
 // import { IgxTimePickerModule } from 'igniteui-angular';
 export function HttpLoaderFactory(httpClient: HttpClient) { return new TranslateHttpLoader(httpClient); }
 
@@ -179,7 +180,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) { return new Translate
     //   apiKey: 'AIzaSyAcnGd_6PbPDf9AqEcnhk8EeWFNUKPDyXQ'
     // })
   ],
-  providers: [EncrService, MatDatepickerModule],
+  providers: [EncrService, MatDatepickerModule, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,7 +5,7 @@ import { MgCmerchGetMerchVerfReq } from "src/app/core/model/payment/MgCmerchGetM
 import { ApiService } from 'src/app/core/services/api.service';
 import { Output, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-add-location',
   templateUrl: './add-location.component.html',
@@ -18,13 +18,16 @@ export class AddLocationComponent implements OnInit {
   test: string;
   minDate: Date;
   maxDate: Date;
-
+  selected = '09:00 AM';
   @Output() getLocData = new EventEmitter<MgCmerchGetMerchVerfReq>();
+  submitted: boolean;
+  date: string;
   constructor(
     private formBuilder: FormBuilder,
     private api: ApiService,
     private dialogRef: MatDialogRef<AddLocationComponent>,
-    @Inject(MAT_DIALOG_DATA) data) { }
+    @Inject(MAT_DIALOG_DATA) data,
+    private datePipe: DatePipe) { }
   addLoc: FormGroup;
 
   ngOnInit(): void {
@@ -39,7 +42,9 @@ export class AddLocationComponent implements OnInit {
     this.minDate = new Date(currentYear - 0, 0, 1);
     this.maxDate = new Date(currentYear + 1, 11, 31);
     this.getDictionary();
-
+    this.addLoc.value.time = 'option3';
+    this.addLoc.controls['time'].setValue('option3');
+    this.submitted = false;
   }
 
 
@@ -52,25 +57,30 @@ export class AddLocationComponent implements OnInit {
         console.log(this.verifType);
       }
     })
-
-
   }
 
   cancel() {
     this.dialogRef.close(this.locData = null);
   }
+  get addLocFormControl() {
+    return this.addLoc.controls;
+  }
+
+
 
   verifyMerh() {
-    this.locData = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[0].id, this.addLoc.controls['location'].value, "2020/11/22", this.addLoc.controls['time'].value)
-    // this.locData = new MgCmerchGetMerchVerfReq(this.addLoc.controls['date'].value, , this.merchCode, ", "");
-    this.getLocData.emit(this.locData);
-    console.log(this.locData);
-    // const req = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[1].id, this.addLoc.controls['location'].value, this.addLoc.controls['date'].value, this.addLoc.controls['time'].value);
-    // console.log(req);
-    this.api.verifyMerch(this.locData).subscribe(data1 => {
-      console.log(data1);
-      console.log(data1.responseDesc);
-    });
+    this.submitted = true;
+    if (this.addLoc.valid) {
+      this.date = (this.datePipe.transform(this.addLoc.value.date,"yyyy/MM/dd"));
+      this.locData = new MgCmerchGetMerchVerfReq(this.merchCode, this.verifType[0].id, this.addLoc.controls['location'].value, this.date, this.addLoc.controls['time'].value)
+      this.getLocData.emit(this.locData);
+      console.log(this.locData);
+
+      this.api.verifyMerch(this.locData).subscribe(data1 => {
+        console.log(data1);
+        console.log(data1.responseDesc);
+      });
+    }
   }
 
 }

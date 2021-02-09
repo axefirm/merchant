@@ -1,48 +1,66 @@
-
 <form [formGroup]="addUser">
 
-    <div class="form-content">
-      <div class="grid-pass">
-        <div> {{"firstName" | translate}}</div>
-        <div class="input">
-          <input type="text" matInput formControlName="firstName" >
-        </div>
-      </div>
-  
-      <div class="grid-pass">
-        <div> {{"lastName" | translate}}</div>
-        <div class="input">
-          <input type="text" matInput formControlName="lastName">
-        </div>
-      </div>
-  
-      <div class="grid-pass">
-        <div>{{"idNumber" | translate}}</div>
-        <div class="input">
-          <input type="text" matInput formControlName="idNumber">
-        </div>
-      </div>
 
-      <div class="grid-pass">
-        <div>{{"position" | translate}}</div>
-        <div class="input">
-          <input    formControlName="position" placeholder="{{roleInfo?.name}} " disabled>
-        </div>
-      </div>
-
-      <div class="grid-pass">
-        <div>{{"phoneNumber" | translate}}</div>
-        <div class="input">
-          <input type="text" matInput formControlName="phoneNumber">
-        </div>
-      </div>
-
-
+  <div class="grid-pass" [ngClass]="!submitted   ? 'grid-pass' :'grid-error'">
+    <div> {{"firstName" | translate}}</div>
+    <!-- <div class="input" [ngClass]="firstName.invalid && firstName.touched ? 'error-input' :'input'" > -->
+    <div class="input" [ngClass]="!addUserFormControl.firstName.valid    ? 'input' :'input-valid'">
+      <input type="text" required maxlength="40" matInput formControlName="firstName">
     </div>
-  
-    <div class="form-action">
-      <button type="button" mat-flat-button class="cancel" (click)="cancel()">Cancel</button>
-      <button type="submit" mat-flat-button color="warn" (click)="saveUser()">Save</button>
+    <span></span>
+    <span class="text-danger"
+      *ngIf="(addUserFormControl.firstName.touched || submitted) && addUserFormControl.firstName.errors?.required">
+      {{"firstName" | translate}} is required
+    </span>
+  </div>
+
+
+  <div class="grid-pass" [ngClass]="!submitted   ? 'grid-pass' :'grid-error'">
+    <div> {{"lastName" | translate}}</div>
+    <div class="input" [ngClass]="!addUserFormControl.lastName.valid    ? 'input' :'input-valid'">
+      <input type="text" matInput formControlName="lastName" maxlength="40">
     </div>
-  </form>
-  
+    <span></span>
+    <span class="text-danger"
+      *ngIf="(addUserFormControl.lastName.touched || submitted) && addUserFormControl.lastName.errors?.required">
+      {{"lastName" | translate}} is required
+    </span>
+  </div>
+
+  <div class="grid-pass" [ngClass]="!submitted   ? 'grid-pass' :'grid-error'">
+    <div>{{"idNumber" | translate}}</div>
+    <div class="input" [ngClass]="!addUserFormControl.idNumber.valid    ? 'input' :'input-valid'">
+      <input type="text" matInput formControlName="idNumber" required maxlength="10">
+    </div>
+    <span></span>
+    <span class="text-danger"
+      *ngIf="(addUserFormControl.idNumber.touched || submitted) && addUserFormControl.idNumber.errors?.required">
+      {{"idNumber" | translate}} is required
+    </span>
+  </div>
+
+  <div class="grid-pass">
+    <div>{{"position" | translate}}</div>
+    <div class="input">
+      <input formControlName="position" placeholder="{{roleInfo?.name}} " disabled>
+    </div>
+  </div>
+
+  <div class="grid-pass" [ngClass]="!submitted   ? 'grid-pass' :'grid-error'">
+    <div>{{"phoneNumber" | translate}}</div>
+    <div class="input" [ngClass]="!addUserFormControl.phoneNumber.valid    ? 'input' :'input-valid'">
+      <input type="text" matInput formControlName="phoneNumber" maxlength="8" required>
+    </div>
+    <span></span>
+    <span class="text-danger"
+      *ngIf="(addUserFormControl.phoneNumber.touched || submitted) && addUserFormControl.phoneNumber.errors?.required">
+      {{"phoneNumber" | translate}} is required
+    </span>
+  </div>
+
+  <div class="form-action">
+    <button type="button" mat-flat-button class="cancel" (click)="cancel()">Cancel</button>
+    <button type="submit" mat-flat-button color="warn" (click)="saveUser()">Save</button>
+  </div>
+
+</form>

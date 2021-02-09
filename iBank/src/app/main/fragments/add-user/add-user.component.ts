@@ -1,6 +1,6 @@
 import { Inject } from '@angular/core';
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 // import * as EventEmitter from 'events';
 // import { OutgoingMessage } from 'http';
@@ -19,14 +19,15 @@ export class AddUserComponent implements OnInit {
   merchCode: string;
   roleId: number;
   userData: MgCmerchAddMembIntoMerchReq;
+  submitted: boolean;
 
   constructor(
-    private formBuilder: FormBuilder, 
-    private api: ApiService, 
-    private dialogRef: MatDialogRef<AddUserComponent>, 
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private dialogRef: MatDialogRef<AddUserComponent>,
     @Inject(MAT_DIALOG_DATA) data,
     public dialog: MatDialog,
-    ) { }
+  ) { }
 
   @Input() roleInfo: MgLoginDicData;
 
@@ -38,7 +39,7 @@ export class AddUserComponent implements OnInit {
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       idNumber: new FormControl('', [Validators.required]),
-      position: new FormControl('', [Validators.required]),
+      // position: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required]),
     });
 
@@ -48,26 +49,29 @@ export class AddUserComponent implements OnInit {
     // this.addUser.controls['position'].setValue(parseInt(this.roleInfo.id));
   }
 
+
   saveUser() {
+    this.submitted = true;
+    console.log(this.submitted);
 
-    console.log(this.roleId);
-    this.userData = new MgCmerchAddMembIntoMerchReq(this.addUser.value.phoneNumber, this.addUser.value.idNumber, this.addUser.value.firstName, this.addUser.value.lastName, this.roleId, this.merchCode);
-    this.addUser.value.position = this.roleId;
-    console.log(this.userData);
+    if (this.addUser.valid) {
 
-    let dialogRef = this.dialog.open(DialogComponent, { data: { type: DialogType.confirmUser, title: "Confirm ", userData: this.addUser.value , roleId: this.roleInfo } },
-    );
-    this.dialogRef.close();
+      console.log(this.roleId);
+      this.userData = new MgCmerchAddMembIntoMerchReq(this.addUser.value.phoneNumber, this.addUser.value.idNumber, this.addUser.value.firstName, this.addUser.value.lastName, this.roleId, this.merchCode);
+      this.addUser.value.position = this.roleId;
+      console.log(this.userData);
 
-    // this.api.addMembIntoMerch(req).subscribe(data => {
-    //   if(data.responseCode == 0) {
-    //   }
-    //   console.log(data);
+      let dialogRef = this.dialog.open(DialogComponent, { data: { type: DialogType.confirmUser, title: "Confirm ", userData: this.addUser.value, roleId: this.roleInfo } },
+      );
+      this.dialogRef.close();
 
-    // })
-
-    console.log(this.addUser.value);
+    }
   }
+
+  get addUserFormControl() {
+    return this.addUser.controls;
+  }
+
 
   cancel() {
     this.dialogRef.close();

@@ -17,7 +17,7 @@
       <div class="devices" (scroll)="onScroll($event)">
         <ng-container *ngFor="let dev of deviceNames" >
           <div >
-          <mat-icon (click)="doSomething(dev.deviceId)" aria-hidden="false"  class="remove_circle" matPrefix >remove_circle</mat-icon>
+          <!-- <mat-icon (click)="doSomething(dev.deviceId)" aria-hidden="false"  class="remove_circle" matPrefix >remove_circle</mat-icon> -->
           {{dev.name}}
         </div>
         </ng-container>
