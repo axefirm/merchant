@@ -20,13 +20,13 @@
       <ng-container *ngIf="!isHide" class="overflow">
         <div class="test">
           <ng-container *ngFor="let accountItem of accountRes; let i = index">
-            <app-card
-              
-              (indexEmitter)="switchAcnt($event)"
-              [chosen]="i == chosenCard"
-              [account]="accountItem"
-              [index]="i"
-            ></app-card>
+            <div [@fadeIn]="chosenCard == i">
+              <app-card
+                (indexEmitter)="switchAcnt($event)"
+                [account]="accountItem"
+                [index]="i"
+              ></app-card>
+            </div>
           </ng-container>
         </div>
       </ng-container>

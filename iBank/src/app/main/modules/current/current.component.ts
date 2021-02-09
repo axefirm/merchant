@@ -1,3 +1,4 @@
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import {
@@ -76,6 +77,13 @@ const ELEMENT_DATA1: Transaction[] = [
   selector: 'app-current',
   templateUrl: './current.component.html',
   styleUrls: ['./current.component.scss'],
+  animations: [
+    trigger('fadeIn', [
+      state('true', style({opacity: '1'})),
+      state('false', style({ opacity: '0.3'})),
+      transition('0 <=> 1', animate('300ms ease'))
+    ]),
+  ]
 })
 export class CurrentComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
@@ -142,7 +150,6 @@ export class CurrentComponent implements OnInit {
     this.displayedColumns = this.displayedColumnsHide;
     this.Init();
   }
-
   hide() {
     this.isHide = !this.isHide;
     console.log(this.isHide);
