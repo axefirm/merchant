@@ -24,6 +24,7 @@ div{
     border-radius: 8px;
     width: 100%;
     background-color: $lightgray;
+    display: grid;
 }
 .form-action {
     display: grid;
@@ -75,4 +76,21 @@ input:focus {
 
 ::ng-deep .mat-input-underline {
     display: none;
+}
+
+
+// validator
+.grid-error {
+    .input{
+        border: solid $red 1px;
+    }
+    .input-valid {
+        border: none  !important;
+    }
+}
+.text-danger {
+    color: $red;
+    padding-left: 0.5rem;
+    padding-top: 5px;
+
 }

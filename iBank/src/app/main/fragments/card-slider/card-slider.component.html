@@ -2,7 +2,7 @@
     <mat-icon class="left" (click)="next(indicator-1)">arrow_back_ios</mat-icon>
     <div *ngFor="let account of accounts;  index as i">
         <div *ngIf="indicator == i" [@myAnimation]>
-            <app-card [shadow]="true" [account]="account"></app-card>
+            <app-card [chosen]="true" [shadow]="true" [account]="account"></app-card>
         </div>
       </div>
     <mat-icon class="right" (click)="next(indicator+1)">arrow_forward_ios</mat-icon>    

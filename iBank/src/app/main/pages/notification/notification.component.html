@@ -10,12 +10,34 @@
   </div>
   <div class="main-container">
     <div class="mat-row" *ngFor="let item of notifs">
-      <ng-container *ngIf="item.recType == typeTran">
+      <ng-container *ngIf="item.recType == activityType.tran">
         <app-notif-tran [notif]="item"></app-notif-tran>
       </ng-container>
-      <ng-container *ngIf="item.recType == typeNotif">
+      <ng-container *ngIf="item.recType == activityType.notif">
         <app-notif-detail [notif]="item"> </app-notif-detail>
       </ng-container>
     </div>
+  </div>
+  <div class="botoom">
+    <ul>
+      <li></li>
+      <li>
+        <div *ngIf="pageNum != 0" class="rippled-c noselect" matRipple>
+          <mat-icon (click)="prevP()" class="left noselect"
+            >arrow_back_ios</mat-icon
+          >
+        </div>
+      </li>
+      <li *ngIf="hasNextPage && pageNum != 0" class="p-num noselect">
+        {{ pageNum + 1 }}
+      </li>
+      <li>
+        <div *ngIf="hasNextPage" class="rippled-c noselect" matRipple>
+          <mat-icon (click)="nextP()" class="right noselect"
+            >arrow_forward_ios</mat-icon
+          >
+        </div>
+      </li>
+    </ul>
   </div>
 </div>

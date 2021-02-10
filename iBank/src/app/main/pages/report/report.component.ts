@@ -155,6 +155,7 @@ export class ReportComponent implements OnInit {
   walletDict: MgLoginDicData[];
 
   pageNum = 0;
+  hasNextPage = true;
 
   ngOnInit(): void {
     this.dataSource = ELEMENT_DATA1;
@@ -169,12 +170,12 @@ export class ReportComponent implements OnInit {
       wallet: new FormControl(''),
     });
     this.statementDate = this.formBuilder.group({
-      start: new FormControl('2010-01-28T13:15:18.547Z', Validators.required),
+      start: new FormControl(new Date('2020-01-28T13:15:18.547Z'), Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
     this.referenceDate = this.formBuilder.group({
       // probably no transactions in 1700
-      start: new FormControl('2010-01-28T13:15:18.547Z', Validators.required),
+      start: new FormControl(new Date('2020-01-28T13:15:18.547Z'), Validators.required),
       end: new FormControl(new Date(), Validators.required),
     });
     this.filterData = {
@@ -222,6 +223,8 @@ export class ReportComponent implements OnInit {
       if (data.responseCode == 0) {
         this.dataSource = data.responseData as MgCmerchInqAcntTranRefData[];
         this.dataSource = ELEMENT_DATA1;
+
+        // needs to check next page
       } else {
         alert(data.responseDesc);
         alert('Turshiltiin medeelel orj baina');

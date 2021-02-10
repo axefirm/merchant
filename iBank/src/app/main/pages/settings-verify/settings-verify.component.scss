@@ -33,12 +33,18 @@ li{
 }
 .dataAdded {
     display: grid;
-    grid-template-columns: 60% auto auto;
-
+    grid-template-columns: auto auto auto;
+ 
+    .empty-button {
+        justify-self: center;
+    }
+    div{
+        padding-left: 1rem;
+    }
 
 }
-.dataAdded div {
-    padding-left: 1rem;
+.dataAdded div:first-child {
+    
     overflow: hidden;
     text-overflow: ellipsis;
 }

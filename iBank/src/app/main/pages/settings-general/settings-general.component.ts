@@ -107,10 +107,12 @@ export class SettingsGeneralComponent implements OnInit {
   GetCompanyInfo() {
     const req = new MgCmerchGetMerchRegReq(this.merchCode);
     this.api.getMerchReg(req).subscribe(data => {
+      console.table(data);
       if (data.responseCode != 0) {
       }
       if (data.responseCode == 0) {
         this.accountDet = data;
+        console.log(this.accountDet);
         this.verfStat = this.accountDet.verfStatus;
         if (this.accountDet.isVatPayer == 1) {
           this.toggler = true;

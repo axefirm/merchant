@@ -73,6 +73,7 @@ div{
 input {
     border: none;
     background-color: transparent;
+    width: 80%;
 }
 input:focus {
     outline: none;
@@ -86,4 +87,27 @@ input:focus {
 }
 ::ng-deep .mat-input-underline {
     display: none;
+}
+
+
+::ng-deep .mat-select-trigger {
+    
+    width: 40%;
+}
+
+
+// validator
+.grid-error {
+    .input{
+        border: solid $red 1px;
+    }
+    .input-valid {
+        border: none  !important;
+    }
+}
+.text-danger {
+    color: $red;
+    padding-left: 0.5rem;
+    padding-top: 5px;
+
 }
