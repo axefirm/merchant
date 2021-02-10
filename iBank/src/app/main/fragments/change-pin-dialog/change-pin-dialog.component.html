@@ -1,31 +1,36 @@
-<title> Change pin</title>
-<form>
 
+<form [formGroup]="main">
+  <div>
+    {{'changePin'| translate}}
+  </div>
   <div class="form-content">
     <div class="grid-pass">
       <div> Old pin</div>
       <div class="input">
-        <input type="pin" matInput formControlName="">
+        <input matInput type="password" placeholder="{{'currentPin'|translate}}" formControlName="pinOld"
+          OnlyNumber="true" maxlength="6" required>
       </div>
     </div>
 
     <div class="grid-pass">
       <div> New pin</div>
       <div class="input">
-        <input type="pin" matInput formControlName="">
+        <input matInput type="password" placeholder="{{'newPin'|translate}}" formControlName="pinNew" OnlyNumber="true"
+          maxlength="6" required>
       </div>
     </div>
 
     <div class="grid-pass">
       <div> Current pin</div>
       <div class="input">
-        <input type="pin" matInput formControlName="">
+        <input matInput type="password" placeholder="{{'confirmPin'|translate}}" formControlName="pinNewConfirm"
+          OnlyNumber="true" maxlength="6" required>
       </div>
     </div>
   </div>
 
   <div class="form-action">
-    <button mat-flat-button class="cancel">Cancel</button>
-    <button mat-flat-button color="warn">Save</button>
+    <button mat-flat-button color="warn" (click)="changePin()">
+      {{'changePin'| translate}}</button>
   </div>
 </form>

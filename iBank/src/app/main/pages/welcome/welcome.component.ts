@@ -147,15 +147,20 @@ export class WelcomeComponent implements OnInit {
       case 0:
         if (this.loginRes.isDuplicated == 1) {
           this.router.navigate(['change-mobile']);
-        } else if (this.loginRes.credStatus == eCredStatus.new || this.loginRes.credStatus == eCredStatus.expired) {
+        } else if (this.loginRes.credStatus == eCredStatus.expired) {
+          this.updateOnMain(false);
           this.router.navigate(['change-pin']);
+        } else if (this.loginRes.credStatus == eCredStatus.new) {
+          this.updateOnMain(false);
+          this.router.navigate(['home', { status: eCredStatus.new }]);
         } else {
           this.updateOnMain(false);
           const req = new MgCmerchSelectMerchCustReq("");
           this.api.selectMerchCust(req).subscribe(data => {
             if (data.responseCode == 0) {
               this.selectRes = data.custs;
-              this.openDialog();
+              // this.openDialog();
+
             } else if (data.responseCode == 41607880) {
               this.router.navigate(['register', { status: 'enroll' }]);
             }
